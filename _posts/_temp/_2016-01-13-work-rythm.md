@@ -1,0 +1,3 @@
+You can track your daily work rhythm, so if i do between 150-200 commits in  a day I've had a good. day, of course this doesn't account for research reading etc. But if you put your research in wikis or private repos or on jekyll git hub pages. then even that is trackable. I strongly encourage people to use this as a heartbeat tracker. 
+
+This is not gamificiation, its not for your management to use in benchmarking their employees. this is for you. some days you are of some days you are on fire. And hopefully this will motivate you when you have had an off week with only 400commits. Look back to that week in January where you maxed out at 1200 and try to achieve that your self. etc. 

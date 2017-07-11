@@ -1,0 +1,1 @@
+- Default values (This is currently done through css files, there could be a default set of styles to get people going)
