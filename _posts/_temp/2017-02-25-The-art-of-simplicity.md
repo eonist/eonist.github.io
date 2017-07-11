@@ -1,6 +1,6 @@
-The art of simplicity:
+The art of simplicity <!--more--> 
 
-Feature creep is everywhere. When all we want is something simple. Making something that is simple is hard, its much easier to make something complex. Today kids suffer from information overload from an early age. But in order to focus you need less information. 
+Feature creep is everywhere. When all we want is something simple. Making something that is simple is hard, it's much easier to make something complex. Today kids suffer from information overload from an early age. But in order to focus you need less information. 
 
 There is a running joke in the software community that when you add email to your app your product officially has feature creep. 
 

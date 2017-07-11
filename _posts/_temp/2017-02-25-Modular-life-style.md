@@ -34,3 +34,5 @@ Create a few milestones of where you want to go.
 
 - This philosophy can be summarised with this notation: ``LifeStyle(MileStones:0..<3, Tasks:0..<3) == .happiness``
 
+**NOTE:**  
+This article needs some editing, but the concept it discuess can still provide value so its published in an unfinished state. I personally follow a few of the concepts such as structuring tasks in bodies of work rather than EOD's
