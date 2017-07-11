@@ -1,6 +1,24 @@
 Notes on mosby in swift<!--more--> 
 
+**MOSBY explained:**
 
+🖼️.swift (View & controller)
+💁.swift (concierge aka presenter)
+📊.swift (Model/Database)
+
+**Scenario:**
+1. 👀 User clicks and holds down button state: "overDown"
+2. 📊weather changes on weather.com
+3. 💁Ahh, Rain! 👉 🖼️.button.setState("rainy"+currentState)
+
+**Result:** 
+"rainyOverDown" aka a button with water droplets in "over" "down" state
+
+**Problem:**
+When the user releases the button. How do we make the state just "rainy" where do we store the rainy state?
+
+**Solution:**
+I suppose we can store 2 states internal and external. And combine them to 1 state.
 
 ```swift
 
@@ -81,8 +99,56 @@ presenter.informView()//viewX.render()
 //One can also init with View and Presenter  in the example above
 ```
 
+It might require subclassing UIView. If you don't want to do that and be just protocol oriented 👌 . Then swap the associatedType and generics. So that presenter uses generics and view uses associatedType. Its sort of a dual system of inference. To not interfere so to speak.
+The system feels flexible to use once you test it. You can also override inside extension since UIView extends NSObject.
+like so:
+
+### Overriding methods with protocol extensions
+
+This only works with classes that eventually extends NSObject, it will work in future swift versions with out this requirement.
+
+
+```swift
+import Cocoa
+  protocol X{
+func f() -> A }
+  extension X{
+      func f() -> A {
+          Swift.print("X.f()")
+return A() }
+  }
+  class A:NSView{
+      func test(){
+          Swift.print("A.test()")
+          (self as! B).f()
+          y
+} }
+class B:A{}
+  extension A{
+      var y:String {
+          return "YinA"
+      }
+      func f() -> A {
+          Swift.print("A.f()")
+          return A()
+} }
+  extension B{
+      // THESE OVERIDES DO COMPILE:
+      override var  y:String {
+          Swift.print("B.y")
+          return "YinB"
+      }
+      override func f() -> A {
+          Swift.print("B.f()")
+          return A()
+} }
+  let b = B()
+  b.test()//A.Test(), B.f(),B.y
+```
+
 
 Could be useful:   
 
-
 http://chris.eidhof.nl/post/functional-view-controllers/
+
+http://hannesdorfmann.com/android/mosby3-mvi-4
