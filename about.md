@@ -6,14 +6,15 @@ tags: about
 ---
 I'm a swift dev from Norway / Oslo  
 These are a few of my projects:  
-- [Element](http://github.com/eonist/element) an OpenSource UI framework written in swift
+- [Element](http://github.com/eonist/element) an Open-Source UI framework written in swift
 - [GitSync](http://github.com/eonist/GitSync) an automatic git client for macOS
 - [DrawLab](http://github.com/drawlab/drawlab) a vector app that rethinks how we draw vector graphics
 
 Relevant links:  
-- [Github](http://github.com/eonist/)
-- [Twitter](http://twitter.com/30n1st/) 
-- [Instagram](https://www.instagram.com/sepiadreamz/) 
+- [github](http://github.com/eonist/)
+- [twitter](http://twitter.com/eoncodes/) 
+- [instagram](https://www.instagram.com/sepiadreamz/) 
+- [stackoverflow](https://stackoverflow.com/users/5389500/gitsync)
 - [RSS](/feed.xml) 
 
 Newsletter: (Maybe once a year)
