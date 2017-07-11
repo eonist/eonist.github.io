@@ -1,4 +1,4 @@
-Given 4 points. p1,p2,p3,p4
+Given 4 points. p1,p2,p3,p4 <!--more--> 
 
 1. The converging point of the bisector angles for p2 and p3  gives you the centre of the circle.  
 2. To find the radius: Project the orthogonal normal from the centre onto the line (p2,p3)
