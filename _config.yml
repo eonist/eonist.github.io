@@ -1,11 +1,12 @@
 # Site settings
-title:       Pixyll
-email:       your_email@example.com
-author:      John Otander
-description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
+title:       Eon's blog
+email:       30n1st@gmail.com
+author:      Eonist
+description: "A blog about building custom UI's in swift"
 baseurl:     ""
-url:         "http://pixyll.com"
+url:         "http://eon.codes"
 date_format: "%b %-d, %Y"
+excerpt_separator: <!--more-->  #global excerpt separator for the blog posts
 header_pages:
  - about.md
  - contact.html
@@ -14,13 +15,13 @@ header_pages:
 google_verification:
 # Use either direct GA implementation or set up GTM account
 # - using both will skew your data (leave blank to not use at all)
-google_analytics:
+google_analytics: UA-102364024-1
 google_tag_manager:
 # Bing services
 bing_verification:
 
 # Optional features
-animated:             false
+animated:             true
 show_related_posts:   false
 show_post_footers:    false
 show_social_icons:    false
@@ -51,11 +52,11 @@ facebook_appid:
 facebook_comments_number: 10
 
 # Social icons
-github_username:
+github_username: eonist
 reddit_username:
 bitbucket_username:
-stackoverflow_id:
-twitter_username:
+stackoverflow_id: GitSyncApp
+twitter_username: stylekit_org
 skype_username:
 steam_nickname:
 google_plus_id:
@@ -69,7 +70,7 @@ telegram_username:
 vk_id:
 
 # Post sharing icons
-show_sharing_icons: false
+show_sharing_icons: true
 # Change to 'true' to enable individual icons
 share_facebook: false
 share_twitter: false
@@ -115,11 +116,14 @@ text:
   og_locale: 'en_US'
 
 # Build settings
-markdown:     kramdown
-redcarpet:
-  extensions: ['smart', 'tables', 'with_toc_data']
+markdown: kramdown
+kramdown: 
+  input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
+#markdown:     kramdown
+#redcarpet:
+#  extensions: ['smart', 'tables', 'with_toc_data']
 permalink:    pretty
-paginate:     4
+paginate:     50 #THis is the amount of pages viewable on the front page
 sass:
   style: compressed
 gems:
