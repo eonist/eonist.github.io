@@ -4,12 +4,17 @@ title: About
 permalink: /about/
 tags: about
 ---
-StyleKit is an OpenSource UI framework for OSX. [MIT License](http://opensource.org/licenses/MIT)
+I'm a swift dev from Norway / Oslo  
+These are a few of my projects:  
+- [Element](http://github.com/eonist/element) an OpenSource UI framework written in swift
+- [GitSync](http://github.com/eonist/GitSync) an automatic git client for macOS
+- [DrawLab](http://github.com/drawlab/drawlab) a vector app that rethinks how we draw vector graphics
 
 Relevant links:  
-- [StyleKit on Github](http://github.com/eonist/element)
-- [StyleKit on Twitter](http://twitter.com/stylekit_org/) 
+- [Github](http://github.com/eonist/)
+- [Twitter](http://twitter.com/30n1st/) 
+- [Instagram](https://www.instagram.com/sepiadreamz/) 
 - [RSS](/feed.xml) 
 
-Newsletter: (Only major announcements, around 4 per year)
-[StyleKit Newsletter via Mailchimp](http://eepurl.com/bN4clD)
+Newsletter: (Maybe once a year)
+[Newsletter via Mailchimp](http://eepurl.com/bN4clD)
