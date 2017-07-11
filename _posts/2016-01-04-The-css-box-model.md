@@ -1,0 +1,3 @@
+Finally made it past the layer-backed vs layer-hosted issues. And StyleKit is working as intended. <!--more--> Here is a RoundRect. The inner rect is 200px and the border is 20px, total size is then 240px. Even though the Element is set to 200px. as intended. Through out the project there will be information about why this approach is preferable over other box model types. Amongst other its ==easier to embed children inside the Element==. and have them behave like they would on a website. Although the box-model type may change if the project needs it. But this has worked great in the past. 
+
+<img width="554" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2015-12-21 at 06.56.03.png">
