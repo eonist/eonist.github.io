@@ -31,4 +31,4 @@ Top 10 most popular posts:
 - [GestureHUD](http://eon.codes/2017/03/15/Gesture-HUD/)
 
 Email:  
-30n1st[@]gmail.com
+[30n1st@gmail.com](mailto:30n1st@gmail.com) 

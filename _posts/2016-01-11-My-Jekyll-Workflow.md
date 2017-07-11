@@ -46,3 +46,5 @@ It took about 3 days to research, learn, contribute and implement a good workflo
 <!--In the footnotes you provide further reading links to everything that isnt fully explained or further explain concepts that needs explanation. There will be alot of footnotes. And each footnote will be linked with a small nr to where in the article the ref was located. --> 
 
 <!--You will also get email notification from github if there is something wrong with your website. --> 
+
+This article was also published by [OpenSource.com](https://opensource.com/life/16/2/my-jekyll-workflow) 
