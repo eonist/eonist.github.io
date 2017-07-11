@@ -1,5 +1,3 @@
-
- 
 This is a great way to add context to "data container classes" as it is then easy to debug all the variables in the instance <!--more--> by Swift.print(instance) //prints whatever you assign in the description return clause  
 (Some define this a Describable class)  
 

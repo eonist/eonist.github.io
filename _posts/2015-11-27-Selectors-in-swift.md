@@ -3,6 +3,7 @@
 ```swift
 class Button {
     var title:String = "The big button"
+    //TODO: the selector signature can be a typealias 👌
     var selector: ((sender: AnyObject?, type:String) -> ())?/*this holds any method assigned to it that has its type signature*/
     func click(){
         selector!(sender: self,type: "click")/*call the selector*/
