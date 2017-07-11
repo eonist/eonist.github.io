@@ -1,3 +1,5 @@
+Notes on Parsing CGPath <!--more--> 
+
 Reading CGPath instances
 
 Enumerating UIBEzierCurve but it can be ported: http://oleb.net/blog/2012/12/accessing-pretty-printing-cgpath-elements/ and the updated version: http://oleb.net/blog/2015/06/c-callbacks-in-swift/

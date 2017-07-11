@@ -1,3 +1,5 @@
+Notes on gestures <!--more--> 
+
 Doubleclick gesture recognizer (el capitan only)
 http://stackoverflow.com/questions/33225520/adding-click-handler-to-nstextfield-in-swift
 
