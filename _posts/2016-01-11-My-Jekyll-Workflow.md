@@ -25,13 +25,14 @@ I need focus when I do research. My writing is often messy and I like to move fa
 
 This is were GitSync comes in. GitSync does all this for you, with out lifting a finger. ==Every file change you make is synced to github instantly==. If you collaborate with others, you may get the occasional modal window requesting which file you want to keep. You get 3 choices. Use yours, theirs or a combination of both.
 
-_![desk](https://dl.dropboxusercontent.com/u/2559476/hd2o842.jpg)_
+
+_![desk](https://raw.githubusercontent.com/stylekit/img/master/hd2o842.jpg)_
 [GitSync.io](http://gitsync.io)  automates all uploads and downloads to github.com
 
 ### 6. Works on any device
 On my macbook i use Atom.io as the Text editor for the markdown files. It supports previewing markdown files with a Github flavored markdown style. I set Jekyll to use the Redcarpet markdown since it is the only markdown flavor I've found that supports code fencing when hosting on Github pages. On my iPhone i use Textastic as the text editor. It also supports markdown and iCloud. You need to bring iCloud into the fold if you want to have text live stream from your iPhone to your blog. 
 
-_![desk](https://dl.dropboxusercontent.com/u/2559476/427fg24.jpg)_ 
+_![desk](https://raw.githubusercontent.com/stylekit/img/master/427fg24.jpg)_ 
 [Atom.io](http://www.atom.io) (The green and orange colors indicates git status)   
 
 ### In conclusion: 

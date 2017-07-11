@@ -1,7 +1,7 @@
 When you want to assert if a digit is a digit i used to use a simple conditional back referencing pattern. <!--more--> As this is not possible in swift i did the next best thing:
 
 ```swift
-let testCases:Array<String> = ["2.3","2","44","22.11","-2.3","-2","-44","-22.11","20.",".10",".3","1.",".","-20.","-.10","-.3","-1.","-."]
+let testCases:[String] = ["2.3","2","44","22.11","-2.3","-2","-44","-22.11","20.",".10",".3","1.",".","-20.","-.10","-.3","-1.","-."]
         
 let g1:String = "(?=\\s|^)"/*must be preceeded by a space char or the begining*/
 let g2:String = "\\-*\\d+?"/*optional minus sign followed by one or more digits*/
