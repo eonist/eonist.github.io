@@ -19,17 +19,17 @@ Relevant links:
 - [RSS](/feed.xml) 
 
 Top 10 most popular posts:
-- [swift 3 migration tips](http://eon.codes/2017/01/12/swift-3-migration/)
-- [Switch prototyping](http://eon.codes/2017/01/24/Switch/)
-- [The ultimate xcode workflow](http://eon.codes/2017/02/25/The-ultimate-XCode-workflow/)
-- [GestureHUD](http://eon.codes/2017/03/15/Gesture-HUD/)
-- [Xcode and SPM](http://eon.codes/2017/02/05/Xcode-and-spm/)
-- [CVDisplayLink](http://eon.codes/2016/02/24/CVDisplayLink/)
-- [Playground with frameworks](http://eon.codes/2017/01/16/playground-and-framework/)
+- [swift 3 migration tips](http://eon.codes/blog/2017/01/12/swift-3-migration/)
+- [Switch prototyping](http://eon.codes/blog/2017/01/24/Switch/)
+- [The ultimate xcode workflow](http://eon.codes/blog/2017/02/25/The-ultimate-XCode-workflow/)
+- [GestureHUD](http://eon.codes/blog/2017/03/15/Gesture-HUD/)
+- [Xcode and SPM](http://eon.codes/blog/2017/02/05/Xcode-and-spm/)
+- [CVDisplayLink](http://eon.codes/blog/2016/02/24/CVDisplayLink/)
+- [Playground with frameworks](http://eon.codes/blog/2017/01/16/playground-and-framework/)
 - [Carthage with nested frameworks](http://stylekit.org/blog/2017/02/03/Carthage-and-nested-frameworks/)
-- [Spm and CI travis](http://eon.codes/2017/02/07/SPM-and-CI-travis/)
-- [Swift package manager](http://eon.codes/2017/01/15/swift-package-manager/)
-- [My Jekyll Workflow](http://eon.codes/2016/01/11/My-Jekyll-Workflow/) 
+- [Spm and CI travis](http://eon.codes/blog/2017/02/07/SPM-and-CI-travis/)
+- [Swift package manager](http://eon.codes/blog/2017/01/15/swift-package-manager/)
+- [My Jekyll Workflow](http://eon.codes/blog/2016/01/11/My-Jekyll-Workflow/) 
 
 
 Email:  
