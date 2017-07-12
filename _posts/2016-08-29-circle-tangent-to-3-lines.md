@@ -9,3 +9,6 @@ Fitting a circle Given 4 points. p1,p2,p3,p4 <!--more-->
 <img width="422" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/circle-tangent-3-lines.png">  
 
 <img width="634" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/tangent to 3 lines.png">  
+
+
+The above solution can be discussed here: https://math.stackexchange.com/questions/656497/find-a-circles-radius-with-three-known-tangent-lines/1907482#1907482
