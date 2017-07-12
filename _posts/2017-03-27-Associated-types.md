@@ -20,6 +20,6 @@ func doThing<A:Thing>(thing:A, val:A.argType) -> A.argType {
 doThing(IntThing(), 2)//3
 ```
 
-See your mosby example. 
+See the mosby example for a more advance example: [here](http://eon.codes/blog/2017/03/22/mosby-swift/)  
 
 http://www.russbishop.net/swift-associated-types
