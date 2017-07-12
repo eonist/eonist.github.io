@@ -2,8 +2,8 @@ Notes on mosby in swift<!--more-->
 
 **MOSBY explained:**
 
-🖼️.swift (View & controller)
-💁.swift (concierge aka presenter)
+🖼️.swift (View & controller)  
+💁.swift (concierge aka presenter)  
 📊.swift (Model/Database)
 
 **Scenario:**
