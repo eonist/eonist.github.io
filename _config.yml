@@ -39,7 +39,7 @@ fb_page_id:
 
 # Disqus post comments
 # (leave blank to disable Disqus)
-disqus_shortname:
+disqus_shortname: stylekit
 
 # txtpen post comments
 # (leave blank to disable txtpen)
@@ -56,7 +56,7 @@ github_username: eonist
 reddit_username:
 bitbucket_username:
 stackoverflow_id: GitSyncApp
-twitter_username: stylekit_org
+twitter_username: eoncodes
 skype_username:
 steam_nickname:
 google_plus_id:
