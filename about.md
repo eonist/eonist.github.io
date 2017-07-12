@@ -11,8 +11,8 @@ Active projects:
 - [DrawLab](http://drawlab.io) a vector app that rethinks how we draw vector graphics 
 
 Relevant links:  
-- [twitter](http://twitter.com/eoncodes/) [![Twitter Follow](https://img.shields.io/twitter/follow/eoncodes.svg?style=social&label=Follow)]()
 - [github](http://github.com/eonist/)
+- [twitter](http://twitter.com/eoncodes/) 
 - [stackoverflow](https://stackoverflow.com/users/5389500/gitsync)
 - [producthunt](https://www.producthunt.com/@eonpilot)
 - [instagram](https://www.instagram.com/sepiadreamz/) 
