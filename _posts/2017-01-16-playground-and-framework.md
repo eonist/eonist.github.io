@@ -1,7 +1,9 @@
 Notes on adding external .framework files to playground. <!--more--> 
 
 ## Framework + Playground demo:  
-<video width="1034" height="524" controls="controls" type="video/mp4" autoplay loop preload="none"><source src="https://dl.dropboxusercontent.com/u/2559476/ElementPlaygroundDemo.mov"></video>
+
+<iframe src="https://player.vimeo.com/video200063203" width="640" height="324" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/200063203">snap to position</a> from <a href="https://vimeo.com/gitsync">GitSync</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
 
 ## Using .framework in playground:
