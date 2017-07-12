@@ -29,6 +29,7 @@ Top 10 most popular posts:
 - [Carthage with nested frameworks](http://stylekit.org/blog/2017/02/03/Carthage-and-nested-frameworks/)
 - [Spm and CI travis](http://eon.codes/2017/02/07/SPM-and-CI-travis/)
 - [Swift package manager](http://eon.codes/2017/01/15/swift-package-manager/)
+- [My Jekyll Workflow](http://eon.codes/2016/01/11/My-Jekyll-Workflow/) 
 
 
 Email:  
