@@ -6,10 +6,9 @@ tags: about
 ---
  
 Active projects:  
-- [Element](http://github.com/eonist/element) an Open-Source UI framework written in swift [![GitHub stars](https://img.shields.io/github/stars/eonist/swift-utils.svg?style=social&label=Star)](https://github.com/eonist/swift-utils)
-- [Swift-utils](http://github.com/eonist/swift-utils) A small collection of useful swift utility libraries [![GitHub stars](https://img.shields.io/github/stars/eonist/swift-utils.svg?style=social&label=Star)](https://github.com/eonist/swift-utils)
-- [GitSync](http://gitsync.io) an automatic git client for macOS [![GitHub stars](https://img.shields.io/github/stars/eonist/GitSync.svg?style=social&label=Star)](https://github.com/eonist/GitSync)
-- [DrawLab](http://drawlab.io) a vector app that rethinks how we draw vector graphics [![GitHub stars](https://img.shields.io/github/stars/drawlab/DrawLab.svg?style=social&label=Star)](https://github.com/drawlab/DrawLab)
+- [Element](http://github.com/eonist/element) an Open-Source UI framework written in swift 
+- [Swift-utils](http://github.com/eonist/swift-utils) A small collection of useful swift utility libraries 
+- [DrawLab](http://drawlab.io) a vector app that rethinks how we draw vector graphics 
 
 Relevant links:  
 - [twitter](http://twitter.com/eoncodes/) [![Twitter Follow](https://img.shields.io/twitter/follow/eoncodes.svg?style=social&label=Follow)]()
