@@ -59,19 +59,6 @@
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><!--New-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script><!--adds header linking functionality-->
-        $(function() {
-          return $("h2, h3, h4, h5, h6").each(function(i, el) {
-            var $el, icon, id;
-            $el = $(el);
-            id = $el.attr('id');
-            icon = '<i class="fa fa-link"></i>';
-            if (id) {
-              return $el.prepend($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
-            }
-          });
-        });
-    </script>
     {% if site.google_analytics %}
     <script type="text/javascript">
       var _gaq = _gaq || [];
