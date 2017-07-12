@@ -6,9 +6,9 @@ tags: about
 ---
  
 Active projects:  
-- [Element](http://github.com/eonist/element) an Open-Source UI framework written in swift 
-- [GitSync](http://gitsync.io) an automatic git client for macOS 
-- [DrawLab](http://drawlab.io) a vector app that rethinks how we draw vector graphics 
+- [Element](http://github.com/eonist/element) Open-Source UI framework written in swift 
+- [GitSync](http://gitsync.io) Automatic git client for macOS 
+- [DrawLab](http://drawlab.io) Vector app that rethinks how we draw graphics 
 
 Relevant links:  
 - [github](http://github.com/eonist/)
