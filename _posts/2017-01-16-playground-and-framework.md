@@ -2,8 +2,8 @@ Notes on adding external .framework files to playground. <!--more-->
 
 ## Framework + Playground demo:  
 
-<iframe src="https://player.vimeo.com/video200063203" width="640" height="324" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<p><a href="https://vimeo.com/200063203">snap to position</a> from <a href="https://vimeo.com/gitsync">GitSync</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<iframe src="https://player.vimeo.com/video/200063203" width="640" height="324" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/200063203">Framework + Playground demo</a> from <a href="https://vimeo.com/gitsync">GitSync</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
 
 ## Using .framework in playground:
