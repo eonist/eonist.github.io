@@ -1,7 +1,7 @@
 An algorithm that positions tree structured data items as an inverted tree written in swift <!--more--> For the [learn-anything.xyz](www.learn-anything.xyz)  project. 
 
 #### Concept:
-The algorithm makes sure the that parents and it's descendants align into a waterfall like hierarchy structure. It's a novel idea that has some challenges. The algorithm is based on functional programming theories like recursiveness, reduce, map, filter. Sometimes in combinations.  The algorithm is Open-Source MIT and can be found here: [the github project](https://github.com/carg0/hierarchical-spatial-algo) 
+The algorithm makes sure the that parents and it's descendants align into a hierarchical structure. It's a novel idea that has some challenges. The algorithm is based on functional programming theories like recursiveness, reduce, map, filter. Sometimes in combinations.  The algorithm is Open-Source MIT and can be found here: [the github project](https://github.com/carg0/hierarchical-spatial-algo) 
 
 **From this json structure:**
 
@@ -41,14 +41,17 @@ The algorithm makes sure the that parents and it's descendants align into a wate
 
 <img width="1440" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/petgrooming.png">
 
-**Ascending symmetrically:**
+#### Ascending symmetrically
+ Basically all parents are aligned centrally above its descendants
 
 <img width="1440" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-05-22 at 02.39.34.png">
 
+
+#### Future ideas:
 By customizing the vector lines. This spatial algorithm can be used to achieve similar results as this:
 
 <img width="640" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/mindnode_muskateller.gif">
 
-From this tweet: https://twitter.com/fafner/status/859736637995192323 
+From mindnode.com via this tweet: https://twitter.com/fafner/status/859736637995192323 
 
 
