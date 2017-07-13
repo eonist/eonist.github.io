@@ -48,7 +48,7 @@ The algorithm makes sure the that parents and it's descendants align into a hier
 
 
 #### Future ideas:
-By customizing the vector lines. This spatial algorithm can be used to achieve similar results as this:
+By customizing the vector line styles. This spatial algorithm can be used to achieve similar results as this:
 
 <img width="640" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/mindnode_muskateller.gif">
 
