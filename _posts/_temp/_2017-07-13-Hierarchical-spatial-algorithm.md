@@ -1,4 +1,4 @@
-An algorithm that positions tree structured data items as an inverted tree written in swift <!--more--> For the [learn-anything.xyz](www.learn-anything.xyz)  project.
+An algorithm that positions tree structured data items as an inverted tree written in swift <!--more--> For the [learn-anything.xyz](www.learn-anything.xyz)  project. Conceptually the algorithm makes sure the 
 
 **From this:**
 
@@ -36,13 +36,13 @@ An algorithm that positions tree structured data items as an inverted tree writt
 ```
 **To this:**
 
-<img width="1440" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-05-22 at 02.39.34.png">
-
-### Ascending symmetrically:
-
 <img width="1440" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/petgrooming.png">
 
-This spatial algorithm can be used to achieve similar results as this:
+**Ascending symmetrically:**
+
+<img width="1440" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-05-22 at 02.39.34.png">
+
+By customizing the vector lines. This spatial algorithm can be used to achieve similar results as this:
 
 <img width="640" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/mindnode_muskateller.gif">
 
