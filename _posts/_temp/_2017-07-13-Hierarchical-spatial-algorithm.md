@@ -1,7 +1,7 @@
-An algorithm that positions tree structured data items as an inverted tree written in swift <!--more--> For the [learn-anything.xyz](www.learn-anything.xyz)  project. 
+An algorithm that positions tree structured data items as an inverted tree written in swift <!--more--> For the [learn-anything.xyz](www.learn-anything.xyz)  project as a way to automate mindmap contributions. 
 
 #### Concept:
-The algorithm makes sure the that parents and it's descendants align into a hierarchical structure. It's a novel idea that has some challenges. The algorithm is based on functional programming theories like recursiveness, reduce, map, filter. Sometimes in combinations.  The algorithm is Open-Source MIT and can be found here: [the github project](https://github.com/carg0/hierarchical-spatial-algo) 
+The algorithm makes sure the that parents and it's descendants align into a hierarchical structure. It's a novel idea that has some challenges. The algorithm is based on functional programming theories like recursiveness, reduce, map, filter. Sometimes in combinations. And is not exclusive to swift, the same result can be achieved in JavaScript. The algorithm is Open-Source MIT and can be found here: [the github project](https://github.com/carg0/hierarchical-spatial-algo) 
 
 **From this json structure:**
 
