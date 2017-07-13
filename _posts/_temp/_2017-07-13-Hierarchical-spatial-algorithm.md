@@ -4,4 +4,7 @@ Mindnode Idea:
 
 <img width="640" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/<!--more--> mindnode_muskateller.gif">
 
-From this tweet: https://twitter.com/fafner/status/859736637995192323
+From this tweet: https://twitter.com/fafner/status/859736637995192323 
+
+
+[the github project](https://github.com/carg0/hierarchical-spatial-algo) 
