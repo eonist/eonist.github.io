@@ -16,6 +16,7 @@ Relevant links:
 - [stackoverflow](https://stackoverflow.com/users/5389500/gitsync)
 - [producthunt](https://www.producthunt.com/@eonpilot)
 - [instagram](https://www.instagram.com/sepiadreamz/) 
+- [goodreads](https://www.goodreads.com/review/list/65436098-30nist) 
 - [RSS](/feed.xml) 
 
 Top 10 most popular posts:
