@@ -46,6 +46,8 @@ The algorithm makes sure the that parents and it's descendants align into a hier
 
 <img width="1440" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Screen Shot 2017-05-22 at 02.39.34.png">
 
+#### The math behind the algorithm
+I spent a full day just thinking about how to figure out how to align the hierarchy. Drawing on paper helped a lot as it allows your brain to spend less energy on visualising the design in your head. Your also able to see connections you wouldn't be able to see if you just tried to code the algorithm straight away. Having spent a day just thinking about the problem and jotting down ideas on how to lay out the code. The actual code took about 3-4 hours to write. I procrastinated writing it until at around 20:00 when I just said ok lets do this! I finished a little after midnight and presented it to team learn-anything. Then the next day I spent an hour or two cleaning/refactoring the code up a bit. I usually don't attempt to write algorithms at 20:00 at night but since I sort of already had solved it on paper it was just a mater of converting the idea to code and was more implementation work rather than high concept coding. 
 
 #### Future ideas:
 By customizing the vector line styles. This spatial algorithm can be used to achieve designs like this:
