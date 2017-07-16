@@ -22,7 +22,7 @@ CVDisplayLink is the holy grail of rich animation & interaction in OSX and IOS. 
 
 **Q:** Will the human brain notice if a frame is dropped at 60fps? So 59fps for one second and then back to 60fps the next? Or does the dropped frame have other implications?
 
-**A:** "Unfortunately the animation still stuttered away like an old tractor plowing through a barren potato field during dry season." source: http://www.bigspaceship.com/ios-animation-intervals/
+**A:** "Unfortunately the animation still stuttered away like an old tractor plowing through a barren potato field during dry season." source: https://blog.bigspaceship.com/the-holy-grail-of-ios-animation-intervals-e9e663ea93c4
 
 ## Facebook pop:
 Pop is the framework that Facebook uses to power the animations in their app Paper. It’s also authored by Kimon Tsinteris, one of the creators of the Our Choice iPad app. Pop works differently from JNWSpringAnimation as it doesn’t use Core Animation, ==it relies on a timer firing every 1/60th of a second (CADisplayLink) to govern the motion of elements so it can recalculate their position easily if a gesture interrupts the animation.==
