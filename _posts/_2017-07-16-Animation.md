@@ -34,5 +34,6 @@ Here is the strategy for easing:
 5. Add the velocity value to the current position.
 6. Repeat steps 3 through 5 until the object is at the target.
 ```
+
 <img width="398" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Easer_3.gif">
 
