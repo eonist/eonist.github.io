@@ -3,7 +3,7 @@ Notes on associatedtype <!--more-->
 
 ```swift
 protocol Thing {
-    typealias argType
+    associatedtype argType
     func doit(val:argType) -> argType
 }
 
