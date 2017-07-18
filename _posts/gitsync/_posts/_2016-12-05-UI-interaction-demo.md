@@ -8,4 +8,4 @@ UI animations: <!--more-->
 ## Graph 
 <video controls="controls" width="1174" height="820" name="Video Name" src="https://dl.dropboxusercontent.com/u/2559476/animated_gesture_graph.mov"></video>
 
-navigtion via gestures
+navigation via gestures
