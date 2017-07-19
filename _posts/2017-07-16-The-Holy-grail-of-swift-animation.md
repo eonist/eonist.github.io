@@ -65,11 +65,11 @@ In iOS 10 apple gave us "UIViewPropertyAnimator" Which was a big level up in the
 
 1. You don't have a onProgress callBack method when using UIViewPropertyAnimator 
 
-2. Many of the layer’s properties are unsupported. (shadow, border, 3d transform)
-No keyframe based animation. (won’t support arc)
+2. Many of the layer’s properties are unsupported. (shadow, border, 3d transform) (won’t support arc)
 
 3. Also the animations are limited to UIView Animatable Properties, which are: frame, bounds, center, transform, alpha, backgroundColor, contentStretch
 
+4. No keyframe based animation
 
 #### Final remarks:
 
