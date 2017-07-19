@@ -1,4 +1,4 @@
-My notes on custom "interruptible" animation in swift <!--more--> Aka the holy grail of swift animation ref this BigSpaceShip [article](https://blog.bigspaceship.com/the-holy-grail-of-ios-animation-intervals-e9e663ea93c4) 
+My notes on user interruptible animation in swift <!--more--> Aka the holy grail of swift animation ref this BigSpaceShip [article](https://blog.bigspaceship.com/the-holy-grail-of-ios-animation-intervals-e9e663ea93c4) 
 
 #### Springing:
 
@@ -10,7 +10,7 @@ func progress(value:CGPoint){/*This method gets called 60FPS, add the values to 
         ellipse.graphic.layer?.position = value
     }
 }
-let animator = PointSpringer(progress, PointSpringer.initValues,PointSpringer.initConfig)/*Setup interuptable animator*/
+let animator = PointSpringer(progress, PointSpringer.initValues,PointSpringer.initConfig)/*Setup interruptible animator*/
 func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
     if event.type == ButtonEvent.upInside {
         animator.targetValue = bg!.localPos()/*Set the position of where you want the anim to go*/
@@ -32,7 +32,7 @@ added to vx, which becomes 19. The x position becomes 29.
 3. Next step, distance is 71, acceleration is 7.1, which added to vx makes it 26.1. The x position
 becomes 55.1.
 4. Next step, distance is 44.9, acceleration is 4.49, and vx becomes 30.59. The x position is then 85.69.
-The thing to note is that the acceleration on each frame becomes less and less as the object approaches its target, but the velocity continues to build. It’s not building as rapidly as it was on pre- vious frames, but it’s still moving faster and faster.
+The thing to note is that the acceleration on each frame becomes less and less as the object approaches its target, but the velocity continues to build. It’s not building as rapidly as it was on previous frames, but it’s still moving faster and faster.
 After a couple more steps, the object goes right past the target to an x position of around 117. The distance is now 100 – 117, which is –17. A fraction of this gets added to the velocity, slowing the object down a bit.
 
 ```
@@ -59,6 +59,6 @@ Here is the strategy for easing:
 
 #### Final note:
 
-There is also NumberSpringer and NumberEaser which can be used to manipulate CGFloat. Which enables you to animate color transition. Rotation, shadow, gradient, 3d perspectives or any other variable. unlike apples built in animation system this Animation lib enables you to animate any property you desire. You can also Extend the Easer or Springer class with your own Custom class so that it can have more custom logic. Say you want to do something with Point3D and need to account for the z value as well. The possibilities are endless.
+There is also NumberSpringer and NumberEaser which can be used to manipulate CGFloat. Which enables you to animate color transition. Rotation, shadow, gradient, 3d perspectives or any other variable. unlike apples built in animation system this Animation lib enables you to animate any property you desire. You can also Extend the Easer or Springer class with your own Custom class so that it can have more custom logic. Say you want to do something with Point3D and need to account for the z value as well. The possibilities are endless. AnimLib also does more stock like animations similar to Apples Animation classes. I will attempt to do some examples and write another article about these features at a later date. Until then any feedback is always welcomed. Thanks for reading.
 
 The AnimLib is Open-source MIT and can be downloaded [https://github.com/eonist/swift-utils](https://github.com/eonist/swift-utils) 
