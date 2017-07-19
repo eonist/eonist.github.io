@@ -42,10 +42,10 @@ After a couple more steps, the object goes right past the target to an x positio
 #### Easing:
 when you use easing to move an object into position, it automatically takes on a very natural appearance. One of the coolest things is that simple easing is actually very easy to do. In fact, it’s prob- ably easier than figuring out the angle, the vx, and the vy, and moving at a fixed speed.
 
-<img width="398" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Easer_3.gif">
+<img width="398" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Easer_4.gif">
 
 ```swift
-//Use the Springer example but switch out the PointSpringer with PointEaser
+//See Springer example and switch PointSpringer for PointEaser
 ```
 
 Here are the steps for easing:  
@@ -55,7 +55,8 @@ Here are the steps for easing:
 5. Add the velocity value to the current position.
 6. Repeat steps 3 through 5 until the object is at the target.
 
-#### Final note:
+
+#### Final remarks:
 
 There is also NumberSpringer and NumberEaser which can be used to manipulate CGFloat. Which enables you to animate color transition. Rotation, shadow, gradient, 3d perspectives or any other variable. unlike apples built in animation system this Animation lib enables you to animate any property you desire. You can also Extend the Easer or Springer class with your own Custom class so that it can have more custom logic. Say you want to do something with Point3D and need to account for the z value as well. The possibilities are endless. AnimLib also does more stock like animations similar to Apples Animation classes. I will attempt to do some examples and write another article about these features at a later date. Until then any feedback is always welcomed. Thanks for reading.
 
