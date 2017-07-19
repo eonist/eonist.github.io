@@ -19,6 +19,22 @@ After a couple more rounds, the object goes right past the target to an x positi
 
 ```
 - A high spring value will make a very stiff spring. Something lower will look more like a loose rubber band. 
+
+```swift
+func progress(value:CGPoint){/*This method gets called 60FPS, add the values to be manipulated here*/
+    disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
+        ellipse.graphic.layer?.position = value
+    }
+}
+let animator = PointSpringer(progress, PointSpringer.initValues,PointSpringer.initConfig)/*Setup interuptable animator*/
+func onViewEvent(_ event:Event) {/*This is the click on window event handler*/
+    if event.type == ButtonEvent.upInside {
+        animator.targetValue = bg!.localPos()/*Set the position of where you want the anim to go*/
+        if animator.stopped {animator.start()}/*We only need to start the animation if it has already stopped*/
+    }
+}
+bg?.event = onViewEvent
+```
 <img width="394" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/spring.mov.gif">
 
 
@@ -34,6 +50,8 @@ Here is the strategy for easing:
 5. Add the velocity value to the current position.
 6. Repeat steps 3 through 5 until the object is at the target.
 ```
-
+```swift
+//Use the Springer example but switch out the PointSpringer with PointEaser
+```
 <img width="398" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Easer_3.gif">
 
