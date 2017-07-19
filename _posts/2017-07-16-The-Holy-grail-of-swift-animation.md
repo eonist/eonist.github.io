@@ -42,7 +42,7 @@ After a couple more steps, the object goes right past the target to an x positio
 
 
 #### Easing:
-when you use easing to move an object into position, it automatically takes on a very natural appearance. One of the coolest things is that simple easing is actually very easy to do. In fact, it’s prob- ably easier than figuring out the angle, the vx, and the vy, and moving at a fixed speed.
+when you use easing to move an object into position, it automatically takes on a very natural appearance. One of the coolest things is that simple easing is actually very easy to do. In fact, it’s probably easier than figuring out the angle, the vx, and the vy, and moving at a fixed speed.
 
 <img width="398" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Easer_4.gif">
 
