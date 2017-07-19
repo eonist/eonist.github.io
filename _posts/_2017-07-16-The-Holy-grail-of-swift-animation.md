@@ -55,3 +55,10 @@ Here is the strategy for easing:
 5. Add the velocity value to the current position.
 6. Repeat steps 3 through 5 until the object is at the target.
 ```
+
+
+#### Final note:
+
+There is also NumberSpringer and NumberEaser which can be used to manipulate CGFloat. Which enables you to animate color transition. Rotation, shadow, gradient, 3d perspectives or any other variable. unlike apples built in animation system this Animation lib enables you to animate any property you desire.   
+
+The AnimLib is Open-source MIT and can be downloaded [https://github.com/eonist/swift-utils](https://github.com/eonist/swift-utils) 
