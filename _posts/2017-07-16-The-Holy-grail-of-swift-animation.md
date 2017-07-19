@@ -6,6 +6,8 @@ When springing, the acceleration is proportional to the distance. If the item is
 
 <img width="394" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/spring.mov.gif">
 
+**Here is the code for the above example:**
+
 ```swift
 func progress(value:CGPoint){/*This method gets called 60FPS, add the values to be manipulated here*/
     disableAnim {/*Important so that you don't get the apple "auto" anim as well*/
@@ -44,6 +46,8 @@ when you use easing to move an object into position, it automatically takes on a
 
 <img width="398" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Easer_4.gif">
 
+**Here is the code for the above example:**
+
 ```swift
 //See Springer example and switch PointSpringer for PointEaser
 ```
@@ -60,4 +64,4 @@ Here are the steps for easing:
 
 There is also NumberSpringer and NumberEaser which can be used to manipulate CGFloat. Which enables you to animate color transition. Rotation, shadow, gradient, 3d perspectives or any other variable. unlike apples built in animation system this Animation lib enables you to animate any property you desire. You can also Extend the Easer or Springer class with your own Custom class so that it can have more custom logic. Say you want to do something with Point3D and need to account for the z value as well. The possibilities are endless. AnimLib also does more stock like animations similar to Apples Animation classes. I will attempt to do some examples and write another article about these features at a later date. Until then any feedback is always welcomed. Thanks for reading.
 
-The AnimLib is Open-source MIT and can be downloaded [https://github.com/eonist/swift-utils](https://github.com/eonist/swift-utils) 
+The AnimLib is Open-source MIT and can be downloaded here: [https://github.com/eonist/swift-utils](https://github.com/eonist/swift-utils) 
