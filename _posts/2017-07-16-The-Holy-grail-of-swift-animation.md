@@ -59,6 +59,17 @@ Here are the steps for easing:
 5. Add the velocity value to the current position.
 6. Repeat steps 3 through 5 until the object is at the target.
 
+#### Why can't we just use UIViewPropertyAnimator?
+
+In iOS 10 apple gave us "UIViewPropertyAnimator" Which was a big level up in the interruptible animation genre. However this too is limited in nature. And leaves a lot to be desired:
+
+1. You don't have a onProgress callBack method when using UIViewPropertyAnimator 
+
+2. Many of the layer’s properties are unsupported. (shadow, border, 3d transform)
+No keyframe based animation. (won’t support arc)
+
+3. Also the animations are limited to UIView Animatable Properties, which are: frame, bounds, center, transform, alpha, backgroundColor, contentStretch
+
 
 #### Final remarks:
 
