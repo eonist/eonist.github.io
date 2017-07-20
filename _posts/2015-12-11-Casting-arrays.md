@@ -10,7 +10,7 @@ print(stringArray)//"1", "2", "3.0","4.0"
 Sometimes its useful to convert from one array type to another. But be aware that the .map method iterates over the entire array and returns a "new copy" <--(situation needed for this statement). The best approach is in most cases not to convert the array type but to either do instance checking before packing the array or instance checking after unpacking the array
 
 **NOTE:**  
-you can also do this (only applicable with AnyObject arrays):
+You can also do this (only applicable with AnyObject arrays):
 
 ```swift
 let someArray:[AnyObject] = ["1","a","xyz"]
