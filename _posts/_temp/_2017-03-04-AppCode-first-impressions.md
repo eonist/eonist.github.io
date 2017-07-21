@@ -17,7 +17,7 @@
 - XCode Tree-view collapses if you do something in AppCode. 
 - Sometimes the AppCode icon jumps up and down with a green ✅ sign. I presume it's updated, but no info in the app 🤔
 - Way too many preference options, which is often the case with Eclipse/java based apps. Less is more. Hide the advance stuff please. 80/20 rule? The prefs that are used a lot, highlight these then hide the prefs that isn't used much.
-- you have to doubble click to open files from tree menu (possible changable in settings)
+- you have to doubble click to open files from tree menu (possible changeable in settings)
 - AppCode feels like a futuristic code editor. 
 - The symbolic renaming functionality doesn't always work (sometimes it doesn't catch all reference in the code base)
 
