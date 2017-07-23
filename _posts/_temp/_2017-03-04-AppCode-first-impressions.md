@@ -20,7 +20,8 @@
 - you have to doubble click to open files from tree menu (possible changeable in settings)
 - AppCode feels like a futuristic code editor. 
 - The symbolic renaming functionality doesn't always work (sometimes it doesn't catch all reference in the code base)
-- AppCode cant update inside AppCode, meaning you have to go to the website, download, then install etc. They offer something called ToolBox that can install updates. But this should be handled inside AppCode IMO
+- AppCode can't update inside AppCode, meaning you have to go to the website, download, then install etc. They offer something called ToolBox that can install updates. But this should be handled inside AppCode IMO
+- When you press cmd + shift + o to access quick-find, irrelevant results are shown above relevant ones. Search for "SomeClass" and "SomeClass.d" is shown above "SomeClass.swift" 
 ## Top AppCode key-combos 🏄
 
 - Your personal AppCode concierge: (cmd + shift + A) it basically list all available commands and is searchable. When you don't want to searh helplessly through the gazillion pref options just try to free associate  about what you want to do and things may show up here. Like bigger font size, write increase font etc. 
