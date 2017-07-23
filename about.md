@@ -15,7 +15,7 @@ Relevant links:
 - [twitter](http://twitter.com/eoncodes/) 
 - [stackoverflow](https://stackoverflow.com/users/5389500/gitsync)
 - [producthunt](https://www.producthunt.com/@eonpilot)
-- [instagram](https://www.instagram.com/sepiadreamz/) 
+- [instagram](https://www.instagram.com/eon.codes/) 
 - [goodreads](https://www.goodreads.com/review/list/65436098-30nist) 
 - [RSS](/feed.xml) 
 
