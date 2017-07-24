@@ -1,4 +1,4 @@
-My notes on Animator<!--more--> 
+Animator is an attempt to strike a balance between 4 pillars in programmatic animation: Ease-of use, Customizability, Features and Performance. <!--more--> 
 
 ⚠️️ This document is beta. More content will be added as we proceed. ⚠️️
 
