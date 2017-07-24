@@ -8,7 +8,7 @@ You could however use the NumberEaser or the NumberSpringer the same way to make
 
 <img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_anim.gif">
 
-### Choreographed animation:
+**Code example for the above animation:**
 
 The `_ = {}` blocks are used as a little trick to avoid scope naming conflicts, and make it clear which part does what.
 
