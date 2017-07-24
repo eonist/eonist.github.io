@@ -1,11 +1,12 @@
 My notes on Animator<!--more--> 
 
+⚠️️ This document is beta. More content will be added as we proceed. ⚠️️
+
 ### This is regular "uninterruptible" animation 
 
 You could however use the NumberEaser or the NumberSpringer the same way to make it interruptible. More on this later. Sometimes you just want to prototype some animation or even setup animation that isn't suppose to be user interruptible. Like end sequences or start sequences of a user interaction. Here is an example:
 
-
-
+<img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_anim.gif">
 
 ### Choreographed animation:
 
