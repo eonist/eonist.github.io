@@ -1,8 +1,8 @@
-My notes on ForceTouch in macOS Here are some handy snippets when dealing with ForceTouch in macOS
+My notes on ForceTouch in macOS<!--more-->. Here are some handy snippets when dealing with ForceTouch in macOS:
 
 <img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/ForceTouchEvent_anim.gif">
 
-<!--more-->
+
 
 ### Event handler:
 
