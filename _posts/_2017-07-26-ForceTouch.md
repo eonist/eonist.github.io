@@ -1,0 +1,1 @@
+My notes on ForceTouch in macOS<!--more--> 
