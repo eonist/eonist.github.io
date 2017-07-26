@@ -1,4 +1,8 @@
-My notes on making peek and pop in macOS<!--more--> 
+My notes on making peek and pop in macOS <!--more--> 
+
+**This article is a draft**
+
+### deep click button to activate peek:
 
 <img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_pop.gif">
 
