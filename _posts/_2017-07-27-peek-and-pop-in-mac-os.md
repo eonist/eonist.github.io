@@ -24,7 +24,7 @@ My notes on making peek and pop in macOS<!--more-->.
 
 ### Modal is now draggable:
 
-<img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_drag.gif">
+<img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_drag.gif?maxAge=2592001">
 
 ### Deep click button to activate peek:
 
