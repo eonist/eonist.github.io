@@ -2,29 +2,25 @@ Prototyping peek & pop for macOS<!--more-->.
 
 **⚠️️ This article is a draft ⚠️️** (around 6 steps will be added before completion)  
 
-### 8. Let's add some design to it:
+### 7. Let's add some design to it:
 
 `/*Coming soon*/`
 
-### 7. Peek & Pop is now complete:
+### 6. Peek & Pop is now complete:
 
 `/*Coming soon*/`
 
-### 6. Modal now remains idle if in prompt state:
+### 5. Modal now remains idle if in prompt state:
 
 `/*Coming soon*/`
 
-### 5. Modal now reveals prompt buttons:
+### 4. Modal now reveals prompt buttons:
 
 `/*Coming soon*/`
 
-### 4. Modal now has log10 (aka slippery friction):
+### 3. Modal now has boundaries w/ log10 (aka slippery friction):
 
-`/*Coming soon*/`
-
-### 3. Modal now has boundaries:
-
-`/*Coming soon*/`
+<img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_log10.gif?maxAge=2592003">
 
 ### 2. Modal is now draggable w/ easing:
 
