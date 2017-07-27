@@ -1,6 +1,6 @@
 My notes on making peek and pop in macOS<!--more-->. 
 
-**⚠️️ This article is a draft ⚠️️** (around 10 steps will be added before completion)  
+**⚠️️ This article is a draft ⚠️️** (around 6 steps will be added before completion)  
 
 ### Deep click button to activate peek:
 
