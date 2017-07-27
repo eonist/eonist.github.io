@@ -1,32 +1,36 @@
-My notes on making peek and pop in macOS<!--more-->. 
+Prototyping peek & pop for macOS<!--more-->. 
 
 **⚠️️ This article is a draft ⚠️️** (around 6 steps will be added before completion)  
 
-### Peek & Pop is now complete:
+### 8. Let's add some design to it:
 
 `/*Coming soon*/`
 
-### Modal now remains idle if in prompt state:
+### 7. Peek & Pop is now complete:
 
 `/*Coming soon*/`
 
-### Modal now reveals prompt buttons:
+### 6. Modal now remains idle if in prompt state:
 
 `/*Coming soon*/`
 
-### Modal now has log10 (aka slippery friction):
+### 5. Modal now reveals prompt buttons:
 
 `/*Coming soon*/`
 
-### Modal now has boundaries:
+### 4. Modal now has log10 (aka slippery friction):
 
 `/*Coming soon*/`
 
-### Modal is now draggable:
+### 3. Modal now has boundaries:
+
+`/*Coming soon*/`
+
+### 2. Modal is now draggable w/ easing:
 
 <img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_drag.gif?maxAge=2592001">
 
-### Deep click button to activate peek:
+### 1. Deep click button to activate peek:
 
 <img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_pop.gif?maxAge=2592000">
 
