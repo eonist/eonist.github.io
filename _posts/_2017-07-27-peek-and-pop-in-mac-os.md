@@ -1,4 +1,4 @@
-Prototyping peek & pop for macOS<!--more-->. 
+Prototyping peek & pop for macOS in playground<!--more-->. 
 
 **⚠️️ This article is currently a draft ⚠️️** 
 
