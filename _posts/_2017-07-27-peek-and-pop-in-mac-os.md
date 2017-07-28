@@ -1,6 +1,6 @@
 Prototyping peek & pop for macOS<!--more-->. 
 
-**⚠️️ This article is a draft ⚠️️** (around 6 steps will be added before completion)  
+**⚠️️ This article is currently a draft ⚠️️** 
 
 ### 7. Let's add some design to it:
 
