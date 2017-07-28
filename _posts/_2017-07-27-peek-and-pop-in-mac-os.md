@@ -12,7 +12,7 @@ Prototyping peek & pop for macOS in playground<!--more-->.
 
 ### 5. Modal now remains idle if in prompt state:
 
-`/*Coming soon*/`
+<img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_idle.gif?maxAge=2592024">
 
 ### 4. Modal now reveals prompt buttons:
 
