@@ -6,13 +6,13 @@ Prototyping peek & pop for macOS in playground<!--more-->.
 
 `/*Coming soon*/`
 
-### 6. Peek & Pop is now complete:
+### 6. Peek & Pop is now complete (added dismiss):
 
-`/*Coming soon*/`
+<img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_complete.gif?maxAge=2512168">
 
 ### 5. Modal now remains idle if in prompt state:
 
-<img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_idle.gif?maxAge=2592024">
+<img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_idle.gif?maxAge=2512168">
 
 ### 4. Modal now reveals prompt buttons:
 
