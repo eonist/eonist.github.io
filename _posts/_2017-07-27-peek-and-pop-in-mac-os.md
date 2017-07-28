@@ -16,7 +16,7 @@ Prototyping peek & pop for macOS<!--more-->.
 
 ### 4. Modal now reveals prompt buttons:
 
-`/*Coming soon*/`
+<img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_w_prompt.gif">
 
 ### 3. Modal now has boundaries w/ log10 (aka slippery friction):
 
