@@ -30,3 +30,6 @@ Prototyping peek & pop for macOS in playground<!--more-->.
 
 <img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_pop.gif?maxAge=2592000">
 
+### Prerequisites: (Figure out how ForceTouch works)
+
+<img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/ForceTouchEvent_anim.gif">
