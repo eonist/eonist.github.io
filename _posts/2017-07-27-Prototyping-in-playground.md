@@ -34,5 +34,5 @@ Prototyping UI/UX with XCode Playground and Animator <!--more--> a new animation
 
 ### Resources:
 
-[Framework files in playground](http://eon.codes/blog/2017/01/16/playground-and-framework/)
+[Using Framework files in playground](http://eon.codes/blog/2017/01/16/playground-and-framework/)
 
