@@ -3,7 +3,7 @@ Prototyping UI/UX with XCode Playground and [Animator](https://github.com/gitsyn
 ### 7. Let's add some design to it:
 
 <img width="226" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/video_iphone.gif?maxAge=2512168">
-
+”
 ### 6. Peek & Pop is now complete (added dismiss):
 
 <img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/modal_complete.gif?maxAge=2512168">
@@ -31,3 +31,7 @@ Prototyping UI/UX with XCode Playground and [Animator](https://github.com/gitsyn
 ### Prerequisites: (Figure out how ForceTouch works)
 
 <img width="195" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/ForceTouchEvent_anim.gif">
+
+[Using Frameworks in playground](http://eon.codes/blog/2017/01/16/playground-and-framework/) 
+
+[Animator](https://github.com/gitsync/AnimLib)
