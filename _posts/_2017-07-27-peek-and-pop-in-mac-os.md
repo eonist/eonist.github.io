@@ -1,10 +1,8 @@
-Prototyping peek & pop for macOS in playground<!--more-->. 
-
-**⚠️️ This article is currently a draft ⚠️️** 
+Prototyping peek & pop for macOS in playground<!--more-->
 
 ### 7. Let's add some design to it:
 
-`/*Coming soon*/`
+<img width="226" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/video_iphone.gif">
 
 ### 6. Peek & Pop is now complete (added dismiss):
 
