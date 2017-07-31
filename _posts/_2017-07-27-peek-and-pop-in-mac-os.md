@@ -1,6 +1,4 @@
-Prototyping UI/UX with XCode Playground <!--more-->  with swift and Animator a new .framework i'm building. Check out the examples bellow:
-
-With the new Animator framework that I'm making you can use XCode Playground yo prototype. By combining Playground + Element.framework + Animator.framework 
+Prototyping UI/UX with XCode Playground and Animator<!--more--> a new animation .framework i'm building. The best part? You get code you can use when building your apps 💙.  Check out the examples bellow:
 
 ### 7. Let's add some design to it:
 
