@@ -2,7 +2,7 @@ Prototyping peek & pop for macOS in playground<!--more-->
 
 ### 7. Let's add some design to it:
 
-<img width="226" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/video_iphone.gif">
+<img width="226" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/video_iphone.gif?maxAge=2512168">
 
 ### 6. Peek & Pop is now complete (added dismiss):
 
