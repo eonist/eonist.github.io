@@ -1,4 +1,4 @@
-Prototyping UI/UX with XCode Playground and Animator <!--more--> a new animation .framework I'm building. The best part? You get code you can use when building your apps. And it's [OpenSource](https://github.com/gitsync/AnimLib) .  Check out the examples bellow:
+Prototyping UI/UX with XCode Playground and Animator <!--more--> a new animation .framework I'm building. The best part? You get native code you can use when building your apps. And it's [OpenSource](https://github.com/gitsync/AnimLib) .  Check out the examples bellow:
 
 ### 7. Let's add some design to it:
 
