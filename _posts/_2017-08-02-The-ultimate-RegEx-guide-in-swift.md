@@ -50,14 +50,14 @@ public static let extendedPatternExample:String = " 	(\\w|[_.\\-])+ 	@	 ((\\w|-)
  * \   - Escapes a metacharacter or metasequence so its interpreted literally like so \\ (This applies only when you use string RegExp patterns)
  */
 ```
-
 #### Groups:
+```swift
 /**
  * ()  - A group subpattern and capture submatch into backreferences: \1, \2... and $1, $2,... (backrefrence ranges can be acces via: $1-$3) (Example of backrefrence replacing: RegExpModifier.conformUsTeleNr)
  * []  - A character class
  * [A-D] Matches any character between A and D
  * [a-g] Matches any character between a and g  
- * [A-z] Matches any character between a and z, aswell as between A and Z
+ * [A-z] Matches any character between a and z, as well as between A and Z
  *
  * [a]
  * [abc]-	any one of a, b and c (can also be written [a,b,c])
@@ -66,6 +66,7 @@ public static let extendedPatternExample:String = " 	(\\w|[_.\\-])+ 	@	 ((\\w|-)
  * [^abc]+	any (nonempty) string which does not contain any of a, b and c (such as defg) -> [^,;]+ will match any string that does not contain a comma and semi colon
  * (|)  - Either the item on the left or the item on the rigth and works with multiple i.e (a|b|c|d)  (use brackets to enclose the or operator: (|)  )(Rember when using the OR operator that you must try the least possible first) remeber you can use ? and * to make items optional (Example: RegExpMatch.validIp)
  */
+```
  
 #### Metasequences: (character classes or class like constructs, Repetition Characters)
 ```swift
@@ -152,7 +153,7 @@ public static let extendedPatternExample:String = " 	(\\w|[_.\\-])+ 	@	 ((\\w|-)
  * escaping ] character so: \] @example: /[a-z\\]/ matches any lowercase or the backslash character
  */
 ```
-Whitespace metacharacters
+#### Whitespace metacharacters
 ```swift
 /** 
  * [\b] Backspace
@@ -219,11 +220,13 @@ Whitespace metacharacters
  */
 ```
 #### Backlash characters:
+```swift
 /**
  * To match any of the MetaCharacters you need to escape them with the backslash: (\$ becomes: \\$ if you use the RegExp string pattern)
  * \* \$ \( \) \* \+ \. \? \[ \\ \^ \{ \|\-
  */
 
+```
 
 #### Back referencing test:
  
