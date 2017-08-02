@@ -17,5 +17,5 @@ static func content(_ path:String)->String?{
 }
 ```
 
-### NOTE:
-Dragging a folder with resources into xcode will also work but the content will not have hierarchical folder structure once you build. .bundle folders on the other hand will retain the hierarchical folder structure 
+### Why use .bundle folders?:
+Dragging a folder with resources into xcode will also work but the content will not have hierarchical folder structure once you build. .bundle folders on the other hand will retain the hierarchical folder structure 	
