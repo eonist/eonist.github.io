@@ -8,7 +8,7 @@ Some times you want to apply logic for each match you want to replace or even ju
 
 ```swift
 let str = "bad wolf, bad dog, Bad sheep"
-let newStr = str.replace(pattern: "\\b([bB]ad)\\b"){
+let newStr = str.replace("\\b([bB]ad)\\b"){
     return $0.isLowerCased ? $0 : $0.lowercased()
 }
 Swift.print("newStr: " + "\(newStr)")//bad wolf, bad dog, bad sheep
