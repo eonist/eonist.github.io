@@ -20,29 +20,29 @@ class ASyncTest {
      * TODO: Also research blocks
      */
     init(){
-        let group = DispatchGroup()
-        
-        bg.async{/*do 2 things at the same time*/
+            let group = DispatchGroup()
+            
             group.enter()
-            Swift.print("do default")
-            sleep(IntParser.random(3, 6).uint32)/*simulates task that takes between 1 and 6 secs*/
-            group.leave()
-        }
-        if("" != ""){
             bg.async{/*do 2 things at the same time*/
-                group.enter()
-                Swift.print("do the first")
-                sleep(IntParser.random(2, 7).uint32)/*simulates task that takes between 1 and 6 secs*/
+                Swift.print("do default")
+                sleep(IntParser.random(3, 6).uint32)/*simulates task that takes between 1 and 6 secs*/
                 group.leave()
             }
-        }else{
-            Swift.print("do the second")
-        }
-        
-        //group.wait()/*wait blocks main thread*/
-        group.notify(queue: main, execute: {/*you have to jump back on main thread to call things on main thread as this scope is still on bg thread*/
-                Swift.print("🏁 group completed: 🏁")//make a method on mainThread and call that instead.
-        })
+            if("" != ""){
+                group.enter()
+                bg.async{/*do 2 things at the same time*/
+                    Swift.print("do the first")
+                    sleep(IntParser.random(2, 7).uint32)/*simulates task that takes between 1 and 6 secs*/
+                    group.leave()
+                }
+            }else{
+                Swift.print("do the second")
+            }
+            
+            //group.wait()/*wait blocks main thread*/
+            group.notify(queue: main, execute: {/*you have to jump back on main thread to call things on main thread as this scope is still on bg thread*/
+                    Swift.print("🏁 group completed: 🏁")//make a method on mainThread and call that instead.
+            })
     }
 }
 
