@@ -1,4 +1,4 @@
-An algorithm that positions tree structured data items as an inverted tree. Originally written in swift <!--more--> For the [learn-anything.xyz](https://www.learn-anything.xyz)  project as a way to automate mindmap contributions. 
+An algorithm that positions tree structured data items as an inverted tree. Originally written in swift <!--more--> For the [learn-anything.xyz](https://www.learn-anything.xyz)  project as a way to automate mind map contributions. 
 
 #### Concept:
 The algorithm makes sure the that parents and it's descendants align into a hierarchical structure without overlapping. It's a novel idea that has some challenges. The algorithm is based on functional programming concepts via recursion, reduce, map, filter. Sometimes in combinations. And is not exclusive to swift, the same algorithm should be easy enough to port to JavaScript. The algorithm is Open-Source MIT and can be found here: [the github project](https://github.com/carg0/hierarchical-spatial-algo) 
