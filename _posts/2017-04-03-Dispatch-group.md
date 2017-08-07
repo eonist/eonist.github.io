@@ -2,7 +2,7 @@ My notes on DispatchGroup <!--more-->
 
 ### DispatchGroup:
 Dispatch groups must enter and leave inside async calls on the bg thread. and must have the same amount of enter and leaves. 
-I suppose one could pass dispatch group refs as a variable and use it in a nested scenario. But DispatchGroups seems to work best when wanting to do many async tasks on bg thread at the same time and have one onComplete for when all tasks complete. 
+I suppose one could pass dispatch group refs as a variable and use it in a nested scenario. But DispatchGroups seems to work best when wanting to do many async tasks on background thread at the same time and have one onComplete for when all tasks complete. 
 
 ```swift
 
