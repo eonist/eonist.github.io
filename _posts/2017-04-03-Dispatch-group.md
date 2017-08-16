@@ -40,6 +40,7 @@ class ASyncTest {
             }
             
             //group.wait()/*wait blocks main thread, blocks UI, Its important that the notify comes after all enter and leaves has been assigned*/
+            /*notify also fires when nothing left or entered*/
             group.notify(queue: main, execute: {/*you have to jump back on main thread to call things on main thread as this scope is still on bg thread*/
                     Swift.print("🏁 group completed: 🏁")//make a method on mainThread and call that instead.
             })
