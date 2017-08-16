@@ -12,3 +12,4 @@ Migrating to swift 4
 ### Resources:
 https://www.raywenderlich.com/163857/whats-new-swift-4
 https://swift.org/migration-guide-swift4/
+Has dynamic keys: http://benscheirman.com/2017/06/ultimate-guide-to-json-parsing-with-swift-4/
