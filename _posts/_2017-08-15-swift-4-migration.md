@@ -11,3 +11,4 @@ Migrating to swift 4
 
 ### Resources:
 https://www.raywenderlich.com/163857/whats-new-swift-4
+https://swift.org/migration-guide-swift4/
