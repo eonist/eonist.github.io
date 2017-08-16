@@ -1,4 +1,4 @@
-Migrating to swift 4
+Migrating to swift 4 <!--more--> 
 
 
 - lazy.filter is broken
