@@ -23,3 +23,37 @@
 - init(decoder) ; http://www.yudiz.com/encoding-and-decoding-custom-types-with-swift-4/
 
 - Decode and Encode extensions: https://github.com/chaione/Swift-4-JSON-Extensions/blob/master/Swift4JSON.playground/Pages/Read%20JSON%20with%20Extensions.xcplaygroundpage/Contents.swift
+
+## Extensions:
+
+```swift
+struct Whale:Decodable,Encodable{
+	let name:String
+	let whaleType:String
+}
+let json = """
+{
+ "name": "The Whale",
+ "whaleType": "Blue Whale"
+}
+""".data(using: .utf8)! // our data in native (JSON) format
+
+//Global generic decode method for Decodable
+func decode<T:Decodable>(data: Data) throws -> T {
+	let decoder = JSONDecoder()
+	return try decoder.decode(T.self, from: data)
+}
+
+//Encodable Extension
+extension Encodable {
+    func encode() throws -> Data {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        return try encoder.encode(self)
+    }
+}
+//Example:
+let whale:Whale = try decode(data: json)//From json to struct
+let whaleJSON = try whale.encode()//From struct to json
+
+```

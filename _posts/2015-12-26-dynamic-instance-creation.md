@@ -45,3 +45,24 @@ classType = B.self
 instance = classType.init("123")
 print(instance.s)//123
 ```
+
+## Alt:
+(This wont work with inheritance, use extension with where self:Bird in that case)
+```swift
+
+protocol UnFoldable{static func unFold()->Self}
+struct Temp:UnFoldable{
+    static func unFold() -> Temp {
+        return Temp()
+    }
+}
+struct Bird:UnFoldable{
+    static func unFold() -> Bird {
+        return Bird()
+    }
+}
+let unfoldables:[UnFoldable.Type] = [Temp.self,Bird.self]
+let type = "\(unfoldables[1])"
+Swift.print("type: " + "\(type)")
+let bird = unfoldables[1].unFold()//bird instance
+```
