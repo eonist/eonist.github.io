@@ -13,7 +13,7 @@ Overview of use-full design patterns: <!--more-->
 - The strategy class serve as the delegator to concrete strategy classes
 - Example of strategy class is a string work, stringcheck or a stringsort class(look ths p)
 - Often utilizes polymorphism interfaces abstract and concrete classes and in heritage and composition.
-- Main purpose is to add function interchangability to classes. You can also add functions to classes at runtime as long as the interface of the function is the same
+- Main purpose is to add function interchangeability to classes. You can also add functions to classes at runtime as long as the interface of the function is the same
 
 ### Factory pattern:
 - A builder class that builds classes upon requests
