@@ -26,6 +26,8 @@
 
 - Your personal AppCode concierge: (cmd + shift + A) it basically list all available commands and is searchable. When you don't want to searh helplessly through the gazillion pref options just try to free associate  about what you want to do and things may show up here. Like bigger font size, write increase font etc. 
 - CMD + SHIFT + O: Same as XCode. open file
+- XCode 9 now has Symbolic renaming. 
+- AppCode will have a hard time keeping up with XCode. The cost will be high. Which means it will be abandoned soonish. Which leaves the user with nothing. Code editors are becoming more like ecosystems and less like standalone apps
 
 ## AppCode concierge 💁
 - "select in project" view 👉 shows you the active file in the file-tree-view (rather cumbersome shortcut combo: alt + f1  then enter) 
