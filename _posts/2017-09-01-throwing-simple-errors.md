@@ -25,6 +25,7 @@ do {
     Swift.print ("Error: \(error)")//"I don't like red"
 }catch let error {
     Swift.print ("Other cases: Error: \(error.localizedDescription)")/*I like all other colors*/
+}
 ```
 
 
