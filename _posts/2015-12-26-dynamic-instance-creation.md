@@ -65,4 +65,30 @@ let unfoldables:[UnFoldable.Type] = [Temp.self,Bird.self]
 let type = "\(unfoldables[1])"
 Swift.print("type: " + "\(type)")
 let bird = unfoldables[1].unFold()//bird instance
+
+
+
+//
+
+```swift
+protocol MyProtocol {
+}
+struct MyStruct: MyProtocol {
+}
+extension MyStruct {
+    func extensionMethod() {
+        print("In Struct")
+    }
+}
+extension MyProtocol {
+    func extensionMethod() {
+        print("In Protocol")
+    }
+}
+ 
+let myStruct = MyStruct()
+let proto: MyProtocol = myStruct
+ 
+myStruct.extensionMethod() // -> “In Struct”
+proto.extensionMethod() // -> “In Protocol”
 ```
