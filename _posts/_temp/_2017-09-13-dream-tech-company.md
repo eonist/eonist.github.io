@@ -5,7 +5,7 @@
 3. Owned by the employees
 4. Employ unanimity in projects
 5. After stretches of crunch time. as much Free time as is needed is given.
-6. Short burst prototypes to validate ideas are encourage
+6. Short burst prototypes to validate ideas are encourage. Break big projects into tiny deliverables.
 7. Saying NO is encouraged.
 8. Unanimity can be employed to say no and it's the yes men who needs to do the convincing, not the no men.
 9. Above average industry pay (hiring the best requires best pay)
