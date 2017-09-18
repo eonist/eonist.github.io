@@ -14,3 +14,4 @@
 12. A gym to jump around when your stuck. Brain needs oxygen!
 13. All engineers: Engineer pm, engineer designers, engineer leaders, engineer accountants. Engineer lawyers. 👉 Engineer HR person 👈. Please this is imp, it's a tech company.
 14. Healthy food for work is important. Stack the kitchen already! walnuts, fruits, you now brainy food. 
+15. Instead of measuring time and amount of tasks completed, rather look at the paper trail an employee leaves. Are his past projects successful. 
