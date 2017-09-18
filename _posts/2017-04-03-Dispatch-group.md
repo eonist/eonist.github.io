@@ -61,3 +61,53 @@ A must if you also need to cancel your async tasks: [https://www.raywenderlich.c
 Awesome guy:http://stackoverflow.com/users/4665907/that-lazy-ios-guy-웃 Made a 15min video about Threading in swift 3 just for me: 
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/YhZahnTiA8U" frameborder="0" allowfullscreen></iframe>
+
+
+## Simpler example:
+
+Use DispatchGroups to archive this. You can either get notified when the groups enter() and leave() calls are balanced:
+
+```swift
+func myFunction() {
+    var a: Int?
+
+    let group = DispatchGroup()
+    group.enter()
+
+    DispatchQueue.main.async {
+        a = 1
+        group.leave()
+    }
+
+    // does not wait. But the code in notify() is run 
+    // after enter() and leave() calls are balanced
+
+    group.notify(queue: .main) {
+        print(a)
+    }
+}
+```
+
+or you can wait (and return):
+
+```swift
+
+func myFunction() -> Int? {
+    var a: Int?
+
+    let group = DispatchGroup()
+    group.enter()
+
+    // avoid deadlocks by not using .main queue here
+    DispatchQueue.global(attributes: .qosDefault).async {
+        a = 1
+        group.leave()
+    }
+
+    // wait ...
+    group.wait()
+
+    // ... and return as soon as "a" has a value
+    return a
+}
+```
