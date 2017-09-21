@@ -3,7 +3,7 @@ Researching the hidden
 
 1. Define your question
 
-2. Is there related information that can confirm the that your question can be answered. The more related information there is the more likely there is an answer.
+2. Is there related information that can confirm that your question can be answered. The more related information there is the more likely there is an answer.
 
 3. Are there related similar theories. 
 
