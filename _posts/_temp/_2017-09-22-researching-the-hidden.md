@@ -11,9 +11,9 @@ Researching the hidden
 
 5. Try for the simplest cases. Mini experiments.
 
-6. Try your behemoth theory from time to time. But if it doesn't work. Keep trying the simplest experiments. Your mind will just keep getting more absorbent to the sort of gotchas that will lead to the correct answer. 
+6. Try your behemoth theory from time to time. But if it doesn't work. Keep trying the simplest experiments. Your mind will just keep getting more absorbent to the sort of gotchas that will lead to the correct answer. The trick is to soak your brain in as much relevant and related information as possible in a short amount of time. 
 
-7. Force your self to try over and over until it works. Don't quit. this is not everyday. You do this now and then. Your brain can take it. go 20h straight if you must. If you quit your brain will shed the mini gotchas you just picked up in the research frenzy you just did. 
+7. Force your self to try over and over until it works. Don't quit. this is not everyday. You do this now and then. Your brain can take it. go 20h straight if you must. If you quit your brain will shed the mini gotchas you just picked up in the research frenzy you just did. Your brain is like a swamp, over time the water/infortmation will excpell and evaporate. 
 
 8. Keep trying. Envelope your mind in the quest for the answer. Consume your self. But don't let weeks/months go by. If you keep hitting the wall. write down your findings and gather more in-depth information. Write a whitepaper to straighten your mind. Ask others for an opinion on your whitepaper. Do more deep research into peripheral references etc.
 
