@@ -13,25 +13,25 @@
 
 6. Try your behemoth theory from time to time. But if it doesn't work. Keep trying the simplest experiments. Your mind will just keep getting more absorbent to the sort of gotchas that will lead to the correct answer. The trick is to soak your brain in as much relevant and related information as possible in a short amount of time. 
 
-7. Force your self to try over and over until it works. Don't quit. this is not everyday. You do this now and then. Your brain can take it. go 20h straight if you must. If you quit and call it for the night, your brain will shed the mini gotchas you just picked up in the research frenzy you just did. Your brain is like a swamp, over time the water/information will excpell and evaporate. You have to nail this in the now. Think of it as a hackthon. When you nail it. It's done. You can relax and refine your answer and make it perfect. This next period is pure heaven and you can really enjoy it. But until then your life is hell. Sorry. No way around this.
+7. Force your self to try over and over until it works. Don't quit. this is not everyday. You do this now and then. Your brain can take it. go 20h straight if you must. If you quit and call it for the night, your brain will shed the mini gotchas you just picked up in the research frenzy you just did. Your brain is like a swamp, over time the water/information will excpell and evaporate. You have to nail this in the now. Think of it as a hackathon. When you nail it. It's done. You can relax and refine your answer and make it perfect. This next period is pure heaven and you can really enjoy it. But until then your life is hell. Sorry. No way around this.
 
-8. Keep trying. Envelope your mind in the quest for the answer. Consume your self. But don't let weeks/months go by. If you keep hitting the wall. write down your findings and gather more in-depth information. Write a whitepaper to straighten your mind. Ask others for an opinion on your whitepaper. Do more deep research into peripheral references etc.
+8. Keep trying. Envelope your mind in the quest for the answer. Consume your self. But don't let weeks/months go by. If you keep hitting the wall. write down your findings and gather more in-depth information. Write a white-paper to straighten your mind. Ask others for an opinion on your white-paper. Do more deep research into peripheral references etc.
 
-9. Sometimes the final answer is a set of 4-5 gotchas that combine into an elegant answer. But among 20-40 similar plausible gotchas you find while researching, there is an all most infinite sea of combinations. to unlock the final combination you have to use the human intuition. In the beginning only 1 or 2 gotachas work. after many attempts 2-3 start to work and you only need to fit that last gotcha. This is usually the hardest part so keep at it. The more you work on it and read the better your intution for picking the right combination of gotachs will be. 
+9. Sometimes the final answer is a set of 4-5 gotchas that combine into an elegant answer. But among 20-40 similar plausible gotchas you find while researching, there is an all most infinite sea of combinations. to unlock the final combination you have to use the human intuition. In the beginning only 1 or 2 gotachas work. after many attempts 2-3 start to work and you only need to fit that last gotcha. This is usually the hardest part so keep at it. The more you work on it and read the better your intuition for picking the right combination of gotachs will be. 
 
-10. Works every time: Go for a walk if your stuck. The brain needs oxygen. Also walking and letting your brain thinkabout simpler things helps it re-adjust and recover from all the illogic connections you have attempted the last few hours. Winter time is great for putting on a whooly coat and going for a strall. While you literally cool your head for a bit.
+10. Works every time: Go for a walk if your stuck. The brain needs oxygen. Also walking and letting your brain think about simpler things helps it re-adjust and recover from all the illogic connections you have attempted the last few hours. Winter time is great for putting on a wooly coat and going for a stroll. While you literally cool your head for a bit.
 
 
 ### Resources:
-(I havent read this book, trying to research researching, stay tuned for more resources as I unvail them)
+(I haven't read this book, trying to research researching, stay tuned for more resources as I unveil them)
 
 https://www.amazon.com/Research-Chicago-Writing-Editing-Publishing/dp/0226065669/ref=cm_cr_arp_d_product_top?ie=UTF8
 
 ### Tips:
-1. If you have to research something over many days. Its helpfull to write down a manifesto of your findings. That you can review from now and then to avoid making your brain all mixed. You need to force your brain to try the illogical but sometimes you need to stop being illogical and straigthen it out again. Figurativly speaking.
+1. If you have to research something over many days. Its helpful to write down a manifesto of your findings. That you can review from now and then to avoid making your brain all mixed. You need to force your brain to try the illogical but sometimes you need to stop being illogical and straighten it out again. Figuratively speaking.
 
-2. Eat food with lots of fat. Wallnuts, milk products, meat etc. The brain concums lots of calories when its thinking hard. Endulge. yes youll gain weight. But this isnt forever. Its a short amount of time. Also you need to move around alot to let oxygen flow to your brain so you shouldnt gain that much weight. 
+2. Eat food with lots of fat. Walnuts, milk products, meat etc. The brain consume lots of calories when its thinking hard. Indulge. yes youll gain weight. But this isn't forever. Its a short amount of time. Also you need to move around alot to let oxygen flow to your brain so you shouldn't gain that much weight. 
 
 
 ### Warning:
-Don't do this kind of instense research everyday. Or you wont be able to see the forst for the trees. You lose your mind abd probably get less inteligent over time. Do it once in a while. Then go back to regular problem solving. Where you solve mini problems until youve solved enough of them tht it makes up a big solution. 
+Don't do this kind of intense research everyday. Or you wont be able to see the forest for the trees. You lose your mind and probably get less intelligent over time. If you race-drive your car too much it will deteriorate. But if you need to escape the police now and then then go for it. Do it once in a while. Then go back to regular problem solving. Where you solve mini problems until you've solved enough of them that it makes up a big solution. 
