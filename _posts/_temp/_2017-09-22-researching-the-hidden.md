@@ -9,7 +9,7 @@
 
 4. Try isolated experiments to make your mind more absorbent to the correct hunches. 
 
-5. Try for the simplest cases. Do mini experiments to confirm or de-confirm hunches. 
+5. Try for the simplest cases. Do mini experiments to confirm or disconfirm hunches. `Disconfirm: show that (a belief or hypothesis) is not or may not be true.`
 
 6. Try your behemoth theory from time to time. But if it doesn't work. Keep trying the simplest experiments. Your mind will just keep getting more absorbent to the sort of gotchas that will lead to the correct answer. The trick is to soak your brain in as much relevant and related information as possible in a short amount of time. 
 
