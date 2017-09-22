@@ -20,3 +20,8 @@
 9. Sometimes the final answer is a set of 4-5 gotchas that combine into an elegant answer. But among 20-40 similar plausible gotchas you find while researching, there is an all most infinite sea of combinations. to unlock the final combination you have to use the human intuition. In the beginning only 1 or 2 gotachas work. after many attempts 2-3 start to work and you only need to fit that last gotcha. This is usually the hardest part so keep at it. The more you work on it and read the better your intution for picking the right combination of gotachs will be. 
 
 10. Works every time: Go for a walk if your stuck. Brain needs oxygen.
+
+
+### Resources:
+
+https://www.amazon.com/Research-Chicago-Writing-Editing-Publishing/dp/0226065669/ref=cm_cr_arp_d_product_top?ie=UTF8
