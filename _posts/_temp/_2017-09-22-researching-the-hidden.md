@@ -1,15 +1,15 @@
 ### Researching the hidden
 
 
-1. Define your question
+1. Define your question. usually the question can be formulated in one sentence. But to solve it there is a huge hierarchy of pieces that make up the final answer. Take Mc2 for instance. The answer is elegant. But under it there are many nodes of theories. 
 
 2. Is there related information that can confirm that your question can be answered. The more related information there is the more likely there is an answer.
 
-3. Are there related similar theories. 
+3. Are there related similar theories?
 
 4. Try isolated experiments to make your mind more absorbent to the correct hunches. 
 
-5. Try for the simplest cases. Mini experiments.
+5. Try for the simplest cases. Do mini experiments to confirm or de-confirm hunches. 
 
 6. Try your behemoth theory from time to time. But if it doesn't work. Keep trying the simplest experiments. Your mind will just keep getting more absorbent to the sort of gotchas that will lead to the correct answer. The trick is to soak your brain in as much relevant and related information as possible in a short amount of time. 
 
@@ -19,7 +19,7 @@
 
 9. Sometimes the final answer is a set of 4-5 gotchas that combine into an elegant answer. But among 20-40 similar plausible gotchas you find while researching, there is an all most infinite sea of combinations. to unlock the final combination you have to use the human intuition. In the beginning only 1 or 2 gotachas work. after many attempts 2-3 start to work and you only need to fit that last gotcha. This is usually the hardest part so keep at it. The more you work on it and read the better your intution for picking the right combination of gotachs will be. 
 
-10. Works every time: Go for a walk if your stuck. Brain needs oxygen.
+10. Works every time: Go for a walk if your stuck. The brain needs oxygen. Also walking and letting your brain thinkabout simpler things helps it re-adjust and recover from all the illogic connections you have attempted the last few hours. Winter time is great for putting on a whooly coat and going for a strall. While you literally cool your head for a bit.
 
 
 ### Resources:
@@ -28,4 +28,6 @@
 https://www.amazon.com/Research-Chicago-Writing-Editing-Publishing/dp/0226065669/ref=cm_cr_arp_d_product_top?ie=UTF8
 
 ### Tips:
-If you have to research something over many days. Its helpfull to write down a manifesto of your findings. That you can review from time to time to avoid making your brain all mixed. You need to force your brain to try the illogical but sometimes you need to stop being illogical and straigthen it out again. So to speak.
+1. If you have to research something over many days. Its helpfull to write down a manifesto of your findings. That you can review from now and then to avoid making your brain all mixed. You need to force your brain to try the illogical but sometimes you need to stop being illogical and straigthen it out again. Figurativly speaking.
+
+2. Eat food with lots of fat. Wallnuts, milk products, meat etc. The brain concums lots of calories when its thinking hard. Endulge. yes youll gain weight. But this isnt forever. Its a short amount of time. Also you need to move around alot to let oxygen flow to your brain so you shouldnt gain that much weight. 
