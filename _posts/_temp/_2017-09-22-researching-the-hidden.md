@@ -26,3 +26,6 @@
 (I havent read this book, trying to research researching, stay tuned for more resources as I unvail them)
 
 https://www.amazon.com/Research-Chicago-Writing-Editing-Publishing/dp/0226065669/ref=cm_cr_arp_d_product_top?ie=UTF8
+
+### Tips:
+If you have to research something over many days. Its helpfull to write down a manifesto of your findings. That you can review from time to time to avoid making your brain all mixed. You need to force your brain to try the illogical but sometimes you need to stop being illogical and straigthen it out again. So to speak.
