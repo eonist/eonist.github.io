@@ -1,7 +1,7 @@
 ### Researching the hidden
 
 
-1. Define your question. usually the question can be formulated in one sentence. But to solve it there is a huge hierarchy of pieces that make up the final answer. Take E=MC2` for instance. The answer is elegant. But under it there are many nodes of theories. 
+1. Define your question. usually the question can be formulated in one sentence. But to solve it there is a huge hierarchy of pieces that make up the final answer. Take `E=MC2` for instance. The answer is elegant. But under it there are many nodes of theories. 
 
 2. Is there related information that can confirm that your question can be answered. The more related information there is the more likely there is an answer.
 
