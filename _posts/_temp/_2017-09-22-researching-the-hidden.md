@@ -31,3 +31,7 @@ https://www.amazon.com/Research-Chicago-Writing-Editing-Publishing/dp/0226065669
 1. If you have to research something over many days. Its helpfull to write down a manifesto of your findings. That you can review from now and then to avoid making your brain all mixed. You need to force your brain to try the illogical but sometimes you need to stop being illogical and straigthen it out again. Figurativly speaking.
 
 2. Eat food with lots of fat. Wallnuts, milk products, meat etc. The brain concums lots of calories when its thinking hard. Endulge. yes youll gain weight. But this isnt forever. Its a short amount of time. Also you need to move around alot to let oxygen flow to your brain so you shouldnt gain that much weight. 
+
+
+### Warning:
+Don't do this kind of instense research everyday. Or you wont be able to see the forst for the trees. You lose your mind abd probably get less inteligent over time. Do it once in a while. Then go back to regular problem solving. Where you solve mini problems until youve solved enough of them tht it makes up a big solution. 
