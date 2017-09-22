@@ -23,5 +23,6 @@
 
 
 ### Resources:
+(I havent read this book, trying to research researching, stay tuned for more resources as I unvail them)
 
 https://www.amazon.com/Research-Chicago-Writing-Editing-Publishing/dp/0226065669/ref=cm_cr_arp_d_product_top?ie=UTF8
