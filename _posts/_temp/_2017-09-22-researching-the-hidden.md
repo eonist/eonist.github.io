@@ -1,4 +1,4 @@
-### Researching the hidden
+### Researching the hidden (The art of figuring out whats relevant)
 
 
 1. Define your question. usually the question can be formulated in one sentence. But to solve it there is a huge hierarchy of pieces that make up the final answer. Take `E=MC2` for instance. The answer is elegant. But under it there are many nodes of theories. Try to figure out what the bounds of the final answer will be. To avoid getting sucked into something that is totally out of scope and way to resource/time consuming.
@@ -7,7 +7,7 @@
 
 3. Are there related similar theories? The lack of related information is usually an indicator that there is no answer to this question or that its an undiscovered gem waiting to be found. Try to be realistic, most likely there just isn't an answer if there is little related information.
 
-4. Try isolated experiments to make your mind more absorbent to the correct hunches. 
+4. Try isolated experiments to make your mind more absorbent to the correct hunches. It's all a process of elimination and the more things you can eliminate that it isn't the easier it will be to piece together the final solution. One less unknown at the time.
 
 5. Try for the simplest cases. Do mini experiments to confirm or disconfirm hunches. `Disconfirm: show that (a belief or hypothesis) is not or may not be true.`
 

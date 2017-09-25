@@ -30,3 +30,6 @@ Look for the code here: [https://github.com/eonist/swift-utils](https://github.c
 **Update 2017-09-07** By popular demand: I wrote an XCode AppDelegate.swift "starter kit" to get you started: 
 
 [https://gist.github.com/eonist/2da348d2f29d02cca136be6476cf9710](https://gist.github.com/eonist/2da348d2f29d02cca136be6476cf9710) 
+
+
+If the above AppDelegate code doesn't work out of the gate, check if you have gestures enabled in sys prefs. Restarting your computer or Restarting touch devices could also help
