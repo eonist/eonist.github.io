@@ -1,11 +1,11 @@
 ### Researching the hidden
 
 
-1. Define your question. usually the question can be formulated in one sentence. But to solve it there is a huge hierarchy of pieces that make up the final answer. Take `E=MC2` for instance. The answer is elegant. But under it there are many nodes of theories. 
+1. Define your question. usually the question can be formulated in one sentence. But to solve it there is a huge hierarchy of pieces that make up the final answer. Take `E=MC2` for instance. The answer is elegant. But under it there are many nodes of theories. Try to figure out what the bounds of the final answer will be. To avoid getting sucked into something that is totally out of scope and way to resource/time consuming.
 
 2. Is there related information that can confirm that your question can be answered. The more related information there is the more likely there is an answer.
 
-3. Are there related similar theories?
+3. Are there related similar theories? The lack of related information is usually an indicator that there is no answer to this question or that its an undiscovered gem waiting to be found. Try to be realistic, most likely there just isn't an answer if there is little related information.
 
 4. Try isolated experiments to make your mind more absorbent to the correct hunches. 
 
@@ -28,10 +28,10 @@
 https://www.amazon.com/Research-Chicago-Writing-Editing-Publishing/dp/0226065669/ref=cm_cr_arp_d_product_top?ie=UTF8
 
 ### Tips:
-1. If you have to research something over many days. Its helpful to write down a manifesto of your findings. That you can review from now and then to avoid making your brain all mixed. You need to force your brain to try the illogical but sometimes you need to stop being illogical and straighten it out again. Figuratively speaking.
+1. If you have to research something over many days. It's helpful to write down a manifesto of your findings. That you can review now and then to avoid making your brain all mixed. You need to force your brain to try the illogical but sometimes you need to stop being illogical and straighten it out again. Figuratively speaking.
 
-2. Eat food with lots of fat. Walnuts, milk products, meat etc. The brain consume lots of calories when its thinking hard. Indulge. yes youll gain weight. But this isn't forever. Its a short amount of time. Also you need to move around alot to let oxygen flow to your brain so you shouldn't gain that much weight. 
+2. Eat food with lots of fat. Walnuts, milk products, meat etc. The brain consume lots of calories when it's thinking hard. Indulge. yes you'll gain weight. But this isn't forever. It's a short amount of time. Also you need to move around a lot to let oxygen flow to your brain so you shouldn't gain that much weight. 
 
 
 ### Warning:
-Don't do this kind of intense research everyday. Or you wont be able to see the forest for the trees. You lose your mind and probably get less intelligent over time. If you race-drive your car too much it will deteriorate. But if you need to escape the police now and then then go for it. Do it once in a while. Then go back to regular problem solving. Where you solve mini problems until you've solved enough of them that it makes up a big solution. 
+Don't do this kind of intense research everyday. Or you wont be able to see the forest for the trees. You lose your mind and probably get less intelligent over time. If you race-drive a car too much it will deteriorate. But if you need to escape the police now and then, then go hit the turbo button. Do it once in a while. Then go back to regular problem solving. Where you solve mini problems until you've solved enough of them that it makes up a big solution. 
