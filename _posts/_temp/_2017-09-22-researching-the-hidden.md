@@ -34,7 +34,7 @@ https://www.amazon.com/Research-Chicago-Writing-Editing-Publishing/dp/0226065669
 
 3. Investing in mini experiments that may lead no where feels like a waste of time for 99% of humanity. People hate to lose, even tiny amounts even when the payout can be huge. Its why most people do poor in the stockmarket, they are bias to not be the sucker. But statistically if you make many small bets that can make you look like a fool but win out huge, you'll come out way better than making big bets that can win little. So forcing your self to take the loss is an underestimated skill. Work is investment in time. Research is investment in time. Invest small amounts of time to be able to win that mother load.
 
-4. The best researchers in the world are the ones that can enter a field they have little to zero pre-knowledge about and still find solutions. We live in a world where the best investigators often out preform field experts simply by being very adept at finding and piecing together solutions.
+4. The best researchers in the world are the ones that can enter a field they have little to zero pre-knowledge about and still find solutions. We live in a world where the best investigators often out preform field experts simply by being very adept at finding and piecing together solutions. 
 
 ### Warning:
 Don't do this kind of intense research everyday. Or you wont be able to see the forest for the trees. You lose your mind and probably get less intelligent over time. If you race-drive a car too much it will deteriorate. But if you need to escape the police now and then, then go hit the turbo button. Do it once in a while. Then go back to regular problem solving. Where you solve mini problems until you've solved enough of them that it makes up a big solution. 
