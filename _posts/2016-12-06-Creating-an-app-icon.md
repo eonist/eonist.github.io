@@ -10,8 +10,7 @@ here is an app icon I created in Illustrator:
 
 <img width="314" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/gitsync_logo_2016_blue.png">
 
-[gitsync_logo_2016_blue_512.icns](https://raw.githubusercontent.com/stylekit/img/master/gitsync_logo_2016_blue_512.icns) 
-[gitsync_logo_2016_blue_512.icns](https://raw.githubusercontent.com/stylekit/img/master/gitsync_logo_2016_blue_1024.icns.icns) 
+[gitsync_logo_2016_blue_1024.icns](https://raw.githubusercontent.com/stylekit/img/master/gitsync_logo_2016_blue_1024.icns.icns) 
 
 Now you have the .icns file that can be added to your xcode project. 
 
@@ -29,12 +28,12 @@ Credits to JoeFrizzell via: [http://apple.stackexchange.com/a/140361/179041](htt
 
 ### Running the app requires:
 
-MacOS Sierra has stricter security than before. To bring back running apps from unidentified developers simply write sudo spctl --master-disable in terminal and hit enter, as per: http://osxdaily.com/2016/09/27/allow-apps-from-anywhere-macos-gatekeeper/ Or you can build from source your self and GateKeeper won't complain.
+MacOS Sierra has stricter security than before. To bring back running apps from unidentified developers simply write sudo spctl `--master-disable` in terminal and hit enter, as per: [http://osxdaily.com/2016/09/27/allow-apps-from-anywhere-macos-gatekeeper/](http://osxdaily.com/2016/09/27/allow-apps-from-anywhere-macos-gatekeeper/) (You can always enable it after) Or you can build from source your self and GateKeeper won't complain.
 
 
 ### High Sierra update:
 
-Since macOS high sierra, you need to be strict about size. Make sure the png size is exactly 1024x1024px. Or else it wont work. Basically the iconutil that IconMaker utilises has been upgraded in High Sierra. I tested a 1000x1000px file in Sierra and it worked. But not in High Sierra. So make sure your source png is the correct size. 💪
+Since macOS high sierra, you need to be strict about size. Make sure the png size is exactly 1024x1024px. Or else it won't work. Basically the `iconutil` that IconMaker utilises has been upgraded in High Sierra. I tested a 1000x1000px file in Sierra and it worked. But not in High Sierra. So make sure your source png is the correct size. 💪
 
 
 ### Doing all of this with just terminal:
@@ -58,4 +57,4 @@ icon_512x512@2x.png
 
 4. Open Terminal and paste this line: `iconutil --convert icns ~/Desktop/someIcon.iconset`	
 
-5. You should now have someIcon.icns on your Desktop ready to be used in your macOS app project
+5. You should now have someIcon.icns on your Desktop ready to be used in your macOS app projectgit
