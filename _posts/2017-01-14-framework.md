@@ -19,6 +19,15 @@ Some notes on swift .framework <!--more-->
 3. In your new project: Project settings -> General -> Embedded binaries add the  .framework via the + button🔑   
 
 
+### Adding target membership to files in sub folders 
+
+If you have your source code in subfolder, as you should, then simply dragging the root folder into xcode will make the files inside the folders not have a target. There is trick to retarget all the files. 🔑
+
+1. Go to Project Settings > Build Phases > Compile Sources. 
+2. You can click the + button, filter .swift files, and you can CMD-A to select all
+3. Click ok. This is the same thing as setting the target in the left side  Utility pan. 
+
+
 ### Access level:
 
 Swift has three levels of access control. Use the following rules of thumb when creating your own frameworks:  
@@ -26,7 +35,7 @@ Swift has three levels of access control. Use the following rules of thumb when 
 - **Internal**: for code used between functions and classes within the framework, e.g., custom layers in that view.  
 - **Fileprivate**: for code used within a single file, e.g., a helper function that computes layout heights.  
 - **Private**: for code used within an enclosing declaration, such as a single class block. Private code will not be visible to other blocks, such as extensions of that class, even in the same file, e.g., private variables, setters, or helper sub-functions.  
-- **@testable** if you prefix your import with ``@testable`` then you can work with framework classes even if they are not marked public 🔑  
+- **@testable** if you prefix your import with ``@testable`` then you can work with framework classes even if they are not marked public or open 🔑  
 
 
 ### Resources:

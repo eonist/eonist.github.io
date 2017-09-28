@@ -87,13 +87,15 @@ If two packages depend on different versions of a third package, the package man
 - In terminal: ``swift package fetch``  Swift package has commands to fetch the dependencies 
 - In terminal: ``swift package update`` Swift package has commands to update the dependencies 
 
-## Epiphanies:
-1. SPM forces you to organize your folder structure the "SPM way", I didn't like this at first. Source/<project-name>/<file-name>.swift but if you only have one 'module' which you should. Modularity and all that. Then github.com will not force you to jump through 2 levels to see your files. as github skips 1 level if a folder is inside another folder. So you just click sources and there is all your files. all in 1 click. NICE! 🔑  
+## Gotchas:
+1. SPM forces you to organise your folder structure the "SPM way", I didn't like this at first. `Source/<project-name>/<file-name>.swift` but if you only have one 'module' which you should. Modularity and all that. Then github.com will not force you to jump through 2 levels to see your files. as github skips 1 level if a folder is inside another folder. So you just click sources and there is all your files. all in 1 click. NICE! 🔑  
+
 2. If you actively change your dependencies' code then don't link to binaries directly, instead include their source code as sub-project. When its code base becomes stable start using binaries aka (.framework).
+
 3. The target in the SPM manifest is used when you include internal dependencies in the Source file see : [this](http://www.bensnider.com/wrapping-c-code-within-a-single-swift-package.html) 
 
 ## Final word:
-We are all DevOps now. There is no getting around this, if you want to code efficiently you have to master the art of DevOps. Or descend into "dependency hell". Package Dependency managers Are not easy to use, but one cannot live with out them. 
+We are all DevOps now. There is no getting around this, if you want to code efficiently you have to: "master the art of DevOps". Or descend into "dependency hell". Package Dependency managers yet Are not easy to use yet, but one cannot live with out them. 
 
 ## Links:
 
