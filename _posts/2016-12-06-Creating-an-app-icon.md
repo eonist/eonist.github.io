@@ -58,3 +58,9 @@ icon_512x512@2x.png
 4. Open Terminal and paste this line: `iconutil --convert icns ~/Desktop/someIcon.iconset`	
 
 5. You should now have someIcon.icns on your Desktop ready to be used in your macOS app projectgit
+
+
+### Bonus points: 
+
+`sips -Z 512 ~/Desktop/someIcon.png`
+You could add shell commands that resizes the images for you, in the applescript to actually resize each image. But I didn't have time for this step this time around. Maybe next time I revisit this app ill implement it. You can also probably make a photoshop script that does all the resizing and renaming for you. let me know if you make any of this ideas and ill be sure to share it with the world. Thanks for reading ✌️ 
