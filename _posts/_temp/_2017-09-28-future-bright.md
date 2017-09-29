@@ -9,6 +9,13 @@ There is this theory called the great filter. Evolutionary theory. Each step in 
 
 ### Ledger of trust
 
-There is a huge trust problem in software today. Apps that claim they are free upfront but really aren't, i'm looking at you in-app-purchase. Apps that steal your information. Apps that report back to mothership with out your consent. Obtrusive popups that try to sell other apps to you, even if you paid for the app already. How is the consumer suppose to differentiate which apps are ethical and which are not? The solution is trust. If the consumer can quickly glans a trust ledger he can quickly make up his mind if the app is ethical. This trust ledger isn't the comments in app-store as they are designed for the app maker not the user. And can be easily gamed and curated to weed out bad comments. 
+There is a huge trust problem in software today. Apps that claim they are free upfront but really aren't, i'm looking at you in-app-purchase. Apps that steal your information. Apps that report back to mothership with out your consent. Obtrusive popups that try to sell other apps to you, even if you paid for the app already. Apps that you pay for but does a bait and switch a short time after and now asks for periodical payments, this is especially common with newly launched apps, after their initial sales high dry out they turn to subscription model to keep a-float. How is the consumer suppose to differentiate which apps are ethical and which are not? The solution is trust. If the consumer can quickly glans a trust ledger he can quickly make up his mind if the app is ethical. This trust ledger isn't the comments in app-store as they are designed for the app maker not the user. And can be easily gamed and curated to weed out bad comments. 
 
 The trust ledger must be a neutral part. Something that cant be gamed, curated or censored. What comes to mind is GitHub. GitHub is a Tree of trust. You can quickly assess if a developer is trust-worthy or not. As he can only build this trust over time. There are lots of users I would trust in a heart beat. People I know are not scammy and wouldn't risk their reputation over adding scammy components to their apps to earna  buck or two. 
+
+
+### Tower of babylon syndrome
+
+I think you need a reset. Instead of making ever longer todo list. Just start over, with the intimate knowledge of your first attempt. This time keep it simple. Life is about being open to the chances that is presented for you. If you are busy all the time you'll miss out on all these opportunities that wooosh by. Not even knowing they past you.
+
+I think all people/companies need to reset / re-evaluate what the heck they are doing more often. We build up this huge clusters of obligations, when we really should be simplifying and meaking a leaner life / company. 

@@ -1,7 +1,7 @@
 My notes on Swift package manager + XCode + Nested frameworks<!--more--> 
 
 ## Pretext
-Lets make an awesome HackerNewsApp in 2 days. For that you need to be modular and re-use other peoples code. We need [AlamoFire](https://github.com/Alamofire/Alamofire)  for http, [SwiftJSON](https://github.com/SwiftyJSON/SwiftyJSON)  for json and [Element](https://github.com/eonist/Element)  for GUI. 
+Let's make an awesome HackerNewsApp in 2 days. For that you need to be modular and re-use other peoples code. We need [AlamoFire](https://github.com/Alamofire/Alamofire)  for http, [SwiftJSON](https://github.com/SwiftyJSON/SwiftyJSON)  for json and [Element](https://github.com/eonist/Element)  for GUI. 
 
 ## Nested frameworks
 The chain of dependencies looks like this: Its only 3 level deep: (It can go deeper if needed)   
@@ -42,4 +42,4 @@ Where is the [swift-utils](https://github.com/eonist/swift-utils) dependency you
 9. To add your app project to Github all you do is make a new project on github.com and add a .gitignore file that ignores /.build, /Tests,/ Packages and .xcodeproj. Then you can stay in-sync with other team-members etc. 
 
 ## Final word  
-I would love to include some HackNewsApp Example code. And I plan to. Until then you have to figure out how to use AlamoFire, Element and SwiftyJSON your self. At least now you have a basic foundation on how to start making Apps with SPM. 
+I would love to include some HackNewsApp Example code. And I plan to. Until then you have to figure out how to use AlamoFire, Element and SwiftyJSON your self. At least now you have a basic foundation on how to start making Apps with SPM. Nested frameworks are sometimes referred to as: "subdependency"
