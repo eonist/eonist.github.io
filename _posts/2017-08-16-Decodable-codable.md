@@ -1,3 +1,5 @@
+My notes on Decodable and Encodable in swift<!--more--> 
+
 ### Why Use Decodable / Encodable?
 
 #### Pros:
