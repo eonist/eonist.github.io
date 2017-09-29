@@ -16,7 +16,7 @@ Update the dependency versions in your Package.swift file
 ### Use-full SPM commands:
 
 `swift package init --type library` This will create the directory structure needed for a library package
-
+`swift package tools-version` Shows SPM version (there is also: `swift build --version`)
 
 ### The SPM Ship Manifest 🛳:
 
@@ -51,3 +51,12 @@ let package = Package(
 )
 
 ```
+
+### Editable state:
+
+Seems a bit hard to get your head around see this link: https://github.com/apple/swift-package-manager/blob/master/Documentation/Usage.md#editable-packages
+
+
+### Use full links:
+
+https://github.com/apple/swift-package-manager/blob/master/Documentation/PackageDescriptionV4.md

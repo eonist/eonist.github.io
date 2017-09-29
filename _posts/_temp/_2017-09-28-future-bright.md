@@ -23,3 +23,9 @@ I think all people/companies need to reset / re-evaluate what the heck they are 
 Expand on the subject: existential rest
 
 Expand on the babylonians greed etc.
+
+
+### Idea bin:
+- Compendium a dead simple .md -> pdf book converter
+- Thermostat (Optional name: Cyclon)
+- Radar (Open source "network guard" for your mac)
