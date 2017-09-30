@@ -14,7 +14,7 @@ There is a huge trust problem in software today. Apps that claim they are free u
 The trust ledger must be a neutral part. Something that cant be gamed, curated or censored. What comes to mind is GitHub. GitHub is a Tree of trust. You can quickly assess if a developer is trust-worthy or not. As he can only build this trust over time. There are lots of users I would trust in a heart beat. People I know are not scammy and wouldn't risk their reputation over adding scammy components to their apps to earna  buck or two. 
 
 
-### Tower of babylon syndrome
+### Tower of Babylon syndrome
 
 I think you need a reset. Instead of making ever longer todo list. Just start over, with the intimate knowledge of your first attempt. This time keep it simple. Life is about being open to the chances that is presented for you. If you are busy all the time you'll miss out on all these opportunities that wooosh by. Not even knowing they past you.
 
@@ -25,7 +25,20 @@ Expand on the subject: existential rest
 Expand on the babylonians greed etc.
 
 
+### Peacocks feather syndrome
+The need to make something contrived in order to display wow factor, instead of solving the problem
+
 ### Idea bin:
+- IconMaker.app -> A drag and drop icon creator made with swift commandline + that flower pot icon 👈
 - Compendium a dead simple .md -> pdf book converter
 - Thermostat (Optional name: Cyclon)
 - Radar (Open source "network guard" for your mac)
+- GUI app for SPM
+
+### Ethical apps:
+- The entire stack must be open-source 
+- The app must be possible to build from source
+- If the app is distributed from an app store the sha-1 must match the sha-1 you can build your self
+- External logging must be limited and if used completly transparant. 
+- No monkey business
+

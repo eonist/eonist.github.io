@@ -1,15 +1,59 @@
-My notes on advance usage of SPM <!--more--> 
+My notes Swift package manager 4 <!--more-->
 
-### Update an SPM project:
+### Creating a mac app with SPM 4:
+1. `cd ~/dev/Awesome/` 
+2. `swift package init`
+3. `swift package generate-xcodeproj`
+4. XCode -> file -> Target -> Cocoa app 👈 **This makes your project a real GUI App project**
+5. switch to the AwesomeApp target (next to the run icon)
+6. Drag and drop the Awesome.framework into "embedded binaries" for AwesomeApp target
+7. add `func testing(){print("Hello world")}` to the Awesome.swift file
+8. add `import Awesome` to AppDelegate.swift and add `testing()` inside applicationDidFinishLaunching
+9. CMD + R should now print: `hello world`
 
-The command swift package generate-xcodeproj does not modify your source code, so you can safely run the command after updating your dependencies.
+### Updating dependencies:
+You can update dependencies and have the changes show up in Xcode instantly. For instance if you need to update a dependency with a fix, but you don't want to bump the tags. You do this by targeting the commit id or even a development branch in the dependency git project.
+1. Edit the dependency url to point to the commit where the fix is: `.revision("74663ec")`
+2. `Swift package update` **the latest commit ** has now been included in your project 👌
 
-To update your dependencies in your project, follow these three steps:
+### The SPM 4 Package.swift file:
 
-Update the dependency versions in your Package.swift file
-1. Run swift package update
-2. Run swift package generate-xcodeproj
-3. In these steps Swift Package Manager will download the updated dependencies and then update your xcodeproj files to use those dependencies.'. 
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "Awesome",
+    products: [
+        .library(
+			//This is basically an umbrella 
+            name: "Awesome",
+            targets: ["Awesome"]),
+    ],
+    dependencies: [
+		//this is an external lib that has Some string utils
+        .package(url:"https://github.com/futurebright/TestingSPM.git", from: "0.0.1")
+    ],
+    targets: [
+        .target(
+            name: "Awesome",
+            dependencies: ["TestingSPM"]),//You declare an alias to the dependency url here
+    ]
+)
+
+```
+
+### Version syntax:
+- `from: "1.0.0"` (1.0.0 ..< 2.0.0)
+- `from: "1.2.0"` (1.2.0 ..< 2.0.0)
+- `from: "1.5.8"` 1.5.8 ..< 2.0.0
+- `.upToNextMajor(from: "1.5.8")` 1.5.8 ..< 2.0.0
+- `.upToNextMinor(from: "1.5.8")` 1.5.8 ..< 1.6.0
+- `"1.2.3"..."1.2.8"`  1.5.8
+- `"1.2.3"..<"1.2.6"`  Constraint to an arbitrary open range.
+- `"1.2.3"..."1.2.8"` Constraint to an arbitrary closed range.
+- `.branch("develop")` Branch
+- `.revision("74663ec")`  commit hash "revision" (you can use short hash or long hash)
+
 
 
 
@@ -18,45 +62,23 @@ Update the dependency versions in your Package.swift file
 `swift package init --type library` This will create the directory structure needed for a library package
 `swift package tools-version` Shows SPM version (there is also: `swift build --version`)
 
-### The SPM Ship Manifest 🛳:
-
-```swift
-// swift-tools-version:4.0
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
-import PackageDescription
-
-let package = Package(
-    name: "TestApp2",
-    products: [
-        // Products define the executables and libraries produced by a package, and make them visible to other packages.
-        .library(
-            name: "TestApp2",
-            targets: ["TestApp2"]),
-    ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages which this package depends on.
-        .target(
-            name: "TestApp2",
-            dependencies: []),
-        .testTarget(
-            name: "TestApp2Tests",
-            dependencies: ["TestApp2"]),
-    ]
-)
-
-```
-
-### Editable state:
-
-Seems a bit hard to get your head around see this link: https://github.com/apple/swift-package-manager/blob/master/Documentation/Usage.md#editable-packages
-
 
 ### Use full links:
 
+Overview of SPM by apple:
 https://github.com/apple/swift-package-manager/blob/master/Documentation/PackageDescriptionV4.md
+
+Using local modules (instead of external git url's): 
+Seems like you have to create a git project locally to get this working. 🤔
+https://stackoverflow.com/questions/43358706/swift-package-manager-adding-local-dependencies
+
+SPM 4 with iOS: 
+https://github.com/j-channings/swift-package-manager-ios/blob/master/Package.swift
+
+### Bonus:
+**Editable state**   
+`Seems a bit complex, research this`
+https://github.com/apple/swift-package-manager/blob/master/Documentation/Usage.md#editable-packages
+
+**Pinning**   
+`Seems a bit complex,Needs Research`
