@@ -2,8 +2,8 @@ Spend zero time managing dependencies<!--more-->. Build speed is almost down to 
 
 ## Wants: 
 - Ability to Build from .framework (because of zero to low build times)   
-- Synchronize source code across projects autonomously (many to many sync)   
-- Synchronize directly to 1 singular origin repo at github (version control)   
+- Synchronise source code across projects autonomously (many to many sync)   
+- Synchronise directly to 1 singular origin repo at github (version control)   
 - Full SPM integration (Sharing code w/ Community)  
 - Ability to edit external framework code directly inside app projects, and automatically sync back to origin.   
 - Playground friendly (You are building .frameworks so it works in playground)   

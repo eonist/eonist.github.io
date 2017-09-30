@@ -26,7 +26,7 @@ Expand on the babylonians greed etc.
 
 
 ### Peacocks feather syndrome
-The need to make something contrived in order to display wow factor, instead of solving the problem
+The need to make something with wow factor and in the process just ending up with something contrived, instead of just solving the problem.
 
 ### Idea bin:
 - IconMaker.app -> A drag and drop icon creator made with swift commandline + that flower pot icon 👈

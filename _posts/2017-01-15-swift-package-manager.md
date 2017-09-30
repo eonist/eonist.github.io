@@ -68,9 +68,9 @@ If two packages depend on different versions of a third package, the package man
 
 ## Drawbacks:
 
-1. Unable to target Commit ids. Only release tags are supported. Which makes it difficult to have a fast workflow when evolving your projects. Releases should be significant and not iterate on every new commit. If you have a lot of nested frameworks which you should because modularity is good and thats why we have dependency managers in the first place. Apple has no intention to support targeting commit ids according to their mailing-list on SPM. Carthage has support for targeting commit ids and even ``"HEAD"`` However pushing a release tag isn't that much work but it is inconvenient. 
+1. Unable to target Commit ids. Only release tags are supported. Which makes it difficult to have a fast workflow when evolving your projects. Releases should be significant and not iterate on every new commit. If you have a lot of nested frameworks which you should because modularity is good and thats why we have dependency managers in the first place. Apple has no intention to support targeting commit ids according to their mailing-list on SPM. Carthage has support for targeting commit ids and even ``"HEAD"`` However pushing a release tag isn't that much work but it is inconvenient.  ⚠️️**(this is not the case in SPM4)**⚠️️
 
-2. Difficult to update dependencies once xcodeproj is generated
+2. Difficult to update dependencies once xcodeproj is generated ⚠️️**(this is not the case in SPM4)**⚠️️
 
 ## Side notes:  
 - Target beta/alpha versions: ``Version(0, 0, 0, prereleaseIdentifiers: ["alpha", "2"])``
