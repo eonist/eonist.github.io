@@ -1,6 +1,16 @@
-My notes Swift Package Manager 4 <!--more-->  
+My notes Swift Package Manager 4 <!--more--> Basically this article describes my workflow using SPM 4 to build a  GUI mac app.
 
-⚠️️This article is currently a WIP⚠️️
+⚠️️ This article is currently a WIP ⚠️️
+
+### What I want:
+1. Keep as much code as possible in small modules in a module graph / hierarchy
+2. have these modules self assemble into ever bigger modules
+3. The root module is the app it self
+4. Each module must it self be easily editable within the project for syncing with github 
+5. Third-party modules must be able to update them selfs via a simple `swift package update` call
+
+### How to get it:
+Since SPM 4 doesn't support building to app target yet, we can't ever call `swift package generate-xcodeproj` more than once. That means we have to use SPM as more of a 1 time setup tool and updater of third-party libs. 
 
 ### Creating a mac app with SPM 4:
 1. `cd ~/dev/Awesome/` 
@@ -15,18 +25,16 @@ My notes Swift Package Manager 4 <!--more-->
 
 ### Updating dependencies: 
 You can update dependencies and have the changes show up in Xcode instantly. For instance if you need to update a dependency with a fix, but you don't want to bump the tags. You do this by targeting the commit id or even a development branch in the dependency git project.
-1. Edit the dependency url to point to the commit where the fix is located: `.branch("master")`
-2. `Swift package update` **the latest commit in master** has now been included in your project 👌
+1. Edit the dependency url to point to the commit where the fix is located: `.branch("master")`  
+2. `Swift package update` **the latest commit in master** has now been included in your project 👌  
 
 ### Syncing code back to GitHub: 
-In SPM 4 Apple seems to lock the .git folder of dependencies. So you need to first unlock it. Unlock the .git folder read my tutorial [here](https://stackoverflow.com/a/46505143/5389500) There a way to do this via terminal: `sudo chmod -R 777 .` If you have already edited source I recommend "stashing" the files and reseting to head `git reset --hard`. 
+`swift package edit StringKit` will add a dep to a Package folder. Which works as an overrider of your subdep graph. You need to regenerate the xcode proj after you put a dep into edit mode. Then use git to sync your code to github again.
 
-1: ``cd ~/dev/x/y/z`` 👈 navigate to your module 
-2: ``git checkout master`` 👈 switch to the master branch for your module  
-3: ``git commit -a -m "Updated Feature-x"``  Make a commit after your change is made
-4: ``git push``  
-
-You might need to check if git remote is correct: `git remote -v` If you need to set `git remote url` see: https://stackoverflow.com/questions/42830557/git-remote-add-origin-vs-remote-set-url-origin The bad news is that every-time you do `swift package update`. You have to do the unlocking of files and step 1-4 again 🙁 There might be something that can avoid this. I think I have to look into the new pinning and editable functionality in SPM4, as the current resetting of git data is not a very efficient way to work... To be continued tomorrow ✌️ 
+1: ``cd ~/dev/x/y/z`` 👈 navigate to your module   
+2: ``git checkout master`` 👈 switch to the master branch for your module    
+3: ``git commit -a -m "Update"``  Make a commit after your change is made  
+4: ``git push``   
 
 
 ### The SPM 4 Package.swift file:
@@ -68,20 +76,18 @@ let package = Package(
 - `.revision("74663ec")`  commit hash "revision" (you can also use long hash)
 
 
-### Use-full SPM commands:
-
-`swift package init --type library` This will create the directory structure needed for a library package
-`swift package tools-version` Shows SPM version (there is also: `swift build --version`)
-
-
 ### General tips:
 - Don't `swift package generate-xcodeproj` more than 1 time. It will render your Mac App target void
 - Use Atom.io to edit the Package.swift file. It has syntax highlighting so you see if you forger double quotes etc
+- Avoid hanging commas. Also errors often are an extra ] char so make sure you close all the brackets correctly
+- Don't forget wrapping references in ""
 
 ### Use full links:
+SPM 4 API: (by apple) 🔑
+https://github.com/apple/swift-package-manager/blob/swift-4.0-branch/Documentation/PackageDescriptionV4.md
 
-Overview of SPM 4 by apple:
-https://github.com/apple/swift-package-manager/blob/master/Documentation/PackageDescriptionV4.md
+Overview of SPM 4 (by apple):  
+https://github.com/apple/swift-package-manager/blob/master/Documentation/Usage.md
 
 Using local modules (instead of external git url's): 
 Seems like you have to create a git project locally to get this working. 🤔
@@ -90,12 +96,13 @@ https://stackoverflow.com/questions/43358706/swift-package-manager-adding-local-
 SPM 4 with iOS: 
 https://github.com/j-channings/swift-package-manager-ios/blob/master/Package.swift
 
-
-
 ### Bonus:
 **Editable state**   
-`Seems a bit complex, research this`
-https://github.com/apple/swift-package-manager/blob/master/Documentation/Usage.md#editable-packages
+The intention with Editable state is to be able to edit dependencies in your project. The problem is that this isn't reflected in your xcode project. The only way to reflect this in your xcode project is to call `swift package generate-xcodeproj` Which will then destroy your app target. And you have to set it up all over again. Not a good idea when changes happens 10-100 times per day. This will destroy your productivity. 
+
+**Top of Tree Development**
+This is better than Editable state. What it does is it creates a local folder of 1 of your deps, and then that overrides all future updates to the entire graph, until you revert it back. You have to still manually drag the folder into xcode if you don't want to use `swift package generate-xcodeproj` But it allows a workflow where you use third-party libs such as SwiftyJSON and AlamoFire along side your own git managed libs. 
 
 **Pinning**   
-`Seems a bit complex,Needs Research`
+Pinning is overriding sem ver. Can be relevant for mature and complex graphs to block bad versions etc.
+

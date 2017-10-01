@@ -10,7 +10,7 @@
 8. Unanimity can be employed to say no and it's the yes men who needs to do the convincing, not the no men.
 9. Above average industry pay (hiring the best requires best pay)
 10. Research is apart of project timelines
-11. Learning time is slotted before attempting new tasks
+11. Learning time is allotted before attempting new tasks
 12. A gym to jump around when your stuck. Brain needs oxygen!
 13. All engineers: Engineer pm, engineer designers, engineer leaders, engineer accountants. Engineer lawyers. 👉 Engineer HR person 👈. Please this is imp, it's a tech company.
 14. Healthy food for work is important. Stack the kitchen already! walnuts, fruits, you now brainy food. 

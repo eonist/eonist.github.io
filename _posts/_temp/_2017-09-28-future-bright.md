@@ -4,7 +4,7 @@
 
 ### The great filter theory
 
-There is this theory called the great filter. Evolutionary theory. Each step in evolution single cell to multi cell. Stone to agro, agro to industrial. The next filter I feel is github. Like sure it’s industrial to digital. But if digital then social fabrics has to change. See software you make once and never again. The great filter is the theory that the reason the cosmos is absent of life except earth is because no one gets past one of these filters to the ultimate goal of interstellar communication and travel. Opensource/github could be the thing that gets us past the final filter or we could just keep fighting and never get past the filter. The GF theory also states that we could also be past the final filter.
+There is this theory called the great filter. Evolutionary theory. Each step in evolution single cell to multi cell. Stone to agro, agro to industrial. The next filter I feel is github. Like sure it’s industrial to digital. But if digital then social fabrics has to change. See software you make once and never again. The great filter is the theory that the reason the cosmos is absent of life except earth is because no one gets past one of these filters to the ultimate goal of interstellar communication and travel. Opensource/github could be the thing that gets us past the final filter or we could just keep fighting and never get past the filter. The GF theory also states that we could also be past the final filter. Why is github so important? Answer: there is no entity having as much positive impact on the world right now as github. Opensource used to be mailing-lists and .zip files. A bug fix would take months to fix, years to propagate. 
 
 
 ### Ledger of trust

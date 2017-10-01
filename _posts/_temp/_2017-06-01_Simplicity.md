@@ -1,7 +1,7 @@
 Getting a working prototype up and running is vital to the progress of any project. Preferably within 1 day of work. To achieve this I want to use JSON to abstract away the UI code. But at the same time not closing the door on  customization. Here is my Idea:
 
 1. You write the app structure in JSON. 
-2. Then you add some CSS that use FlexBox to position the layout. 
+2. Then you add some CSS that use FlexBox to position the layout. 🚫 flex is not user friendly enough
 3. Then you add some event handling swift code that reacts to interaction
 
 Test your app: Does it resize correctly, does the page transitions work?
