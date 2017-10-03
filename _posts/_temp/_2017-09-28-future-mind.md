@@ -1,4 +1,4 @@
-# Future Bright
+# Future mind
 
 <img width="320" alt="img" src="https://rawgit.com/stylekit/img/master/gitsync_logo_120_dev-01.svg">
 
