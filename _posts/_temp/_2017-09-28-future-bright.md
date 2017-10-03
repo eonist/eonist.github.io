@@ -42,3 +42,6 @@ The need to make something with wow factor and in the process just ending up wit
 - External logging must be limited and if used completly transparant. 
 - No monkey business
 
+### We all live in bubbles
+
+We all live in bubbles of our own reality. We create this comfortable belief system to keep us a float. Escape the bubble!

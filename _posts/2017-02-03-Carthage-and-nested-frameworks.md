@@ -36,4 +36,4 @@ Which workflow is better? The future is automated so go with option 1. Also you 
 
 ## Further discussions:
 
-Advance nesting does and donts: [https://github.com/Carthage/Carthage/issues/768](https://github.com/Carthage/Carthage/issues/768) 
+Advance nesting does and don't's: [https://github.com/Carthage/Carthage/issues/768](https://github.com/Carthage/Carthage/issues/768) 

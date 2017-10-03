@@ -59,3 +59,7 @@ let whale:Whale = try decode(data: json)//From json to struct
 let whaleJSON = try whale.encode()//From struct to json
 
 ```
+
+### Resources:
+
+Real KVC: https://github.com/bradhilton/SwiftKVC

@@ -2,7 +2,7 @@ My notes on how you can create and add an .icns to your xcode mac app project<!-
 
 ### Xcode 8.2.1
 
-1. Convert .png 👉.icns via [IconMaker](http://stylekit.org/blog/2016/12/06/Creating-an-app-icon/) 
+1. Convert .png 👉.icns via [IconMaker](http://eon.codes/blog/2016/12/06/Creating-an-app-icon/) 
 
 2. Add the AwesomeApp.icns file in the same folder as info.plist
 
@@ -17,4 +17,4 @@ My notes on how you can create and add an .icns to your xcode mac app project<!-
 7. Run the app 👉 (cmd + r)
 
 
-[Converting .png to .icns](http://stylekit.org/blog/2016/12/06/Creating-an-app-icon/) 
+[Converting .png to .icns](http://eon.codes/blog/2016/12/06/Creating-an-app-icon/) 

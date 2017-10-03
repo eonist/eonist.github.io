@@ -21,4 +21,5 @@ static func content(_ path:String)->String?{
 Dragging a folder with resources into xcode will also work but the content will not have hierarchical folder structure once you build. .bundle folders on the other hand will retain the hierarchical folder structure 	
 
 ### Note:
-If you update something in a .bundle the .bundle in your app also gets updated. It does not get updated other wise. 
+- If you update something in a .bundle the .bundle in your app also get's updated. It does not get updated other wise. 
+- Sometimes you have to add the .bundle file to app tartget -> buildphases -> copy bundle resources

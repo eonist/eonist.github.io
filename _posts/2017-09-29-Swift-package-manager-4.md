@@ -1,4 +1,4 @@
-My notes Swift Package Manager 4 <!--more--> Basically this article describes my workflow using SPM 4 to build a  GUI mac app.
+My notes Swift Package Manager 4 <!--more--> Basically this article describes my App Development workflow using SPM 4. And also maintaining the underlying libraries that makes up the app.
 
 ⚠️️ This article is currently a WIP ⚠️️
 
@@ -10,7 +10,7 @@ My notes Swift Package Manager 4 <!--more--> Basically this article describes my
 5. Third-party modules must be able to update them selfs via a simple `swift package update` call
 
 ### How to get it:
-Since SPM 4 doesn't support building to app target yet, we can't ever call `swift package generate-xcodeproj` more than once. That means we have to use SPM as more of a 1 time setup tool and updater of third-party libs. 
+Since SPM 4 doesn't support building to app target yet, we can't call `swift package generate-xcodeproj` more than once, without making a lot of fuzz. That means we have to use SPM as more of a 1 time setup tool and updater of third-party libs. 
 
 ### Creating a mac app with SPM 4:
 1. `cd ~/dev/Awesome/` 
@@ -29,7 +29,7 @@ You can update dependencies and have the changes show up in Xcode instantly. For
 2. `Swift package update` **the latest commit in master** has now been included in your project 👌  
 
 ### Syncing code back to GitHub: 
-`swift package edit StringKit` will add a dep to a Package folder. Which works as an overrider of your subdep graph. You need to regenerate the xcode proj after you put a dep into edit mode. Then use git to sync your code to github again.
+`swift package edit StringKit` will add a dependency to a Package folder. Which works as an overrider of your "sub-dependency graph". You need to regenerate the Xcode project after you put a dependency into edit mode. Then use git to sync your code to github again.
 
 1: ``cd ~/dev/x/y/z`` 👈 navigate to your module   
 2: ``git checkout master`` 👈 switch to the master branch for your module    
@@ -83,14 +83,14 @@ let package = Package(
 - Don't forget wrapping references in ""
 
 ### Use full links:
-SPM 4 API: (by apple) 🔑
+SPM 4 API: (by apple) 🔑  
 https://github.com/apple/swift-package-manager/blob/swift-4.0-branch/Documentation/PackageDescriptionV4.md
 
-Overview of SPM 4 (by apple):  
+Overview of SPM 4 (by apple):    
 https://github.com/apple/swift-package-manager/blob/master/Documentation/Usage.md
 
 Using local modules (instead of external git url's): 
-Seems like you have to create a git project locally to get this working. 🤔
+Seems like you have to create a git project locally to get this working. 🤔  
 https://stackoverflow.com/questions/43358706/swift-package-manager-adding-local-dependencies
 
 SPM 4 with iOS: 
@@ -106,3 +106,7 @@ This is better than Editable state. What it does is it creates a local folder of
 **Pinning**   
 Pinning is overriding sem ver. Can be relevant for mature and complex graphs to block bad versions etc.
 
+### Questions left unanswered:
+- Why is SPM creating all these ...PackageDescription Targets in the xcodeproject. They don't do anything and clutters up the project and can be deleted. 
+
+- Apple has started to add forced sandbox to xcode projects you create with xcode 9 🙁. To un-sandbox your app, delete the .entitlments file and remove the corresponding setting in build settings. This can be found by going to build settings and searching for signing. Or following the error if you try to build without the .entitlements file
