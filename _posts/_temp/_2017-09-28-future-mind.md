@@ -34,6 +34,7 @@ The need to make something with wow factor and in the process just ending up wit
 - Thermostat (Optional name: Cyclon)
 - Radar (Open source "network guard" for your mac)
 - GUI app for SPM
+- Opensource hiring bot that checks your opensource skills
 
 ### Ethical apps:
 - The entire stack must be open-source 
