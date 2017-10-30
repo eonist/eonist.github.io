@@ -36,6 +36,7 @@ The need to make something with wow factor and in the process just ending up wit
 - GUI app for SPM
 - Opensource hiring bot that checks your opensource skills
 - Distil.io github contrib system for book synopsises
+- A fin tech SaaS that recommends small bets that are improbable but may yield big. blackswans
 
 ### Ethical apps:
 - The entire stack must be open-source
@@ -45,5 +46,4 @@ The need to make something with wow factor and in the process just ending up wit
 - No monkey business
 
 ### We all live in bubbles
-
 We all live in bubbles of our own reality. We create this comfortable belief system to keep us a float. Escape the bubble!
