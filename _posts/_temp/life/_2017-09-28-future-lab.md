@@ -18,7 +18,7 @@ The trust ledger must be a neutral part. Something that cant be gamed, curated o
 
 I think you need a reset. Instead of making ever longer todo list. Just start over, with the intimate knowledge of your first attempt. This time keep it simple. Life is about being open to the chances that is presented for you. If you are busy all the time you'll miss out on all these opportunities that wooosh by. Not even knowing they past you.
 
-I think all people/companies need to reset / re-evaluate what the heck they are doing more often. We build up this huge clusters of obligations, when we really should be simplifying and meaking a leaner life / company.
+I think all people/companies need to reset / re-evaluate what the heck they are doing more often. We build up this huge clusters of obligations, when we really should be simplifying and making a leaner life / company.
 
 Expand on the subject: existential rest
 
