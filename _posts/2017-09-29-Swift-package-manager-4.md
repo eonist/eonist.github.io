@@ -107,6 +107,6 @@ This is better than Editable state. What it does is it creates a local folder of
 Pinning is overriding sem ver. Can be relevant for mature and complex graphs to block bad versions etc.
 
 ### Questions left unanswered:
-- Why is SPM creating all these ...PackageDescription Targets in the xcodeproject. They don't do anything and clutters up the project and can be deleted.
+- Why is SPM creating all these ...PackageDescription Targets in the xcode-project. They don't do anything and clutters up the project and can be deleted.
 
 - Apple has started to add "forced" sandbox to Xcode projects you create with xcode 9 🙁. To un-sandbox your app, delete the .entitlments file and remove the corresponding setting in build settings. This can be found by going to build settings and searching for signing. Or following the error if you try to build without the .entitlements file. Sandboxing is great. But can cause problems when building / distributing open source software outside "the mac-app-store"
