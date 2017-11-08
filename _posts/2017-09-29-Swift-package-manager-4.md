@@ -78,23 +78,23 @@ let package = Package(
 
 ### General tips:
 - Don't `swift package generate-xcodeproj` more than 1 time. It will render your Mac App target void
-- Use Atom.io to edit the Package.swift file. It has syntax highlighting so you see if you forger double quotes etc
+- Use Atom.io to edit the Package.swift file. It has syntax highlighting so you see if you forget double quotes etc
 - Avoid hanging commas. Also errors often are an extra ] char so make sure you close all the brackets correctly
-- Don't forget wrapping references in ""
+- Don't forget wrapping references in `""`
 
 ### Use full links:
 SPM 4 API: (by apple) 🔑  
 https://github.com/apple/swift-package-manager/blob/swift-4.0-branch/Documentation/PackageDescriptionV4.md
 
 Overview of SPM 4 (by apple):    
-https://github.com/apple/swift-package-manager/blob/master/Documentation/Usage.md
+[https://github.com/apple/swift-package-manager/blob/master/Documentation/Usage.md](https://github.com/apple/swift-package-manager/blob/master/Documentation/Usage.md)
 
 Using local modules (instead of external git url's):
 Seems like you have to create a git project locally to get this working. 🤔  
-https://stackoverflow.com/questions/43358706/swift-package-manager-adding-local-dependencies
+[https://stackoverflow.com/questions/43358706/swift-package-manager-adding-local-dependencies](https://stackoverflow.com/questions/43358706/swift-package-manager-adding-local-dependencies)
 
 SPM 4 with iOS:
-https://github.com/j-channings/swift-package-manager-ios/blob/master/Package.swift
+[https://github.com/j-channings/swift-package-manager-ios/blob/master/Package.swift](https://github.com/j-channings/swift-package-manager-ios/blob/master/Package.swift)
 
 ### Bonus:
 **Editable state**   
