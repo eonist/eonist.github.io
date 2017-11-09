@@ -40,5 +40,4 @@ func applicationDidFinishLaunching(aNotification: NSNotification) {
 @objc func quitApp(){
    Swift.print("quitApp")
 }
-
 ```
