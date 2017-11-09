@@ -1,6 +1,6 @@
 My notes Swift Package Manager 4 <!--more--> Basically this article describes my App Development workflow using SPM 4. And also maintaining the underlying libraries that makes up the app.
 
-⚠️️ This article is currently a WIP ⚠️️
+⚠️️ I recommend just using google if you are not familiar with some of the terms / names ⚠️️
 
 ### What I want:
 1. Keep as much code as possible in small modules in a module graph / hierarchy
@@ -16,11 +16,11 @@ Since SPM 4 doesn't support building to app target yet, we can't call `swift pac
 1. `cd ~/dev/Awesome/`
 2. `swift package init`
 3. `swift package generate-xcodeproj`
-4. XCode -> file -> Target -> Cocoa app 👈 **This makes your project a real GUI App project**
+4. Open the.xvodproj file and `XCode -> file -> Target -> Cocoa app` 👈 **This makes your project a real GUI App project**
 5. switch to the AwesomeApp target (next to the run icon)
 6. Drag and drop the Awesome.framework into "embedded binaries" for AwesomeApp target
 7. add `func testing(){print("Hello world")}` to the Awesome.swift file
-8. add `import Awesome` to AppDelegate.swift and add `testing()` inside applicationDidFinishLaunching
+8. add `@testable import Awesome` to AppDelegate.swift and add `testing()` inside applicationDidFinishLaunching
 9. CMD + R should now print: `hello world`
 
 ### Updating dependencies:
