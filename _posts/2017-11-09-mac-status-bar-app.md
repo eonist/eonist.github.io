@@ -1,7 +1,7 @@
 My notes on making a status-bar-app <!--more--> in swift 4
 
 ```swift
-var statusBar = NSStatusBar.systemStatusBar()
+var statusBar = NSStatusBar.system
 var statusBarItem : NSStatusItem = NSStatusItem()
 var menu: NSMenu = NSMenu()
 var menuItem : NSMenuItem = NSMenuItem()
@@ -41,3 +41,6 @@ func applicationDidFinishLaunching(aNotification: NSNotification) {
    Swift.print("quitApp")
 }
 ```
+
+- add image icon to statusbar app: [https://stackoverflow.com/questions/38461449/validatemenuitem-or-menuwillopen-not-called-for-nsmenu](https://stackoverflow.com/questions/38461449/validatemenuitem-or-menuwillopen-not-called-for-nsmenu)
+- toggle darkmode[https://www.raywenderlich.com/165853/menus-popovers-menu-bar-apps-macos](https://www.raywenderlich.com/165853/menus-popovers-menu-bar-apps-macos)
