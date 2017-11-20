@@ -63,3 +63,8 @@ let whaleJSON = try whale.encode()//From struct to json
 ### Resources:
 
 Real KVC: https://github.com/bradhilton/SwiftKVC
+
+Tut with playground: nested JSON structures
+https://medium.com/makingtuenti/writing-a-scalable-api-client-in-swift-4-b3c6f7f3f3fb
+
+https://medium.com/swiftly-swift/swift-4-decodable-beyond-the-basics-990cc48b7375

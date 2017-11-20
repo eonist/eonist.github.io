@@ -8,7 +8,7 @@ Apps: Atom, XCode, TextExpander, Safari, Opera.
 Files: Only research folder that is synced to github private. And only the current active main repo. Usually 2-3 repos. Also synced.
 
 - Everything else is moved to external drives and work repos are synced to private github and deleted locally.
-The idea being that you can rest your mac from a fresh build in a matter of 30 minutes. Like a fleeting device that you only borrow.
+The idea being that you can reset your mac from a fresh build in a matter of 30 minutes. Like a fleeting device that you only borrow.
 
 - Why? Everything around us gets hacked. Because their setups are too complex. Too many patches are needed to avoid sinking the ship. The only way to mitigate this problem is to simplify your modus operandi. Simplify until there are only a few things you need to be aware of to avoid breaches. Your future depends on it.
 
