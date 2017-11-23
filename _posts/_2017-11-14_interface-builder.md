@@ -12,7 +12,10 @@ https://www.youtube.com/watch?v=MsNzYMMBIJ8&list=PLHDMmeIMXj8VRKB1w6L3igjFyhKi2h
 https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/BuildABasicUI.html
 
 ### Segue
-Segue is essentially a way to get and set data from prev and next view 
+Segue is essentially a way to get and set data from prev and next view . you can call `performSegue(withIdentifier:"nameOFSegueInIb",sender:self)` to transition to another view from swift code
 
 ## UIAlertController (alert dialog)
 See 114 Spinners  Alerts.mp4 in complete-ios-10-developer-course
+
+## Conclusion:
+UIBuilder is rather simple. It's not much harder than using Applescript GUI. It consists of 3 parts. UI elements, Segues (aka transitions), outlets (refs in your code to the UI element) everything else is pretty trivial and solutions are a google search away. 

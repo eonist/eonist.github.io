@@ -33,3 +33,4 @@ The reason limiting your scope is so important is to avoid the feeling of swimin
 
 ### Final note:
 You often see these wonder-kids casually noting how little time they spent on making a product on producthunt etc. What they don't tell you is that they spent alot of time researching the viability of the project, doing pre-research, doing tests and even completing parts of the project before hand. So the actual time they spent constructing the product was small. So stop your self the next time you get an idea you just have to do right away. Rather than start coding, start planing, find the pitfalls. It's not as fun as jumping right in, but you will finish so much faster and save your self alot of dissapointment and stress. You may also discover ideas that you wouldn't have found if you started building right away. 
+

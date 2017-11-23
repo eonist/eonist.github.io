@@ -64,3 +64,6 @@ icon_512x512@2x.png
 
 `sips -Z 512 ~/Desktop/someIcon.png`
 You could add shell commands that resizes the images for you, in the applescript to actually resize each image. But I didn't have time for this step this time around. Maybe next time I revisit this app ill implement it. You can also probably make a photoshop script that does all the resizing and renaming for you. let me know if you make any of this ideas and ill be sure to share it with the world. Thanks for reading ✌️ 
+
+### Resources:
+For ios11 icons you can use this online converter: [https://makeappicon.com](https://makeappicon.com) 
