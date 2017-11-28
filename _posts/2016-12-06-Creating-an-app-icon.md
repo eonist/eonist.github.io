@@ -53,7 +53,7 @@ icon_256x256@2x.png
 icon_512x512.png
 icon_512x512@2x.png
 ```
-3. Put the png's in a folder named: someIcon.iconset and put the folde ron your desktop
+3. Put the png's in a folder named: someIcon.iconset and put the folder on your desktop
 
 4. Open Terminal and paste this line: `iconutil --convert icns ~/Desktop/someIcon.iconset`	
 
