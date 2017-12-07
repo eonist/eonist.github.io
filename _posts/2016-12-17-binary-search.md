@@ -2,6 +2,9 @@ Binary search implementation in swift<!--more-->
 
 ### Example:
 ```swift
+/*
+ * NOTE: Binary search does not find an index if the key you search for is not present in the array
+ */
 func binarySearch<T: Comparable>(_ a: [T], key: T, range: Range<Int>) -> Int? {
     if range.lowerBound >= range.upperBound {
         return nil// If we get here, then the search key is not present in the array.
@@ -17,7 +20,7 @@ func binarySearch<T: Comparable>(_ a: [T], key: T, range: Range<Int>) -> Int? {
     }
 }
 let numbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67]
-binarySearch(numbers, key: 43, range: 0 ..< numbers.count)//output: 13
+binarySearch(numbers, key: 43, range: 0 ..< numbers.count)//output: 13 index of where the key is
 ```
 
 ### Resource:
