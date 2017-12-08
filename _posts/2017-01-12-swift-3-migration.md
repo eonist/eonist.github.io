@@ -16,7 +16,6 @@ Apples motivation for separating these types was:
 **Important:** 0...4 is now called a: Closed​Range and CountableClosedRange the later if the Range contains a collection  
 
 ## For-loop:
-
 The one c-style for-loop to rule them all is gone, now we have 10 different to take it's place: 
 
 - ``for i in 0..4{}`` 👈 regular forward looping
@@ -32,7 +31,6 @@ The one c-style for-loop to rule them all is gone, now we have 10 different to t
     
     
 ## NSView:
-
 ``drawLayer(layer:CALayer, inContext ctx: CGContext)`` 👈 This has vanished with out a trace to work around build it your self or? 
   
 ``actionForLayer(layer:CALayer, forKey event: String) -> CAAction?`` 👈 Also gone, Solution: build it your self or?
