@@ -10,3 +10,5 @@ Hocking up cell items to actions: https://stackoverflow.com/questions/41658868/h
 
 Dynamic row height:
 https://www.youtube.com/watch?v=ELBK3FFBZhY
+
+
