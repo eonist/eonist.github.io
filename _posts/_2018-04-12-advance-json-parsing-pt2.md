@@ -77,3 +77,70 @@ login()
 //inner err
 //regular inner err 🎉 i'm deep in the hierarchy 💪
 ```
+
+
+### Throw oriented code should be favoured to nil coalesing code: 
+```swift
+/*
+Suppose a function myFunction is supposed to return a String, however, at some point it can run into an error. A common approach is to have this function return an optional String? where we return nil if something went wrong.
+
+Example:
+    */   
+func readFile(named filename: String) -> String? {
+    guard let file = openFile(named: filename) else {
+        return nil
+    }
+
+    let fileContents = file.read()
+    file.close()
+    return fileContents
+}
+
+func printSomeFile() {
+    let filename = "somefile.txt"
+    guard let fileContents = readFile(named: filename) else {
+        print("Unable to open file \(filename).")
+        return
+    }
+    print(fileContents)
+}
+/*
+Instead, we should be using Swift's try/catch behavior when it is appropriate to know the reason for the failure.
+
+You can use a struct such as the following:
+    */
+
+struct Error: Swift.Error {
+    public let file: StaticString
+    public let function: StaticString
+    public let line: UInt
+    public let message: String
+
+    public init(message: String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+        self.file = file
+        self.function = function
+        self.line = line
+        self.message = message
+    }
+}
+Example usage:
+
+func readFile(named filename: String) throws -> String {
+    guard let file = openFile(named: filename) else {
+        throw Error(message: "Unable to open file named \(filename).")
+    }
+
+    let fileContents = file.read()
+    file.close()
+    return fileContents
+}
+
+func printSomeFile() {
+    do {
+        let fileContents = try readFile(named: filename)
+        print(fileContents)
+    } catch {
+        print(error)
+    }
+}
+```
