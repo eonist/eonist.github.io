@@ -43,8 +43,8 @@ extension AnimVC{
             self.square.anchor?.x = newAnchorConstraint.x
         }
         let anim = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut, animations: {
-            newConstraint()// Set the new constraints
-            self.view.layoutIfNeeded()//Apply the new constraints on the view
+            newConstraint()// ⚠️️ Set the new constraint goal
+            self.view.layoutIfNeeded()//⚠️️  Ask the parent view to update its layout
         })
         anim.startAnimation()
     }
