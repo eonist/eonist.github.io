@@ -15,20 +15,6 @@ class AnimVC:UIViewController{
         view.backgroundColor = .green
         _ = square
     }
-    @objc func handleTap(_ sender:UITapGestureRecognizer){
-        let newConstraint = {
-            guard let oldAnchorConstraint = self.square.anchor else {fatalError("err posConstraint not available")}
-            NSLayoutConstraint.deactivate([oldAnchorConstraint.x])
-            let newAnchorConstraint = Constraint.anchor(self.square, to: self.view, align: .topLeft, alignTo: .topLeft, offset: CGPoint(x:0,y:0))
-            NSLayoutConstraint.activate([newAnchorConstraint.x])
-            self.square.anchor?.x = newAnchorConstraint.x
-        }
-        let anim = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut, animations: {
-            newConstraint()// Set the new constraints
-            self.view.layoutIfNeeded()//Apply the new constraints on the view
-        })
-        anim.startAnimation()
-    }
 }
 extension AnimVC{
     func createSquare() -> Square{
@@ -47,6 +33,20 @@ extension AnimVC{
         let tap = UITapGestureRecognizer(target: self, action:  #selector(handleTap))
         square.addGestureRecognizer(tap)
         return square
+    }
+    @objc func handleTap(_ sender:UITapGestureRecognizer){
+        let newConstraint = {
+            guard let oldAnchorConstraint = self.square.anchor else {fatalError("err posConstraint not available")}
+            NSLayoutConstraint.deactivate([oldAnchorConstraint.x])
+            let newAnchorConstraint = Constraint.anchor(self.square, to: self.view, align: .topLeft, alignTo: .topLeft, offset: CGPoint(x:0,y:0))
+            NSLayoutConstraint.activate([newAnchorConstraint.x])
+            self.square.anchor?.x = newAnchorConstraint.x
+        }
+        let anim = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut, animations: {
+            newConstraint()// Set the new constraints
+            self.view.layoutIfNeeded()//Apply the new constraints on the view
+        })
+        anim.startAnimation()
     }
 }
 class Square:UIView{
