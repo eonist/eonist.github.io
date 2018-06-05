@@ -41,10 +41,10 @@ var myBigData : Data? {
 
 ```swift
 let arr = [1,2,3]
-if let fourthItem = (3 >= arr.count ?  nil : arr[3] ) {
-   Swift.print("fourthItem:  \(fourthItem)")
-}else if let thirdItem = (2 >= arr.count ? nil :  arr[2]) {
-   Swift.print("thirdItem:  \(thirdItem)")
+if let fourthItem = (3 < arr.count ?  arr[3] : nil ) {
+     Swift.print("fourthItem:  \(fourthItem)")
+}else if let thirdItem = (2 < arr.count ?  arr[2] : nil) {
+     Swift.print("thirdItem:  \(thirdItem)")
 }
 //Output: thirdItem: 3
 ```
