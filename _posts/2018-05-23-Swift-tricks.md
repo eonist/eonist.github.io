@@ -1,4 +1,4 @@
-My personal swift tircks<!--more-->
+Some of my favorite swift tircks<!--more-->
 
 ### Sometimes switch can be overkill:
 ```swift
@@ -35,3 +35,16 @@ var myBigData : Data? {
         return self._myBigData
     }
 }
+```
+
+### Asserting if an array index exist: 
+
+```swift
+let arr = [1,2,3]
+if let fourthItem = (3 >= arr.count ?  nil : arr[3] ) {
+   Swift.print("fourthItem:  \(fourthItem)")
+}else if let thirdItem = (2 >= arr.count ? nil :  arr[2]) {
+   Swift.print("thirdItem:  \(thirdItem)")
+}
+//Output: thirdItem: 3
+```
