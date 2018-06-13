@@ -1,9 +1,9 @@
 Sometimes you want to make an app that isn't using SPM4 <!--more--> Because SPM4 isn't very intuitive at the moment. It's hard to use and lacks updating features. SPM4 is a great way to distribute or ad CI to an app. But it's not great for active development. It can be done but it requires high mental bandwidth to get right. Here is my workflow when not using SPM4
 
-1. Create a mac app project in XCode. AwesomeApp
+1. Create an ios/mac app project in XCode. AwesomeApp
 2. In the app project go to `file -> new -> target -> Cocoa framework` Name it AwesomeLib
 3. Add code to AwesomeLib/AwesomeLib.swift like `func testing(){print("Hello world")}`
-4. add `@testable import Awesome` to AppDelegate.swift and add `testing()` inside applicationDidFinishLaunching
+4. add `@testable import AwesomeLib` to AppDelegate.swift and add `testing()` inside applicationDidFinishLaunching
 5. CMD + R should now print: `hello world`
 
 This framework workflow allows Nested dependencies. You can update code in xcode and all deps are auto updated when you hit: `cmd + r` (if the dep has been altered since last compile, if not it isn't re-generated 👌). The workflow is simple, fast and requires low mental bandwidth to setup for new projects and allows an easy way to add thrid-party deps. When your project is more mature and your ready to release it you can add SPM4 to it with ease. That way you can distribute entire apps or submodules later.

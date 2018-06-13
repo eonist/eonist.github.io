@@ -47,4 +47,4 @@ Swift has three levels of access control. Use the following rules of thumb when 
 ### NOTES:
 
 - Apple claims that it's best to use less than 6 .frameworks in your app. Or else compile time may suffer  (I doubt this statement is still valid in new versions of XCode)
-- Dynamic frameworks supported after ios 8 on iOS. Dynamic frameworks are linked form your app, static frameworks are included in the app.
+- Dynamic frameworks supported after ios 8 on iOS. Dynamic frameworks are linked from your app, static frameworks are included in the app.
