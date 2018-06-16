@@ -23,3 +23,6 @@ Dragging a folder with resources into xcode will also work but the content will 
 ### Note:
 - If you update something in a .bundle the .bundle in your app also get's updated. It does not get updated other wise. 
 - Sometimes you have to add the .bundle file to app target -> buildphases -> copy bundle resources
+- If you need to access a file quickly: var sourceURL = URL(fileURLWithPath: Bundle.main.resourcePath!);sourceURL.appendPathComponent("archive.zip") (dra the file into src of xcode)
+        
+        
