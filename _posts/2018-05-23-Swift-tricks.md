@@ -1,6 +1,6 @@
 Some of my favorite swift tircks<!--more-->
 
-### Sometimes switch can be overkill:
+### Sometimes using switch can be overkill:
 ```swift
 enum State{
     case a,b,c

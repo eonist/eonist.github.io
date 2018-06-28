@@ -1,7 +1,5 @@
 My notes on animating with constraints in swift<!--more-->. This example constitutes my "starter kit" when making animation scenarios that works with UIKit. 
 
-
-
 ### Example app:
 
 <img width="559.5" alt="img" src="https://rawgit.com/stylekit/img/master/weatherapp_rev1.mov.gif">
@@ -14,7 +12,6 @@ My notes on animating with constraints in swift<!--more-->. This example constit
 <img width="516" alt="img" src="https://rawgit.com/stylekit/img/master/constraint_animation.mov.gif">
 
 ### Swift code:
-
 
 ```swift
 class AnimVC:UIViewController{
@@ -64,7 +61,6 @@ class Square:UIView{
 }
 
 ```
-
 
 ### Supporting files:
 
