@@ -1,4 +1,4 @@
-Sometimes you want to make an app that isn't using SPM4 <!--more--> Because SPM4 isn't very intuitive at the moment. It's hard to use and lacks updating features. SPM4 is a great way to distribute or ad CI to an app. But it's not great for active development. It can be done but it requires high mental bandwidth to get right. Here is my workflow when not using SPM4
+Sometimes you want to make an app that isn't using SPM4<!--more-->. Because SPM4 isn't very intuitive at the moment. It's hard to use and lacks updating features. SPM4 is a great way to distribute or ad CI to an app. But it's not great for active development. It can be done but it requires high mental bandwidth to get right. Here is my workflow when not using SPM4
 
 1. Create an ios/mac app project in XCode. AwesomeApp
 2. In the app project go to `file -> new -> target -> Cocoa framework` Name it AwesomeLib

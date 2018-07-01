@@ -1,4 +1,4 @@
-My notes on adding Codable support for classes such as UIColor and UIFont which doesn't support Codable by default<!--more--> This example only touches on Decodable, but the same thing can be done to make the class Encodable. 
+My notes on adding Codable support for classes such as UIColor and UIFont which doesn't support Codable by default<!--more-->. This example only touches on Decodable, but the same thing can be done to make the class Encodable. 
 
 ### Theme.json 
 
