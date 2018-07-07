@@ -26,6 +26,16 @@ Organizing your product development on github also highlights who does what, and
 The power of having everything under one roof. A workflow I enjoy on github is storing .gif .jpg and even .svg directly in a repo and using urls similar to https://rawgit.com/repo-name/img/master/ and svgs via 
 
 
+writing blog posts about processes, code tech, updating your skills , participating in the coding scdne / sphere
+
+fixing code that managment isnt sanctioning alotting time for 
+
+ci-travis code-climate pull-req bots
+
+managers csn check where your focus is w/o becoming paranoid. Iys all in the github summary. maybe you fix an issue in a rdependencie your company repo uses. that would go unnoticed otherwise etc
+
+
+
 
 
  
