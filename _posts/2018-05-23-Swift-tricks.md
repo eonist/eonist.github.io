@@ -48,3 +48,39 @@ if let fourthItem = (3 < arr.count ?  arr[3] : nil ) {
 }
 //Output: thirdItem: 3
 ```
+
+
+### Result (for async callback returns)
+
+improve this: 
+
+```swift
+enum Result<Value> {
+    case success(Value)
+    case failure(Swift.Error)
+}
+
+func start(_ completionHandler: @escaping (Result<Any>) -> Void) -> FBSDKGraphRequestConnection{
+    return start() { (_, response, error) in
+        switch (response, error) {
+        case (.some(let result), .none):
+            completionHandler(Result(value: result))
+
+        case (.none, .some(let error)):
+            completionHandler(Result(error: error))
+
+        case (.none, .none), (.some, .some):
+            preconditionFailure("Unexpected State")
+        }
+    }
+}
+
+switch result {
+case .success (let value as [ String : Any ]) where value["email"] is String:
+    let email = value["email"] as! String
+    print("email: \(email)")
+default:
+    self.present(error: Error(.facebookOther))
+} 
+```
+https://stackoverflow.com/questions/51235876/swift-pattern-matching-switch-downcasting-and-optional-binding-in-a-single-s
