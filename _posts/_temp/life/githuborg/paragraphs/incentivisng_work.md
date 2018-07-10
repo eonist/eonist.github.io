@@ -1,0 +1,24 @@
+
+### Incentivisng tasks
+Stackoverflow is great it incentives people to help people by the off chance that someone in the future may upvote your the effort to aid. Everytime I need to look up some code related issue i fire up chrome with stackoverflow and see if I can find something related to my code question. Sometimes there is a litte green flag that indicates a few of my previouse answers has been upvoted since i last visited the site. And other times there is a red flag indicating that someone has aditional questions, maybe I have to adjust one of my answers to reflect recent API change etc. stackoverflow isnt with out flaws, there is no incentive to change previouse answers by other people that clearly needs an update, People are rather incentivesed to add new ansewers of their own, often duplicates of previous answers. and as a result you end up with slightly different variations of the same answer. Instead one could have just updated the original answer.but since there is no upvotes to be gained and since no one will ever know you updated the answer. People simple avoid doing things that are not noticed or adds up to their personal outcome. 
+
+Organizing your product development on github also highlights who does what, and their impact on what is being made. Parts of the product can be branched of to opensource mini projects that emplyees can be product owners of. There is empircal eveidence that so called product owners are order of magnitudes more productive than emplyees that dont feel any ownership. even if that ownership is ephemeral and limited in time, the likleyhood of a better outcome is 10x higher than if product ownership is fleeting and watered down between individuals. People just dont care about products they dont get credit for. As a piece of ancidotal evidence take spotify as an example. Spotify has begun making job ads with Digital productowner in the title. because they expereince employees feeling dissatisfied in their working condition and are leaving for other more satisifing ventures. Its also evident in spotifys productline. Take the webplayer for instance. Even something as basic and simple as pressing the play button doesnt work. You have to press it over and over, often refreshing the browser, and waiting a long time until it finally playes the wrong song. How hard can it be? why are they not fixing this simple issue? As It turns out the inter organization ticketing system isnt working. To fix the issue you have to coordinate who ever made the webplayer interface and then who ever made the mobile player. because the mobile player needs to be pause to make it possible for the the desktop player to start. Because its neat feature that they interact. If it worked. So now you have two unites that has to coordinate to fix a problem that is pretty trivial. But the unites are busy on project XYZ that are more important for their career and personal outcome. and so are not motivated to fix the issue. so it remains unsolved until the next batch of emplyees re-write the webapp. 
+
+
+
+One has to ask. If this was my personal codebase on a personal project what would I prioritize coding? The mundane issue that improves the stability of the app and has exponantial value in simplifying further coding, but that no one vivisibly notice or knows about? or adding new features that management understands and can visibly see. Something that feels like progress. On a personal project the former is a no brainer. On collaborative projects the later 99% gets prioritized, because visible progress. nevermind the 100+ backlog issues and code debt. A worry for another time. until the codebase crawls to a stop not even updating a simple style is possible with days of effort. 
+
+
+as h---z say it, software is eating the world. bwing active on github is also exelent carer managment showing recruiters and the world at large that your comitting impactfull code and contributing to opensource projects ina meaninful way. 
+
+
+
+managers can check where your focus is w/o becoming paranoid. Iys all in the github summary. maybe you fix an issue in a rdependencie your company repo uses. that would go unnoticed otherwise etc
+
+
+
+its also about leaving  a papertrail. when managment get a bit too exuberant and ask a bit too much, and you as a dev dont want to be a party stopper and go with the flow. maybe you cant finish what they ask, but maybe just starting something is gd enough, and then leave it up to managment to invest more into to it. 
+
+creating an issue, and trying to solve it. sometimes some strange bug can take a while to resolve. highligthing why what and when is key to explaining why the other deliverables are late. causuality.but its allabpart of a good keeping a tight ship. and good grounds keeping. 
+
+fixing code that managment would never allocate time for 
