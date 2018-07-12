@@ -4,3 +4,8 @@ Managing the product development on github is crucial because it highlights what
 
 In this day and age where products are getting ever more complex to the extent that they are almost living entities of their own. 
 
+
+
+If your going to run a software company, you better be prepared to run it on the premise of the developers that are building it and the platform where it’s being built. Managers love google suite, but developers don’t, and ingarantuee that developers has less down time to spare than managers and support staff. Developers usually operate at 100% cognition where as managers often has a lot of down time between meetings and organisational work.
+And don’t have time to waste on fragile and haphazard  “collaboration”  platform that is in flavour this week.
+

@@ -11,3 +11,6 @@ Everything that is relevant for the project. API documentation readme files, UX 
 
 
 The power of having everything under one roof. A workflow I enjoy on github is storing .gif .jpg and even .svg directly in a repo and using urls similar to https://rawgit.com/repo-name/img/master/ and svgs via 
+
+I spend 100% of my business hours on github, call me a native githubber, i manage my career on github as oppose to linkdin. I get most of my freelance inqueries and job oppertunities as a result of my visibility on github. Frankly github is what puts bread on the table. 
+Just like how maintaing a relevant dribbble profile is crusial for a graphic designers and having songs on soundcloud is vital for aspiring musicians. Is your work impactful? Do you write with the highest standard of the industry? Education, work experience and network still count, to a degree, but its probably only a matter of time before unbiased CI quality bots are applied to student exams. Imagine students getting a grade seconds after they "commit" their exam. Ai bots analysing meaning, grammar, impactfullness and degree of plagarism in nano seconds. 

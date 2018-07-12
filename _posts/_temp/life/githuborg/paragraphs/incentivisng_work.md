@@ -22,3 +22,10 @@ its also about leaving  a papertrail. when managment get a bit too exuberant and
 creating an issue, and trying to solve it. sometimes some strange bug can take a while to resolve. highligthing why what and when is key to explaining why the other deliverables are late. causuality.but its allabpart of a good keeping a tight ship. and good grounds keeping. 
 
 fixing code that managment would never allocate time for 
+
+
+### Collecting stars
+Github isnt about collecting stars. Although the stars you collect overtime usually correlates with how relevant repos you maintain and how involved you are with the community at large
+
+
+Humans are driven by small incentives and dreams. 

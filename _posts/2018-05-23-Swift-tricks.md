@@ -1,4 +1,4 @@
-Some of my favorite swift tircks<!--more-->
+Some of my favorite swift tricks<!--more-->
 
 ### Sometimes using switch can be overkill:
 ```swift
