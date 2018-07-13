@@ -1,0 +1,38 @@
+
+### A github for everyone
+Maybe someone on your team that isn't a developer discover a bug. Giving non developers access to github repos enables them to first check if a similar issue is already present, if not then create a github issue. Ask the core devs on the project, with @ tagging, if it can be fixed. Then the developers on the project will investigate the issue discussing urgency / priority / complexity and finally assigning a priority to the issue and then with @ tagging politly ask if someone has time to solve it, . If the issues piles up and there are tens or hundreds of issues, then its probably a good sign that the codebase is lacking code quality or lack of allocated time for maintance of the codebase. Once an issue is fixed, the issue is closed and a link to the Pull-requst that fixed the problem is added to the bottom of the issue. Keeping a tight ship is make it or break it when your builidng complex software entities involving many people / teams / dependencies. The point of all this is that the problem is presented front and center, the issue finder gets credit for finding the issue, bonus points for adding a description about what led to the error. Who ever investigates the issue and finds additional information about the issue gets credit for time spent. 
+
+Let everyone be involved in making the product, its infinity more rewarding helping building something if its noticed and the effort is recorded and timestamped in the commit history of the project. In my opinion everyone on the team should have read and write access to all projects on github. If someone comes up with a feature that should be added then this can be added as a feature request in issue. Tagged feature or enhancement. Adding feature as issues also has the added effect that people cant request the idea twice, because it would already be added and closed. 
+
+Finally github coupeling the project. Issues can have link pointers to PR's that solve them, PR's can have links to wiki posts that explain the rational behind the PullRequst. Wikipages can have links to design assets in other repositories in the github organization etc. Or API documentation. Everything stored as markdown which is easily editable with full commit history of who added/edited what. 
+
+Everything that is relevant for the project. API documentation readme files, UX / Design assets, Beause everything on github allows team-mates to comment and discuss changes and additions. Involving the coders in the design process of features and products are crucial when it comes to calculating the liklyhood of its accomplishable or not. Not involving the person that is finally going to be making the product is a recipe for disastaster both in terms of motivation and in terms of gauging excepectations and timeframe of completion. 
+
+
+The power of having everything under one roof. A workflow I enjoy on github is storing .gif .jpg and even .svg directly in a repo and using urls similar to https://rawgit.com/repo-name/img/master/ and svgs via 
+
+I spend 100% of my business hours on github, call me a native githubber, i manage my career on github as oppose to linkdin. I get most of my freelance inqueries and job oppertunities as a result of my visibility on github. Frankly github is what puts bread on the table. 
+Just like how maintaing a relevant dribbble profile is crusial for a graphic designers and having songs on soundcloud is vital for aspiring musicians. Is your work impactful? Do you write with the highest standard of the industry? Education, work experience and network still count, to a degree, but its probably only a matter of time before unbiased CI quality bots are applied to student exams. Imagine students getting a grade seconds after they "commit" their exam. Ai bots analysing meaning, grammar, impactfullness and degree of plagarism in nano seconds. 
+
+
+### Managment 
+Managment has a tendencie to ask for additional features after features are completed by developers. Because surly after something is done the developer doesnt have anything to do. Unfortunatly thats not how software buliding works. Piling on features only leads to complexity, xomplexity that has to be maintained. After x-amounts of features the developer responsible will have to use more and more of his time to maintain the complexity. 
+
+
+
+### Project managment on github
+Managing the product development on github is crucial because it highlights what core developers are working on. On the surface make feature X and Y may seem trivial but to acomplish it issued must be solved, dependecies has to be tested and updated. CI tests have to be written, Issues must be discussed and Documentation must be written. It may very well be that in the end it takes 4 weeks instead of 2. But the crucial part is that there is a paper-trail of why and how it took twice the time that was budget. Interacting with the complex nature of software projects is not the same as time budgeting painting a wall or installing a new kitchen. Sure you can always power though it and build something that resembles the spec, but not with out corrupting the overall product / code quality. Do this enough times and your left with an intertwined pile of unusable code. That is impossible to improve or even roll back because dependencies moved on.
+
+
+In this day and age where products are getting ever more complex to the extent that they are almost living entities of their own. 
+
+
+
+If your going to run a software company, you better be prepared to run it on the premise of the developers that are building it and the platform where it’s being built. Managers love google suite, but developers don’t, and ingarantuee that developers has less down time to spare than managers and support staff. Developers usually operate at 100% cognition where as managers often has a lot of down time between meetings and organisational work.
+And don’t have time to waste on fragile and haphazard  “collaboration”  platform that is in flavour this week.
+
+
+### Simplifying complexity
+Keeping documentation where the projects are built. Instead of putting documents on google, api instructions on slack , UX pdfs on a google drive, and issues in asana. One should rather collect it in the place where the digital product is being built. Github cateres to all the needs described above. Documents can be collaborativly written in the wiki section, complete with commit history et al. Issues should be documented and discussed in the issue section. Design assets can be version controlled in its own repo instead of in emails / dropbox. The great thing about collaborating on github is that no resolution is lost, all effort is version controlled. Its also the industry standard when it comes to building software so everyone (should) know it as if it was the back of their hand. Also requires markdown skills. takes a few minutes to learn the basics and is alot of fun to master ;) 
+
+

@@ -1,3 +1,0 @@
-### Ability to ship
-
-Forget linkdin. Linkdin is for careerists and hierarchy climbers, who spent way to much on university Tuition and needs to recoup some of the wasted money. It’s a cees pool of past tense. Linkdin is a bunch of fancy titles and entitlments. Great so you where a CTO at company XYZ and devloped inovative solutions for years. Then how come when I visit your github profile there is no evidence of this brilliance, nothing that stands out, just a bunch of unedited forks. An active github profile says something about a developers ability to ship. 

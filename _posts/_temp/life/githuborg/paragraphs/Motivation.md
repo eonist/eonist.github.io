@@ -1,3 +1,8 @@
+### Motivation
+Committing code is a little like chopping wood. After a long and sweaty day in the forest, struggling with bugs and tooling that fails you when you least expect it, you finally see the result as a stack of lumber, which closley translates to a stack of commits in the digital realm. One on piece of wood stacked on top of the other. It's a satisifying sight to behold. Some lumps are torny and still have twigs sticking out. Similar to how some commits are rough around the edges and could be improved with some pruning. The end result of your hard work is visble to the naked eye, and you have something to show for your hard work, something to show managment, co workers and your self. A chunk of work written into the history of the project, something tangible that says something about who you are, what choices you made, what shortcuts where taken and exactly how much elbow grease you put into it. 2 weeks of work that can be investigated, probably something you wont be proud of 2 years from now but that doesn't matter. The work is there for your entire company to see and it will fuel your motivation in next endevour you take on. Sometimes your work is apploauded other times its critizised and improvments are suggested by your colegues and peers. Yet other times you can feel like your head is always tipping under water, and your struggeling to breath because the tasks keep coming in and your having trouble finding a foothold to keep up with the ever increasing complexity and scope. Estimating tasks starts to become difficult, but by using the commit history and pull-request comment threads from the last completed task you are able to give a more accurate estimate. Maybe there were bottlenecks you had to overcome like happened in commit id: `dv7e22` and also in `ku3ce`. Estimates are complex, and are increasing in complexity as a project grows. Simply asking for estimates doesn't cut it anymore. Managment has to be integrated in to the platform where the work happens, not simply be asigners and time keepers. Non-techinical managers needs to keep up with the times and learn how to look under the hood (aka read commit descriptions) and be able to understand consequences of organizational friction and how "feature creep" has a tendency to lead to bottlenecks when developing software. The image bellow is from my recent experience with wood chopping. I estimated id complete it in a weekend, but in the end it took 10 days. Doing something the first time always takes longer than you expect, but everytime I walk by it It feels satisfying to look at.
+
+<img width="600" alt="img" src="Screen Shot 2018-07-10 at 16.31.53.png">
+
 
 ### Incentivisng tasks
 Stackoverflow is great it incentives people to help people by the off chance that someone in the future may upvote your the effort to aid. Everytime I need to look up some code related issue i fire up chrome with stackoverflow and see if I can find something related to my code question. Sometimes there is a litte green flag that indicates a few of my previouse answers has been upvoted since i last visited the site. And other times there is a red flag indicating that someone has aditional questions, maybe I have to adjust one of my answers to reflect recent API change etc. stackoverflow isnt with out flaws, there is no incentive to change previouse answers by other people that clearly needs an update, People are rather incentivesed to add new ansewers of their own, often duplicates of previous answers. and as a result you end up with slightly different variations of the same answer. Instead one could have just updated the original answer.but since there is no upvotes to be gained and since no one will ever know you updated the answer. People simple avoid doing things that are not noticed or adds up to their personal outcome. 
@@ -29,3 +34,21 @@ Github isnt about collecting stars. Although the stars you collect overtime usua
 
 
 Humans are driven by small incentives and dreams. 
+
+
+
+#### motivators
+Different people have different motivators. Some are motivated by money, some are founders at startups and are motivated by getting their business sold and cashing out. Most likley your a regular employee at a company doing what you can to help the company excell. I have a few friends at google and with out exception they all dream of branching out on their own venture, but at the end of the day that efty paycheck is keeping them tied up. 
+
+IN my opinion encouraging employees to write opensource modules has a great effect on the productline for your company and the motivation of the emplyee. The dymaics is something like this: Employees that are allowed to write opensource modules just care more about what they are building, they have a stake in the overarching outcome of the company that is beyond money. 
+
+Github fosters to team culture. Quality code. Github motivates you to get up in the morning and write a test for things you know no one is going to care about. At least you can opensource it and maybe get some exposure and interest from other developers. Maybe even land your next job. 
+
+
+Github's infamous commit-graph streaks also motivates you to keep hustling. I totally respect devs who has blanks for saturday and sundays. To be honist whenever i see that i think the world is a better place. 
+
+
+Ideas an products are fueled by dreams and aspirations. A motivated developer has a lot more impact on a product than trying to save 25$ a month.
+
+
+Github isnt just a great git service, its also an always on convention center displaying your prowness and previouse digital products you have made. There is nothing that motivates a developer more than creating something in the open, getting feedback on your creation, growing your profeccional skills on the way. ascending to different places in life. Or not, sometimes products totally fails in the market, but thats ok. Its all about trying the unlikley and keep getting experience. 
