@@ -15,9 +15,13 @@ How to collaborate on github<!--more-->.
    - [Digital superpowers](#digital-super-powers) 💪
    - [Subscription life](#Subscription-life) 💸
 3. Management  
-  - Managing a project 🚦
-  - Communication 👔
-  - 
+  - [Github for everyone](#github-for-everyone)  🌍
+  - [Project hub](#project-hub)  🦑
+  - [Personal career](#personal-career)  👔
+  - [Feature creep](feature-creep)  😱
+  - [Leaving a paper trail](#leaving-a-paper-trail)  🔍
+  - [Premise of the developer](#premise-of-the-developer)  📝
+  - [Simplifying complexity](#simplifying-complexity)  🗜
 4. Motivation  
    - [Satisfaction](#satisfaction) 😊  
    - [Incentivizing tasks](#incentivizing-tasks) 🍭 
@@ -27,7 +31,6 @@ How to collaborate on github<!--more-->.
    - [Opensource as motivation](#opensource-as-motivation) ❤️
 5. Shipping  
  - [Asymmetrical success](#asymmetrical-success) 🦄 
- - [A word about linkdin](#a-word-about-linkdin) 😱
  - [The most important feature is trust](#The-most-important-feature-is-trust) 🤞
  - [Shipping to stay relevant](#shipping-to-stay-relevant) 🚀 
  
@@ -37,5 +40,5 @@ How to collaborate on github<!--more-->.
  >
 
 ### **Acknowledgment:** 
-> This book is still in a _very early_ stage. It's revolves around the programing language `swift` but should be applicable to any programming language. It's written from the point of view of the developer as oppose to being written top-down by management. Opinions are my own and may not necessarily reflect the views of companies I work for. Please feel free to open an issue or make a pull-request if you find typos or incorrect information. License: [MIT](https://en.wikipedia.org/wiki/MIT_License) (Free & open source) 
+> This book is still in a _very early_ stage. It revolves around the programing language `swift` but should be applicable to any programming language. It's written from the point of view of the developer as oppose to being written top-down by management. Opinions are my own and may not necessarily reflect the views of companies I work for. Please feel free to open an issue or make a pull-request if you find typos or incorrect information. License: [MIT](https://en.wikipedia.org/wiki/MIT_License) (Free & open source) 
 >
