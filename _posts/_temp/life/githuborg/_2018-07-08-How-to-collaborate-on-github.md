@@ -16,8 +16,13 @@ How to collaborate on github<!--more-->.
    - [Subscription life](#Subscription-life) 💸
 3. Management
    - [Continuous quality](#continuous-quality) 👌
-   - [Digital superpowers](#digital-super-powers) 💪
-   - [Subscription life](#Subscription-life) 💸
+   - [Github for everyone](#github-for-everyone) 🌍
+   - [Project hub](#project-hub) 🦑
+   - [Personal career](#personal-career) 👔
+   - [Feature creep](feature-creep) 😱
+   - [Leaving a paper trail](#leaving-a-paper-trail)  🔍
+   - [Premise of the developer](#premise-of-the-developer)  📝
+   - [Simplifying complexity](#simplifying-complexity) 🗜
 4. Motivation
    - [Satisfaction](#satisfaction) 😊  
    - [Incentivizing tasks](#incentivizing-tasks) 🍭 
