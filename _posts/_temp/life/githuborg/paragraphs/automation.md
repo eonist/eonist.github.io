@@ -2,10 +2,10 @@
 ### Continuous quality 👌
 Bellow is a list of noticeable swift projects on github, sorted by code quality. As you can see popularity and big tech names doesn't always translate to great code quality. On the contrary, passion projects by indie developers such as [SindreSorhus](https://github.com/SindreSorhus) and  [3lvis](https://github.com/3lvis/)  can often yield the highest code quality.
 
-Author | Project | LOC | Grade | [GPA](https://hub.codebeat.co/docs/gpa-explained) | Stars | [CodeCov](https://codecov.io/)  
---- | --- | --- | --- | ---  
-*Still* | `renders` | **nicely** | `renders` | **nicely** | 2. 
-1 | 2 | 3 | 2 | 3 | 2  
+| Author | Project | LOC | Grade | [GPA](https://hub.codebeat.co/docs/gpa-explained) | Stars | [CodeCov](https://codecov.io/) | 
+| --- | --- | --- | --- | --- | 
+| *Still* | `renders` | **nicely** | `renders` | **nicely** | 2. |
+| 1 | 2 | 3 | 2 | 3 | 2  |
 
 ### Test
 
