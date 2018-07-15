@@ -22,7 +22,7 @@ How to collaborate on github<!--more-->.
   - [Leaving a paper trail](#leaving-a-paper-trail)  🔍
   - [Premise of the developer](#premise-of-the-developer)  📝
   - [Simplifying complexity](#simplifying-complexity)  🗜
-4. Motivation  
+4. Motivation
    - [Satisfaction](#satisfaction) 😊  
    - [Incentivizing tasks](#incentivizing-tasks) 🍭 
    - [Product ownership](#product-ownership) 🔑
