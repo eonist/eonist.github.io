@@ -36,3 +36,7 @@ And don’t have time to waste on fragile and haphazard  “collaboration”  pl
 Keeping documentation where the projects are built. Instead of putting documents on google, api instructions on slack , UX pdfs on a google drive, and issues in asana. One should rather collect it in the place where the digital product is being built. Github cateres to all the needs described above. Documents can be collaborativly written in the wiki section, complete with commit history et al. Issues should be documented and discussed in the issue section. Design assets can be version controlled in its own repo instead of in emails / dropbox. The great thing about collaborating on github is that no resolution is lost, all effort is version controlled. Its also the industry standard when it comes to building software so everyone (should) know it as if it was the back of their hand. Also requires markdown skills. takes a few minutes to learn the basics and is alot of fun to master ;) 
 
 
+
+managers can check where your focus is w/o becoming paranoid. Iys all in the github summary. maybe you fix an issue in a rdependencie your company repo uses. that would go unnoticed otherwise etc
+
+
