@@ -37,5 +37,5 @@ How to collaborate on github<!--more-->.
  >
 
 ### **Acknowledgment:** 
-> This book is still in a _very early_ stage. It's revolves around the programing language `swift` but should be applicable to any programming language. It's written from the point of view of the developer as oppose to being written top-down by management. Opinions are my own and may not necessarily reflect the views of companies I work for. Please feel free to open an issue or make a pull-request if you find typos or incorrect information. License: [MIT](https://en.wikipedia.org/wiki/MIT_License) (Free & open source) 
+> This book is still in a _very early_ stage. It revolves around the programing language `swift` but should be applicable to any programming language. It's written from the point of view of the developer as oppose to being written top-down by management. Opinions are my own and may not necessarily reflect the views of companies I work for. Please feel free to open an issue or make a pull-request if you find typos or incorrect information. License: [MIT](https://en.wikipedia.org/wiki/MIT_License) (Free & open source) 
 >
