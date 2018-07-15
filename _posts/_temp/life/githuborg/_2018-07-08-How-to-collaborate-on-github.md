@@ -15,7 +15,6 @@ How to collaborate on github<!--more-->.
    - [Digital superpowers](#digital-super-powers) 💪
    - [Subscription life](#Subscription-life) 💸
 3. Management
-   - [Continuous quality](#continuous-quality) 👌
    - [Github for everyone](#github-for-everyone) 🌍
    - [Project hub](#project-hub) 🦑
    - [Personal career](#personal-career) 👔
