@@ -15,7 +15,7 @@ How to collaborate on github<!--more-->.
    - [Digital superpowers](#digital-super-powers) 💪
    - [Subscription life](#Subscription-life) 💸
 3. Management
- - [Continuous quality](#continuous-quality) 👌
+   - [Continuous quality](#continuous-quality) 👌
    - [Digital superpowers](#digital-super-powers) 💪
    - [Subscription life](#Subscription-life) 💸
 4. Motivation
