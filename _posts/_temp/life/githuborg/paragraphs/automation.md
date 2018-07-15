@@ -4,13 +4,6 @@ Bellow is a list of noticeable swift projects on github, sorted by code quality.
 
 Author | Project | LOC | Grade | [GPA](https://hub.codebeat.co/docs/gpa-explained) | Stars | [CodeCov](https://codecov.io/)
 --- | --- | --- | --- | --- | --- | ---
-*Still* | `renders` | **nicely** | `renders` | **nicely** | **nicely** | **nicely**
-1 | 2 | 3 | 2 | 3 | 3 | 3
-
-### Test
-
-Author | Project | LOC | Grade | [GPA](https://hub.codebeat.co/docs/gpa-explained)  | Stars | [CodeCov](https://codecov.io/)
---- | --- | --- | --- | ---
 [SindreSorhus](https://github.com/SindreSorhus)  | [gifski](https://github.com/SindreSorhus/gifski-app) | 788 | `A` | 3.63 | **2331** | NA
 [3lvis](https://github.com/3lvis/)  | [Networking](https://github.com/3lvis/Networking) | 1110  | `A` | 3.55 |  **1100** | NA
 [Eonist](https://github.com/eonist)  | [HybridCamera](https://github.com/eonist/HybridCamera)  | 756 | `A` | 3.41 | **5** | NA
