@@ -3,7 +3,7 @@
 Bellow is a list of noticeable swift projects on github, sorted by code quality. As you can see popularity and big tech names doesn't always translate to great code quality. On the contrary, passion projects by indie developers such as [SindreSorhus](https://github.com/SindreSorhus) and  [3lvis](https://github.com/3lvis/)  can often yield the highest code quality.
 
 Author | Project | LOC | Grade | [GPA](https://hub.codebeat.co/docs/gpa-explained) | Stars | [CodeCov](https://codecov.io/)
---- | --- | --- | --- | --- | --- | ---
+:--- | :--- | :--- | :--- | :--- | :--- | :---
 [SindreSorhus](https://github.com/SindreSorhus)  | [gifski](https://github.com/SindreSorhus/gifski-app) | 788 | `A` | 3.63 | **2331** | NA
 [3lvis](https://github.com/3lvis/)  | [Networking](https://github.com/3lvis/Networking) | 1110  | `A` | 3.55 |  **1100** | NA
 [Eonist](https://github.com/eonist)  | [HybridCamera](https://github.com/eonist/HybridCamera)  | 756 | `A` | 3.41 | **5** | NA
