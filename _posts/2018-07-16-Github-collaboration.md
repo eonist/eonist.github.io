@@ -1,5 +1,4 @@
-![](https://img.shields.io/badge/Downloads:-0-green.svg)  ![](https://img.shields.io/badge/Lisence:-MIT-orange.svg) [![codebeat badge](https://img.shields.io/badge/PDF-Coming-blue.svg)](https://github.com/eonist/how-to-collaborate-on-github/releases/package.zip) ![](https://img.shields.io/badge/Version-1.0-yellow.svg) 
-
+A mini book about collaborating on github<!--more-->. 
 
 ### Introduction:
 
@@ -32,9 +31,9 @@
    - [Running a tight ship](#running-a-tight-ship) 🚢
    - [Opensource as motivation](#opensource-as-motivation) ❤️
 5. Shipping
- - [Asymmetrical outcomes](#asymmetrical-outcomes) 🦄 
- - [The most important feature is trust](#The-most-important-feature-is-trust) 🤞
- - [Shipping to stay relevant](#shipping-to-stay-relevant) 🚀 
+   - [Asymmetrical outcomes](#asymmetrical-outcomes) 🦄 
+   - [The most important feature is trust](#The-most-important-feature-is-trust) 🤞
+   - [Shipping to stay relevant](#shipping-to-stay-relevant) 🚀 
  
  
  ### **TLDR;**
@@ -168,7 +167,7 @@ Keeping documentation where the projects are built. Instead of putting documents
 ### Satisfaction 😊
 Committing code is a little like chopping wood. After a long and sweaty day among trees, struggling with bugs and tooling that fails you when you least expect it, you finally see the result as a stack of lumber, which closely translates to a stack of commits in the digital realm. One on piece of wood stacked on top of the other. It's a satisfying sight to behold. Some lumps are thorny and still have twigs sticking out. Similar to how some commits are rough around the edges and could be improved with some pruning. The end result of your hard work is visible to the naked eye, and you have something to show for your hard work, something to show management, co workers and your self. A chunk of work written into the history of the project, something tangible that says something about who you are, what choices you made, what shortcuts where taken and exactly how much elbow grease you put into it. 2 weeks of work that can be investigated, probably something you wont be proud of 2 years from now but that doesn't matter. The work is there for your entire company to see and it will fuel your motivation in next endeavor you take on. Sometimes your work is applauded other times its criticized and improvements are suggested by your colleagues and peers. Yet other times you can feel like your head is always tipping under water, and your struggling to breath because the tasks keep coming in and your having trouble finding a foothold to keep up with the ever increasing complexity and scope. Estimating tasks starts to become difficult, but by using the commit history and pull-request comment threads from the last completed task you are able to give a more accurate estimate. Maybe there were bottlenecks you had to overcome like happened in commit id: `dv7e22` and also in `ku3ce`. Estimates are complex, and are increasing in complexity as a project grows. Simply asking for estimates doesn't cut it anymore. Management has to be integrated in to the platform where the work happens, not simply be asigners and time keepers. Non-techinical managers needs to keep up with the times and learn how to look under the hood (aka read” commit descriptions) and be able to understand consequences of organizational friction and how "feature creep" has a tendency to lead to bottlenecks when developing software. The image bellow is from my recent experience with wood chopping. I estimated id complete it in a weekend, but in the end it took 10 days. Doing something the first time always takes longer than you expect, but every time I walk by it It feels satisfying to look at. 💪 
 
-<img width="600" alt="img" src="https://rawgit.com/stylekit/img/master/Screen Shot 2018-07-10 at 16.31.53.png">
+<img width="600" alt="img" src="https://rawgit.com/stylekit/img/master/Screen Shot 2018-07-10 at 16.31.53.jpg">
 
 ### Incentivizing tasks 🍭 
 Stackoverflow is great. It incentives people to help other people on the off chance that someone in the future may upvote your the effort to help. Every time I need to look up some code related issue i fire up chrome with stackoverflow and see if I can find something related to my code question. Sometimes there is a little green flag that indicates a few of my previous answers has been upvoted since i last visited the site. And other times there is a red flag indicating that someone has additional questions, maybe I have to adjust one of my answers to reflect recent API change etc. stackoverflow isn't with out flaws, there is no incentive to change previous answers by other people that clearly needs an update, People are rather incentivesed to add new answers of their own, often duplicates of previous answers. and as a result you end up with slightly different variations of the same answer. Instead one could have just updated the original answer.but since there is no upvotes to be gained for edits and since no one will ever know you updated the answer. People simple avoid doing things that are not noticed or adds up to their personal prosperity. 
@@ -197,11 +196,3 @@ Building a github profile is also about trust. Would you rather use a free close
 
 ### Shipping to stay relevant 🚀 
 With AI on the horizon and a shrinking pool of available jobs. Maintaining a relevant github profile is more important than ever. Technology moves faster and faster and people that stops shipping relevant projects will be replaced by someone with more relevant abilities. There is a theory floating around that humanity will come up with new jobs once the superfluous jobs disappear. I guess time will tell, but in the mean time staying relevant is all we can do. 
-
-
-
-
-
-
-
-
