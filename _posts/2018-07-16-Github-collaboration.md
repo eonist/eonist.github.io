@@ -1,4 +1,4 @@
-A mini book about collaborating on github<!--more-->. 
+A mini book about collaborating on github<!--more-->. Originally posted here:   [https://github.com/eonist/How-to-collaborate-on-github](https://github.com/eonist/How-to-collaborate-on-github) 
 
 ### Introduction:
 
