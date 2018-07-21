@@ -49,6 +49,49 @@ if let fourthItem = (3 < arr.count ?  arr[3] : nil ) {
 //Output: thirdItem: 3
 ```
 
+### Simplify similar code with Closure 
+
+```swift
+let closure = { (text:String, bgColor:UIColor, y:CGFloat, action:String) in
+   let btn:UIButton = UIButton(type: .system)
+   btn.backgroundColor = bgColor
+   btn.setTitle(text, for: .normal)
+   btn.titleLabel?.font =  .systemFont(ofSize: 12)
+   btn.frame = CGRect(x:00, y:y, width:100, height:50)
+   btn.addTarget(self, action: Selector(action), for: .touchUpInside)
+   self.addSubview(btn)
+}
+/*btn1*/
+closure(
+   "Forward",
+   .gray,
+   250,
+   "onForwardButtonClick"
+)
+/*btn2*/
+closure(
+   "Back",
+   .lightGray,
+   250,
+   "onbackButtonClick"
+)
+```
+
+### Action as argument
+
+In the case bellow we use an argument to assign the target. This can only be done with a string
+
+```swift
+func createBtn(action:String) -> UIButton {
+    let btn:UIButton = UIButton(type: .system)
+    btn.addTarget(self, action: Selector(action), for: .touchUpInside)
+    return btn
+}
+@objc func buttonTouched(_ sender:UIButton) {//👈The _ char is imp
+    Swift.print("buttonTouched")
+}
+let btn = createButton(action:"buttonTouched:")//👈The : char is imp
+```
 
 ### Result (for async callback returns)
 
