@@ -17,3 +17,25 @@ My notes on method commenting in swift<!--more-->. IMO commenting is vital when 
 Hold in the `alt` key and press the method name from a caller. And this dialog will pop up
 
 <img width="430" alt="img" src="https://rawgit.com/stylekit/img/master/Screen Shot 2018-07-31 at 11.07.30.png">
+
+#### why you shouldn't do comment style like this:
+
+
+```swift
+/*
+  When you copy this, indentation is lost
+       Here
+*/
+```
+
+#### Proper comment fencing:
+
+```swift
+/**
+ * Something something
+ * Example:
+ * var temp = {
+ *      //something indented. wow comment style keeps indentation on copy paste. such wow
+ * }
+ */
+```
