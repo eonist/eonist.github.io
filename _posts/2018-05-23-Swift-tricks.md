@@ -136,3 +136,14 @@ https://stackoverflow.com/questions/51235876/swift-pattern-matching-switch-downc
 class var id : String {return "\(HorCell.self)"}/*In a class*/
 override class var id : String {return "\(PrimaryCell.self)"}/*In a sub-class of the class*/
 ```
+
+
+### string enum's
+
+```swift
+enum CellType:String{
+   case primary,secondary,tierary
+}
+print("\(CellType.primary.rawValue)")//primary
+print("\(CellType.tierary.rawValue)")//tierary
+```
