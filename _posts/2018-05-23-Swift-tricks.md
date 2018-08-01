@@ -127,3 +127,12 @@ default:
 } 
 ```
 https://stackoverflow.com/questions/51235876/swift-pattern-matching-switch-downcasting-and-optional-binding-in-a-single-s
+
+
+
+### Override static variable
+
+```swift
+class var id : String {return "\(HorCell.self)"}/*In a class*/
+override class var id : String {return "\(PrimaryCell.self)"}/*In a sub-class of the class*/
+```
