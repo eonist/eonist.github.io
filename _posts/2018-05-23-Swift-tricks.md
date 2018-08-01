@@ -138,8 +138,8 @@ override class var id : String {return "\(PrimaryCell.self)"}/*In a sub-class of
 ```
 
 
-### string enum's
-
+### String enum's
+No need to hard code the string, as long as the enum type is string, the name is auto converted to string when you call rawValue
 ```swift
 enum CellType:String{
    case primary,secondary,tierary
