@@ -147,3 +147,31 @@ enum CellType:String{
 print("\(CellType.primary.rawValue)")//primary
 print("\(CellType.tierary.rawValue)")//tierary
 ```
+
+
+### Accessing raw and hash of enum 
+
+```swift
+enum CellType:String{
+    case primary,secondary,tierary
+}
+let possibleCellType = CellType(rawValue: "tierary")
+possibleCellType//tierary
+possibleCellType?.hashValue//2
+```
+
+
+### Closure Generics 
+
+```swift
+typealias UIViewConstraintKind = UIView & ConstraintKind
+typealias ReturnType = (anchor:AnchorConstraint,size:SizeConstraint)
+typealias ConstraintKindClosure = (_ view:UIViewConstraintKind) -> ReturnType
+/**
+ * NOTE: We use the "combination-type": `UIViewConstraintKind` since closures can't do regular generics like t:UIView where Self:ConstraintKind
+ */
+func activateConstraintKind(closure:ConstraintKindClosure) {
+   let constraints:ReturnType = closure(self)/*the constraints is returned from the closure*/
+   //...do something with the constraints
+}
+```
