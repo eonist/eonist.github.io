@@ -175,3 +175,10 @@ func activateConstraintKind(closure:ConstraintKindClosure) {
    //...do something with the constraints
 }
 ```
+
+### Nifty array trick:
+
+```swift
+let result:[String] = Array(repeating: "🎉", count: 3)
+print(result)//🎉🎉🎉
+```
