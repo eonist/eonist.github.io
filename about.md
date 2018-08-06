@@ -5,8 +5,16 @@ permalink: /about/
 tags: about
 ---
 
-Github:  
-- [Github](http://github.com/eonist/)
+Github:    
+[http://github.com/eonist/](http://github.com/eonist/)
 
 Email:  
 [30n1st@gmail.com](mailto:30n1st@gmail.com)
+
+
+Twitter:   
+[https://twitter.com/eoncodes](https://twitter.com/eoncodes) 
+
+
+Instagram:  
+[https://www.instagram.com/voyantium/](https://www.instagram.com/voyantium/) 
