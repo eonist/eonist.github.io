@@ -1,4 +1,4 @@
-Two approaches when making a button in swift<!--more-->.
+Two approaches when making a button in swift, that isn't an UIButton<!--more-->.
 
 ### The Overriding approach
 
