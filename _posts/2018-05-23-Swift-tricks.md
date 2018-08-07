@@ -1,6 +1,6 @@
-Some of my favorite swift tricks<!--more-->
+Some of my favorite swift tricks<!--more--> 
 
-### Sometimes using switch can be overkill:
+### 1. Sometimes using switch can be overkill:
 ```swift
 enum State{
     case a,b,c
@@ -14,7 +14,7 @@ if [.a, .b].contains(state) {
 }
 ```
 
-### Simple Caching:
+### 2. Simple Caching:
 ```swift
 /**
  * Also works for external server data 
@@ -37,7 +37,7 @@ var myBigData : Data? {
 }
 ```
 
-### Asserting if an array index exist: 
+### 3. Asserting if an array index exist: 
 
 ```swift
 let arr = [1,2,3]
@@ -49,7 +49,7 @@ if let fourthItem = (3 < arr.count ?  arr[3] : nil ) {
 //Output: thirdItem: 3
 ```
 
-### Simplify similar code with Closure 
+### 4. Simplify similar code with Closure 
 
 ```swift
 let closure = { (text:String, bgColor:UIColor, y:CGFloat, action:String) in
@@ -77,7 +77,7 @@ closure(
 )
 ```
 
-### Action as argument
+### 5. Action as argument
 
 In the case bellow we use an argument to assign the target. This can only be done with a string
 
@@ -93,7 +93,81 @@ func createBtn(action:String) -> UIButton {
 let btn = createButton(action:"buttonTouched:")//👈The : char is imp
 ```
 
-### Result (for async callback returns)
+
+### 6. Override static variable
+
+```swift
+class var id : String {return "\(HorCell.self)"}/*In a class*/
+override class var id : String {return "\(PrimaryCell.self)"}/*In a sub-class of the class*/
+```
+
+
+### 7. String enum's
+No need to hard code the string, as long as the enum type is string, the name is auto converted to string when you call rawValue
+```swift
+enum CellType:String{
+   case primary,secondary,tierary
+}
+print("\(CellType.primary.rawValue)")//primary
+print("\(CellType.tierary.rawValue)")//tierary
+```
+
+
+### 8. Accessing raw and hash of enum 
+
+```swift
+enum CellType:String{
+    case primary,secondary,tierary
+}
+let possibleCellType = CellType(rawValue: "tierary")
+possibleCellType//tierary
+possibleCellType?.hashValue//2
+```
+
+
+### 9. Closure Generics 
+
+```swift
+typealias UIViewConstraintKind = UIView & ConstraintKind
+typealias ReturnType = (anchor:AnchorConstraint,size:SizeConstraint)
+typealias ConstraintKindClosure = (_ view:UIViewConstraintKind) -> ReturnType
+/**
+ * NOTE: We use the "combination-type": `UIViewConstraintKind` since closures can't do regular generics like t:UIView where Self:ConstraintKind
+ */
+func activateConstraintKind(closure:ConstraintKindClosure) {
+   let constraints:ReturnType = closure(self)/*the constraints is returned from the closure*/
+   //...do something with the constraints
+}
+```
+
+### 10. Nifty array trick:
+
+```swift
+let result:[String] = Array(repeating: "🎉", count: 3)
+print(result)//🎉🎉🎉
+```
+
+
+### 11. Code injection via Protocol extension
+
+```swift
+protocol CustomString{
+    func doSomething()
+}
+extension CustomString{
+    func doSomething(){
+        print("wuu 💥")
+    }
+}
+class A{}
+extension A:CustomString{}//👈 you sort of attach CustomString functionality
+let a = A()
+a.doSomething()//wuu 💥
+
+```
+
+
+### 12. Result (for async callback returns)
 
 improve this: 
 
@@ -128,76 +202,3 @@ default:
 ```
 https://stackoverflow.com/questions/51235876/swift-pattern-matching-switch-downcasting-and-optional-binding-in-a-single-s
 
-
-
-### Override static variable
-
-```swift
-class var id : String {return "\(HorCell.self)"}/*In a class*/
-override class var id : String {return "\(PrimaryCell.self)"}/*In a sub-class of the class*/
-```
-
-
-### String enum's
-No need to hard code the string, as long as the enum type is string, the name is auto converted to string when you call rawValue
-```swift
-enum CellType:String{
-   case primary,secondary,tierary
-}
-print("\(CellType.primary.rawValue)")//primary
-print("\(CellType.tierary.rawValue)")//tierary
-```
-
-
-### Accessing raw and hash of enum 
-
-```swift
-enum CellType:String{
-    case primary,secondary,tierary
-}
-let possibleCellType = CellType(rawValue: "tierary")
-possibleCellType//tierary
-possibleCellType?.hashValue//2
-```
-
-
-### Closure Generics 
-
-```swift
-typealias UIViewConstraintKind = UIView & ConstraintKind
-typealias ReturnType = (anchor:AnchorConstraint,size:SizeConstraint)
-typealias ConstraintKindClosure = (_ view:UIViewConstraintKind) -> ReturnType
-/**
- * NOTE: We use the "combination-type": `UIViewConstraintKind` since closures can't do regular generics like t:UIView where Self:ConstraintKind
- */
-func activateConstraintKind(closure:ConstraintKindClosure) {
-   let constraints:ReturnType = closure(self)/*the constraints is returned from the closure*/
-   //...do something with the constraints
-}
-```
-
-### Nifty array trick:
-
-```swift
-let result:[String] = Array(repeating: "🎉", count: 3)
-print(result)//🎉🎉🎉
-```
-
-
-### Code injection via Protocol extension
-
-```swift
-protocol CustomString{
-    func doSomething()
-}
-extension CustomString{
-    func doSomething(){
-        print("wuu 💥")
-    }
-}
-class A{}
-extension A:CustomString{}//👈 you sort of attach CustomString functionality
-let a = A()
-a.doSomething()//wuu 💥
-
-```
