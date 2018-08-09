@@ -19,26 +19,31 @@ class CustomButton:UIView{
    override init(frame: CGRect) {
       super.init(frame: frame)
       backgroundColor = .purple//Debug
-      userInteractionEnabled = true/*⚠️️ might be needed ? */
+      isUserInteractionEnabled = true/*⚠️️ might be needed ? */
    }
    /**
-    * On tap down inside
-    */
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       if let touch = touches.first, touch.view == imageView {
-          /*touch began*/
-       }
-       super.touchesBegan(touches, withEvent:event)
+     * On tap down inside
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first, touch.view == self {
+            /*touch began*/
+        }
+        super.touchesBegan(touches, with:event)
     }
     /**
      * On tap up inside
      */
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       if let touch = touches.first, touch.view == imageView{
-          /*touch ended*/
-          onTapUpInside()
-       }
-       super.touchesEnded(touches, withEvent: event)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first, touch.view == self{
+            /*Touch ended*/
+            tapUpInsideCallBack()
+        }
+    }
+    /**
+     * Boilerplate
+     */
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 extension CustomButton{
