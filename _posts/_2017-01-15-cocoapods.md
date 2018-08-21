@@ -36,6 +36,37 @@ The three numbers are defined as major, minor, and patch version numbers. For ex
 
 [semantic versioning article]() 
 
+
+
+# Creating a cocoapod lib:
+
+1. `cd desktop`
+2. `pod create lib NameOfYourLib`
+3. wizard will start, choose swift, demo app and none none,
+4. this opens xcode and you have to update to recommended settings in warning section
+5. cd NameOFYourLib 
+6. `git init` 👉 `git add -A` 👉 git commit -m init with cocoa pod
+7. Create a repo on github named `NameOFYourLib`
+7. git remote add origin https://github.com/eonist/NameOfYourLib.git
+8. git push -u origin master (pushes your lib to github)
+
+
+### Verifying integrity of the pod
+1. In your pod dir terminal: `pod lib lint`
+2. echo "3.0" >> .swift-version (if there was a swift version bug)
+3. Run the lint command again to check for additional errors
+
+### Publication 
+- Make sure your github releases match the .podspec version number or it will get rejected
+- Terminal: `pod trunk register 30n1st@gmail.com ` and also add your Full name in single quotes at the end
+- you then get an email from cocoapod to confirm
+- terminal pod trunk push NameOfYourLib.podspec 
+
+### Testing your pod lib:
+- make new xCode project PodTest
+- cd to project folder
+- pod init -> to create a podfile
+
 ### This is a good primer:  
 https://www.raywenderlich.com/97014/use-cocoapods-with-swift
 
@@ -44,6 +75,12 @@ CocoaPods has its benefits but I feel Carthage is less intrusive and SPM is the 
 ### How to Create Cocoa Touch Static Library:
 
 https://www.youtube.com/watch?v=HgzbbS7YjQ8
+
+### Extras 
+pod --version
+
+### Tips:
+Its a good idea to go to cocoapod.com and check if your repo name is taken or not before you decide on a name
 
 
 Here is my workflow with carthage: [http://eon.codes/2017/01/15/Carthage/](http://eon.codes/2017/01/15/Carthage/) 
