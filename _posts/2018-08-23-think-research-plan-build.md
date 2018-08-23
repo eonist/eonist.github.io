@@ -1,3 +1,5 @@
+My notes on the TRPB methodology<!--more-->.
+
 ### Think (25%)
 This is the part where you go through what you want to build. This is the most important step, if you get this wrong you could build your self into a corner, so to speak. It also gives you an opportunity to get an intimate understanding of the project.
 
