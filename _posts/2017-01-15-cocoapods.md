@@ -1,5 +1,10 @@
 How to Use CocoaPods with Swift <!--more--> 
 
+
+⚠️️ DON'T USE COCOAPODS IT'S TOXIC: ⚠️️ [Info here](https://medium.com/xcblog/carthage-or-cocoapods-that-is-the-question-1074edaafbcb)
+
+Heard on swift-lang slack group: `Nah. Carthage all the things. Cocoapods can die in a fire.` 😂
+  
 Installing a pod: 
 
 0. Instal CocoaPod terminal `sudo gem install cocoapods`
