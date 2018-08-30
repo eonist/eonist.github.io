@@ -10,6 +10,16 @@ My notes on nested enums and how you can use them to navigate UI<!--more-->.
 
 ```swift
 import Foundation
+
+enum ViewType{
+    case receive
+    enum Send{
+        case clipboard(String)
+        case file(String)
+        //case current//don't change state, use the one that it is right now
+    }
+    case send(Send)
+}
 /**
  * In charge of the state of the app
  */
