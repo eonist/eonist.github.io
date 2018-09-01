@@ -103,7 +103,7 @@ override class var id : String {return "\(PrimaryCell.self)"}/*In a sub-class of
 
 
 ### 7. String enum's
-No need to hard code the string, as long as the enum type is string, the name is auto converted to string when you call rawValue
+No need to hard code the string, as long as the enum type is string 👌, the name is auto converted to string when you call rawValue
 ```swift
 enum CellType:String{
    case primary,secondary,tierary
@@ -128,8 +128,8 @@ possibleCellType?.hashValue//2
 ### 9. Closure Generics 
 
 ```swift
-typealias UIViewConstraintKind = UIView & ConstraintKind
-typealias ReturnType = (anchor:AnchorConstraint,size:SizeConstraint)
+typealias UIViewConstraintKind = UIView & ConstraintKind/*This works almost like someValue:T .... where T:ConstraintKind*/
+typealias ReturnType = (anchor:AnchorConstraint,size:SizeConstraint)/*This just makes the method that returns this simpler*/
 typealias ConstraintKindClosure = (_ view:UIViewConstraintKind) -> ReturnType
 /**
  * NOTE: We use the "combination-type": `UIViewConstraintKind` since closures can't do regular generics like t:UIView where Self:ConstraintKind
@@ -159,7 +159,11 @@ extension CustomString{
         print("wuu 💥")
     }
 }
-class A{}
+class A{
+   func doSomething(){
+      print("ahh 👌")
+   }
+}
 extension A:CustomString{}//👈 you sort of attach CustomString functionality
 let a = A()
 a.doSomething()//wuu 💥
@@ -226,4 +230,38 @@ let color = with(UIColor.init(red: 50, green: 100, blue: 0, alpha: 0.9)) { ( col
 }
 Swift.print(color.cgColor.alpha)//0.2
 
+```
+
+
+### 14 Use custom closures with the native sortedBy method:
+
+```swift
+enum CardType {
+  case heart,spades,dimond,clover
+}
+enum CardValue{
+  case two,three,four,five,six,seven,eight,nine,ten,prince,queen,king,ace
+}
+typealias Card = (type:CardType,value:CardValue)
+/**
+* arrayTest
+*/
+func arrayTest(){
+  let someCards:[Card] = [(.spades,.eight),(.heart,.seven),(.heart,.king),(.dimond,.ace),(.heart,.two)]
+  let findHearts:[Card] = someCards.filter{return $0.type == .heart}
+  Swift.print("unsorted.🔵")
+  findHearts.forEach{ (card:Card) in
+      Swift.print("card.type:  \(card.type) card.value:  \(card.value)")
+  }
+  Swift.print("unsorted.🔴")
+  let sorter:((_ element1:Card, _ element2:Card) -> Bool) = { (element1, element2) -> Bool in
+      return element1.value.hashValue < element2.value.hashValue
+  }
+  let sortedHearts = findHearts.sorted {
+      return sorter($0, $1)
+  }
+  Swift.print("sorted.🔵")
+  sortedHearts.forEach{Swift.print("$0.type:  \($0.type) $0.value:  \($0.value)")}
+  Swift.print("sorted.🔴")
+}
 ```
