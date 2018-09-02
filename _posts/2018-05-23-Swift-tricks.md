@@ -269,7 +269,7 @@ func arrayTest(){
 
 ### 15. Rethrows:
 
-The rethrows keyword indicates to the compiler that the outer function is a throwing function only if the closure passed in throws an error that is propagated to the current scope.
+The rethrows keyword indicates to the compiler that the outer function is a throwing function only if the closure passed in throws an error that is propagated to the current scope. Basically with rethrows, we can use throw inside the closure. When the error handlers are called within the function we use throws.
 
 ```swift
 typealias MagicalOperation = () throws -> MagicalResult
