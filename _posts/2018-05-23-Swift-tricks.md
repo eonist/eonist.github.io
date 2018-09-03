@@ -279,3 +279,29 @@ func doSomethingMagical(magicalOperation:MagicalOperation) rethrows -> MagicalRe
 
 //TODO complete this example code with a test
 ```
+
+
+### 16. Enums in a closure to describe events
+
+
+```swift
+class MyViewController {
+    
+    enum Error: Swift.Error {
+        case invalidUsername
+        case invalidPassword
+    }
+    
+    enum Event {
+        /// - requestLogin: We are requiring the app to login
+        case requestLogin
+        /// - showErrorMessage: We errored, we need to show an error message
+        case showErrorMessage(Error)
+    }
+    
+    typealias EventAction = (Event) -> Void
+    
+    var eventHandler: EventAction?
+    
+}
+```
