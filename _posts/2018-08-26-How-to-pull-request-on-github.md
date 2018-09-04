@@ -23,5 +23,4 @@ This type of pull-request is more common when you are the author or a team-membe
 
 
 ### PRO-TIP: 
-
 - [Update your fork on GitHub](https://github.com/KirstieJane/STEMMRoleModels/wiki/Syncing-your-fork-to-the-original-repository-via-the-browser) 
