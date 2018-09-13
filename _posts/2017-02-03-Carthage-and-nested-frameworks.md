@@ -1,4 +1,4 @@
-A few workflows concerning Carthage and nested framework <!--more--> 
+A few workflows concerning Carthage and nested framework<!--more--> 
 
 ⚠️**PRE-REQUISITES:**⚠️️ In your github repo you need to include .xcodeproj file with framework settings all setup. The settings should also include:   
 
@@ -9,7 +9,6 @@ A few workflows concerning Carthage and nested framework <!--more-->
 
 
 ## 1. The Automated workflow:
-
 1. Create a repo on github named "A" (this will be the child)
 2. Create a repo on github named "B" (this will be the parent to the child)
 3. In repo "B" add a Cartfile with ``github "eonist/A" "master"`` 👈 Informs carthage to build this before anything else
@@ -31,9 +30,7 @@ Don't do it, Google it if your not familiar with why you shouldn't use submodule
 
 
 ## Final notes: 
-
 Which workflow is better? The future is automated so go with option 1. Also you need something that can work in a CI environment. The first workflow has a bit more bloat attached and carthage could have avoided this by allowing order take priority when building. (Feature request!!!) 👉 The optional workflows are written down in order to justify the extra contextual files one has to place in sub dependencies. 👈 
 
 ## Further discussions:
-
 Advance nesting does and don't's: [https://github.com/Carthage/Carthage/issues/768](https://github.com/Carthage/Carthage/issues/768) 
