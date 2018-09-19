@@ -1,24 +1,23 @@
-
-### code structure
+My notes on source code topology<!--more-->
+### Code structure
 (source topology)
 - app
    - src
       - utils (static utilitity methods)
          - extensions (regex,array,string,number,async,network)
       - libs (feature modules, data containers etc)
-         - ricochet
+         - TinyMail
       - manager (Singleton navigation, consts)
          - Config.swift (toggle debug/release)
          - Nav.swift (enum based app navigation)
       - view (views hierarchy and controller hierarchy)
-         - balance
+         - account
          - send
          - receive
-         - swipe
          - prefs
          - dialog
    - frameworks (third-party libs and frameworks)
-      - CoreBitcoin (non-binary)
+      - CoreMail (non-binary)
    - assets.bundle
       - .pdf (vector icon assets etc)
       - .icns (app icon)
