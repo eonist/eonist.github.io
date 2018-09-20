@@ -5,7 +5,7 @@ My notes on UserDefaults<!--more-->. User defaults can be used for saving types 
 //variables
 let defaults = UserDefaults.standard
 defaults.set(25, forKey: "Age")
-defaults.set(true, forKey: "UseTouchID")
+defaults.set(true, forKey: "hasOnboarded")
 defaults.set(CGFloat.pi, forKey: "Pi")
 defaults.set("Paul Hudson", forKey: "Name")
 defaults.set(Date(), forKey: "LastRun")
@@ -15,6 +15,26 @@ defaults.set(array, forKey: "SavedArray")
 
 let dict = ["Name": "Paul", "Country": "UK"]
 defaults.set(dict, forKey: "SavedDict")
+```
+
+#### Reading object
+```swift
+UserDefaults.standard.set("John", forKey: "FirstName")
+print(UserDefaults.standard.object(forKey: "FirstName"))//John
+```
+
+### Remove object 
+```swift
+UserDefaults.standard.set(25, forKey: "Age")
+print(UserDefaults.standard.object(forKey: "Age"))//25
+UserDefaults.standard.removeObject(forKey: "Age")
+print(UserDefaults.standard.object(forKey: "Age"))//nil
+```
+
+### Unwrap object 
+```swift
+let array = defaults.object(forKey:"SavedArray") as? [String] ?? [String]()
+let dict = defaults.object(forKey: "SavedDict") as? [String: String] ?? [String: String]()
 ```
 
 ### String
@@ -30,13 +50,6 @@ let name = UserDefaults.standard.string(forKey: “name”) ?? “”
 UserDefaults.standard.set(true, forKey: “userlogin”)
 //Retrieving Boolean value
 let status = UserDefaults.standard.bool(forKey: “userlogin”) ?? false
-```
-
-### Unwrap object 
-```swift
-let array = defaults.object(forKey:"SavedArray") as? [String] ?? [String]()
-let dict = defaults.object(forKey: "SavedDict") as? [String: String] ?? [String: String]()
-
 ```
 
 ### Model
@@ -93,7 +106,6 @@ let name = Defaults.nameAndAddress.name
 
 //Clear details
 Defaults.clearUserData()
-
 ```
 
 ### Extension example
@@ -139,7 +151,6 @@ extension UserDefaults {
    - `func addSuite(named: String)` //Inserts the specified domain name into the receiver’s search list.
    - `func removeSuite(named: String)` //Removes the specified domain name from the receiver’s search list.
    - `func register(defaults: [String : Any])` //Adds the contents of the specified dictionary to the registration domain. (basically replace entire UserDefaults)
-
 
 ### Resources
 - Apple doc on UserDefaults: https://developer.apple.com/documentation/foundation/userdefaults
