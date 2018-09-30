@@ -1,4 +1,4 @@
-**Research equilibrium**
+pro**Research equilibrium**
 
 - You reach domain saturation when you keep bumping into things you already know.
 

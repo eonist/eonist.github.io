@@ -1,6 +1,5 @@
 ### Fleeting device workflow
 
-
 I'm in the process of simplifying the hell out of my life. It was really simple before. but now i'm going total zen. Clean computer / phone, no apps, no folders full of files etc. Just total reset. And just move all my old files to backup disks if I need it. So I can focus on research without all the baggage. Also be open to new things. Like not think that just because you have  full hard-drive with files that they are of any value. The value is if you can grab hold of what comes by you IMO. So many opportunities wosh by just because you are so focused on what you have been focusing on for a while. I was too engrained in all my stuff. So I reset to be more open. Also moving all research and work to github private repos. And just treat my laptop as a fleeting device where I never "perma store".
 
 - My fleeting mac only has:
