@@ -1,4 +1,4 @@
-My notes on Semantic Versioning <!--more--> 
+My notes on Semantic Versioning <!--more-->
 
 ## Semantic Versioning
 The three numbers are defined as major, minor, and patch version numbers. For example, the version number 0.9.0 would be interpreted as:
@@ -13,4 +13,4 @@ Need an Example?
 Consider a pod that has a current version number of 1.2.3.
 If changes are made that are not backwards compatible, don’t have new functionality, but fix existing bugs, the next version would be 2.0.0.  
 
-⚠️️If a version number is less than 1.0.0, it’s considered to be a beta version, and minor number increases may include backwards incompatible changes.⚠️️
+⚠️️ If a version number is less than 1.0.0, it’s considered to be a beta version, and minor number increases may include backwards incompatible changes.⚠️️
