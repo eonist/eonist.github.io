@@ -75,6 +75,8 @@ class ViewController: UIViewController {
 
 - You can update the source files of **A** or **B** and just push them to github and they will be included if you execute `carthage update` in the **C project**. No need to re-build etc in A and B.
 
+<img width="568" alt="img" src="https://rawgit.com/stylekit/img/master/carthagebuilding.gif">
+
 - If you want to work on FrameWork A inside The C project, then add the src files in the `C/Carthage/Checkout`  folder and follow this tutorial on how to build a local framework from src : [http://eon.codes/blog/2017/11/08/local-frameworks/](http://eon.codes/blog/2017/11/08/local-frameworks/)
 
 
