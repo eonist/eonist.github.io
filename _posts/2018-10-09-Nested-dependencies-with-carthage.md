@@ -73,7 +73,7 @@ class ViewController: UIViewController {
 ### Birds-eye-view:
 - Getting in the habit of making projects with nested dependencies can greatly speed up build times, enable team members to contribute to your project more easily and enable you to share code in modules on github more easily.
 
-- You can update the source files of **A** or **B** and just push them to github and they will be included if you execute `carthage update` in the **C project**. No need to re-build etc in A and B.
+- You can update the source files of **A** or **B** and just push them to github and they will be included if you execute `carthage update` in the **C project**. No need to re-build etc in A and B. You can also target single/multiple deps. by calling: `carthage update A B` 
 
 <img width="568" alt="img" src="https://rawgit.com/stylekit/img/master/carthagebuilding.gif">
 

@@ -1,6 +1,6 @@
-My notes on bundling and reading files in an XCode project<!--more--> 
+My notes on bundling and reading files in an XCode project<!--more-->
 
-1. Create a test.txt file and add the text "testing✌️" to it then put it in a folder named test.bundle
+1. Create a test.txt file and add the text "testing✌️" to it then put it in a folder named temp.bundle
 2. Drag and drop it next to your .app file in xcode (copy)
 3. `Swift.print(Bundle.main.resourcePath!+"/temp.bundle/test.txt")` Output: /Users/James/Library/Developer/Xcode/DerivedData/GitSyncMac-heiwpdjbtaxzhiclikjotucjguqu/Build/Products/Debug/GitSyncMacApp.app/Contents/Resources/temp.bundle/test.txt
 
@@ -21,8 +21,6 @@ Swift.print(content(Bundle.main.resourcePath!+"/temp.bundle/test.txt"))//Output:
 Dragging a folder with resources into xcode will also work but the content will not have hierarchical folder structure once you build. .bundle folders on the other hand will retain the hierarchical folder structure 	
 
 ### Note:
-- If you update something in a .bundle the .bundle in your app also get's updated. It does not get updated other wise. 
+- If you update something in a .bundle the .bundle in your app also get's updated. It does not get updated other wise.
 - Sometimes you have to add the .bundle file to app target -> buildphases -> copy bundle resources
 - If you need to access a file quickly: var sourceURL = URL(fileURLWithPath: Bundle.main.resourcePath!);sourceURL.appendPathComponent("archive.zip") (dra the file into src of xcode)
-        
-        
