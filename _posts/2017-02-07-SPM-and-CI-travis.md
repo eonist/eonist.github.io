@@ -19,7 +19,7 @@ My notes on Swift PM + CI Travis<!--more-->
 
 ## YML
 
-A typical ``.travis.yml`` file looks like this: (This is the config file for Travis)
+A typical `.travis.yml` file looks like this: (This is the config file for Travis)
 
 ```
 os:
@@ -39,4 +39,4 @@ notifications:
 
 ## Final word:
 
-Some people like to keep a /Tests folder in the github repo. I prefer not to because they are not always relevant to whom ever uses the repo. As such I prefer to keep tests in a "test" repo. Which pulls in the dependencies from other repos. Travis-CI has a simple button which can test your project daily/weekly/monthly. So you don't have to push changes to test things. 
+Some people like to keep a /Tests folder in the github repo. I prefer not to because they are not always relevant to whom ever uses the repo. As such I prefer to keep tests in a "test" repo. Which pulls in the dependencies from other repos. Travis-CI has a simple button which can test your project daily/weekly/monthly. So you don't have to push changes to test things.
