@@ -8,7 +8,7 @@ Apples motivation for separating these types was:
 1. Make a light-weight range type that only holds 2 Ints (start and end)  
 
 2. Make a heavy-weight range type that holds a copy of the original Collection type (aka Array)  
-  
+
 **Important:** If you want to create extensions for Range you now have to make extensions for: Both types as they don't inherit a common protocol    
 
 **Important:** Previously the generic item type for ranges was Element in swift 3 this is called Bound  
@@ -16,7 +16,7 @@ Apples motivation for separating these types was:
 **Important:** 0...4 is now called a: Closed​Range and CountableClosedRange the later if the Range contains a collection  
 
 ## For-loop:
-The one c-style for-loop to rule them all is gone, now we have 10 different to take it's place: 
+The one c-style for-loop to rule them all is gone, now we have 10 different to take it's place:
 
 - ``for i in 0..4{}`` 👈 regular forward looping
 - ``for (i,obj) in arr.enumerated(){print(i);print(obj)}`` 👈 access to i and obj
@@ -28,10 +28,11 @@ The one c-style for-loop to rule them all is gone, now we have 10 different to t
 - ``for i in arr.indices {print(i)}`` 👈 Access to i
 - ``for _ in 0..<arr.count`` 👈 If you just wan't to loop something and not use any value
 - ``arr.reversed.forEach{$0}`` 👈 reversed forEach, more functional 🤖 .map also works
-    
+- `(0..<4).indices.map { i in return UIButton.init(frame: .zero) }` 👈 makes 4 buttons 🤖
+
 ## NSView:
-``drawLayer(layer:CALayer, inContext ctx: CGContext)`` 👈 This has vanished with out a trace to work around build it your self or? 
-  
+``drawLayer(layer:CALayer, inContext ctx: CGContext)`` 👈 This has vanished with out a trace to work around build it your self or?
+
 ``actionForLayer(layer:CALayer, forKey event: String) -> CAAction?`` 👈 Also gone, Solution: build it your self or?
 
 **Important:** Seems these methods are apart of Metal now. So instead of extending NSView we now: ``Import MetalKit`` and ``CustomView:MTKView``   
@@ -49,7 +50,7 @@ infix operator %%/*<--infix operator is required for custom infix char combos*/
  * Brings back simple modulo syntax (was removed in swift 3)
  * Calculates the remainder of expression1 divided by expression2
  * The sign of the modulo result matches the sign of the dividend (the first number). For example, -4 % 3 and -4 % -3 both evaluate to -1
- * EXAMPLE: 
+ * EXAMPLE:
  * print(12 %% 5)    // 2
  * print(4.3 %% 2.1) // 0.0999999999999996
  * print(4 %% 4)     // 0
@@ -81,12 +82,12 @@ extension Bool{
     }
 }
 ```
-  
+
 ## CGPath:
 public CGPath methods must be converted manually:  
 - ``CGPathAddPath(self, nil, path)`` is now: ``self.add(path)`` etc  
 - ``CGAffineTransformIdentiy`` is now: ``CGAffineTransform()``
-- ``CGPathAddCurveToPoint(cp1,cp2,point)`` is now: ``path.addCurve(point,cp1,cp2)`` 👈 Notice that point has changed place. 
+- ``CGPathAddCurveToPoint(cp1,cp2,point)`` is now: ``path.addCurve(point,cp1,cp2)`` 👈 Notice that point has changed place.
 
 
 ## CGRect:
