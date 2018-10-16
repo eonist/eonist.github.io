@@ -1,4 +1,4 @@
-My notes on how you can create your own file encryption app in a few minutes<!--more-->
+My notes on how you can create your own `Cloud encryption app` in a few minutes<!--more-->
 
 ## Encrypt.app
 1. Start automator (applications -> utils- >automator.app)
