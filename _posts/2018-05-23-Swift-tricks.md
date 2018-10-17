@@ -1,4 +1,4 @@
-Some of my favorite swift tricks<!--more--> 
+Some of my favorite swift tricks<!--more-->
 
 ### 1. Sometimes using switch can be overkill:
 ```swift
@@ -17,7 +17,7 @@ if [.a, .b].contains(state) {
 ### 2. Simple Caching:
 ```swift
 /**
- * Also works for external server data 
+ * Also works for external server data
  * Example: if let data = myBigData { print(data) }
  */
 private var _myBigData : Data? = nil
@@ -37,7 +37,7 @@ var myBigData : Data? {
 }
 ```
 
-### 3. Asserting if an array index exist: 
+### 3. Asserting if an array index exist:
 
 ```swift
 let arr = [1,2,3]
@@ -49,7 +49,7 @@ if let fourthItem = (3 < arr.count ?  arr[3] : nil ) {
 //Output: thirdItem: 3
 ```
 
-### 4. Simplify similar code with Closure 
+### 4. Simplify similar code with Closure
 
 ```swift
 let closure = { (text:String, bgColor:UIColor, y:CGFloat, action:String) in
@@ -113,7 +113,7 @@ print("\(CellType.tierary.rawValue)")//tierary
 ```
 
 
-### 8. Accessing raw and hash of enum 
+### 8. Accessing raw and hash of enum
 
 ```swift
 enum CellType:String{
@@ -125,7 +125,7 @@ possibleCellType?.hashValue//2
 ```
 
 
-### 9. Closure Generics 
+### 9. Closure Generics
 
 ```swift
 typealias UIViewConstraintKind = UIView & ConstraintKind/*This works almost like someValue:T .... where T:ConstraintKind*/
@@ -173,7 +173,7 @@ a.doSomething()//wuu 💥
 
 ### 12. Result (for async callback returns)
 
-improve this: 
+improve this:
 
 ```swift
 enum Result<Value> {
@@ -202,14 +202,14 @@ case .success (let value as [ String : Any ]) where value["email"] is String:
     print("email: \(email)")
 default:
     self.present(error: Error(.facebookOther))
-} 
+}
 ```
 https://stackoverflow.com/questions/51235876/swift-pattern-matching-switch-downcasting-and-optional-binding-in-a-single-s
 
 
 ### 13 Manipulate an object in a closure
 
-```swift 
+```swift
 @discardableResult/*👈 Avoids xcode compiler warnings if result is not used*/
 func with<T>(_ item: T, update: (inout T) throws -> Void) rethrows -> T {
     var item = item
@@ -286,22 +286,39 @@ func doSomethingMagical(magicalOperation:MagicalOperation) rethrows -> MagicalRe
 
 ```swift
 class MyViewController {
-    
+
     enum Error: Swift.Error {
         case invalidUsername
         case invalidPassword
     }
-    
+
     enum Event {
         /// - requestLogin: We are requiring the app to login
         case requestLogin
         /// - showErrorMessage: We errored, we need to show an error message
         case showErrorMessage(Error)
     }
-    
+
     typealias EventAction = (Event) -> Void
-    
+
     var eventHandler: EventAction?
-    
+
+}
+```
+
+### 17. Delay something
+```swift
+DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+   /*Do something after 4 seconds have passed*/
+}
+
+//Alternatively:
+
+DispatchQueue.global(qos: .background).async {
+    sleep(4)
+    print("Active after 4 sec, and doesn't block main")
+    DispatchQueue.main.async{
+        //do stuff in the main thread here
+    }
 }
 ```
