@@ -2,11 +2,11 @@ Two approaches when making a button in swift, that isn't an UIButton<!--more-->.
 
 ### The Overriding approach
 
-Using subclassing and overriding the already built in gesture recognizers. Instead of adding them again. Example of the latter can be seen on the bottom. 
+Using subclassing and overriding the already built in gesture recognizers. Instead of adding them again. Example of the latter can be seen on the bottom.
 
 
 ```swift
-/** 
+/**
  * let customButton:CustomButton = CustomButton.init(frame:CGRect.init(x:0,y:0,width:120,height:40))
  * addSubview(customButton)
  * customButton.tapUpInsideCallBack = {
@@ -52,12 +52,12 @@ extension CustomButton{
 }
 ```
 
-### The Gesture approach 
-Here is an example where we are adding GestureRecognizer to the view. Useful for more advance setups. 
+### The Gesture approach
+Here is an example where we are adding GestureRecognizer to the view. Useful for more advance setups.
 
 ```swift
 /**
- * View that can be pressed like a button 
+ * View that can be pressed like a button
  * EXAMPLE:
  * let btn = ButtonView()
  * btn.onNormal = { btn.backgroundColor = .clearColor() }
@@ -73,21 +73,21 @@ class ButtonView : UIView {
     override init(frame: CGRect)  {
         super.init(frame: frame)
 
-        let recognizer = UILongPressGestureRecognizer(target: self, action: Selector("touched:"))
-        recognizer.delegate = self
-        recognizer.minimumPressDuration = 0.0
-        addGestureRecognizer(recognizer)
-        userInteractionEnabled = true
+     let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(touched))
+     // recognizer.delegate = self
+     recognizer.minimumPressDuration = 0.0
+     addGestureRecognizer(recognizer)
+     userInteractionEnabled = true
 
         onNormal()
     }
     /**
      * Gesture handler
      */   
-    func touched(sender: UILongPressGestureRecognizer) {
-        if sender.state == .Began {
+    @objc func touched(sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
             onPressed(self)
-        } else if sender.state == .Ended {
+        } else if sender.state == .ended {//👉 [.ended,.cancelled,.failed].contains(sender.state)
             onNormal(self)
             onReleased()
         }
