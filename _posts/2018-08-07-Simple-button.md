@@ -2,7 +2,7 @@ Two approaches when making a button in swift, that isn't an UIButton<!--more-->.
 
 ### The Overriding approach
 
-Using subclassing and overriding the already built in gesture recognizers. Instead of adding them again. Example of the latter can be seen on the bottom.
+Using subclassing and overriding the already built in gesture recognizers. Instead of adding them again. Example of the latter can be seen on the bottom. Its important to note that using UILongPressGestureRecognizer with threshold set to 0.0sec can still have a delay, if the view its added to has subViews. As such subclassing and overriding can be the only option, if the interaction  needs to have zero lag.
 
 
 ```swift
