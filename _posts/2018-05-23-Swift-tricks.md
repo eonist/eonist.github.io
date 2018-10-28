@@ -322,3 +322,23 @@ DispatchQueue.global(qos: .background).async {
     }
 }
 ```
+
+### Combinational types instead of generics
+
+The `applyConstraint` method requires conformance to UIView and ConstraintKind
+
+```swift
+/*Generics*/
+func setCardConstraints<T:UIView>(card:T) where T:ConstraintKind{//👈 Looks messy
+   card.applyConstraint{ view in
+      /*do stuff*/
+   }
+}
+/*Combinational type*/
+public typealias UIViewConstraintKind = UIView & ConstraintKind
+func setCardConstraints(card:UIViewConstraintKind){//👈 Looks much cleaner
+   card.applyConstraint{ view in
+      /*do stuff*/
+   }
+}
+```
