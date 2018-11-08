@@ -370,6 +370,7 @@ class Constants{
 /**
  * EXAMPLE: Margin.bottom.rawValue//32
  * Margin.allCases[1].rawValue//32
+ * NOTE: values must be unique
  */
 enum Margin:CGFloat,CaseIterable{
 case top = 24, bottom = 32, horizontal = 12
