@@ -286,23 +286,29 @@ func doSomethingMagical(magicalOperation:MagicalOperation) rethrows -> MagicalRe
 
 ```swift
 class MyViewController {
-
     enum Error: Swift.Error {
         case invalidUsername
         case invalidPassword
     }
-
     enum Event {
-        /// - requestLogin: We are requiring the app to login
-        case requestLogin
-        /// - showErrorMessage: We errored, we need to show an error message
-        case showErrorMessage(Error)
+     case loginSuccess
+        case showErrorMessage(Error)/// - showErrorMessage: We errored, we need to show an error message
     }
 
     typealias EventAction = (Event) -> Void
-
     var eventHandler: EventAction?
-
+    func test() {
+        let user:(name:String,password:String) = ("John","abc123")
+        guard   "test" == user.password else {
+           eventHandler(.showErrorMessage(.invalidUsername))
+           return
+        }
+      guard "Monica" == user.name else {
+         eventHandler(.showErrorMessage(.invalidUsername))
+         return
+      }
+      eventHandler(.loginSuccess)
+    }
 }
 ```
 
@@ -341,4 +347,32 @@ func setCardConstraints(card:UIViewConstraintKind){//👈 Looks much cleaner
       /*do stuff*/
    }
 }
+```
+### Dot-syntax inference and array iteration with Enums
+
+```swift
+/**
+ * TIPS: Access all colors via: Constants.Colors.allCases
+ * EXAMPLE: Constants.Colors.allCases[1]//UIColor.yellow
+ * EXAMPLE: Constants.Colors.red//UIColor.red
+ */
+class Constants{
+   enum Colors:String,CaseIterable{
+      case blue = "FB1B4D", yellow = "1DE3E6", red = "22FFA0", green = "FED845"
+      var uiColor:UIColor {
+         return UIColor.init(hex: self.rawValue)
+      }
+   }
+}
+```
+
+```swift
+/**
+ * EXAMPLE: Margin.bottom.rawValue//32
+ * Margin.allCases[1].rawValue//32
+ */
+enum Margin:CGFloat,CaseIterable{
+case top = 24, bottom = 32, horizontal = 12
+}
+
 ```
