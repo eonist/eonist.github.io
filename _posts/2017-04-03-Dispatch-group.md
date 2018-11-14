@@ -1,15 +1,15 @@
-My notes on DispatchGroup <!--more--> 
+My notes on DispatchGroup <!--more-->
 
 ### DispatchGroup:
-Dispatch groups must enter and leave inside async calls on the bg thread. and must have the same amount of enter and leaves. 
-I suppose one could pass dispatch group refs as a variable and use it in a nested scenario. But DispatchGroups seems to work best when wanting to do many async tasks on background thread at the same time and have one onComplete for when all tasks complete. 
+Dispatch groups must enter and leave inside async calls on the bg thread. and must have the same amount of enter and leaves.
+I suppose one could pass dispatch group refs as a variable and use it in a nested scenario. But DispatchGroups seems to work best when wanting to do many async tasks on background thread at the same time and have one onComplete for when all tasks complete.
 
 ```swift
 
 import Foundation
 @testable import Utils
 
-//do 3 things async, 
+//do 3 things async,
 //then in each 3 things do 2 things async but do something on main-thread when these 4 things are all finished
 
 class ASyncTest {
@@ -21,7 +21,7 @@ class ASyncTest {
      */
     init(){
             let group = DispatchGroup()
-            
+
             group.enter()
             bg.async{/*do 2 things at the same time*/
                 Swift.print("do default")
@@ -38,7 +38,7 @@ class ASyncTest {
             }else{
                 Swift.print("do the second")
             }
-            
+
             //group.wait()/*wait blocks main thread, blocks UI, Its important that the notify comes after all enter and leaves has been assigned*/
             /*notify also fires when nothing left or entered*/
             group.notify(queue: main, execute: {/*you have to jump back on main thread to call things on main thread as this scope is still on bg thread*/
@@ -50,15 +50,14 @@ class ASyncTest {
 
 ```
 
-
 ## DispatchGroup and DispatchWorkItem
 
-A must if you also need to cancel your async tasks: [https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2](https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2) 
+A must if you also need to cancel your async tasks: [https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2](https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2)
 
 
 ## Threading 1 0n 1:
 
-Awesome guy:http://stackoverflow.com/users/4665907/that-lazy-ios-guy-웃 Made a 15min video about Threading in swift 3 just for me: 
+Awesome guy:http://stackoverflow.com/users/4665907/that-lazy-ios-guy-웃 Made a 15min video about Threading in swift 3 just for me:
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/YhZahnTiA8U" frameborder="0" allowfullscreen></iframe>
 
@@ -74,12 +73,12 @@ func myFunction() {
     let group = DispatchGroup()
     group.enter()
 
-    DispatchQueue.main.async {
+    DispatchQueue.main.async {''
         a = 1
         group.leave()
     }
 
-    // does not wait. But the code in notify() is run 
+    // does not wait. But the code in notify() is run
     // after enter() and leave() calls are balanced
 
     group.notify(queue: .main) {
