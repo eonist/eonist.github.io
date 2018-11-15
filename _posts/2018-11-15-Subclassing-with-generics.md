@@ -55,6 +55,9 @@ let card:TopCard = .init())
 card.data = TopCardData(title:"Some title",content:"Some content goes here")
 ```
 
+
 **Final note:**
 
-This subclassing with generics also works with UITableView cell dequeuing and registering. See example in the FlowLayout project: [https://github.com/eonist/FlowLayout](https://github.com/eonist/FlowLayout) 
+This subclassing with generics also works with UITableView cell dequeuing and registering. See example in the FlowLayout project: [https://github.com/eonist/FlowLayout](https://github.com/eonist/FlowLayout)
+
+<img width="416" alt="img" src="https://rawgit.com/stylekit/img/master/short.gif">
