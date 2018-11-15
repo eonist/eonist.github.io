@@ -1,4 +1,4 @@
-Some of my favorite swift tricks<!--more-->
+Some of my favourite swift tricks<!--more-->
 
 ### 1. Sometimes using switch can be overkill:
 ```swift
@@ -22,7 +22,7 @@ if [.a, .b].contains(state) {
  */
 private var _myBigData : Data? = nil
 var myBigData : Data? {
-    set (newdata) {
+    set newdata {
         self._myBigData = newdata
     } get {
         if _myBigData == nil {
@@ -329,7 +329,7 @@ DispatchQueue.global(qos: .background).async {
 }
 ```
 
-### Combinational types instead of generics
+### 18. Combinational types instead of generics
 
 The `applyConstraint` method requires conformance to UIView and ConstraintKind
 
@@ -348,13 +348,14 @@ func setCardConstraints(card:UIViewConstraintKind){//👈 Looks much cleaner
    }
 }
 ```
-### Dot-syntax inference and array iteration with Enums
+### 19. Dot-syntax inference and array iteration with Enums
 
 ```swift
 /**
  * TIPS: Access all colors via: Constants.Colors.allCases
  * EXAMPLE: Constants.Colors.allCases[1]//UIColor.yellow
  * EXAMPLE: Constants.Colors.red//UIColor.red
+ * IMPORTANT: ⚠️️ the key must be unique and the the value must be unique
  */
 class Constants{
    enum Colors:String,CaseIterable{
@@ -373,7 +374,7 @@ class Constants{
  * NOTE: values must be unique
  */
 enum Margin:CGFloat,CaseIterable{
-case top = 24, bottom = 32, horizontal = 12
+   case top = 24, bottom = 32, horizontal = 12
 }
 
 ```
