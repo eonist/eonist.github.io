@@ -383,6 +383,15 @@ enum Margin:CGFloat,CaseIterable{
 ## 20. Flattening 3d array:
 
 ```swift
+struct Subscription{
+   let type:String
+}
+struct Account{
+   let subscriptions:[Subscription]
+}
+struct User{
+   let accounts:[Account]
+}
 let users:[User] = [
    User(accounts:[Account(subscriptions:[Subscription(type:"a")])]),
    User(accounts:[Account(subscriptions:[Subscription(type:"b")]),Account(subscriptions:[Subscription(type:"c")])]),
