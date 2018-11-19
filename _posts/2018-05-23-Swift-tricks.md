@@ -378,3 +378,37 @@ enum Margin:CGFloat,CaseIterable{
 }
 
 ```
+
+
+## 20. Flattening 3d array:
+
+```swift
+struct Subscription{
+   let type:String
+}
+struct Account{
+   let subscriptions:[Subscription]
+}
+struct User{
+   let accounts:[Account]
+}
+let users:[User] = [
+   User(accounts:[Account(subscriptions:[Subscription(type:"a")])]),
+   User(accounts:[Account(subscriptions:[Subscription(type:"b")]),Account(subscriptions:[Subscription(type:"c")])]),
+   User(accounts:[Account(subscriptions:[Subscription(type:"d"),Subscription(type:"e"),Subscription(type:"f")])])
+]
+
+/*Not preferred*/
+let result1 = users.map{ user in
+   return user.accounts.map { account in
+      return account.subscriptions.map { subscription in
+         return subscription.type
+      }
+   }
+}.flatMap{$0}.flatMap{$0}
+Swift.print("result1:  \(result1)")//["a", "b", "c", "d", "e", "f"]
+
+/*Preferred*/
+let result2 = users.flatMap{$0.accounts}.flatMap{$0.subscriptions}.flatMap{$0.type}
+Swift.print("result2:  \(result2)")//["a", "b", "c", "d", "e", "f"]
+```
