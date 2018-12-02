@@ -3,7 +3,7 @@ My notes on source code topology<!--more-->
 (source topology)
 - app
    - src
-      - utils (static utilitity methods)
+      - util (static utilitity methods)
          - extensions (regex,array,string,number,async,network)
       - libs (feature modules, data containers etc)
          - TinyMail
