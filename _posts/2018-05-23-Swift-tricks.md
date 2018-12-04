@@ -412,3 +412,12 @@ Swift.print("result1:  \(result1)")//["a", "b", "c", "d", "e", "f"]
 let result2 = users.flatMap{$0.accounts}.flatMap{$0.subscriptions}.flatMap{$0.type}
 Swift.print("result2:  \(result2)")//["a", "b", "c", "d", "e", "f"]
 ```
+
+## 21. Store reuse identifiers in a cell extension
+
+```swift
+class SomeTableViewCell:UITableViewCell{}
+extension SomeTableViewCell{
+   static let cellReuseIdentifier:String = "\(SomeTableViewCell.self)"
+}
+```
