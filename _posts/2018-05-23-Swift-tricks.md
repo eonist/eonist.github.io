@@ -173,7 +173,7 @@ a.doSomething()//wuu 💥
 
 ### 12. Result (for async callback returns)
 
-improve this:
+⚠️️ improve this: ⚠️️
 
 ```swift
 enum Result<Value> {
@@ -231,6 +231,8 @@ let color = with(UIColor.init(red: 50, green: 100, blue: 0, alpha: 0.9)) { ( col
 Swift.print(color.cgColor.alpha)//0.2
 
 ```
+
+[https://github.com/eonist/with](https://github.com/eonist/with) 
 
 
 ### 14 Use custom closures with the native sortedBy method:

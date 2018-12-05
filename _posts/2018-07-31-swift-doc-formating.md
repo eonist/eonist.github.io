@@ -6,10 +6,12 @@ My notes on method commenting in swift<!--more-->. IMO commenting is vital when 
   * - PARAMETERS:
   *   - color: only awesome colors allowed
   *   - alpha: only awesome alpha values allowed
+  * - Returns: A color with new alpha value
   */
- static func test(color:UIColor,alpha:CGFloat){
+ static func test(color:UIColor,alpha:CGFloat) -> UIColor{
      _ = color
      _ = alpha
+     return color.withAlpha(alpha)
  }
 
 ```
@@ -18,17 +20,26 @@ Hold in the `alt` key and press the method name from a caller. And this dialog w
 
 <img width="430" alt="img" src="https://rawgit.com/stylekit/img/master/Screen Shot 2018-07-31 at 11.07.30.png">
 
-#### why you shouldn't do comment style like this:
-
+#### Why you shouldn't do comment style like this:
 
 ```swift
 /*
-  When you copy this, indentation is lost
+  When you copy/paste, indentation is lost
        Here
 */
 ```
 
-#### Proper comment fencing:
+### Obj-c era commenting:
+
+```swift
+///
+/// This commenting style is pretty common in the swift community
+/// One backdraw is that you have to click 3 times every time you want to add another line
+///
+```
+
+
+#### Preferred comment fencing: (IMO)
 
 ```swift
 /**
@@ -39,3 +50,5 @@ Hold in the `alt` key and press the method name from a caller. And this dialog w
  * }
  */
 ```
+### Codebases that are heavily commented:
+[https://github.com/IBM-Swift/Kitura](https://github.com/IBM-Swift/Kitura) 
