@@ -1,13 +1,13 @@
 My notes on source code topology<!--more-->
+
 ### Code structure
 (source topology)
 - app
    - src
+      - common (code that is common across modules, style, models, data, consts)
       - util (static utilitity methods)
-         - extensions (regex,array,string,number,async,network)
-      - libs (feature modules, data containers etc)
-         - TinyMail
-      - manager (Singleton navigation, consts)
+         - extensions (spesific math, general network stuff etc)
+      - manager (Singleton navigation, state of the app)
          - Config.swift (toggle debug/release)
          - Nav.swift (enum based app navigation)
       - view (views hierarchy and controller hierarchy)
@@ -15,11 +15,16 @@ My notes on source code topology<!--more-->
          - send
          - receive
          - prefs
+            - general
+            - account
          - dialog
-   - frameworks (third-party libs and frameworks)
+            - error
+            - confirm
+            - quit
+   - lib (third-party libs and frameworks)
       - CoreMail (non-binary)
-   - assets.bundle
+   - asset.bundle
       - .pdf (vector icon assets etc)
       - .icns (app icon)
       - .json (dev & pub user config)
-- readme.md
+- readme.md (⚠️️ Very important, on-boarding is crucial ⚠️️)
