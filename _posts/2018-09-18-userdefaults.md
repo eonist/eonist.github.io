@@ -1,6 +1,6 @@
-My notes on UserDefaults<!--more-->. User defaults can be used for saving types such as: `Bool, Dictionary, Int, String, Data, Array` 
+My notes on UserDefaults<!--more-->. User defaults can be used for saving types such as: `Bool, Dictionary, Int, String, Data, Array`
 
-### Example 
+### Example
 ```swift
 //variables
 let defaults = UserDefaults.standard
@@ -23,7 +23,7 @@ UserDefaults.standard.set("John", forKey: "FirstName")
 print(UserDefaults.standard.object(forKey: "FirstName"))//John
 ```
 
-### Remove object 
+### Remove object
 ```swift
 UserDefaults.standard.set(25, forKey: "Age")
 print(UserDefaults.standard.object(forKey: "Age"))//25
@@ -31,7 +31,7 @@ UserDefaults.standard.removeObject(forKey: "Age")
 print(UserDefaults.standard.object(forKey: "Age"))//nil
 ```
 
-### Unwrap object 
+### Unwrap object
 ```swift
 let array = defaults.object(forKey:"SavedArray") as? [String] ?? [String]()
 let dict = defaults.object(forKey: "SavedDict") as? [String: String] ?? [String: String]()
@@ -44,7 +44,7 @@ UserDefaults.standard.set("John", forKey: "name")
 let name = UserDefaults.standard.string(forKey: “name”) ?? “”
 ```
 
-### Bool 
+### Bool
 ```swift
 //Saving Boolean value
 UserDefaults.standard.set(true, forKey: “userlogin”)
@@ -57,7 +57,7 @@ let status = UserDefaults.standard.bool(forKey: “userlogin”) ?? false
 struct Defaults {
    /**
     * The keys that is used in the dictionary (Dictionary is stored in the UserDefaults.standard only)
-    */ 
+    */
     static let (nameKey, addressKey) = ("name", "address")
     typealias NameAndAddress = (nameKey:String, addressKey:String)
     /**
@@ -76,7 +76,7 @@ struct Defaults {
      * TODO: this should be try error etc ⚠️
      */
     static var nameAndAddress:NameAndAddress = {
-      /*Returns the Dictionary for the userSessionKey*/ 
+      /*Returns the Dictionary for the userSessionKey*/
       get {
          let dict = (UserDefaults.standard.value(forKey: userSessionKey) as? [String: String]) ?? [:]
          return Model(dict)
@@ -98,12 +98,9 @@ struct Defaults {
 ### Interacting with the Model:
 ```swift
 //Saving details
-
 Defaults.nameAndAddress = (name:"John", address:"New York")
-
 //Retrieving details
 let name = Defaults.nameAndAddress.name
-
 //Clear details
 Defaults.clearUserData()
 ```
@@ -135,13 +132,13 @@ extension UserDefaults {
 - `stringArray(forKey: String) -> [String]?`//Returns the array of strings associated with the specified key.
 - `data(forKey: String) -> Data?`
 - `url(forKey: String) -> URL?`//Returns the URL associated with the specified key.
-- `object(forKey: String) -> Any?`👈 ✨//Returns the object associated with the specified key. 
+- `object(forKey: String) -> Any?`👈 ✨//Returns the object associated with the specified key.
 - `integer(forKey: String) -> Int` //Returns the integer value associated with the specified key.
 - `float(forKey: String) -> Float` //Returns the float value associated with the specified key.
 - `double(forKey: String) -> Double` //Returns the double value associated with the specified key.
 - `dictionaryRepresentation() -> [String : Any]` //Returns a dictionary that contains a union of all key-value pairs in the domains in the search list.
 
-### Important 
+### Important
 - integer, double, returns `0`
 - bool returns `false`
 
@@ -155,3 +152,6 @@ extension UserDefaults {
 ### Resources
 - Apple doc on UserDefaults: https://developer.apple.com/documentation/foundation/userdefaults
 - My personal swift-tool-box press `T` and write userdefault.swift and you will find a small Extension https://github.com/eonist/swift-utils
+
+### Notes:
+This is where the UserDeaults plist is stored: rootOfApplication/Library/Preferences/com.yourcompany.appName.plist
