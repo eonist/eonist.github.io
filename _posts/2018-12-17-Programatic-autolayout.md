@@ -20,10 +20,10 @@ Pros and cons of programatic AutoLayout<!--more-->
 - As developers we need to ascend to a higher level of UI/UX programming. A place where using ReactiveNative is impossible.
 - Whats more readable 4-5 panels with 100s of checkboxes, OR the line: `view.snap(self)`
 - InterfaceBuilder crashes xcode if there are too many views 💥
-- InterfaceBuilder is slow when there are many views 
+- InterfaceBuilder is really slow when there are many views
 - More advance conventions and workflows regarding Interfacebuilder and autolayout quickly becomes non-sensical
 - Segues etc are better captured and handled in code.
-
+- InterfaceBuilder is not suited for making fancy responsive UI/UX
 
 #### Con's
 - Slight learning-curve for iOS beginners
