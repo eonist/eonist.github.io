@@ -4,10 +4,10 @@
 
 ### Coffe shop:
 <img width="800" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Photo 28-06-2017, 18 18 11.jpg">
-  
+
 <img width="800" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Photo 28-06-2017, 18 18 42.jpg">
 ### Writers space:
-There are two levels of the same kind of work space. This is on the 2nd floor. 
+There are two levels of the same kind of work space. This is on the 2nd floor.
 <img width="800" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Photo 28-06-2017, 18 08 38.jpg">
 
 ### 2nd floor bar:
@@ -18,7 +18,7 @@ There is another bar in the 1-floor
 
 <img width="800" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Photo 28-06-2017, 18 07 25.jpg">
 <img width="800" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Photo 28-06-2017, 18 14 03.jpg">
-### Courtyard: 
+### Courtyard:
 
 <img width="800" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Photo 28-06-2017, 18 07 14.jpg">
 
@@ -42,7 +42,7 @@ There is also another concert area in the first floor. Ping pong is 10$ for half
 
 <img width="800" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Photo 28-06-2017, 18 20 30 (1).jpg">
 
-### Free wifi: 
+### Free wifi:
 Psst the wifi pass is: "haenfindag" roughly translated: Have a nice day.   
 
 <img width="320" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/Photo 28-06-2017, 18 22 07.jpg">
