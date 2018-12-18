@@ -24,6 +24,9 @@ Pros and cons of programatic AutoLayout<!--more-->
 - More advance conventions and workflows regarding Interfacebuilder and autolayout quickly becomes non-sensical
 - Segues etc are better captured and handled in code.
 - InterfaceBuilder is not suited for making fancy responsive UI/UX
+- merge conflict increases when you have many people working on one storyboard
+- The more programatic AutoLaytout you know the easier it will be to live in a IB/Code hybrid world. You cannot survive on InterfaceBuilder alone.
+- `Unable to simultaneously satisfy constraints, will attempt to recover by breaking constraint` 💀
 
 #### Con's
 - Slight learning-curve for iOS beginners
