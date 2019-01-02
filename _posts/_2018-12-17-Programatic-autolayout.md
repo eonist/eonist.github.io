@@ -29,6 +29,7 @@ Pros and cons of programatic AutoLayout<!--more-->
 - `Unable to simultaneously satisfy constraints, will attempt to recover by breaking constraint` 💀
 - The comments surrounding the programatic AutoLayout code is crusial, as we can spend a lot less time deriving the context the original problem was solved. If this statement sounds unambigiouse then please read my article on [commenting and its effect on cognition]()
 - ios 9 edge cases needs documentation
+- When subContent sets parent constraints, things gets complicated and commenting and subclassing is needed to keep the code readable and maintainable
 - My final argument is that Programatic AutoLayout enables you to have a steel grip over your UI / UX. No more half baked transitions that are fair enough. Own your design. Make it shine ✨
 
 #### Con's
