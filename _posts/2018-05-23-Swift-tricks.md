@@ -232,7 +232,7 @@ Swift.print(color.cgColor.alpha)//0.2
 
 ```
 
-[https://github.com/eonist/with](https://github.com/eonist/with) 
+[https://github.com/eonist/with](https://github.com/eonist/with)
 
 
 ### 14 Use custom closures with the native sortedBy method:
@@ -421,5 +421,15 @@ Swift.print("result2:  \(result2)")//["a", "b", "c", "d", "e", "f"]
 class SomeTableViewCell:UITableViewCell{}
 extension SomeTableViewCell{
    static let cellReuseIdentifier:String = "\(SomeTableViewCell.self)"
+}
+```
+
+
+## 22. Avoid xcode warning when returned value is not used:
+
+```swift
+@discardableResult
+func add(a: Int, b: Int) -> Int {
+    return a + b
 }
 ```
