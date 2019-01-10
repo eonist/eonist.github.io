@@ -1,4 +1,4 @@
-My checklist when making a programtic iOS app<!--more-->
+My checklist when making a programmatic iOS app<!--more-->
 
 1. Clean up the AppDelegate class:
 
@@ -7,12 +7,15 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
    var window: UIWindow?
-   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {return true}
+   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+      _ = window
+      return true
+   }
 }
 ```
 
 2. Delete `Main storyboard file base name` in the info.plist
-3.  Now you can delete ViewController.swift
+3. Now you can delete ViewController.swift
 4. Add MainVC and MainView
 
 ```swift

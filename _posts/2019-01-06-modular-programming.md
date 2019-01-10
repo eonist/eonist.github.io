@@ -16,3 +16,5 @@ My notes on modular programming<!--more-->
 - Carthage, new functionality goes into a framework. For instance if you make a new password strength checker -> own framework
 - Keeping time-saving-extensions in classes makes them prone to becoming out of sync with other parts of the code
 - Many modern apps often have 20-40 internal .framework dependencies
+
+Nails monolith vs modular: [https://gist.github.com/joepie91/7f03a733a3a72d2396d6](https://gist.github.com/joepie91/7f03a733a3a72d2396d6)

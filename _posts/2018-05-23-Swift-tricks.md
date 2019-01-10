@@ -433,3 +433,13 @@ func add(a: Int, b: Int) -> Int {
     return a + b
 }
 ```
+
+## 23. Make methods off-limit
+[https://www.mokacoding.com/blog/swift-unavailable-how-to/](https://www.mokacoding.com/blog/swift-unavailable-how-to/)
+
+```swift
+@available(*, unavailable)
+public required init?(coder: NSCoder) {
+   fatalError("init?(coder:) is not supported")
+}
+```

@@ -4,7 +4,7 @@ My notes on method commenting in swift<!--more-->. Commenting is vital when crea
 ```swift
  /**
   * A method that returns awesome colors
-  * - PARAMETERS:
+  * - Parameters:
   *   - color: only awesome colors allowed
   *   - alpha: only awesome alpha values allowed
   * - Returns: A color with new alpha value
