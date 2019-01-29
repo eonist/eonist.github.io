@@ -164,12 +164,10 @@ The keywords available in the swift commenting syntax
 - Version
 - Warning
 
-
 ### Codebases that are heavily commented:
 [https://github.com/IBM-Swift/Kitura](https://github.com/IBM-Swift/Kitura)
 [https://github.com/CosmicMind/Motion](https://github.com/CosmicMind/Motion)
 [https://github.com/CosmicMind/Material](https://github.com/CosmicMind/Material)
-
 
 ### In closing (Comment or not to comment)
 **Not to comment:**

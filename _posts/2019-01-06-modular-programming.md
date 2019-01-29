@@ -16,5 +16,10 @@ My notes on modular programming<!--more-->
 - Carthage, new functionality goes into a framework. For instance if you make a new password strength checker -> own framework
 - Keeping time-saving-extensions in classes makes them prone to becoming out of sync with other parts of the code
 - Many modern apps often have 20-40 internal .framework dependencies
-
+- Divided project into logical parts that are living their life.
+- Developers can run and develop only specific parts of the app (specific framework) without compiling everything.
+- More flexibility on the project. A framework can be quite easily taken out or linked back into the project.
+- Develop more efficiently using XCPlaygrounds as a project cannot be imported to the XCPlaygrounds but a framework can. A perfect use case is for developing UIComponents. With Playgrounds there is almost an instant build of the view.
+- Every framework contains its unit tests so it can be run in isolation from the rest of the app.
+- Access control (limit with the internal accessor, only ake public methods that can be accessed from outside)
 Nails monolith vs modular: [https://gist.github.com/joepie91/7f03a733a3a72d2396d6](https://gist.github.com/joepie91/7f03a733a3a72d2396d6)
