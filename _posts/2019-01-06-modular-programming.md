@@ -3,7 +3,7 @@ My notes on modular programming<!--more-->
 "And you can easily swap blocks. Want a new camera in the app? change the camera framework, api remains more or less the same"
 
 ### Overview:
-- Modular: single 'responsibility'.
+- Modular: single 'responsibility'
 - monolith:  tightly coupled
 - abstract systems into manageable layers
 
@@ -21,5 +21,9 @@ My notes on modular programming<!--more-->
 - More flexibility on the project. A framework can be quite easily taken out or linked back into the project.
 - Develop more efficiently using XCPlaygrounds as a project cannot be imported to the XCPlaygrounds but a framework can. A perfect use case is for developing UIComponents. With Playgrounds there is almost an instant build of the view.
 - Every framework contains its unit tests so it can be run in isolation from the rest of the app.
+- Developers can work more async, isolated on their own tasks without disturbing progress of the main project
 - Access control (limit with the internal accessor, only ake public methods that can be accessed from outside)
 Nails monolith vs modular: [https://gist.github.com/joepie91/7f03a733a3a72d2396d6](https://gist.github.com/joepie91/7f03a733a3a72d2396d6)
+
+### Additional reading:
+- Low app startup time: [https://developer.apple.com/videos/play/wwdc2016/406/](https://developer.apple.com/videos/play/wwdc2016/406/)
