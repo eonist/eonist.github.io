@@ -13,4 +13,4 @@ After you have enabled the timer, you will see the time it takes to compile your
 
 ### Build time details
 
-`Product → Perform Action → Build with Timing Summaryoption.`
+`Product → Perform Action → Build with Timing Summary option.`
