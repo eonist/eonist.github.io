@@ -22,8 +22,11 @@ My notes on modular programming<!--more-->
 - Develop more efficiently using XCPlaygrounds as a project cannot be imported to the XCPlaygrounds but a framework can. A perfect use case is for developing UIComponents. With Playgrounds there is almost an instant build of the view.
 - Every framework contains its unit tests so it can be run in isolation from the rest of the app.
 - Developers can work more async, isolated on their own tasks without disturbing progress of the main project
-- Modules can live isolated while other modules move on by using legacy versions of  dependiencies
-- Access control (limit with the internal accessor, only ake public methods that can be accessed from outside)
+- Modules can live isolated while other modules move on by using legacy versions of  dependencies
+- Access control (limit with the internal accessor, only make public methods that can be accessed from outside)
+- Shorter more explicit naming of classes: Not `RemoteImageAccessManipulator` but rather just internal `AccessManipulator` in a RemoteImage module
+
+
 Nails monolith vs modular: [https://gist.github.com/joepie91/7f03a733a3a72d2396d6](https://gist.github.com/joepie91/7f03a733a3a72d2396d6)
 
 ### Additional reading:
