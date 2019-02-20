@@ -16,7 +16,7 @@ Apples motivation for separating these types was:
 **Important:** 0...4 is now called a: Closed​Range and CountableClosedRange the later if the Range contains a collection  
 
 ## For-loop:
-The one c-style for-loop to rule them all is gone, now we have 10 different to take it's place:
+The one c-style for-loop to rule them all is gone, now we have 10++ different to take it's place:
 
 - ``for i in 0..4{}`` 👈 regular forward looping
 - ``for (i,obj) in arr.enumerated(){print(i);print(obj)}`` 👈 access to i and obj
@@ -30,6 +30,7 @@ The one c-style for-loop to rule them all is gone, now we have 10 different to t
 - ``arr.reversed.forEach{$0}`` 👈 reversed forEach, more functional 🤖 .map also works
 - `(0..<4).indices.map { i in return UIButton.init(frame: .zero) }` 👈 makes 4 buttons 🤖
 - `for (i,str):(Int,String) in strings.enumerated() {print(("\(i) and \(str)"))}` 👈 special for loop
+- `arr.enumerated().forEach{(_ i:Int,_ str:Data) in print(("\(i) and \(str)"))}` 👈 👌
 
 ## NSView:
 ``drawLayer(layer:CALayer, inContext ctx: CGContext)`` 👈 This has vanished with out a trace to work around build it your self or?

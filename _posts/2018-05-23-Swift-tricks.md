@@ -293,23 +293,22 @@ class MyViewController {
         case invalidPassword
     }
     enum Event {
-     case loginSuccess
+        case loginSuccess
         case showErrorMessage(Error)/// - showErrorMessage: We errored, we need to show an error message
     }
-
     typealias EventAction = (Event) -> Void
     var eventHandler: EventAction?
     func test() {
-        let user:(name:String,password:String) = ("John","abc123")
-        guard   "test" == user.password else {
-           eventHandler(.showErrorMessage(.invalidUsername))
-           return
-        }
-      guard "Monica" == user.name else {
-         eventHandler(.showErrorMessage(.invalidUsername))
-         return
-      }
-      eventHandler(.loginSuccess)
+         let user:(name:String,password:String) = ("John","abc123")
+         guard   "test" == user.password else {
+            eventHandler(.showErrorMessage(.invalidUsername))
+            return
+         }
+         guard "Monica" == user.name else {
+            eventHandler(.showErrorMessage(.invalidUsername))
+            return
+         }
+         eventHandler(.loginSuccess)
     }
 }
 ```

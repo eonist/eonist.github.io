@@ -31,6 +31,10 @@ Pros and cons of programatic AutoLayout<!--more-->
 - ios 9 edge cases needs documentation
 - When subContent sets parent constraints, things gets complicated and commenting and subclassing is needed to keep the code readable and maintainable
 - My final argument is that Programatic AutoLayout enables you to have a steel grip over your UI / UX. No more half baked transitions that are fair enough. Own your design. Make it shine ✨
+- Storyboards are more prone to version conflicts due to their complex XML structure. This makes merging much harder than with code.
+- It's easier to structure and reuse views in code, thereby keeping your codebase DRY.
+- All information is in one place. In Interface Builder you have to click through all the inspectors to find what you're looking for.
+- Storyboards introduce coupling between your code and UI, which can lead to crashes e.g. when an outlet or action is not set up correctly. These issues are not detected by the compiler.
 
 #### Con's
 - Slight learning-curve for iOS beginners
