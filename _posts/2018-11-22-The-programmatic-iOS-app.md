@@ -29,7 +29,7 @@ class MainVC :UIViewController{
 class MainView:UIView{}
 ```
 
-5. Add a Window and a ViewController to the app:
+5. Add a Window and a ViewController to the `AppDelegate.swift` and ref `_ = window`:
 
 ```swift
 lazy var window: UIWindow? = {
