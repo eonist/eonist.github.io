@@ -442,4 +442,12 @@ public required init?(coder: NSCoder) {
    fatalError("init?(coder:) is not supported")
 }
 ```
- 
+
+## 24. Make rounded graphics look great
+- Use `NSScreen.main.backingScaleFactor` for macOS and `UIScreen.main.scale` for iOS
+- This ensures that rounded graphics looks sharp
+
+```swift
+self.caLayer?.rasterizationScale = 2.0 * Screen.mainScreenScale
+self.caLayer?.shouldRasterize = true
+```
