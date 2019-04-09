@@ -37,6 +37,4 @@ open class View:NSView{
       fatalError("init(coder:) has not been implemented")
    }
 }
-
-
 ```
