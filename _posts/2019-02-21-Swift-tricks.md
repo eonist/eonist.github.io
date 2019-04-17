@@ -451,3 +451,12 @@ public required init?(coder: NSCoder) {
 self.caLayer?.rasterizationScale = 2.0 * Screen.mainScreenScale
 self.caLayer?.shouldRasterize = true
 ```
+
+## 25. Optional chaining
+
+```swift
+Swift.print(Optional("✅") ?? "🚫") //🚫
+Swift.print(Optional(nil) ?? "🚫") // ✅
+```
+
+It's like providing a default value if the optional is nil. you can do. its equivalent to doing `Optional("") != nil ? Optional("") : ""à
