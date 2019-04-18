@@ -1,4 +1,4 @@
-My notes on smb mounting<!--more-->
+My notes on smb mounting in macOS<!--more-->
 
 ### smb
 - open port 445 on router
