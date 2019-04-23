@@ -456,7 +456,7 @@ self.caLayer?.shouldRasterize = true
 
 ```swift
 Swift.print(Optional("✅") ?? "🚫") //🚫
-Swift.print(Optional(nil) ?? "🚫") // ✅
+Swift.print(Optional(nil) ?? "🚫") //✅
 ```
 
-It's like providing a default value if the optional is nil. you can do. its equivalent to doing `Optional("") != nil ? Optional("") : ""à
+It's like providing a default value if the optional is nil. you can do. it's equivalent to doing `Optional("") != nil ? Optional("") : ""à
