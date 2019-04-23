@@ -6,7 +6,7 @@ Meaning when your day starts 09:00 ive already been working 6 hours and have 2 l
 
 ### Weekly Milestones
 This can be Friday or Wednesday for example.
-We upload the latest application build with the scheduled and unscheduled updates we work on the entire week. Its great to have something scheduled to show for every week so everyone know we are on track.
+We upload the latest application build with the scheduled and unscheduled updates we work on the entire week. It's great to have something scheduled to show for every week so everyone know we are on track.
 
 Daily updates and communication
 Every day between 09:00 - 11:00 NYC time we can have quick chats, small meetings about features or demos that we need to OK in order to move forward etc. The idea is not to micromanage everything but keep an option open to be able to swiftly incorporate or take out stuff. Basically collaborate efficiently. Since ive been working 6 hours when you come to work i will in most cases have updates to demo.

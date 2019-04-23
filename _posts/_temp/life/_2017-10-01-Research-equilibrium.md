@@ -1,4 +1,4 @@
-pro**Research equilibrium**
+**Research equilibrium**
 
 - You reach domain saturation when you keep bumping into things you already know.
 
@@ -8,9 +8,9 @@ pro**Research equilibrium**
 
 - Write down original connections between sub-domains. these can be vital in discovery of un-discovered ideas.
 
-- Write down the most important sub-domains of the domain your trying to research. group these as best you can. to easily access them after sometime where your knowledge is not fresh.
+- Write down the most important sub-domains of the domain your trying to research. Group these as best you can. to easily access them after sometime where your knowledge is not fresh.
 
-- I believe reaching domain saturation is a more useful utility than mind-maps. it's better at deriving interesting connections and analysis. forging real connections in your brain. mindmaps are more shallow and does not forge deep connections in your brain. you can chase rabbits down rabbit holes when you do domain "saturation oriented research" if you do that with mind-maps it just gets to unwieldily too broad. You can always create another subfolder in your tree list with out obfuscating the important sub domains.
+- I believe reaching domain saturation is a more useful utility than mind-maps. it's better at deriving interesting connections and analysis. forging real connections in your brain. Mindmaps are more shallow and does not forge deep connections in your brain. You can chase rabbits down rabbit holes when you do domain "saturation oriented research" if you do that with mind-maps it just gets to unwieldily too broad. You can always create another subfolder in your tree list with out obfuscating the important sub domains.
 
 - Doing your own research is also important because you more easily forge the brain connections need to analyse  further. as oppose to reading someone elses compendium.
 
@@ -30,7 +30,7 @@ it is recommended that you instead spend your time looking for areas where there
 Remember that usually there will be periods of calm and stability punctuated with massive change (for better or for worse) concentrated from a small number of black swans. Those black swans are the ones to look out for, and the ones you least expect.
 
 ### Benefit of having an empty mind
-with mindmap's you have to mentally soak up everything at once, leaving less bandwidth for analysis. with structured based research you can dive into singular concepts and ignore the rest. Or jump back up a few levels to derive context.
+with mindmap's you have to mentally soak up everything at once, leaving less bandwidth for analysis. with structured based research you can dive into singular snapshot and ignore the rest. Or jump back up a few levels to derive context.
 
 ### Black Swan
  – An extremely rare and unpredictable event which offers great opportunities to those few who spot it and who take a small, calculated gamble.

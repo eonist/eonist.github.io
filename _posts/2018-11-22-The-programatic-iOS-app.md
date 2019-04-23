@@ -1,6 +1,6 @@
 My checklist when making a programmatic iOS app<!--more-->
 
-1. Clean up the AppDelegate class and add a Window variable:
+1. Clean up the `AppDelegate.swift` class and add a Window variable:
 
 ```swift
 import UIKit
