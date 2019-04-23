@@ -1,4 +1,4 @@
-My notes on TableView in iOS <!--more-->
+My notes on TableView in iOS for Interface builder <!--more-->
 
 - Hock up your TableView to a NavigationController via: `Editor -> Embed in -> Navigation Controller`
 - If you don't want a list but a scroller view with items, similar to a prefs view. Then set the content prop to static. 🔑
