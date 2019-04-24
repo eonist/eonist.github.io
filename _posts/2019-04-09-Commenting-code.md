@@ -1,4 +1,4 @@
-My notes on different commenting styles for swift<!--more-->
+My notes on different commenting styles for swift<!--more-->.
 
 # Code documentation
 
