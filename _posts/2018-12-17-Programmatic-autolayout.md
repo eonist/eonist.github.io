@@ -152,3 +152,21 @@ container.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor).active = 
 container.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = true
 container.topAnchor.constraintEqualToAnchor(topLayoutGuide.bottomAnchor, constant: 20.0).active = true
 ```
+
+### Adding margins:
+
+```swift
+self.view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: self.view.directionalLayoutMargins.top,
+                                                             leading: 16,
+                                                             bottom: self.view.directionalLayoutMargins.bottom,
+                                                             trailing: 64)
+//For when layoutMargins are less than system minimum be sure to apply:
+self.viewRespectsSystemMinimumLayoutMargins = false
+self.view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: self.view.directionalLayoutMargins.top,
+                                                            leading: 0,
+                                                            bottom: self.view.directionalLayoutMargins.bottom,
+                                                            trailing: 8)  
+
+
+```
+The specification of autolayout constraints taking into account margins is possible with the layout guide available through the layoutMarginsGuide property and also using the preservesSuperviewLayoutMargins                                                        

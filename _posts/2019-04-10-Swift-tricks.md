@@ -459,7 +459,6 @@ Swift.print(Optional("✅") ?? "🚫") //🚫
 Swift.print(Optional(nil) ?? "🚫") //✅
 ```
 
-
 It's like providing a default value if the optional is nil. you can do. it's equivalent to doing `Optional("") != nil ? Optional("") : ""`
 
 ## 26. Visual colors in xcode
