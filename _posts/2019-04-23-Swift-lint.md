@@ -21,3 +21,7 @@ fi
 ```
 
 4. Build the project to see some swift-lint warnings
+
+5. Add a swift-lint badge to your github project [![Swift-lint Sindre](https://img.shields.io/badge/swift--lint-sindre-brightgreen.svg)](https://github.com/sindresorhus/swiftlint-sindre) `
+[![Swift-lint Sindre](https://img.shields.io/badge/swift--lint-sindre-brightgreen.svg)](https://github.com/sindresorhus/swiftlint-sindre)
+`
