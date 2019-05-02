@@ -31,4 +31,5 @@ Nails monolith vs modular: [https://gist.github.com/joepie91/7f03a733a3a72d2396d
 
 ### Additional reading:
 - Low app startup time: [https://developer.apple.com/videos/play/wwdc2016/406/](https://developer.apple.com/videos/play/wwdc2016/406/)
-- MonoRepo vs module: [https://github.com/babel/babel/blob/master/doc/design/monorepo.md](https://github.com/babel/babel/blob/master/doc/design/monorepo.md) 
+- MonoRepo vs module: [https://github.com/babel/babel/blob/master/doc/design/monorepo.md](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)
+- Nails modular iOS project [https://edit.theappbusiness.com/modular-ios-strangling-the-monolith-4a6843a28992](https://edit.theappbusiness.com/modular-ios-strangling-the-monolith-4a6843a28992) 
