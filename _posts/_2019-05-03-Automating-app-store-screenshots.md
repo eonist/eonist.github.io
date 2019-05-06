@@ -1,0 +1,28 @@
+My notes on automating screenshots for the app store<!--more-->.
+
+### Requisites:
+1. Download and install Fastlane Snapshot for terminal: [https://github.com/fastlane/fastlane/releases](https://github.com/fastlane/fastlane/releases)  
+2. Install brew: [https://brew.sh](https://brew.sh) (Needed for imagemagick)
+3. Install imagemagick Terminal: `brew install imagemagick` (Need for FrameIt )
+4. Install frameIt: `fastlane frameit`  
+
+### Workflow:
+1. Add the `Snapfile` to the project root folder
+1. Terminal: `fastlane snapshot`
+2. Terminal: `fastlane frameit download_frames`
+3. Terminal: `fastlane framit` or `fastlane frameit silver` if you want the white iPhone bezel
+4. Configure the Frameit.conf file. Use the MindNode example from the resource paragraph
+5. Set the titles to match the .png names in `title.strings` and `keywords.strings`  (⚠️️ Edit these .strings files in XCode ⚠️️)
+
+### Gotchas:
+- To create multiline titles use the newline: `\n` character
+
+### Tips:
+- To reset all simulators: Terminal: `fastlane snapshot reset_simulators`
+
+### Resources:
+- FrameIt config file [https://github.com/fastlane/examples/tree/master/MindNode/screenshots](https://github.com/fastlane/examples/tree/master/MindNode/screenshots)
+- Official doc for Fastlane-Snapshot: [https://docs.fastlane.tools/actions/snapshot/](https://docs.fastlane.tools/actions/snapshot/)
+- Precheck official docs: [https://docs.fastlane.tools/actions/precheck/](https://docs.fastlane.tools/actions/precheck/)
+- Using XCode-UI-testing:
+- Great overview of all the Fastlane tools: [https://www.raywenderlich.com/233168-fastlane-tutorial-getting-started](https://www.raywenderlich.com/233168-fastlane-tutorial-getting-started) 

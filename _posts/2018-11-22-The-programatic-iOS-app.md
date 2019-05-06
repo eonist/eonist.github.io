@@ -25,14 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 4. Add MainVC and MainView
 
 ```swift
-class MainVC :UIViewController{
+import UIKit
+class MainVC: UIViewController{
 	override func viewDidLoad() {
       super.viewDidLoad()
       view = MainView()
       view.backgroundColor = .orange
    }
 }
-class MainView:UIView{}
+class MainView: UIView { }
 ```
 
 5. `CMD + R` Run the app, if the background is orange it works

@@ -32,4 +32,8 @@ Nails monolith vs modular: [https://gist.github.com/joepie91/7f03a733a3a72d2396d
 ### Additional reading:
 - Low app startup time: [https://developer.apple.com/videos/play/wwdc2016/406/](https://developer.apple.com/videos/play/wwdc2016/406/)
 - MonoRepo vs module: [https://github.com/babel/babel/blob/master/doc/design/monorepo.md](https://github.com/babel/babel/blob/master/doc/design/monorepo.md)
-- Nails modular iOS project [https://edit.theappbusiness.com/modular-ios-strangling-the-monolith-4a6843a28992](https://edit.theappbusiness.com/modular-ios-strangling-the-monolith-4a6843a28992) 
+- Nails modular iOS project [https://edit.theappbusiness.com/modular-ios-strangling-the-monolith-4a6843a28992](https://edit.theappbusiness.com/modular-ios-strangling-the-monolith-4a6843a28992)
+
+### Between 200-400 lines max:
+
+In nonmathematical terms, Hatton's empirical results imply a sweet spot between 200 and 400 logical lines of code that minimizes probable defect density, all other factors (such as programmer skill) being equal. This size is independent of the language being used — an observation which strongly reinforces the advice given elsewhere in this book to program with the most powerful languages and tools you can. Beware of taking these numbers too literally however. Methods for counting lines of code vary considerably according to what the analyst considers a logical line, and other biases (such as whether comments are stripped). Hatton himself suggests as a rule of thumb a 2x conversion between logical and physical lines, suggesting an optimal range of 400–800 physical lines. Ref: [http://catb.org/esr/writings/taoup/html/ch04s01.html](http://catb.org/esr/writings/taoup/html/ch04s01.html) 
