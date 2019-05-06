@@ -1,5 +1,7 @@
 My notes on automating screenshots for the app store<!--more-->.
 
+> The quality on an app’s screenshot is fundamental in the decision of buying/downloading on the AppStore.
+
 ### Requisites:
 1. Download and install Fastlane Snapshot for terminal: [https://github.com/fastlane/fastlane/releases](https://github.com/fastlane/fastlane/releases)  
 2. Install brew: [https://brew.sh](https://brew.sh) (Needed for imagemagick)
@@ -25,4 +27,5 @@ My notes on automating screenshots for the app store<!--more-->.
 - Official doc for Fastlane-Snapshot: [https://docs.fastlane.tools/actions/snapshot/](https://docs.fastlane.tools/actions/snapshot/)
 - Precheck official docs: [https://docs.fastlane.tools/actions/precheck/](https://docs.fastlane.tools/actions/precheck/)
 - Using XCode-UI-testing:
-- Great overview of all the Fastlane tools: [https://www.raywenderlich.com/233168-fastlane-tutorial-getting-started](https://www.raywenderlich.com/233168-fastlane-tutorial-getting-started) 
+- Great overview of all the Fastlane tools: [https://www.raywenderlich.com/233168-fastlane-tutorial-getting-started](https://www.raywenderlich.com/233168-fastlane-tutorial-getting-started)
+- StatusMagic: [https://medium.com/@juli1quere/a-perfect-status-bar-on-screenshots-with-fastlane-84a94a350b2a](https://medium.com/@juli1quere/a-perfect-status-bar-on-screenshots-with-fastlane-84a94a350b2a) 
