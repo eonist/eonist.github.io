@@ -328,6 +328,11 @@ DispatchQueue.global(qos: .background).async {
         //do stuff in the main thread here
     }
 }
+
+// Alternatively:
+
+let second: Double = 1000000
+usleep(useconds_t(0.002 * second)) //will sleep for 2 milliseconds (.002 seconds)
 ```
 
 ### 18. Combinational types instead of generics
