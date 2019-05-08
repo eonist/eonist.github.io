@@ -1,4 +1,4 @@
-Launching multiple tasks in the background and returning the result as they arrive in an orderly fashion:<!--more--> 
+Launching multiple tasks in the background and returning the result as they arrive in an orderly fashion:<!--more-->
 
 ## Example:
 
@@ -26,11 +26,28 @@ for i in arr.indices {
 
 ## DispatchGroup and DispatchWorkItem
 
-A must if you also need to cancel your async tasks: [https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2](https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2) 
+A must if you also need to cancel your async tasks: [https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2](https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2)
 
 
 ## Threading 1 0n 1:
 
-Awesome guy:http://stackoverflow.com/users/4665907/that-lazy-ios-guy-웃 Made a 15min video about Threading in swift 3 just for me: 
+Awesome guy:http://stackoverflow.com/users/4665907/that-lazy-ios-guy-웃 Made a 15min video about Threading in swift 3 just for me:
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/YhZahnTiA8U" frameborder="0" allowfullscreen></iframe>
+
+## Async vs sync:
+
+Synchronous means that thread that initiated that operation will wait for the task to finish before continuing.
+
+```swift
+DispatchQueue.main.sync {
+
+}
+```
+Asynchronous means that Completes a task in background and can notify you when complete means it will not wait.
+
+```swift
+DispatchQueue.main.async {
+
+}
+```
