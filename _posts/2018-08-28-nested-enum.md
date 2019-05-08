@@ -1,9 +1,43 @@
 My notes on nested enums and how you can use them to navigate UI<!--more-->.
 
+# Basic example:
 
-### Description: 
-- MainView has ContainerView and NavView 
-- Nav.swift stores the current ViewType state in a static var 
+```swift
+enum State {
+     enum Normal{
+         case search
+         case idle
+     }
+     case normal(Normal)
+     case hidden
+ }
+ /**
+  * Set state
+	* ## Examples:
+	* setState(.normal(.idle))//🤷
+	* setState(.normal(.idle))//🚀
+	* setState(.normal(.idle))//🤦
+  */
+ func setState(_ state:State){
+     switch state {
+     case .normal(let normal):
+         switch normal {
+         case .idle:
+              print("🤷")
+         case .search:
+              print("🚀")
+         }
+     case .hidden:
+         print("🤦")
+     }
+ }
+```
+
+# Another example:
+
+### Description:
+- MainView has ContainerView and NavView
+- Nav.swift stores the current ViewType state in a static var
 
 
 ### Nav and UI-hierarchy code:
@@ -107,4 +141,3 @@ extension NavView{
 }
 
 ```
-
