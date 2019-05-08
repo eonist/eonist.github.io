@@ -15,8 +15,8 @@ enum State {
   * Set state
 	* ## Examples:
 	* setState(.normal(.idle))//🤷
-	* setState(.normal(.idle))//🚀
-	* setState(.normal(.idle))//🤦
+	* setState(.normal(.search))//🚀
+	* setState(.hidden)//🤦
   */
  func setState(_ state:State){
      switch state {
