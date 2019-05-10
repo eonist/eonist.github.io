@@ -18,7 +18,7 @@ enum State {
 	* setState(.normal(.search))//🚀
 	* setState(.hidden)//🤦
   */
- func setState(_ state:State){
+ func setState(_ state: State){
      switch state {
      case .normal(let normal):
          switch normal {
