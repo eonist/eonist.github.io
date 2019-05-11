@@ -30,4 +30,4 @@ My notes on automating screenshots for the app store<!--more-->.
 - Using XCode-UI-testing:
 - Great overview of all the Fastlane tools: [https://www.raywenderlich.com/233168-fastlane-tutorial-getting-started](https://www.raywenderlich.com/233168-fastlane-tutorial-getting-started)
 - StatusMagic: [https://medium.com/@juli1quere/a-perfect-status-bar-on-screenshots-with-fastlane-84a94a350b2a](https://medium.com/@juli1quere/a-perfect-status-bar-on-screenshots-with-fastlane-84a94a350b2a)
-- Shots is a sketch plugin that helps frame iphone screens. [https://github.com/jtholloran/shots](https://github.com/jtholloran/shots) 
+- Shots is a sketch plugin that helps frame iphone screens. [https://github.com/jtholloran/shots](https://github.com/jtholloran/shots)
