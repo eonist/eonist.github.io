@@ -10,20 +10,20 @@ here is an app icon I created in Illustrator:
 
 <img width="314" alt="img" src="https://raw.githubusercontent.com/stylekit/img/master/gitsync_logo_2016_blue.png">
 
-[gitsync_logo_2016_blue_1024.icns](https://raw.githubusercontent.com/stylekit/img/master/gitsync_logo_2016_blue_1024.icns.icns) 
+[gitsync_logo_2016_blue_1024.icns](https://raw.githubusercontent.com/stylekit/img/master/gitsync_logo_2016_blue_1024.icns.icns)
 
-Now you have the .icns file that can be added to your xcode project. 
+Now you have the .icns file that can be added to your xcode project.
 
 ### Build IconMaker.app your self:
 
-This applescripts can convert a .png to an .icns file in **4 simple steps:** 
+This applescripts can convert a .png to an .icns file in **4 simple steps:**
 
 1. Open the AppleScript app  
 2. Copy and paste the code into AppleScript from JoeFrizzell in the link bellow.   
 3. Save as: IconMaker.app   
 4. Drag and drop your .png onto the IconMaker.app you just created.  
 
-Credits to JoeFrizzell via: [http://apple.stackexchange.com/a/140361/179041](http://apple.stackexchange.com/a/140361/179041) 
+Credits to JoeFrizzell via: [http://apple.stackexchange.com/a/140361/179041](http://apple.stackexchange.com/a/140361/179041)
 
 
 ### Running the app requires:
@@ -38,7 +38,7 @@ Since macOS high sierra, you need to be strict about size. Make sure the png siz
 
 ### Doing all of this with just terminal:
 
-1. Create a png file that is exactly 1024x1024px 
+1. Create a png file that is exactly 1024x1024px
 
 2. Make sure all your icons are named exactly like the bellow: (it can be the same 1024x1024px png, but they must be named correct)
 ```
@@ -55,15 +55,16 @@ icon_512x512@2x.png
 ```
 3. Put the png's in a folder named: someIcon.iconset and put the folder on your desktop
 
-4. Open Terminal and paste this line: `iconutil --convert icns ~/Desktop/someIcon.iconset`	
+4. Open Terminal and paste this line: `iconutil --convert icns ~/Desktop/someIcon.iconset`
 
 5. You should now have someIcon.icns on your Desktop ready to be used in your macOS app projectgit
 
 
-### Bonus points: 
+### Bonus points:
 
 `sips -Z 512 ~/Desktop/someIcon.png`
-You could add shell commands that resizes the images for you, in the applescript to actually resize each image. But I didn't have time for this step this time around. Maybe next time I revisit this app ill implement it. You can also probably make a photoshop script that does all the resizing and renaming for you. let me know if you make any of this ideas and ill be sure to share it with the world. Thanks for reading ✌️ 
+You could add shell commands that resizes the images for you, in the applescript to actually resize each image. But I didn't have time for this step this time around. Maybe next time I revisit this app ill implement it. You can also probably make a photoshop script that does all the resizing and renaming for you. let me know if you make any of this ideas and ill be sure to share it with the world. Thanks for reading ✌️
 
 ### Resources:
-For ios11 icons you can use this online converter: [https://makeappicon.com](https://makeappicon.com) 
+- For ios11 icons you can use this online converter: [https://makeappicon.com](https://makeappicon.com)
+- There is a sketch plugin that makes makes xcode icons [https://github.com/nathco/Export-More](https://github.com/nathco/Export-More) 

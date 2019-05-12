@@ -186,3 +186,6 @@ The keywords available in the swift commenting syntax
 - The main point about contextual-code-comments is that we developers have a finite amount of brain bandwidth available each day. Most efficiently spent on solving problems, not trying to understand intent. We developers write so much code in lots of different places that we quickly lose our bearings. As such we need clues in the code to derive context blazing fast and just get going. surfing on top of the wave, not under it.
 - When you have code-base that is thoroughly commented, you can use external services to auto generate searchable Help documents. Similar to apples own help documents.
 - Write a documentation comment for every declaration. Insights gained by writing documentation can have a profound impact on your design, so don’t put it off.
+
+### Resources:
+- The Boy Scout Rule : `Leave the campground cleaner than you found it` [https://medium.com/@biratkirat/step-8-the-boy-scout-rule-robert-c-martin-uncle-bob-9ac839778385](https://medium.com/@biratkirat/step-8-the-boy-scout-rule-robert-c-martin-uncle-bob-9ac839778385) 
