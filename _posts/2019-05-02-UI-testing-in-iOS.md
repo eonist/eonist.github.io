@@ -22,3 +22,4 @@ My notes on UI-testing in Xcode <!--more-->
 ## Resources:
 - A basic run-through of UI-testing: [https://medium.com/exploring-ios/an-introduction-to-ui-testing-on-ios-697526fa0fa9](https://medium.com/exploring-ios/an-introduction-to-ui-testing-on-ios-697526fa0fa9)
 - Commonly used UI-Test method calls: [https://www.hackingwithswift.com/articles/148/xcode-ui-testing-cheat-sheet](https://www.hackingwithswift.com/articles/148/xcode-ui-testing-cheat-sheet)
+- Properties of XCUIElement: [https://metova.com/a-guide-to-xcode-ui-test/](https://metova.com/a-guide-to-xcode-ui-test/) 
