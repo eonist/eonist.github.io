@@ -39,14 +39,27 @@ if (selectedCount == 0) {
 };
 
 ```
+### Tips:
+
+- You can use the log() function to write to the System Console (MacOS) to see output. This is where you will also see exceptions. Just be sure to search for Sketch in the search bar to filter out other applications.
+
+- Force sketch to reload script under development: Terminal: `defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool YES`
 
 ### Resources
 
+- ⭐ Lots of scripts to all possible scenarios: ⭐ [https://github.com/bomberstudios/sketch-commands/tree/master/Sketch%20Commands.sketchplugin/Contents/Sketch](https://github.com/bomberstudios/sketch-commands/tree/master/Sketch%20Commands.sketchplugin/Contents/Sketch)
+
+- ⭐ Official API docs: ⭐ [https://github.com/BohemianCoding/SketchAPI/blob/develop/docs/api/Rectangle.md](https://github.com/BohemianCoding/SketchAPI/blob/develop/docs/api/Rectangle.md)
+
+- Exporting layer data to XML and JSON 👌: [https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-6-exporting-data-36865e571122](https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-6-exporting-data-36865e571122)
+
+- Comprehensive plugin example: [https://github.com/sonburn/symbol-instance-locator](https://github.com/sonburn/symbol-instance-locator)
+
 - Simple example: [https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-1-28a5e3f01c68](https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-1-28a5e3f01c68)
 
-- import other scripts: [https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-3-writing-reusable-code-b0200dba7d6c](https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-3-writing-reusable-code-b0200dba7d6c)
+- Import other scripts: [https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-3-writing-reusable-code-b0200dba7d6c](https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-3-writing-reusable-code-b0200dba7d6c)
 
-- more advance javascripting for sketch: [https://benfrain.com/creating-a-sketch-plugin-with-javascript/](https://benfrain.com/creating-a-sketch-plugin-with-javascript/)
+- More advance javascripting for sketch: [https://benfrain.com/creating-a-sketch-plugin-with-javascript/](https://benfrain.com/creating-a-sketch-plugin-with-javascript/)
 
 - Has lots of sketch.api calls: [https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-5-the-mslayer-class-1868c5b6e1e8](https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-5-the-mslayer-class-1868c5b6e1e8)
 
@@ -56,10 +69,10 @@ if (selectedCount == 0) {
 
 - Some file manipulation methods: [https://gist.github.com/abynim/04fd575a7e63ae2908a9](https://gist.github.com/abynim/04fd575a7e63ae2908a9)
 
-- writing json: [https://gist.github.com/aaronash/054cc8955420ebeaee90](https://gist.github.com/aaronash/054cc8955420ebeaee90)
+- Writing json: [https://gist.github.com/aaronash/054cc8955420ebeaee90](https://gist.github.com/aaronash/054cc8955420ebeaee90)
 
-- ⭐ Lots of scripts to all possible scenarios: ⭐ [https://github.com/bomberstudios/sketch-commands/tree/master/Sketch%20Commands.sketchplugin/Contents/Sketch](https://github.com/bomberstudios/sketch-commands/tree/master/Sketch%20Commands.sketchplugin/Contents/Sketch)
+- Overview of type constants: [https://github.com/turbobabr/sketch-constants/blob/master/src/index.js](https://github.com/turbobabr/sketch-constants/blob/master/src/index.js)
 
-- overview of type constants: [https://github.com/turbobabr/sketch-constants/blob/master/src/index.js](https://github.com/turbobabr/sketch-constants/blob/master/src/index.js)
+- Has all the hidden API calls in Sketch: [https://github.com/abynim/Sketch-Headers/tree/master/Headers](https://github.com/abynim/Sketch-Headers/tree/master/Headers)   
 
-- Exporting layer data to xml and json 👌: [https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-6-exporting-data-36865e571122](https://medium.com/@marianomike/the-beginners-guide-to-writing-sketch-plugins-part-6-exporting-data-36865e571122)
+- Using Nib as alert root : [https://github.com/skpm/nib-loader/blob/master/README.md](https://github.com/skpm/nib-loader/blob/master/README.md)
