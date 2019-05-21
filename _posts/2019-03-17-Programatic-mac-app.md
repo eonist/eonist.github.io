@@ -1,4 +1,4 @@
-My notes on programatic macOS app<!--more-->. This code creates a pure programatic setup w/o storyboard
+My notes on programatic macOS app<!--more-->. This code creates a pure programatic setup w/o storyboard (Uncheck use storyboard when you create the project)
 
 ### The code:
 
@@ -11,7 +11,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
    /**
     * Creates the view
     */
-   lazy var view:NSView = {
+   lazy var view: NSView = {
       let contentRect = window.contentRect(forFrameRect: window.frame)/*size of win sans titlebar*/
       let view = View.init(frame: contentRect)
       window.contentView = view
@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
    }
 }
 
-open class View:NSView{
+open class View: NSView{
    override open var isFlipped: Bool { return true }/*TopLeft orientation*/
    override public init(frame: CGRect) {
       super.init(frame: frame)

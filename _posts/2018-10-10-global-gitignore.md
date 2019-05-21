@@ -7,6 +7,6 @@ My notes on global gitignore <!--more-->
 
 And you're done 🎉
 
-### To remove .ds_store files from projects:
+### To remove .ds_store files from project:
 - Commit all files except `.ds_store`  files
 - git stash all the `.ds_store`  files
