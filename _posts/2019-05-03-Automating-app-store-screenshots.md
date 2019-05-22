@@ -18,6 +18,8 @@ My notes on automating screenshots for the app store<!--more-->.
 
 ### Gotchas:
 - To create multiline titles use the newline: `\n` character
+- Edit the titles.strings file in xcode (other apps breaks the syntax)
+- To only add frame with out title, just provide the default fastlane.json
 
 ### Tips:
 - To reset all simulators: Terminal: `fastlane snapshot reset_simulators`

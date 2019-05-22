@@ -41,9 +41,16 @@ if (selectedCount == 0) {
 ```
 ### Tips:
 
-- You can use the log() function to write to the System Console (MacOS) to see output. This is where you will also see exceptions. Just be sure to search for Sketch in the search bar to filter out other applications.
+- You can use the log() function to write to the System Console (MacOS) to see output. This is where you will also see exceptions. Just be sure to search for Sketch in the search bar to filter out other applications, and also your own log keyword, to get only plugin specific log outputs.
 
 - Force sketch to reload script under development: Terminal: `defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool YES`
+
+### Making the plugin:
+
+1. Add Manifest.json and Main.js to a folder called Sketch
+2. Add the sketch folder into a new folder named: MyPlugin.sketchplugin. Place this in here: `~/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins/`
+3. Fire up sketch and see your plugin in the plugin menu
+4. Start splitting up your code into modules. And then import them by `@import 'common.js'` Then you are able to organise the code better.
 
 ### Resources
 
@@ -69,10 +76,14 @@ if (selectedCount == 0) {
 
 - Some file manipulation methods: [https://gist.github.com/abynim/04fd575a7e63ae2908a9](https://gist.github.com/abynim/04fd575a7e63ae2908a9)
 
-- Writing json: [https://gist.github.com/aaronash/054cc8955420ebeaee90](https://gist.github.com/aaronash/054cc8955420ebeaee90)
+- Writing JSON: [https://gist.github.com/aaronash/054cc8955420ebeaee90](https://gist.github.com/aaronash/054cc8955420ebeaee90)
 
 - Overview of type constants: [https://github.com/turbobabr/sketch-constants/blob/master/src/index.js](https://github.com/turbobabr/sketch-constants/blob/master/src/index.js)
 
 - Has all the hidden API calls in Sketch: [https://github.com/abynim/Sketch-Headers/tree/master/Headers](https://github.com/abynim/Sketch-Headers/tree/master/Headers)   
 
 - Using Nib as alert root : [https://github.com/skpm/nib-loader/blob/master/README.md](https://github.com/skpm/nib-loader/blob/master/README.md)
+
+- Writing a sketch plugin with webview: [https://www.smashingmagazine.com/2017/08/create-sketch-plugin-front-end-technologies/](https://www.smashingmagazine.com/2017/08/create-sketch-plugin-front-end-technologies/)
+
+- nice simple boilerplate plugin setup: [https://github.com/marianomike/sketch-sharedcolorpalette/tree/master/SharedColorPalette.sketchplugin/Contents/Sketch](https://github.com/marianomike/sketch-sharedcolorpalette/tree/master/SharedColorPalette.sketchplugin/Contents/Sketch) 
