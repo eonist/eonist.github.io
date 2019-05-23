@@ -45,12 +45,24 @@ if (selectedCount == 0) {
 
 - Force sketch to reload script under development: Terminal: `defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool YES`
 
+
 ### Making the plugin:
 
 1. Add Manifest.json and Main.js to a folder called Sketch
 2. Add the sketch folder into a new folder named: MyPlugin.sketchplugin. Place this in here: `~/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins/`
 3. Fire up sketch and see your plugin in the plugin menu
 4. Start splitting up your code into modules. And then import them by `@import 'common.js'` Then you are able to organise the code better.
+
+### .sketchplugin structure:
+```
+MyPlugin.sketchPlugin
+└── Contents
+    ├── Resources
+        └── icon.png
+    └── Sketch
+        ├── manifest.json
+        └── MyClass.js
+```
 
 ### Resources
 
@@ -86,4 +98,4 @@ if (selectedCount == 0) {
 
 - Writing a sketch plugin with webview: [https://www.smashingmagazine.com/2017/08/create-sketch-plugin-front-end-technologies/](https://www.smashingmagazine.com/2017/08/create-sketch-plugin-front-end-technologies/)
 
-- nice simple boilerplate plugin setup: [https://github.com/marianomike/sketch-sharedcolorpalette/tree/master/SharedColorPalette.sketchplugin/Contents/Sketch](https://github.com/marianomike/sketch-sharedcolorpalette/tree/master/SharedColorPalette.sketchplugin/Contents/Sketch) 
+- nice simple boilerplate plugin setup: [https://github.com/marianomike/sketch-sharedcolorpalette/tree/master/SharedColorPalette.sketchplugin/Contents/Sketch](https://github.com/marianomike/sketch-sharedcolorpalette/tree/master/SharedColorPalette.sketchplugin/Contents/Sketch)
