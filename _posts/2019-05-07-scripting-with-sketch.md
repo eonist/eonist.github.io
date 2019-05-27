@@ -2,7 +2,7 @@ My notes on scripting with sketch<!--more-->.
 
 ### Steps:
 
-Plugins > Custom Plugin option (ctrl + shift + K). In the Custom Plugin sheet give your plugin a name and hit Save. Sketch will generate all the necessary files and folder structure for you.
+Plugins > Custom Plugin option (ctrl + shift + K). In the Custom Plugin sheet give your plugin a name and hit Save. Sketch will generate all the necessary files and folder structure for you. The plugin will now reside in: `~/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins`
 
 ### Example:
 
