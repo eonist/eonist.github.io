@@ -7,7 +7,7 @@ Commenting is vital when creating complex systems. So much resolution about how 
 ```swift
  /**
   * A method that returns awesome colors
-  * - PARAMETERS:
+  * - Parameters:
   *   - color: only awesome colors allowed
   *   - alpha: only awesome alpha values allowed
   * - Returns: A color with new alpha value
@@ -188,4 +188,4 @@ The keywords available in the swift commenting syntax
 - Write a documentation comment for every declaration. Insights gained by writing documentation can have a profound impact on your design, so don’t put it off.
 
 ### Resources:
-- The Boy Scout Rule : `Leave the campground cleaner than you found it` [https://medium.com/@biratkirat/step-8-the-boy-scout-rule-robert-c-martin-uncle-bob-9ac839778385](https://medium.com/@biratkirat/step-8-the-boy-scout-rule-robert-c-martin-uncle-bob-9ac839778385) 
+- The Boy Scout Rule : `Leave the campground cleaner than you found it` [https://medium.com/@biratkirat/step-8-the-boy-scout-rule-robert-c-martin-uncle-bob-9ac839778385](https://medium.com/@biratkirat/step-8-the-boy-scout-rule-robert-c-martin-uncle-bob-9ac839778385)
