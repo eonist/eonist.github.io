@@ -98,4 +98,6 @@ MyPlugin.sketchPlugin
 
 - Writing a sketch plugin with webview: [https://www.smashingmagazine.com/2017/08/create-sketch-plugin-front-end-technologies/](https://www.smashingmagazine.com/2017/08/create-sketch-plugin-front-end-technologies/)
 
-- nice simple boilerplate plugin setup: [https://github.com/marianomike/sketch-sharedcolorpalette/tree/master/SharedColorPalette.sketchplugin/Contents/Sketch](https://github.com/marianomike/sketch-sharedcolorpalette/tree/master/SharedColorPalette.sketchplugin/Contents/Sketch)
+- Nice simple boilerplate plugin setup: [https://github.com/marianomike/sketch-sharedcolorpalette/tree/master/SharedColorPalette.sketchplugin/Contents/Sketch](https://github.com/marianomike/sketch-sharedcolorpalette/tree/master/SharedColorPalette.sketchplugin/Contents/Sketch)
+
+- Lots of sketch plugins: [sketchpacks.com](sketchpacks.com) 
