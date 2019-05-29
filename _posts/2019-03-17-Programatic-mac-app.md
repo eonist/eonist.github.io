@@ -13,7 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     */
    lazy var view: NSView = {
       let contentRect = window.contentRect(forFrameRect: window.frame)/*size of win sans titlebar*/
-      let view = View.init(frame: contentRect)
+      let view: View = .init(frame: contentRect)
       window.contentView = view
       view.layer?.backgroundColor = NSColor.white.cgColor
       return view
