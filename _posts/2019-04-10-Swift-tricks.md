@@ -478,3 +478,23 @@ enum Colors{
 }
 //Colors.teal
 ```
+
+## 27. Prefer contains over first
+
+```swift
+//Good
+arr.first(where: { $0 == match }) != nil
+//Better:
+arr.contains(where: { $0 == match })
+//Best
+arr.contains { $0 == match }
+```
+
+## 28. Long numbers:
+
+```swift
+//Bad
+let valA: Int = 100000000 * 2
+//Good:
+let valB: Int = 100_000_000 * 2
+```
