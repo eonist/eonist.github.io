@@ -332,7 +332,20 @@ DispatchQueue.global(qos: .background).async {
 // Alternatively:
 
 let second: Double = 1000000
-usleep(useconds_t(0.002 * second)) //will sleep for 2 milliseconds (.002 seconds)
+usleep(useconds_t(0.002 * second)) // will sleep for 2 milliseconds (.002 seconds)
+
+// Alternativly:
+
+/**
+ * Supports fractional time
+ * ## Examples:
+ * sleep(sec: 2.2) // sleeps for 2.2 seconds
+ */
+public func sleep(sec: Double){
+    usleep(useconds_t(sec * 1000000)) // wait for n secs
+}
+
+
 ```
 
 ### 18. Combinational types instead of generics
