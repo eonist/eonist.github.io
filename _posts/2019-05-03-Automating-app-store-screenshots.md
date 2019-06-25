@@ -10,7 +10,7 @@ My notes on automating screenshots for the app store<!--more-->.
 
 ### Workflow:
 1. Add the `Snapfile` to the project root folder
-1. Terminal: `fastlane snapshot`
+1. Terminal: `fastlane snapshot` And remember to add `setupSnapshot(app)` just before `app.launch` in the UITests
 2. Terminal: `fastlane frameit download_frames`
 3. Terminal: `fastlane framit` or `fastlane frameit silver` if you want the white iPhone bezel
 4. Configure the Frameit.conf file. Use the MindNode example from the resource paragraph

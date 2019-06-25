@@ -7,6 +7,9 @@ My notes on setting up a UI-testing-framework<!--more-->
 - Then add the magic build settings setting that I have not been able to identify. What I do is i clone this project: https://github.com/shindyu/XCTestExtensions And then clean it up and use it as a base. You can also rename the project etc. To find the magic setting, we can diff the .proj file. But I was not able to find the missing piece as of now.
 - ⚠️️ (Optional-step) ⚠️️ Use `Cartfile.private` file instead of `Cartfile` because these dependencies will only be needed in this local project. And does not need to be visible for other dependencies higher up the hierarchy
 
+## Nesting UI-Testing frameworks
+- Use the same methodology as Non-nested UI-testing frameworks.
+
 ## Partial carthage solution: (for the sake of reference, dont use this)
 - Add XCTest.framework in the linked framework and libraries list in General.
 - You have to add Framework search-path: `$(PLATFORM_DIR)/Developer/Library/Frameworks` in Build settings

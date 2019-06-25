@@ -105,7 +105,7 @@ override class var id : String {return "\(PrimaryCell.self)"}/*In a sub-class of
 ### 7. String enum's
 No need to hard code the string, as long as the enum type is string 👌, the name is auto converted to string when you call rawValue
 ```swift
-enum CellType:String{
+enum CellType: String{
    case primary,secondary,tierary
 }
 print("\(CellType.primary.rawValue)")//primary
@@ -116,7 +116,7 @@ print("\(CellType.tierary.rawValue)")//tierary
 ### 8. Accessing raw and hash of enum
 
 ```swift
-enum CellType:String{
+enum CellType: String{
     case primary,secondary,tierary
 }
 let possibleCellType = CellType(rawValue: "tierary")
@@ -510,4 +510,12 @@ arr.contains { $0 == match }
 let valA: Int = 100000000 * 2
 //Good:
 let valB: Int = 100_000_000 * 2
+```
+
+## 29. Access name of int enum:
+```swift
+public enum TestEnum : Int {
+   case one = 0, two, three
+}
+Swift.print("\(String(describing: TestEnum.three))") // three
 ```
