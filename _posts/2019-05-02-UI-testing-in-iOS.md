@@ -19,7 +19,8 @@ My notes on UI-testing in Xcode <!--more-->
 - for IOS there is the:  `iOS Simulator's Accessibility Inspector`
 - To access elements by accessibility ids: use: `var accessibilityLabel: String? { get set }` and set the `isAccessibilityElement` to true
 - Use `XCUIElementQuery.debugDescription` to debug a query (Accessibility Hierarchy)
-- containers can have accessibilityIdentifier but they should have accessibility turned off. Logic is that we dont interact qith containers, but we do need to access testing via accessibility hierarchy
+- Containers can have accessibilityIdentifier but they should have accessibility turned off. Logic is that we dont interact qith containers, but we do need to access testing via accessibility hierarchy
+- Parsing a queries is much faster than parsing element
 
 ## Terminology:
 - **XCUIApplication:** This class responsible for launching, terminating apps. ⚠️️ Not a singleton. ⚠️️
