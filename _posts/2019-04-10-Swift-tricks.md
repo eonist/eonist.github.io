@@ -519,3 +519,28 @@ public enum TestEnum : Int {
 }
 Swift.print("\(String(describing: TestEnum.three))") // three
 ```
+
+## 30. Recursive flatMap
+
+```swift
+/**
+ * Multidimensional-flat-map...because flatMap only works on "2d arrays". This is for "3d array's"
+ * NOTE: A 3d array is an array structure that can have nested arrays within nested arrays infinite addendum
+ * NOTE: Alternate names for this method as suggest by @defrenz and @timvermeulen on slack swift-lang #random: `recursiveFlatten` or `recursiveJoined`
+ * EXAMPLE:
+ * let arr:[Any] = [[[1],[2,3]],[[4,5],[6]]] 👈 3d array (3 depths deep)
+ * let x2:[Int] = arr.recursiveFlatmap()
+ * Swift.print(x2)//[1,2,3,4,5,6]
+ */
+func recursiveFlatmap<T>() -> [T] {
+    var results = [T]()
+    for element in self {
+        if let sublist = element as? [Self.Iterator.Element] { // Array
+            results += sublist.recursiveFlatmap()
+        } else if let element = element as? T { // Item
+            results.append(element)
+        }
+    }
+    return results
+}
+```
