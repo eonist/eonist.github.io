@@ -377,9 +377,9 @@ func setCardConstraints(card:UIViewConstraintKind){//👈 Looks much cleaner
  * IMPORTANT: ⚠️️ the key must be unique and the the value must be unique
  */
 class Constants{
-   enum Colors:String,CaseIterable{
+   enum Colors: String, CaseIterable{
       case blue = "FB1B4D", yellow = "1DE3E6", red = "22FFA0", green = "FED845"
-      var uiColor:UIColor {
+      var uiColor: UIColor {
          return UIColor.init(hex: self.rawValue)
       }
    }
@@ -525,9 +525,9 @@ Swift.print("\(String(describing: TestEnum.three))") // three
 ```swift
 /**
  * Multidimensional-flat-map...because flatMap only works on "2d arrays". This is for "3d array's"
- * NOTE: A 3d array is an array structure that can have nested arrays within nested arrays infinite addendum
- * NOTE: Alternate names for this method as suggest by @defrenz and @timvermeulen on slack swift-lang #random: `recursiveFlatten` or `recursiveJoined`
- * EXAMPLE:
+ * - Note: A 3d array is an array structure that can have nested arrays within nested arrays infinite addendum
+ * - Note: Alternate names for this method as suggest by @defrenz and @timvermeulen on slack swift-lang #random: `recursiveFlatten` or `recursiveJoined`
+ * ## Examples:
  * let arr:[Any] = [[[1],[2,3]],[[4,5],[6]]] 👈 3d array (3 depths deep)
  * let x2:[Int] = arr.recursiveFlatmap()
  * Swift.print(x2)//[1,2,3,4,5,6]

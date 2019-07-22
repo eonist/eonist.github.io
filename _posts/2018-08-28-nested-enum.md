@@ -57,7 +57,7 @@ enum ViewType{
 /**
  * In charge of the state of the app
  */
-struct Nav{
+struct Nav {
     /**
      * Initial state of the app
      */
@@ -66,7 +66,7 @@ struct Nav{
         let viewType = Nav.ViewType.send(.file(testURL))
         return viewType
     }()
-    static var curViewType:ViewType = Nav.defaultViewType
+    static var curViewType: ViewType = Nav.defaultViewType
 }
 /**
  * Accessor
@@ -75,7 +75,7 @@ extension MainView{
     /**
      * Sets the viewState of NavBar and the Container
      */
-    func setViewState(viewType:Nav.ViewType){
+    func setViewState(viewType: Nav.ViewType){
         navView.setViewState(Nav.curViewType)
         containerView.setViewState(Nav.curViewType)
     }
