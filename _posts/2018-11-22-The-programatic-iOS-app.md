@@ -32,6 +32,7 @@ class MainVC: UIViewController {
       view = MainView()
       view.backgroundColor = .orange
    }
+   override var prefersStatusBarHidden: Bool { return false }
 }
 class MainView: UIView { }
 ```
