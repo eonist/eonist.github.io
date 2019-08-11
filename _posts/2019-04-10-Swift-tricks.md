@@ -544,3 +544,15 @@ func recursiveFlatmap<T>() -> [T] {
     return results
 }
 ```
+
+## 31:
+Mark required int as unavailable, this way subclasses can avoid the jargon code
+```swift
+/**
+  * Boilerplate
+  */
+ @available(*, unavailable)
+ required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+ }
+```
