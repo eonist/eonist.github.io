@@ -19,14 +19,42 @@ My notes on UI-testing in Xcode <!--more-->
 - for IOS there is the:  `iOS Simulator's Accessibility Inspector`
 - To access elements by accessibility ids: use: `var accessibilityLabel: String? { get set }` and set the `isAccessibilityElement` to true
 - Use `XCUIElementQuery.debugDescription` to debug a query (Accessibility Hierarchy)
-- Containers can have accessibilityIdentifier but they should have accessibility turned off. Logic is that we dont interact qith containers, but we do need to access testing via accessibility hierarchy
+- Containers can have accessibilityIdentifier but they should have accessibility turned off. Logic is that we don't interact with containers, but we do need to access testing via accessibility hierarchy
 - Parsing a queries is much faster than parsing element
+- You don't see logging from the app code in UITest. Use `fatalError("💥")` to see taps work etc
+- Override the addUIInterruptionMonitor to handle System alerts: [https://github.com/joemasilotti/UI-Testing-Cheat-Sheet#handling-system-alerts](https://github.com/joemasilotti/UI-Testing-Cheat-Sheet#handling-system-alerts)
+
+## NSPredicate:
+Finding elements with NSPredicate. There is also: `CONTAINS,ENDSWITH,LIKE,MATCHES`  
+More info: [https://nshipster.com/nspredicate/](https://nshipster.com/nspredicate/)
+```swift
+let firstPredicate = NSPredicate(format: "label BEGINSWITH 'First Picker'")
+let firstPicker = app.pickerWheels.element(matching: firstPredicate)
+firstPicker.adjust(toPickerWheelValue: "first value")
+```
+
+## Reorder cells:
+
+```swift
+let topButton = app.buttons["Reorder Top Cell"]
+let bottomButton = app.buttons["Reorder Bottom Cell"]
+bottomButton.press(forDuration: 0.5, thenDragTo: topButton)
+```
+
+## Pull to refresh:
+
+```swift
+let firstCell = app.staticTexts["Adrienne"]
+let start = firstCell.coordinate(withNormalizedOffset: (CGVectorMake(0, 0))
+let finish = firstCell.coordinate(withNormalizedOffset: (CGVectorMake(0, 6))
+start.press(forDuration: 0, thenDragTo: finish)
+```
 
 ## Terminology:
 - **XCUIApplication:** This class responsible for launching, terminating apps. ⚠️️ Not a singleton. ⚠️️
 - **XCUIElement:** This class used to determine the UI element in the app and able to perform any action on it e.g tap, double tap, swipe etc
 - **XCUIElementQuery:** This class can be used to uniquely identify the UI element on the screen.
-We can form the query to uniquely identify the UI element on the screen. Imagine that you have to select the first button on the app. We can form the query like this XCUIApplication(). `buttons.element(boundBy: 0)`
+We can form the query to uniquely identify the UI element on the screen. Imagine that you have to select the first button on the app. We can form the query like this `XCUIApplication().buttons.element(boundBy: 0)`
 
 ## Pro's:
 - Great way to make Unit-tests that matters.
