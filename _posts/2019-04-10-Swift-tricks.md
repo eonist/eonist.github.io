@@ -22,8 +22,8 @@ if [.a, .b].contains(state) {
  */
 private var _myBigData : Data? = nil
 var myBigData : Data? {
-    set newdata {
-        self._myBigData = newdata
+    set {
+        self._myBigData = newValue
     } get {
         if _myBigData == nil {
             // ... get a reference to file on disk, f ...

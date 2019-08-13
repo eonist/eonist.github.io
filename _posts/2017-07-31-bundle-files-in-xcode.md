@@ -6,15 +6,21 @@ My notes on bundling and reading files in an XCode project<!--more-->
 
 
 ```swift
-static func content(_ path:String)->String?{
+static func content(_ path: String) -> String? {
     do {
-        let content = try String(contentsOfFile:path, encoding:.utf8) as String//encoding: NSUTF8StringEncoding
+        let content = try String(contentsOfFile: path, encoding: .utf8) as String//encoding: NSUTF8StringEncoding
         return content
     } catch {
         return nil
     }
 }
-Swift.print(content(Bundle.main.resourcePath!+"/temp.bundle/test.txt"))//Output: testing✌️
+Swift.print(content(Bundle.main.resourcePath! + "/temp.bundle/test.txt"))//Output: testing✌️
+
+// or:
+
+let filePath = Bundle.main.resourcePath! + "/temp.bundle/test.txt"
+let content: String? = try? String(contentsOfFile: filePath, encoding: .utf8) as String // encoding: NSUTF8StringEncoding
+
 ```
 
 ### Why use .bundle folders?:

@@ -23,6 +23,7 @@ My notes on UI-testing in Xcode <!--more-->
 - Use `XCUIElementQuery.debugDescription` to debug a query (Accessibility Hierarchy)
 - ⚠️️IMPORTANT ⚠️️ Containers can have accessibilityIdentifier but they should have accessibility turned off. Logic is that we don't interact with containers, but we do need to access testing via accessibility hierarchy. setting isAccessibilityElement to true on a container will cause problems with UITesting. Setting it on leaf elements such as buttons etc is fine.
 - Parsing a queries is much faster than parsing element
+- ️⚠️IMPORTANT ⚠️️ Don´t try to store refrences to elenents outside the scope where you use it, as you interact with the UI hierachy, it will change, and it must be traversed again
 
 ## Terminology:
 - **XCUIApplication:** This class responsible for launching, terminating apps. ⚠️️ Not a singleton. ⚠️️
@@ -30,6 +31,26 @@ My notes on UI-testing in Xcode <!--more-->
 - **XCUIElementQuery:** This class can be used to uniquely identify the UI element on the screen.
 We can form the query to uniquely identify the UI element on the screen. Imagine that you have to select the first button on the app. We can form the query like this XCUIApplication(). `buttons.element(boundBy: 0)`
 
+## Common calls:
+```
+app.alerts.element
+app.buttons.element
+app.collectionViews.element
+app.images.element
+app.maps.element
+app.navigationBars.element
+app.pickers.element
+app.progressIndicators.element
+app.scrollViews.element
+app.segmentedControls.element
+app.staticTexts.element
+app.switches.element
+app.tabBars.element
+app.tables.element
+app.textFields.element
+app.textViews.element
+app.webViews.element
+```
 ## Pro's:
 - Great way to make Unit-tests that matters.
 
