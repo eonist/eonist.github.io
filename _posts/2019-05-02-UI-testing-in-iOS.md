@@ -32,7 +32,7 @@ My notes on UI-testing in Xcode <!--more-->
 We can form the query to uniquely identify the UI element on the screen. Imagine that you have to select the first button on the app. We can form the query like this XCUIApplication(). `buttons.element(boundBy: 0)`
 
 ## Common calls:
-```
+```swift
 app.alerts.element
 app.buttons.element
 app.collectionViews.element
@@ -62,7 +62,7 @@ app.webViews.element
 - Commonly used UI-Test method calls: [https://www.hackingwithswift.com/articles/148/xcode-ui-testing-cheat-sheet](https://www.hackingwithswift.com/articles/148/xcode-ui-testing-cheat-sheet)
 - Properties of XCUIElement: [https://metova.com/a-guide-to-xcode-ui-test/](https://metova.com/a-guide-to-xcode-ui-test/)
 - Cheat sheet on github: [https://github.com/joemasilotti/UI-Testing-Cheat-Sheet](https://github.com/joemasilotti/UI-Testing-Cheat-Sheet)
-- TestExtension with lots of reusable code: (also testing languages) [https://cocoapods.org/pods/AutoMate](https://cocoapods.org/pods/AutoMate)
+- TestExtension with lots of reusable code: (also testing languages) [https://github.com/PGSSoft/AutoMate](https://github.com/PGSSoft/AutoMate)
 - video tut: [https://www.raywenderlich.com/3619-207-xcode-ui-testing](https://www.raywenderlich.com/3619-207-xcode-ui-testing)  
 - video 2: [https://www.raywenderlich.com/3573-beginning-ios-unit-and-ui-testing/lessons/5](https://www.raywenderlich.com/3573-beginning-ios-unit-and-ui-testing/lessons/5)
 - Working with webview and facebook: [https://hackernoon.com/running-uitests-with-facebook-login-in-ios-4ac998940c42](https://hackernoon.com/running-uitests-with-facebook-login-in-ios-4ac998940c42)
