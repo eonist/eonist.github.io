@@ -545,8 +545,8 @@ func recursiveFlatmap<T>() -> [T] {
 }
 ```
 
-## 31:
-Mark required int as unavailable, this way subclasses can avoid the jargon code
+## 31: Less boilerplate
+Mark required init as unavailable, this way subclasses can avoid the jargon code
 ```swift
 /**
   * Boilerplate
@@ -555,4 +555,10 @@ Mark required int as unavailable, this way subclasses can avoid the jargon code
  required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
  }
+```
+
+## 32: Simulate network behaviour
+Sleep for a random amount of time between 1 and 7 seconds. (Great for simulating async network calls etc)
+```swift
+sleep((1..<7).randomElement()!)
 ```
