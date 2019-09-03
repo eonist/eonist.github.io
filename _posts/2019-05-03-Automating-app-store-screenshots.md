@@ -20,7 +20,8 @@ My notes on automating screenshots for the app store<!--more-->.
 - To create multiline titles use the newline: `\n` character
 - Edit the titles.strings file in xcode (other apps breaks the syntax)
 - To only add frame with out title, just provide the default fastlane.json
-
+- ⚠️Important: ⚠️If you set the langue to different than english in snapfile, then after you run a snapshot session. This lang will be inherited in xcode simulator. If you use the setupSnapshot method. To roll this back either set the lang to english and run a snapshot session from terminal or comment out the setupSnapshot method.
+- ⚠️Important: ⚠️Language will hang in snapshot: if you don’t set the scheme lang back to system lang. Also uncomment setupSnapshot if you did that 
 ### Tips:
 - To reset all simulators: Terminal: `fastlane snapshot reset_simulators`
 

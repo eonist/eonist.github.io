@@ -24,6 +24,7 @@ My notes on UI-testing in Xcode <!--more-->
 - ⚠️️IMPORTANT ⚠️️ Containers can have accessibilityIdentifier but they should have accessibility turned off. Logic is that we don't interact with containers, but we do need to access testing via accessibility hierarchy. setting isAccessibilityElement to true on a container will cause problems with UITesting. Setting it on leaf elements such as buttons etc is fine.
 - Parsing a queries is much faster than parsing element
 - ️⚠️IMPORTANT ⚠️️ Don´t try to store refrences to elenents outside the scope where you use it, as you interact with the UI hierachy, it will change, and it must be traversed again
+- Keep animations enabled. As things can be different if you dont have animations. A suggestion is to set the view speed to 2x or 4x
 
 ## Terminology:
 - **XCUIApplication:** This class responsible for launching, terminating apps. ⚠️️ Not a singleton. ⚠️️
