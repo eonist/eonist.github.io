@@ -1,6 +1,10 @@
 My checklist when making a programmatic iOS app<!--more-->
 
 1. Clean up the `AppDelegate.swift` class and add a Window variable:
+2. Delete `Main storyboard file base name` in the info.plist
+3. Now you can delete ViewController.swift` and `Main.storyboard`
+4. Add MainVC and MainView
+5. `CMD + R` Run the app, if the background is orange it works
 
 ```swift
 import UIKit
@@ -18,13 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return true
    }
 }
-```
-
-2. Delete `Main storyboard file base name` in the info.plist
-3. Now you can delete ViewController.swift` and `Main.storyboard`
-4. Add MainVC and MainView
-
-```swift
 import UIKit
 class MainVC: UIViewController {
 	override func viewDidLoad() {
@@ -36,5 +33,3 @@ class MainVC: UIViewController {
 }
 class MainView: UIView { }
 ```
-
-5. `CMD + R` Run the app, if the background is orange it works

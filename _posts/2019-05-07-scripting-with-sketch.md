@@ -41,9 +41,10 @@ if (selectedCount == 0) {
 ```
 ### Tips:
 
-- You can use the log() function to write to the System Console (MacOS) to see output. This is where you will also see exceptions. Just be sure to search for Sketch in the search bar to filter out other applications, and also your own log keyword, to get only plugin specific log outputs.
+- You can use the log() function to write to the System Console (MacOS) to see output. This is where you will also see exceptions. Just be sure to search for the process: `Sketch` in the search bar to filter out other applications, and also your own log keyword, to get only plugin specific log outputs.
 - Force sketch to reload script under development: Terminal: `defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool YES`
 - Add an alias to the sketchplugin in the sketch/plugin folder. This way you can use git and have all the package code around the plugin / while testing it in sketch
+- Use the NSAlert to debug the script (faster than looking searching consol)
 
 ### Making the plugin:
 
