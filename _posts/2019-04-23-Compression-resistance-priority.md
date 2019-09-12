@@ -6,7 +6,7 @@ My notes on Compression, resistance, priority when using AutoLayout<!--more-->
 - Compression Resistance: content does not want to shrink
 
 ## Related:
-- In conjunction with: `.lessThanOrEqaul`, `.greaterThanOrEqual`, `.equal`
+- In conjunction with: `.lessThanOrEqual`, `.greaterThanOrEqual`, `.equal`
 - constraint.priority
 
 ### Intrinsic Content Size
