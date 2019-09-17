@@ -17,7 +17,7 @@ if [.a, .b].contains(state) {
 ### 2. Simple Caching:
 ```swift
 /**
- * Also works for external server data
+ * Also works for external server data 
  * Example: if let data = myBigData { print(data) }
  */
 private var _myBigData : Data? = nil

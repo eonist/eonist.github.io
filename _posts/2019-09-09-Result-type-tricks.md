@@ -1,6 +1,5 @@
 My notes on the Swift Result type<!--more-->
 
-
 ```swift
  /**
   * Tests result type with try / throw oriented code
@@ -50,7 +49,7 @@ func process(_ image: UIImage, then completion: @escaping OnComplete) {
         var image = try transformer.transform(image)
         image = try filter.apply(to: image)
         completion(.success(image))
-    } catch {
+    } catch let error {
         completion(.failure(error))
     }
 }

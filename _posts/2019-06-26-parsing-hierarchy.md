@@ -1,3 +1,5 @@
+My notes on parsing a data hierarchy.<!--more-->Code for finding an illusive element in a UI-structure
+
 ```swift
 let dimensionalArray: [Any] = [["a"],[["b","c"],["d","e","f"]],"g","h"]
 //print(dimensionalArray[0])
@@ -38,7 +40,7 @@ public typealias MatchCondition = (_ element: XCUIElement) -> Bool
     * - Fixme: ⚠️️ Refactor with .map or .flatMap on this method when u have time
     */
    public static func ancestry(root: (index: Int, element: XCUIElement), condition: MatchCondition) -> [(Int, XCUIElement)]? {
-      var collector: [(Int,XCUIElement)]? = nil
+      var collector: [(Int, XCUIElement)]? = nil
       let children: [XCUIElement] = root.element.children(matching: .any).allElementsBoundByIndex
       Swift.print("children.count:  \(children.count)")
       for (i, child) in children.enumerated() {

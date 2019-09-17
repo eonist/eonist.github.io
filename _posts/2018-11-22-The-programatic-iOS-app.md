@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return true
    }
 }
-import UIKit
 class MainVC: UIViewController {
 	override func viewDidLoad() {
       super.viewDidLoad()

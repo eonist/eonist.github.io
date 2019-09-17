@@ -1,3 +1,5 @@
+My notes on parsing json from a local file<!--more-->
+
 ### Example:
 ```json
 
