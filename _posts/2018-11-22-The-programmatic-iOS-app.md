@@ -2,7 +2,7 @@ My checklist when making a programmatic iOS app<!--more-->
 
 1. Clean up the `AppDelegate.swift` class and add a Window variable:
 2. Delete `Main storyboard file base name` in the info.plist
-3. Now you can delete ViewController.swift` and `Main.storyboard`
+3. Now you can delete ViewController.swift `and` Main.storyboard
 4. Add MainVC and MainView
 5. `CMD + R` Run the app, if the background is orange it works
 
@@ -23,12 +23,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    }
 }
 class MainVC: UIViewController {
-	override func viewDidLoad() {
+   override func viewDidLoad() {
       super.viewDidLoad()
       view = MainView()
       view.backgroundColor = .orange
    }
    override var prefersStatusBarHidden: Bool { return false }
 }
-class MainView: UIView { }
+class MainView: UIView {
+   override init(frame: CGRect) {
+      super.init(frame: frame)
+   }
+   /**
+    * Boilerplate
+    */
+   required init?(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+   }
+}
 ```
