@@ -17,7 +17,7 @@ if [.a, .b].contains(state) {
 ### 2. Simple Caching:
 ```swift
 /**
- * Also works for external server data 
+ * Also works for external server data
  * Example: if let data = myBigData { print(data) }
  */
 private var _myBigData : Data? = nil
@@ -561,4 +561,27 @@ Mark required init as unavailable, this way subclasses can avoid the jargon code
 Sleep for a random amount of time between 1 and 7 seconds. (Great for simulating async network calls etc)
 ```swift
 sleep((1..<7).randomElement()!)
+```
+
+
+## 33. "Switch" with additional guard clauses:
+
+```swift
+enum Flavours: String {
+    case vanilla, chocolate, strawberry
+}
+func makeIceCream(flavour: Flavours, caneType: String? = nil) {
+    if case .vanilla = flavour, let caneType = caneType {
+        Swift.print("Vanilla with \(caneType)")
+    } else if case .strawberry = flavour {
+        Swift.print("Strawberry")
+    } else if case .chocolate = flavour {
+        Swift.print("Chocolate")
+    } else {
+        Swift.print("No 🍦 for you")
+    }
+}
+makeIceCream(flavour: .vanilla, caneType: "Cane") // Vanilla with Cane
+makeIceCream(flavour: .strawberry) // strawberry
+makeIceCream(flavour: .vanilla) // No 🍦 for you
 ```

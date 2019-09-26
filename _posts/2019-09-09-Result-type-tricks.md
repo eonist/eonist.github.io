@@ -55,6 +55,27 @@ func process(_ image: UIImage, then completion: @escaping OnComplete) {
 }
 ```
 
+### Experimental:
+
+```swift
+// TODO: try something like this with result 
+enum NetworkResponse {
+  case response(URLResponse, Data)
+  case error(Error)
+}
+
+func processRequestResponse(_ response: NetworkResponse) {
+  guard case let .response(urlResp, data) = response,
+    let httpResp = urlResp as? HTTPURLResponse,
+    200..<300 ~= httpResp.statusCode else {
+      print("Invalid response, can't process")
+      return
+  }
+  print("Processing \(data.count) bytes…")
+  /* … */
+}
+```
+
 ### Other:
 
 There is also: mapError() and flatMapError(), they transform the error value rather than the success value.
