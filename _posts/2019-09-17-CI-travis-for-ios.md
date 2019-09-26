@@ -41,13 +41,13 @@ xcodebuild -project CommentStyler.xcodeproj -scheme CommentStyler -sdk iphonesim
 ```
 or
 ```
-xcodebuild test -project CITravisTestExample.xcodeproj -scheme CITravisTestExample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+xcodebuild test -project PaginationServiceExample.xcodeproj -scheme PaginationServiceExample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
 ```
 
 
 UI-Testing in terminal:
 ```
-xcodebuild -project PaginationServiceExample.xcodeproj -scheme "PaginationTableDemo"  -sdk iphonesimulator  -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.2' test
+xcodebuild -project PaginationTableDemo.xcodeproj -scheme "PlaylistPrototype"  -sdk iphonesimulator  -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.2' test
 ```
 Visually showing the UITests:
 ```

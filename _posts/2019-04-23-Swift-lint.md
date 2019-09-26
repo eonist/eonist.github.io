@@ -24,3 +24,5 @@ fi
 
 5. Add a swift-lint badge to your github project [![SwiftLint Sindre](https://img.shields.io/badge/SwiftLint-Sindre-hotpink.svg)](https://github.com/sindresorhus/swiftlint-sindre) `[![Swift-lint Sindre](https://img.shields.io/badge/swift--lint-sindre-brightgreen.svg)](https://github.com/sindresorhus/swiftlint-sindre)`
 `
+
+6. Don't forget the terminal auto correct feature `swiftlint autocorrect` in your project path. ⚠️️Remember to commit before you auto correct the project. 
