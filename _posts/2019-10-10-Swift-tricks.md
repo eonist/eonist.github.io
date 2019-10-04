@@ -454,6 +454,7 @@ func add(a: Int, b: Int) -> Int {
 ## 23. Make methods off-limit
 [https://www.mokacoding.com/blog/swift-unavailable-how-to/](https://www.mokacoding.com/blog/swift-unavailable-how-to/)
 
+This is a great way to avoid having to repeat this method in every subclass that uses :UIView
 ```swift
 @available(*, unavailable)
 public required init?(coder: NSCoder) {
