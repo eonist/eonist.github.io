@@ -151,23 +151,24 @@ print(result)//🎉🎉🎉
 ### 11. Code injection via Protocol extension
 
 ```swift
-protocol CustomString{
-    func doSomething()
+protocol X {
+   func doSomething() // Class must implement doSomething
 }
-extension CustomString{
-    func doSomething(){
-        print("wuu 💥")
-    }
-}
-class A{
+extension X {
    func doSomething(){
-      print("ahh 👌")
+      print("uhoh") // default implementation
    }
 }
-extension A:CustomString{}//👈 you sort of attach CustomString functionality
+protocol Y: X {}
+extension Y {
+   func doSomething(){
+      print("wuu 💥") //override default implementation
+   }
+}
+class A: X {} // Make a class
+extension A: Y{}//👈 you sort of attach CustomString functionality
 let a = A()
-a.doSomething()//wuu 💥
-
+a.doSomething()//calls the Y.doSomething and prints: wuu 💥
 ```
 
 
