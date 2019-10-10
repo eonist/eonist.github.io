@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
    lazy var window: UIWindow? = {
       let win = UIWindow(frame: UIScreen.main.bounds)
-      let vc = MainVC()
+      let vc = ViewController()
       win.rootViewController = vc
       win.makeKeyAndVisible()/*Important since we have no Main storyboard anymore*/
       return win
@@ -22,15 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return true
    }
 }
-class MainVC: UIViewController {
+class ViewController: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
-      view = MainView()
+      view = View()
       view.backgroundColor = .orange
    }
    override var prefersStatusBarHidden: Bool { return false }
 }
-class MainView: UIView {
+class View: UIView {
    override init(frame: CGRect) {
       super.init(frame: frame)
    }
