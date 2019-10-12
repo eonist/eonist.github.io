@@ -166,7 +166,7 @@ extension Y {
    }
 }
 class A: X {} // Make a class
-extension A: Y{}//👈 you sort of attach CustomString functionality
+extension A: Y{}//👈 you sort of attach custom functionality
 let a = A()
 a.doSomething()//calls the Y.doSomething and prints: wuu 💥
 ```
