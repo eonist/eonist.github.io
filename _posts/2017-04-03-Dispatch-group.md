@@ -73,7 +73,7 @@ func myFunction() {
     let group = DispatchGroup()
     group.enter()
 
-    DispatchQueue.main.async {''
+    DispatchQueue.main.async {
         a = 1
         group.leave()
     }
@@ -87,7 +87,7 @@ func myFunction() {
 }
 ```
 
-or you can wait (and return):
+### Or you can wait (and return):
 
 ```swift
 
@@ -108,5 +108,74 @@ func myFunction() -> Int? {
 
     // ... and return as soon as "a" has a value
     return a
+}
+```
+
+
+## Another example:
+
+```swift
+// First, we create a group to synchronize our tasks
+let group = DispatchGroup()
+
+// NoteCollection is a thread-safe collection class for storing notes
+let collection = NoteCollection()
+
+// The 'enter' method increments the group's task count…
+group.enter()
+localDataSource.load { notes in
+    collection.add(notes)
+    // …while the 'leave' methods decrements it
+    group.leave()
+}
+
+group.enter()
+iCloudDataSource.load { notes in
+    collection.add(notes)
+    group.leave()
+}
+
+group.enter()
+backendDataSource.load { notes in
+    collection.add(notes)
+    group.leave()
+}
+
+// This closure will be called when the group's task count reaches 0
+group.notify(queue: .main) { [weak self] in
+    self?.render(collection)
+}
+```
+
+## Looping an array with DispatchGroup
+
+```swift
+extension Array where Element == DataSource {
+    func load(completionHandler: @escaping (NoteCollection) -> Void) {
+        let group = DispatchGroup()
+        let collection = NoteCollection()
+
+        // De-duplicate the synchronization code by using a loop
+        for dataSource in self {
+            group.enter()
+            dataSource.load { notes in
+                collection.add(notes)
+                group.leave()
+            }
+        }
+
+        group.notify(queue: .main) {
+            completionHandler(collection)
+        }
+    }
+}
+let dataSources: [DataSource] = [
+    localDataSource,
+    iCloudDataSource,
+    backendDataSource
+]
+
+dataSources.load { [weak self] collection in
+    self?.render(collection)
 }
 ```

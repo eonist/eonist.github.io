@@ -1,6 +1,6 @@
 My notes on source code topology<!--more-->
 
-### Code structure
+### Code structure (hierarchical)
 (source topology)
 - app
    - src
@@ -28,3 +28,18 @@ My notes on source code topology<!--more-->
       - .icns (app icon)
       - .json (dev & pub user config)
 - readme.md (⚠️️ Very important, on-boarding is crucial ⚠️️)
+
+
+### Code-structure (flat)
+
+├─ Models
+├─ Views
+├─ Controllers (or ViewModels, if your architecture is MVVM)
+├─ Stores
+├─ Helpers
+
+
+##### Stores
+At the "ground level" of a mobile app is usually some kind of model storage, that keeps its data in places such as on disk, in a local database, or on a remote server. This layer is also useful to abstract away any activities related to the vending of model objects, such as caching.
+
+Whether it means kicking off a backend request or deserializing a large file from disk, fetching data is often asynchronous in nature. Your store's API should reflect this by offering some kind of deferral mechanism, as synchronously returning the data would cause the rest of your app to stall.

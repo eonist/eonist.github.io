@@ -87,3 +87,106 @@ extension TableView {
 	}
 }
 ```
+
+### Resources:
+
+Debouncing can also be done with DispatchWorkItem: [https://www.swiftbysundell.com/articles/a-deep-dive-into-grand-central-dispatch-in-swift/](https://www.swiftbysundell.com/articles/a-deep-dive-into-grand-central-dispatch-in-swift/)  and [https://blog.natanrolnik.me/dispatch-work-item](https://blog.natanrolnik.me/dispatch-work-item)
+
+
+### Notification throttler:
+
+```swift
+class NotificationThrottler {
+    let notificationCenter: NotificationCenter
+    let timeInterval: TimeInterval
+    let handler: () -> Void
+    private var workItem: DispatchWorkItem?
+
+    deinit {
+        notificationCenter.removeObserver(self)
+    }
+
+    init(handler: @escaping () -> Void,
+         notificationCenter: NotificationCenter = .default,
+         notificationName: Notification.Name,
+         timeInterval: TimeInterval) {
+        self.handler = handler
+        self.notificationCenter = notificationCenter
+        self.timeInterval = timeInterval
+
+        notificationCenter.addObserver(self,
+                                       selector: #selector(notificationPosted),
+                                       name: notificationName,
+                                       object: nil)
+    }
+
+    @objc func notificationPosted() {
+        workItem?.cancel()
+        workItem = DispatchWorkItem(block: handler)
+
+        //we just created the work item, it is safe to force unwrap in this situation
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval, execute: workItem!)
+    }
+}
+```
+
+
+### A way to que up DispatchWorkItems:
+
+```swift
+import Foundation
+
+class Dispatcher {
+    private var items = [DispatcherIdentifier: DispatchWorkItem]()
+
+    private let queue: DispatchQueue
+
+    deinit {
+        cancelAllActions()
+    }
+
+    init(_ queue: DispatchQueue = .main) {
+        self.queue = queue
+    }
+
+    func schedule(after timeInterval: TimeInterval,
+                  with identifier: DispatcherIdentifier,
+                  on queue: DispatchQueue? = nil,
+                  action: @escaping () -> Void) {
+        cancelAction(with: identifier)
+
+        print("Scheduled \(identifier)")
+        let item = DispatchWorkItem(block: action)
+        items[identifier] = item
+
+        (queue ?? self.queue).asyncAfter(deadline: .now() + timeInterval, execute: item)
+    }
+
+    @discardableResult
+    func cancelAction(with identifier: DispatcherIdentifier) -> Bool {
+        guard let item = items[identifier] else {
+            return false
+        }
+
+        defer {
+            items[identifier] = nil
+        }
+
+        guard !item.isCancelled else {
+            return false
+        }
+
+        item.cancel()
+        print("Cancelled \(identifier)")
+
+        return true
+    }
+
+    func cancelAllActions() {
+        items.keys.forEach {
+            items[$0]?.cancel()
+            items[$0] = nil
+        }
+    }
+}
+```
