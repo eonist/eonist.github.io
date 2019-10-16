@@ -47,7 +47,7 @@ Pros and cons of programatic AutoLayout<!--more-->
 
 #### Gotchas when using programatic AutoLayout
 - Use loadView instead of viewDidLoad for creating views with constraints
-
+This example uses the anchor syntax and not the older constraint syntax
 ```swift
 override func loadView() {
      super.loadView()
@@ -58,8 +58,8 @@ override func loadView() {
      NSLayoutConstraint.activate([
          testView.widthAnchor.constraint(equalToConstant: 64),
          testView.widthAnchor.constraint(equalTo: testView.heightAnchor),
-         testView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-         testView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+         testView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0),
+         testView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, multiplier: 1)
      ])
      self.testView = testView
  }
@@ -99,7 +99,7 @@ Addendum:
 - Conceptually speaking: The NSLayoutAnchor class is a factory class for creating NSLayoutConstraint objects using a fluent API. Use these constraints to programatically define your layout using Auto Layout.
 
 
-### Pinning to edges:
+### Pinning to edges: (Using older Constraint syntax)
 
 ```swift
 let newView =UILabel()
@@ -114,7 +114,7 @@ let newView =UILabel()
 ```
 
 #### Dodging the infamous "Notch"
-
+Alternatively you can set the the root view in didLayoutSubviews, with a bit off offset
 ```swift
 someView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
 someView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
