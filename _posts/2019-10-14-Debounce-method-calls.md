@@ -14,7 +14,7 @@ extension TopBar: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
     }
-	 /**
+	  /**
      * On text change began
      */
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -23,7 +23,7 @@ extension TopBar: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return true
     }
-	 /**
+	  /**
      * Dismisses the keyboard
      */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -101,11 +101,9 @@ class NotificationThrottler {
     let timeInterval: TimeInterval
     let handler: () -> Void
     private var workItem: DispatchWorkItem?
-
     deinit {
         notificationCenter.removeObserver(self)
     }
-
     init(handler: @escaping () -> Void,
          notificationCenter: NotificationCenter = .default,
          notificationName: Notification.Name,
@@ -119,7 +117,6 @@ class NotificationThrottler {
                                        name: notificationName,
                                        object: nil)
     }
-
     @objc func notificationPosted() {
         workItem?.cancel()
         workItem = DispatchWorkItem(block: handler)
@@ -138,50 +135,32 @@ import Foundation
 
 class Dispatcher {
     private var items = [DispatcherIdentifier: DispatchWorkItem]()
-
     private let queue: DispatchQueue
-
     deinit {
         cancelAllActions()
     }
-
     init(_ queue: DispatchQueue = .main) {
         self.queue = queue
     }
-
     func schedule(after timeInterval: TimeInterval,
                   with identifier: DispatcherIdentifier,
                   on queue: DispatchQueue? = nil,
                   action: @escaping () -> Void) {
         cancelAction(with: identifier)
-
         print("Scheduled \(identifier)")
         let item = DispatchWorkItem(block: action)
         items[identifier] = item
-
         (queue ?? self.queue).asyncAfter(deadline: .now() + timeInterval, execute: item)
     }
-
     @discardableResult
     func cancelAction(with identifier: DispatcherIdentifier) -> Bool {
-        guard let item = items[identifier] else {
-            return false
-        }
-
-        defer {
-            items[identifier] = nil
-        }
-
-        guard !item.isCancelled else {
-            return false
-        }
-
+        guard let item = items[identifier] else {  return false }
+        defer {   items[identifier] = nil }
+        guard !item.isCancelled else {   return false }
         item.cancel()
         print("Cancelled \(identifier)")
-
         return true
     }
-
     func cancelAllActions() {
         items.keys.forEach {
             items[$0]?.cancel()
