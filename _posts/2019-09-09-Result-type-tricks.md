@@ -55,27 +55,105 @@ func process(_ image: UIImage, then completion: @escaping OnComplete) {
 }
 ```
 
-### Experimental:
+### Use guard with result:
 
 ```swift
-// TODO: try something like this with result 
+// TODO: try something like this with result
 enum NetworkResponse {
   case response(URLResponse, Data)
   case error(Error)
 }
-
-func processRequestResponse(_ response: NetworkResponse) {
-  guard case let .response(urlResp, data) = response,
-    let httpResp = urlResp as? HTTPURLResponse,
-    200..<300 ~= httpResp.statusCode else {
-      print("Invalid response, can't process")
-      return
-  }
-  print("Processing \(data.count) bytes…")
-  /* … */
+processRequestResponse {
+   guard case .success(let value) = $0 else { return } // you can also do the same for .failure
+   print(value)
+   //continue making other async requests
 }
 ```
 
+### Adding a custom error to the result:
+
+```swift
+/**
+ * Errors
+ */
+extension CamUtil {
+   public enum MicAccessError: Error {
+      case authorized, deniedOrRestricted, notDetermined
+   }
+}
+```
+
+### Transforming the error into another:
+
+```swift
+let customErrorResult = $0.flatMapError { (error) -> Result<Void, CamUtil.MicAndVideoAccessError> in
+   switch error {
+   case .micAccessNotDetermined:
+      return Result.failure(.micAccessNotDetermined)
+   case .micAuthorized, .micDeniedOrRestricted, .videoAccessWasDenied:
+      return Result.failure(.videoAccessWasDenied)
+   }
+}
+```
+
+
+### Casting a throwing method to a Result:
+```swift
+let result = Result { try String(contentsOfFile: someFile) }
+```
+
+
+### Using result extensions for Result:
+```swift
+extension Result {
+   /**
+    * - Note: Sometimes you just want to do print($0.errorStr)
+    */
+   public var errorStr: String {
+      guard let error = self.error else { return "success" }
+      return error.localizedDescription
+   }
+}
+
+enum SomeError: Error {
+   case a, b, c
+}
+
+func fetchValue(_ flag: Bool) -> Result<Int, SomeError> {
+   if flag {
+      return .success(1)
+   } else {
+      Swift.print("before")
+      let temp: Result<Int, SomeError> = .failure(.b)
+      Swift.print("after")
+      return temp
+   }
+}
+
+func testing(_ flag: Bool) -> Int? {
+   let result = fetchValue(flag)
+   guard case .success(let value) = result else { let errStr = result.error; Swift.print("errStr:  \(errStr)"); return nil }
+   return value
+}
+
+Swift.print("testing(true):  \(testing(true))")
+Swift.print("testing(false):  \(testing(false))")
+```
+
+
+### Access value directly:
+
+```swift
+/**
+ * ## Examples
+ * guard let imageAndURL: (UIImage, URL) = $0.value else { return }
+ * imageAndURL.image // UIImage
+ * imageAndURL.url // URL
+ */
+public func value<T>() -> T? {
+   return try? self.get() as? T
+}
+```
 ### Other:
 
 There is also: mapError() and flatMapError(), they transform the error value rather than the success value.

@@ -28,9 +28,9 @@ let mySubstring = str.suffix(10) // playground
 
 ## Range in a string
 ```swift
-let start = str.index(str.startIndex, offsetBy: 7)
-let end = str.index(str.endIndex, offsetBy: -6)
-let range = start..<end
+let start: String.Index = str.index(str.startIndex, offsetBy: 7)
+let end: String.Index = str.index(str.endIndex, offsetBy: -6)
+let range: Range<String.Index> = start..<end
 
 let mySubstring = str[range]  // play
 ```

@@ -1,6 +1,6 @@
-My notes on adding Codable support for classes such as UIColor and UIFont which doesn't support Codable by default<!--more-->. This example only touches on Decodable, but the same thing can be done to make the class Encodable. 
+My notes on adding Codable support for classes such as UIColor and UIFont which doesn't support Codable by default<!--more-->. This example only touches on Decodable, but the same thing can be done to make the class Encodable.
 
-### Theme.json 
+### Theme.json
 
 ```json
 {
@@ -16,7 +16,7 @@ My notes on adding Codable support for classes such as UIColor and UIFont which 
  * A simple struct that holds UIColor and UIFont
  */
 struct Theme:Decodable{
-    enum CodingKeys: String, CodingKey {/*CodingKeys are required when you want to customize your json parsing*/
+    enum CodingKeys: String, CodingKey {/*CodingKeys are required when you want to customize your json (Be able to rename properties) parsing*/
         case color
         case font
     }
@@ -87,17 +87,17 @@ extension KeyedDecodingContainer {
 
 ```
 
-### AppDelegate.swift 
+### AppDelegate.swift
 
 ```swift
 let urlStr:String = Bundle.main.resourcePath!+"/theme.json"
 guard let data:Data = FileParser.data(urlStr) else {fatalError("wrong file path")}
 guard let theme:Theme = try? decode(data: data) else {fatalError("can't be converted json to Theme")}
-Swift.print("theme.color:  \(theme.color)")//UIExtendedSRGBColorSpace 1 1 1 1 
+Swift.print("theme.color:  \(theme.color)")//UIExtendedSRGBColorSpace 1 1 1 1
 Swift.print("theme.font:  \(theme.font)")//<UICTFont: 0x7faef7c02850> font-family: ".SFUIText"; font-weight: normal; font-style: normal; font-size: 16.00pt
 ```
 
 ### Conclusion
 
-By using This technique you can make any class Decodable with out resorting to wrappers or shadow DataContainers etc. 
+By using This technique you can make any class Decodable with out resorting to wrappers or shadow DataContainers etc.
 Thanks to the swift-lang slack community for the help coming up with this solution. The supporting classes in this article can be found here [https://github.com/eonist/swift-utils](https://github.com/eonist/swift-utils)

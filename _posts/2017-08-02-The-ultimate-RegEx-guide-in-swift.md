@@ -141,7 +141,7 @@ public static let extendedPatternExample:String = " 	(\\w|[_.\\-])+ 	@	 ((\\w|-)
  * 			(this function is strange try different tests) (has some problems with ^(?<=..), maybe dont use the ^)
  * 			Examples: RegExpModifier.removeLeftAndRightWhitespace(text);
  * (?:...)	- (indicate a non-capturing group that doesn't generate backreferences) Non-capturing group - everything inside this must be matched but is not included in the end match and the group is not referable (great when using associativ functionality) (skips the subpattern when using the exec function, see example of this in RegExpParser.computerDate)
- * (...|...)  - Try subpatterns in alternation (Rember when using the OR operator that you must try the least possible first) (something|else) matches something or else (You should wrap the alternatives and or operater betwen "(" and ")" like so: /(\w+|\d+)$/g or else the $ wont be to the option group but to the last option) (use non-capturing group if you dont want to backref the group)
+ * (...|...)  - Try subpatterns in alternation (Rember when using the OR operator that you must try the least possible first) (something|else) matches something or else (You should wrap the alternatives and or operater betwen "(" and ")" like so: /(\w+|\d+)$/g or else the $ wont be to the option group but to the last option) (use non-capturing group if you don't want to backref the group)
  * (?P<some name>..) - assigns an associative name to the array (You must use .match to find 1 instance, and  .exec to find many instances)
  */
 ```

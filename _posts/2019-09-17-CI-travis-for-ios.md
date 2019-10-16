@@ -31,6 +31,25 @@ notifications:
     on_failure: change
 ```
 
+
+Or even simpler:
+
+```yml
+os:
+  - osx
+language: swift
+sudo: required
+osx_image: xcode10.3
+script:
+  - set -o pipefail
+  - xcodebuild -project NetworkSugarExample.xcodeproj -scheme "NetworkSugarExample"  -sdk iphonesimulator  -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.2' test
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+```
+
 ### UnitTest
 Add an UnitTest to your project [http://eon.codes/blog/2018/10/11/unit-test/](http://eon.codes/blog/2018/10/11/unit-test/)
 
