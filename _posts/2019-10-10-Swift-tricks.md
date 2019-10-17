@@ -3,7 +3,7 @@ Some of my favourite swift tricks<!--more-->
 ### 1. Sometimes using switch can be overkill:
 ```swift
 enum State{
-    case a,b,c
+    case a, b, c
 }
 let state:State = .b
 
@@ -323,7 +323,7 @@ DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
 
 // Alternatively:
 
-DispatchQueue.global(qos: .background).async {
+DispatchQueue.global(qos: .background).async { // asyncAfter also works here, instead of sleep
     sleep(4)
     print("Active after 4 sec, and doesn't block main")
     DispatchQueue.main.async {
@@ -563,4 +563,37 @@ func makeIceCream(flavour: Flavours, caneType: String? = nil) {
 makeIceCream(flavour: .vanilla, caneType: "Cane") // Vanilla with Cane
 makeIceCream(flavour: .strawberry) // Strawberry
 makeIceCream(flavour: .vanilla) // No 🍦 for you
+```
+## 33. Queue up things with DispatchGroup:
+You can nest closures, but nesting is often a "code-smell", using DispatchGroup and .wait can be a nice alternative.
+
+```swift
+typealias COMPLETION = () -> ()
+func functionOne(completion: @escaping COMPLETION) {
+    print("1")
+    DispatchQueue.main.asyncAfter(deadline: .now() + 2.1) { completion() }
+}
+func functionTwo(completion: @escaping COMPLETION) {
+    print("2")
+    DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) { completion() }
+}
+func functionThree(completion: @escaping COMPLETION) {
+    print("3")
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { completion() }
+}
+DispatchQueue.global().async {
+    let dispatchGroup = DispatchGroup()
+    dispatchGroup.enter()
+    functionOne { dispatchGroup.leave() }
+    dispatchGroup.wait() //Add reasonable timeout
+    dispatchGroup.enter()
+    functionTwo { dispatchGroup.leave() }
+    dispatchGroup.wait()
+    dispatchGroup.enter()
+    functionThree { dispatchGroup.leave() }
+    dispatchGroup.wait()
+    dispatchGroup.notify(queue: .main) {
+        Swift.print("all done") // All tasks are completed
+    }
+} // this will print: 1, 2, 3, all done
 ```
