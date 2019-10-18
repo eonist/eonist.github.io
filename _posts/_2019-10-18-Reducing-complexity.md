@@ -20,3 +20,11 @@ extension A: UIScrollViewDelegate {
   }
 }
 ```
+
+### Putting private helper methods in own extensions
+Basically just organising code spatially
+```swift
+extension A.B {
+  private static func test(temp: String) { print("test: \(temp)") }
+}
+```
