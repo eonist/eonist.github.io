@@ -17,19 +17,19 @@ let queue = OperationQueue()
 queue.maxConcurrentOperationCount = 2
 
 let operation1 = BlockOperation(block: {
-  ...
+  //...
 })
 operation1.qualityOfService = .userInitiated
 
 let operation2 = BlockOperation(block: {
-  ...
+  //...
 })
 
 operation1.completionBlock = {
-    ...
+    //...
 }
 operation2.completionBlock = {
-    ...
+    //...
 }
 
 operation2.addDependency(operation1)
@@ -39,7 +39,7 @@ queue.addOperation(operation2)
 
 ```
 
-## Subclassing NSOperation (adding more functionality)
+## Subclassing NSOperation (Adding more functionality)
 
 ```swift
 class AsynchronousOperation: Operation {
@@ -64,19 +64,13 @@ class AsynchronousOperation: Operation {
       }
    }
    override var isAsynchronous: Bool {
-      get {
-         return true
-      }
+      return true
    }
    override var isExecuting: Bool {
-      get {
-         return state == .Executing
-      }
+      return state == .Executing
    }
    override var isFinished: Bool {
-      get {
-         return state == .Finished
-      }
+      return state == .Finished
    }
    override func start() {
       if self.isCancelled {
