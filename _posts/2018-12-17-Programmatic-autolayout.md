@@ -86,6 +86,7 @@ childView.centerXAnchor.constraint(equalTo: parentView.centerXAnchor).isActive =
 
 You can also bulk activate anchor constraints:
 ```swift
+square.translatesAutoresizingMaskIntoConstraints = false
 NSLayoutConstraint.activate([
     square.widthAnchor.constraint(equalToConstant: 64),
     square.heightAnchor.constraint(equalToConstant: 64),
