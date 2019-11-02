@@ -511,6 +511,11 @@ public enum TestEnum : Int {
    case one = 0, two, three
 }
 Swift.print("\(String(describing: TestEnum.three))") // three
+// or another example:
+public enum FocalType: Int, CaseIterable { case ultraWide, wide, tele }
+print(FocalType.allCases.map { "\($0): \($0.rawValue)" }.joined(separator: ", "))
+// ultraWide : 0, wide : 1, tele : 2
+
 ```
 
 ## 30. Recursive flatMap
