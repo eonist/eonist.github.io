@@ -72,3 +72,6 @@ downloadGroup.notify(queue: DispatchQueue.main) {
   completion?(storedError)
 }
 ```
+
+### Resources:
+- Canceling, resuming all items: [https://blog.natanrolnik.me/dispatch-work-item](https://blog.natanrolnik.me/dispatch-work-item) 

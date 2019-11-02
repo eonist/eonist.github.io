@@ -151,24 +151,28 @@ print(result) // 🎉🎉🎉
 ### 11. Code injection via Protocol extension
 
 ```swift
-protocol X {
-   func doSomething() // Class must implement doSomething
+protocol FruitKind {
+   func eat() // Class must implement doSomething
 }
-extension X {
-   func doSomething(){
-      print("uhoh") // default implementation
-   }
+extension FruitKind {
+   func eat() { print("Tastes like fruit") } // default implementation
 }
-protocol Y: X {} // inherit base protocol
-extension Y {
-   func doSomething() { // override default implementation
-      print("wuu 💥")
-   }
+protocol AppleKind: FruitKind {} // inherit base protocol
+extension AppleKind {
+   func eat() { print("Tastes like 🍎") }// override default implementation
 }
-class A: X {} // Make a class
-extension A: Y {} // 👈 you sort of attach custom functionality
-let a = A() // create an instance of Class
-a.doSomething() // calls the Y.doSomething instead of X.doSomething and prints: wuu 💥
+protocol PearKind: FruitKind {} // inherit base protocol
+extension PearKind {
+   func eat() { print("Tastes like 🍐") }// override default implementation
+}
+class Fruit: FruitKind {} // Make a class
+extension Fruit: AppleKind {} // 👈 you sort of attach custom apple functionality
+let fruit = Fruit() // create an instance of Class
+fruit.eat() //  Tastes like 🍎 (calls the AppleKind.eat instead of Fruit.eat and prints)
+class AnotherFruit: FruitKind {}
+extension AnotherFruit: PearKind {}  // 👈 you sort of attach custom pear functionality
+let anotherFruit = AnotherFruit()
+anotherFruit.eat() // Tastes like 🍐 (calls the AppleKind.eat instead of Fruit.eat and prints)
 ```
 
 
