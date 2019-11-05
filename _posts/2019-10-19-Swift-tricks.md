@@ -351,7 +351,17 @@ public func sleep(sec: Double){
     usleep(useconds_t(sec * 1000000)) // wait for n secs
 }
 
+// Pausing in a loop:
 
+let array = [1,2,3]
+DispatchQueue.global(qos: .background).async {
+    array.forEach { i in
+        sleep(1)
+        DispatchQueue.main.async {
+            Swift.print("i: \(i)") // increments every second and prints: 1,2,3
+        }
+    }
+}
 ```
 
 ### 18. Combinational types instead of generics
