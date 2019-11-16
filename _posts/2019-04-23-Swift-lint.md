@@ -12,7 +12,7 @@ My notes on using swift-lint in XCode<!--more-->.
   - Click "plus-button" 👉 Add run script
   - Paste in the bellow:
 
-```swift
+```
 if which swiftlint >/dev/null; then
   swiftlint
 else
