@@ -1,23 +1,23 @@
-<!--more--> 
+<!--more-->
 
 ```swift
 class Button {
-    var title:String = "The big button"
+    var title: String = "The big button"
     //TODO: the selector signature can be a typealias 👌
-    var selector: ((sender: AnyObject?, type:String) -> ())?/*this holds any method assigned to it that has its type signature*/
+    var selector: ((sender: AnyObject?, type: String) -> ())?/*this holds any method assigned to it that has its type signature*/
     func click(){
-        selector!(sender: self,type: "click")/*call the selector*/
+        selector!(sender: self,type: "click") /*call the selector*/
     }
     func hover(){
-        selector!(sender: self,type: "hover")/*call the selector*/
+        selector!(sender: self,type: "hover") /*call the selector*/
     }
 }
 class View {
     var button = Button()
     init(){
-        button.selector = handleSelector/*assign a method that will receive a call from the selector*/
+        button.selector = handleSelector /*assign a method that will receive a call from the selector*/
     }
-    func handleSelector(sender: AnyObject?,type:String) {
+    func handleSelector(sender: AnyObject?, type: String) {
         switch type{
             case "click": Swift.print("View.handleSelector() sender: " + String(sender!.dynamicType) + ", title: " +    String((sender as! Button).title) + ", type: " + type)
             case "hover": Swift.print("View.handleSelector() sender: " + String(sender!.dynamicType) + ", title: " + String((sender as! Button).title) + ", type: " + type)
