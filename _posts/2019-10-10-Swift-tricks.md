@@ -488,11 +488,11 @@ enum Colors {
 
 ## 27. Prefer contains over first
 ```swift
-//Good
+// Good
 arr.first(where: { $0 == match }) != nil
-//Better:
+// Better:
 arr.contains(where: { $0 == match })
-//Best
+// Best
 arr.contains { $0 == match }
 ```
 
@@ -525,9 +525,9 @@ print(FocalType.allCases.map { "\($0): \($0.rawValue)" }.joined(separator: ", ")
  * - Note: A 3d array is an array structure that can have nested arrays within nested arrays infinite addendum
  * - Note: Alternate names for this method as suggest by @defrenz and @timvermeulen on slack swift-lang #random: `recursiveFlatten` or `recursiveJoined`
  * ## Examples:
- * let arr:[Any] = [[[1],[2,3]],[[4,5],[6]]] 👈 3d array (3 depths deep)
- * let x2:[Int] = arr.recursiveFlatmap()
- * Swift.print(x2)//[1,2,3,4,5,6]
+ * let arr: [Any] = [[[1], [2,3]], [[4,5], [6]]] 👈 3d array (3 depths deep)
+ * let x2: [Int] = arr.recursiveFlatmap()
+ * Swift.print(x2) // [1,2,3,4,5,6]
  */
 func recursiveFlatmap<T>() -> [T] {
     var results = [T]()
@@ -547,7 +547,6 @@ Sleep for a random amount of time between 1 and 7 seconds. (Great for simulating
 ```swift
 sleep((1..<7).randomElement()!)
 ```
-
 
 ## 32. "Switch" with additional guard clauses:
 ```swift
@@ -601,4 +600,16 @@ DispatchQueue.global().async {
         Swift.print("all done") // All tasks are completed
     }
 } // this will print: 1, 2, 3, all done
+```
+
+## 34. Accounting for iPhoneX notch
+```swift
+override func viewDidAppear(_ animated: Bool) {
+     super.viewDidAppear(animated)
+     view.frame = UIScreen.main.bounds.inset(by: view.safeAreaInsets)
+}
+override func viewDidLoad() {
+     super.viewDidLoad()
+     self.view = View(frame: .zero)
+}
 ```

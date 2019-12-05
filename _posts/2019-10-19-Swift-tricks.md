@@ -215,7 +215,7 @@ https://stackoverflow.com/questions/51235876/swift-pattern-matching-switch-downc
 ### 13 Manipulate an object in a closure
 
 ```swift
-@discardableResult // 👈 Avoids xcode compiler warnings if result is not used
+@discardableResult // 👈 Avoids XCode compiler warnings if result is not used
 func with<T>(_ item: T, update: (inout T) throws -> Void) rethrows -> T {
     var item = item
     try update(&item)
@@ -615,4 +615,16 @@ DispatchQueue.global().async {
         Swift.print("all done") // All tasks are completed
     }
 } // this will print: 1, 2, 3, all done
+```
+## 34. let variables in functions
+The bellow is possible because index is guaranteed to be set and is much more readable than using a closure to do the same thing.
+```swift
+func doSomething() {
+   let index: Int
+   if versionNumber <= 9 { index = 0 }
+   else if versionNumber <= 26 { index = 1 }
+   else { index = 2 }
+}
+
+
 ```

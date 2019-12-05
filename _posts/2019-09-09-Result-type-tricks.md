@@ -58,7 +58,6 @@ func process(_ image: UIImage, then completion: @escaping OnComplete) {
 ### Use guard with result:
 
 ```swift
-// TODO: try something like this with result
 enum NetworkResponse {
   case response(URLResponse, Data)
   case error(Error)

@@ -1,4 +1,4 @@
-My notes on programatic macOS app<!--more-->. This code creates a pure programatic setup w/o storyboard (Uncheck use storyboard when you create the project)
+My notes on programatic macOS app<!--more-->. This code creates a pure programatic setup w/o storyboard ~~(Uncheck use storyboard when you create the project)~~ Since Xcode 11.2 you have to tick use XIB
 
 ### The code:
 
