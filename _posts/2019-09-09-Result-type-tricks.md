@@ -1,5 +1,22 @@
 My notes on the Swift Result type<!--more-->
 
+### Simple Result:
+Result are great with callbacks
+
+```swift
+typealias Complete = (Result<UIImage, Error>) -> Void
+
+func getSomething(onComplete: Complete) {
+   guard let img: UIImage = image else { onComplete(.failure(NSError.init(domain: "err", code: 0))); return }
+   onComplete(.success(hccqrImage))
+}
+
+getSomething { result in
+   guard let img = try? result.get() else { print("error")}
+   _ = img
+}
+```
+
 ```swift
  /**
   * Tests result type with try / throw oriented code

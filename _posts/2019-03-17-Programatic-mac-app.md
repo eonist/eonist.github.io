@@ -22,8 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       _ = view
    }
 }
-
-open class View: NSView{
+open class View: NSView {
    override open var isFlipped: Bool { return true }/*TopLeft orientation*/
    override public init(frame: CGRect) {
       super.init(frame: frame)
@@ -33,8 +32,11 @@ open class View: NSView{
    /**
     * Boilerplate
     */
-   required public init?(coder decoder: NSCoder) {
+   public required init?(coder decoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
    }
 }
 ```
+
+## Gotchas
+Sometimes you have to set the signing certificate to run locally

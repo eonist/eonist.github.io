@@ -2,14 +2,14 @@ My notes on UserDefaults<!--more-->. User defaults can be used for saving types 
 
 ### Example
 ```swift
-//variables
+// variables
 let defaults = UserDefaults.standard
 defaults.set(25, forKey: "Age")
 defaults.set(true, forKey: "hasOnboarded")
 defaults.set(CGFloat.pi, forKey: "Pi")
 defaults.set("Paul Hudson", forKey: "Name")
 defaults.set(Date(), forKey: "LastRun")
-//arr and dict:
+// Arr and dict:
 let array = ["Hello", "World"]
 defaults.set(array, forKey: "SavedArray")
 
@@ -52,66 +52,101 @@ UserDefaults.standard.set(true, forKey: “userlogin”)
 let status = UserDefaults.standard.bool(forKey: “userlogin”) ?? false
 ```
 
-### Model
+### The model approach
 ```swift
-struct Defaults {
+import Foundation
+/**
+ * Persistent storage for prefrences
+ * ## Examples:
+ * Defaults.nameAndAddress = (name: "John", address: "New York") // Saving details
+ * let name = Defaults.nameAndAddress.name // Retrieving details
+ * Defaults.clearUserData() // Clear details
+ */
+struct Storage {
+   /**
+    * - Fixme: ⚠️️ this should be try error etc ⚠️
+    */
+   static var nameAndAddress: NameAndAddress {
+      get { // Returns the Dictionary for the userSessionKey
+         let model: Model = {
+            if let dict: [String: String] = (UserDefaults.standard.value(forKey: userSessionKey) as? [String: String]) {
+               return Model(dict) // Convert dictionary to model
+            } else {
+               return defaultModel
+            }
+         }()
+         return (model.name ?? "err", model.address ?? "err") // Convert model to tuple and return it
+      }
+      set { // Stores the Dictionary for the userSessionKey
+         UserDefaults.standard.set([nameKey: newValue.name, addressKey: newValue.address], forKey: userSessionKey)
+      }
+   }
+   /**
+    * Removes the dictionary with the userSessionKey
+    */
+   static func clearUserData() {
+      UserDefaults.standard.removeObject(forKey: userSessionKey)
+   }
+}
+/**
+ * TypeAlias
+ */
+extension Storage {
+   typealias NameAndAddress = (name: String, address: String)
+}
+
+/**
+ * Constants
+ */
+extension Storage {
    /**
     * The keys that is used in the dictionary (Dictionary is stored in the UserDefaults.standard only)
     */
-    static let (nameKey, addressKey) = ("name", "address")
-    typealias NameAndAddress = (nameKey:String, addressKey:String)
-    /**
-     * This is the unique key that ensures that no other part of the app overwrites this (key,value) pair in the user-defaults file
-     */   
-    static let userSessionKey = "com.yourCompany.yourApp.usersession"
-    struct Model {
-        var name: String?
-        var address: String?
-        init(_ json: [String: String]) {
-            self.name = json[nameKey]
-            self.address = json[addressKey]
-        }
-    }
-    /**
-     * TODO: this should be try error etc ⚠️
-     */
-    static var nameAndAddress:NameAndAddress = {
-      /*Returns the Dictionary for the userSessionKey*/
-      get {
-         let dict = (UserDefaults.standard.value(forKey: userSessionKey) as? [String: String]) ?? [:]
-         return Model(dict)
-      }
-      /*Stores the Dictionary for the userSessionKey*/
-      set {
-        UserDefaults.standard.set([nameKey: name, addressKey: address], forKey: userSessionKey)
-      }
-    }
-    /**
-     * Removes the dictionary with the userSessionKey
-     */
-    static func clearUserData(){
-        UserDefaults.standard.removeObject(forKey: userSessionKey)
-    }
+   static let (nameKey, addressKey) = ("name", "address")
+   /**
+    * This is the unique key that ensures that no other part of the app overwrites this (key,value) pair in the user-defaults file
+    */
+   static let userSessionKey = "io.github.futurelab.\("UUID")" // add user uuid here
+   /**
+    * Default model if none is set yet
+    */
+   static var defaultModel: Model = {
+      let name: String = "Adam"
+      let address: String = "Boston"
+      return .init([nameKey: name, addressKey: address])
+   }()
 }
+/**
+ * Model
+ */
+extension Storage {
+   struct Model {
+      var name: String?
+      var address: String?
+      init(_ dict: [String: String]) {
+         self.name = dict[nameKey]
+         self.address = dict[addressKey]
+      }
+   }
+}
+
 ```
 
 ### Interacting with the Model:
 ```swift
-//Saving details
-Defaults.nameAndAddress = (name:"John", address:"New York")
-//Retrieving details
-let name = Defaults.nameAndAddress.name
-//Clear details
-Defaults.clearUserData()
+Defaults.nameAndAddress = (name: "John", address: "New York") // Saving details
+let name = Defaults.nameAndAddress.name // Retrieving details
+Defaults.clearUserData() // Clear details
 ```
 
 ### Extension example
 ```swift
 extension UserDefaults {
    /**
-    * EXAMPLE: UserDefaults.name
+    * ## Examples:
+    * UserDefaults.name
     */
-    class var name:String? {
+    class var name: String? {
         get { return standard.string(forKey: "name") }
         set { standard.set(newValue, forKey: "name") }
     }
@@ -119,9 +154,10 @@ extension UserDefaults {
 
 extension UserDefaults {
    /**
-    * EXAMPLE: UserDefaults.stringDateDictionary
+    * ## Examples:
+    * UserDefaults.stringDateDictionary
     */
-    class var stringDateDictionary:[String:Date]? {
+    class var stringDateDictionary: [String: Date]? {
         get { return standard.object(forKey: "stringDateDictionary") as? [String:Date] }
         set { standard.set(newValue, forKey: "stringDateDictionary") }
     }
@@ -129,7 +165,7 @@ extension UserDefaults {
 ```
 
 ### Other supported types are
-- `stringArray(forKey: String) -> [String]?`//Returns the array of strings associated with the specified key.
+- `stringArray(forKey: String) -> [String]?` // Returns the array of strings associated with the specified key.
 - `data(forKey: String) -> Data?`
 - `url(forKey: String) -> URL?`//Returns the URL associated with the specified key.
 - `object(forKey: String) -> Any?`👈 ✨//Returns the object associated with the specified key.
@@ -143,7 +179,7 @@ extension UserDefaults {
 - bool returns `false`
 
 ### Extra
-- `didChangeNotification` //allows you to get notifications when there is a change in the data of the userDefaults (only for the thread you currently operate at)
+- `didChangeNotification` // allows you to get notifications when there is a change in the data of the userDefaults (only for the thread you currently operate at)
 - Create a custom UserDefault instance: `init?(suiteName: String?)` //Creates a user defaults object initialized with the defaults for the specified database name.
    - `func addSuite(named: String)` //Inserts the specified domain name into the receiver’s search list.
    - `func removeSuite(named: String)` //Removes the specified domain name from the receiver’s search list.
@@ -154,4 +190,4 @@ extension UserDefaults {
 - My personal swift-tool-box press `T` and write userdefault.swift and you will find a small Extension https://github.com/eonist/swift-utils
 
 ### Notes:
-This is where the UserDeaults plist is stored: rootOfApplication/Library/Preferences/com.yourcompany.appName.plist
+This is where the UserDeaults plist is stored: `rootOfApplication/Library/Preferences/com.yourcompany.appName.plist`
