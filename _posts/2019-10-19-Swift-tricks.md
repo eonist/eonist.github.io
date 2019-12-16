@@ -625,6 +625,23 @@ func doSomething() {
    else if versionNumber <= 26 { index = 1 }
    else { index = 2 }
 }
+```
 
-
+## 35. Using try with for loops
+```swift
+do {
+   try (1...40).forEach { qrVersion in
+      guard let qrVer = QRVer(rawValue: qrVersion - 1) else { throw NSError(domain: "unable to create qr-ver", code: 0) }
+      guard let data: Data = QRStringData.randomData(config: (qrVer, .byte, .l)) else { throw NSError(domain: "unable to make data", code: 0) }
+      guard let qrImage: Image = try? QRWriter.image(data: data, ecLevel: .l, moduleMultiplier: 16) else { throw NSError(domain: "unable to create UIImage", code: 0) }
+      guard let ciImg: CIImage = qrImage.ciImage ?? qrImage.ciImage else { throw NSError(domain: "err ciimg", code: 0) }
+      let symbolVersion: Int? = try? ciImg.symbolVersion()
+      guard qrVersion == symbolVersion else { throw NSError(domain: "version: \(qrVersion) failed", code: 0) }
+   }
+   Swift.print("All symbol versions checked out")
+   onComplete(true)
+} catch {
+   Swift.print("error:  \(error)")
+   onComplete(false)
+}
 ```
