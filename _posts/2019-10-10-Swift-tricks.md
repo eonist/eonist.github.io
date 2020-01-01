@@ -613,3 +613,39 @@ override func viewDidLoad() {
      self.view = View(frame: .zero)
 }
 ```
+
+### 35. Flattening nested loops:
+
+```swift
+let width = 4
+let height = 4
+// nested loop
+for y in (0..<height) {
+   for x in (0..<width) {
+      let index: Int = y * width + x
+      print("index: \(index)")
+   }
+}
+// flattening:
+var x = 0
+var y = 0
+while x < width && y < height {
+   let index: Int = y * width + x
+   print("i: \(index)")
+   x += 1
+   if x == width { y += 1; x = 0 }
+}
+```
+### Use an online swift playground for quick tests:
+
+[http://online.swiftplayground.run](http://online.swiftplayground.run)
+
+```swift
+import Foundation
+
+print("Hello World")
+
+print((1...40).contains(1)) // true
+print((1...40).contains(40)) // true
+
+```
