@@ -11,26 +11,41 @@ DispatchQueue.global().async {
 }
 ```
 
-### Another example:
+## Using concurrentPerform with async network processes
 
 ```swift
-var total = 0
 
-let syncQueue = DispatchQueue(label: "...")
-
-DispatchQueue.concurrentPerform(iterations: maxY) { y in
-    var subTotal = 0
-    for x in 0..<maxX {
-        if ... {
-            subTotal += 1
-        }
-    }
-    syncQueue.sync {
-        total += subTotal
-    }
+func downloadSync(path: String) -> (Data?, URLResponse?, Error?) {
+    var result: (Data?, URLResponse?, Error?)! = nil
+    let semaphore = DispatchSemaphore(value: 0)
+    let url = URL(string: path)!
+    let request = URLRequest(url: url)
+    URLSession.shared.dataTask(with: request) { data, response, error in // async operation
+        result = (data, response, error)
+        semaphore.signal()
+    }.resume()
+    semaphore.wait()
+    return result
 }
 
-print(total)
+let paths = ["http://qiita.com/mono0926/items/c32c008384df40bf4e41",
+             "http://qiita.com/mono0926/items/acef5cb3651620a355c3",
+             "http://qiita.com/mono0926/items/139014be6c15e32b9696"]
+DispatchQueue.concurrentPerform(iterations: paths.count) { i in
+    let r = downloadSync(path: paths[i])
+    print(String(data: r.0!, encoding: .utf8))
+}
+
+```
+
+### Correct way to specify the QoS is to dispatch the call to concurrentPerform to the desired queue:
+[https://developer.apple.com/videos/play/wwdc2017/706/?time=285](https://developer.apple.com/videos/play/wwdc2017/706/?time=285)
+```swift
+DispatchQueue.global(qos: .userInitiated).async {
+    DispatchQueue.concurrentPerform(iterations: 3) { (i) in
+        ...
+    }
+}
 ```
 
 ### Stride:
@@ -55,9 +70,31 @@ DispatchQueue.concurrentPerform(iterations: iterations) { i in
 }
 ```
 
+### Another example (untested):
+
+```swift
+var total = 0
+
+let syncQueue = DispatchQueue(label: "...")
+
+DispatchQueue.concurrentPerform(iterations: maxY) { y in
+    var subTotal = 0
+    for x in 0..<maxX {
+        if ... {
+            subTotal += 1
+        }
+    }
+    syncQueue.sync {
+        total += subTotal
+    }
+}
+
+print(total)
+```
+
 ## Gotchas:
 - Sometimes doing concurrentPerform on the inner loop is more performant than on the outer loop
-- release build is faster than debug builds
+- Release build is faster than debug builds
 - You can ⭐simulate release build speed⭐ by: setting optimizations turned off: xcode project target -> swift compiler optimizations:  -> Debug -> optimizd for speed
 - You can do any number of iterations with concurrentPerform:, only up to 8 threads will be scheduled.
 - Always run concurrentPerform: in a Global queue.

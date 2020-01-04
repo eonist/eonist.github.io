@@ -179,3 +179,36 @@ dataSources.load { [weak self] collection in
     self?.render(collection)
 }
 ```
+
+### DispatchGroup and array
+
+```swift
+func executeMultiTask() {
+     //1. Create group
+     let taskGroup = DispatchGroup()
+     //2. Enter group
+     taskGroup.enter()
+     myTask1.execute(completeHandler: {
+         // ...
+         //3. Leave group
+         taskGroup.leave() //< balance with taskGroup.enter()
+     })
+     /* Add more tasks ...
+     //2. Enter group
+     taskGroup.enter()
+     myTask2.execute(completeHandler: {
+         //3. Leave group
+         defer {
+            // Use `defer` to make sure, `leave()` calls are balanced with `enter()`.
+            taskGroup.leave()
+         }
+         // ... more
+     })
+     */
+     //4. Notify when all task completed at main thread queue.
+     taskGroup.notify(queue: .main) {
+         // All tasks are done.
+         // ...   
+     }
+}
+```

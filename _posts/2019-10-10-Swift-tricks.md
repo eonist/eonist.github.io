@@ -2,14 +2,14 @@ Some of my favourite swift tricks<!--more-->
 
 ### 1. Sometimes using switch can be overkill:
 ```swift
-enum State{
+enum State {
     case a, b, c
 }
-let state:State = .b
+let state: State = .b
 
 if [.a, .b].contains(state) {
     Swift.print("either a or b")
-}else if case .a = state {
+} else if case .a = state {
     Swift.print("must be c")
 }
 ```
@@ -648,4 +648,13 @@ print("Hello World")
 print((1...40).contains(1)) // true
 print((1...40).contains(40)) // true
 
+```
+
+
+### Map ranges:
+
+```swift
+func randInt() -> Int { return Int(arc4random()) }
+
+let randomArray = (1...4).map { _ in randInt() } // 3,1,2,2
 ```
