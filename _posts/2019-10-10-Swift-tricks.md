@@ -636,7 +636,7 @@ while x < width && y < height {
    if x == width { y += 1; x = 0 }
 }
 ```
-### Use an online swift playground for quick tests:
+### 36. Use an online swift playground for quick tests:
 
 [http://online.swiftplayground.run](http://online.swiftplayground.run)
 
@@ -651,7 +651,7 @@ print((1...40).contains(40)) // true
 ```
 
 
-### Map ranges:
+### 37. Map ranges:
 
 ```swift
 func randInt() -> Int { return Int(arc4random()) }
