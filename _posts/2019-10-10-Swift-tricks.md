@@ -663,7 +663,7 @@ let randomArray = (1...4).map { _ in randInt() } // 3,1,2,2
 ```swift
 import Foundation
 /**
- * - Abstract: process data in paralell on a background thread and calls a onComplete when it's complete
+ * - Abstract: process data in parallel on a background thread and calls a onComplete when it's complete
  */
 func processData(onComplete: @escaping () -> Void) {
    Swift.print("start")
