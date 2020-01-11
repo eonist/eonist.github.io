@@ -14,7 +14,6 @@ DispatchQueue.global().async {
 ## Using concurrentPerform with async network processes
 
 ```swift
-
 func downloadSync(path: String) -> (Data?, URLResponse?, Error?) {
     var result: (Data?, URLResponse?, Error?)! = nil
     let semaphore = DispatchSemaphore(value: 0)

@@ -13,7 +13,7 @@ My check-list when creating a Swift module / framework / project<!--more-->
 - Add [CodeBeat](https://www.CodeBeat.co) code healthy badge to the repo
 
 ### Schedule cron builds on github:
-The nice thing with cron jobs is if you have nested dependencies, the build badges higher up will start to go red if the sub-modules they relay on start to break down. 
+The nice thing with cron jobs is if you have nested dependencies, the build badges higher up will start to go red if the sub-modules they relay on start to break down.
 ```yaml
 on:
   push:
@@ -29,3 +29,16 @@ on:
 ```
 *Result:*   
 [![Github actions badge](https://badgen.net/github/checks/eonist/With?icon=github&label=Tests)](https://github.com/eonist/With/actions)
+
+
+### Compact checklist (easy to add as a todo-list etc)
+And after this list you can start adding things you want the project to be
+```swift
+- Make Github repo
+- Make SPM Package
+- Make XCode project
+- Add linter
+- Add unit-test
+- Add Github-Actions
+- Edit ReadMe.md
+```
