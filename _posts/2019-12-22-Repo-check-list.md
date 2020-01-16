@@ -32,7 +32,7 @@ on:
 
 
 ### Compact checklist (easy to add as a todo-list etc)
-And after this list you can start adding things you want the project to be
+And after this list you can start adding things you want the project to be.
 ```swift
 - Make Github repo
 - Make SPM Package

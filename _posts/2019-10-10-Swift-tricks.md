@@ -659,18 +659,19 @@ func randInt() -> Int { return Int(arc4random()) }
 let randomArray = (1...4).map { _ in randInt() } // 3,1,2,2
 ```
 
-### Do many things simultaneously and call onComplete when things are done
+### 38. Do many things simultaneously and call onComplete when things are done
 ```swift
-import Foundation
 /**
- * - Abstract: process data in parallel on a background thread and calls a onComplete when it's complete
+ * - Abstract: process data in paralell on a background thread and calls a onComplete when it's complete
+ * ## Examples:
+ * processData { Swift.print("✅") } // Output: start, 1, 2, 0, 3, ✅
  */
 func processData(onComplete: @escaping () -> Void) {
    Swift.print("start")
    DispatchQueue.global().async {
       DispatchQueue.concurrentPerform(iterations: 4) { index in
          Swift.print("\(index)")
-         sleep((1..<3).randomElement()!) // wait for n secs
+         sleep((1..<3).randomElement()!) // Wait for n secs
       }
       onComplete()
    }

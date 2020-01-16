@@ -1,4 +1,4 @@
-My notes on semaphores<!--more-->
+My notes on semaphores<!--more-->Semaphores has the ability to convert-a-callback based method into a returning-style-method. Semaphore also has the ability to timeout 👌
 
 ### Limiting concurrent tasks:
 As we already know, unlimited work might lead to a deadlock. Here is how we can apply dispatch semaphore to limit a queue to 3 concurrent tasks:
@@ -8,7 +8,7 @@ let concurrentTasks = 3
 
 let queue = DispatchQueue(label: "Concurrent queue", attributes: .concurrent)
 let sema = DispatchSemaphore(value: concurrentTasks)
-
+print("began")
 for _ in 0..<999 {
     queue.async {
         // Do work
@@ -16,6 +16,7 @@ for _ in 0..<999 {
     }
     sema.wait()
 }
+print("ended") // Called when all 999 items where processed
 ```
 
 ### Testing network connection:

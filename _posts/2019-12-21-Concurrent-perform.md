@@ -11,6 +11,26 @@ DispatchQueue.global().async {
 }
 ```
 
+### Do many things simultaneously and call onComplete when things are done
+```swift
+/**
+ * - Abstract: process data in parallel on a background thread and calls a onComplete when it's complete
+ * ## Examples:
+ * processData { Swift.print("✅") } // Output: start, 1, 2, 0, 3, ✅
+ */
+func processData(onComplete: @escaping () -> Void) {
+   Swift.print("start")
+   DispatchQueue.global().async {
+      DispatchQueue.concurrentPerform(iterations: 4) { index in
+         Swift.print("\(index)")
+         sleep((1..<3).randomElement()!) // Wait for n secs
+      }
+      onComplete()
+   }
+}
+
+```
+
 ## Using concurrentPerform with async network processes
 
 ```swift
