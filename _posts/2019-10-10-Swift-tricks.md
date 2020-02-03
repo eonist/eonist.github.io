@@ -662,7 +662,7 @@ let randomArray = (1...4).map { _ in randInt() } // 3,1,2,2
 ### 38. Do many things simultaneously and call onComplete when things are done
 ```swift
 /**
- * - Abstract: process data in paralell on a background thread and calls a onComplete when it's complete
+ * - Abstract: process data in parallel on a background thread and calls a onComplete when it's complete
  * ## Examples:
  * processData { Swift.print("✅") } // Output: start, 1, 2, 0, 3, ✅
  */

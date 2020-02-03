@@ -1,7 +1,8 @@
 My notes on the Swift Result type<!--more-->
 
 ### Simple Result:
-Result are great with callbacks
+- Result are great with callbacks
+- Results are not great for returning methods, use throw instead, with light `do {try} catch {error}` code
 
 ```swift
 typealias Complete = (Result<UIImage, Error>) -> Void
@@ -56,7 +57,7 @@ getSomething { result in
  }
 ```
 
-### Create typealias for more readable code:
+### Create TypeAlias for more readable code:
 
 ```swift
 typealias OnComplete = (Result<UIImage, Error>) -> Void
