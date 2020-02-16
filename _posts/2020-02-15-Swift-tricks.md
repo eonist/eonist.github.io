@@ -647,13 +647,13 @@ do {
 ```
 
 ## 36. Call the method in the alternating bool assert
-- Imagine r,g,b are computational heavy methods,
+- Imagine [r,g,b] are computational heavy methods
 - The assert has to execute every method to assert
-- By not precalling the methods before the group assert, you save cpu processing power
+- By not pre-calling the methods before the group assert, you save cpu processing power
 ```swift
-func r() -> Bool { print("r"); return true }
-func g() -> Bool { print("g"); return false }
-func b() -> Bool { print("b"); return true }
-let valid: Bool = r() && g() && b()
+func r: Bool { print("r"); return true }
+func g: Bool { print("g"); return false }
+func b: Bool { print("b"); return true }
+let valid: Bool = r && g && b
 print(valid) // r,g false (skips calling b)
 ```
