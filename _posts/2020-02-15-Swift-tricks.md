@@ -2,10 +2,10 @@ Some of my favourite swift tricks<!--more-->
 
 ### 1. Sometimes using switch can be overkill:
 ```swift
-enum State{
+enum State {
     case a, b, c
 }
-let state:State = .b
+let state: State = .b
 
 if [.a, .b].contains(state) {
     Swift.print("either a or b")
