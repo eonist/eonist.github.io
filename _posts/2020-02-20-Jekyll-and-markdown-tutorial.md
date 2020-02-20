@@ -1,7 +1,5 @@
 Making a jekyll theme tutorial<!--more-->
 
-# Jekyll + Markdown tutorial
-
 ## Table of content:
 - [1. The problem](#the-problem)
 - [2. The solution](#the-solution)
