@@ -9,8 +9,8 @@ This tutorial describes how to make a Jekyll + Markdown website and host it for 
 - [6. Maintenance](#maintenance)
 
 ### The problem
-- There are a lot of awesome web-tech out there. But often they are overkill for simple sites
-- Fancy sites are often expensive to maintain and un-secure because they are complex
+- There are a lot of awesome web-tech out there. But often they are overkill
+- Fancy sites are expensive to maintain and un-secure because of complexity
 - One click websites, are easy to setup, but often hard/expensive to customise.
 - Custom websites often struggle when traffic spikes, during a product launch etc.
 
