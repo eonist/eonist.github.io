@@ -25,7 +25,7 @@ This tutorial describes how to make a Jekyll + Markdown website and host it for 
 ### Get started
 1. Sign up for hosting: [github](https://github.com) (Free)
 2. Sign up for domain: [Namecheap](https://namecheap.com) (Optional step)
-3. Customize your design in [sketch](http://sketch.com) Icons from [Naunproject](https://thenounproject.com)
+3. Customize your design in [sketch](http://sketch.com) (30-day-free) and add Icons from [Naunproject](https://thenounproject.com)
 4. Fork the custom [Lightstream theme](https://github.com/light-stream/light-stream.github.io) or Buy one: [jekyllthemes.io/premium](https://jekyllthemes.io/premium)
 5. Add your domain to your site [how to setup config in 30sec](https://vimeo.com/154566844)
 
