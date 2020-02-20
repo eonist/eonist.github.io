@@ -27,7 +27,7 @@ This tutorial describes how to make a Jekyll + Markdown website and host it for 
 2. Sign up for domain: [Namecheap](https://namecheap.com) (Optional step)
 3. Customize your design in [sketch](http://sketch.com) (30-day-free) and add Icons from [Naunproject](https://thenounproject.com)
 4. Fork the custom [Lightstream theme](https://github.com/light-stream/light-stream.github.io) or Buy one: [jekyllthemes.io/premium](https://jekyllthemes.io/premium)
-5. Add your domain to your site [how to setup config in 30sec](https://vimeo.com/154566844)
+5. Add your domain to your site [how to setup config in 30sec](https://vimeo.com/154566844) and [Setup DNS](https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site) 
 
 <img width="455" alt="img" src="https://github.com/stylekit/img/blob/master/sketch.gif?raw=true">
 
@@ -35,7 +35,7 @@ This tutorial describes how to make a Jekyll + Markdown website and host it for 
 - What is markdown? [Quick overview](https://guides.github.com/features/mastering-markdown/)
 - Edit markdown in [Atom.io](https://atom.io) or TextEdit
 - Drag and drop to github, edit directly, use [Atom.io](https://atom.io) or [desktop.github.com](https://desktop.github.com)
-- See the changes at your url
+- See the changes at your own url, here is my result: [lightstream.to](https://lightstream.to)
 
 <img width="320" alt="img" src="https://github.com/stylekit/img/blob/master/atom.gif?raw=true">
 
