@@ -1,4 +1,4 @@
-Making a jekyll theme tutorial<!--more-->
+This tutorial describes how to setup a Jekyll + Markdown website<!--more-->
 
 ## Table of content:
 - [1. The problem](#the-problem)
