@@ -11,7 +11,7 @@ This tutorial describes how to make a Jekyll + Markdown website<!--more-->
 ### The problem
 - There are a lot of awesome web-tech out there. But often they are overkill for simple sites
 - Fancy sites are often expensive to maintain and un-secure because they are complex
-- One click websites, that are easy to setup, but often hard/expensive to customise.
+- One click websites, are easy to setup, but often hard/expensive to customise.
 - Custom websites often struggle when traffic spikes, during a product launch etc.
 
 ### The solution
