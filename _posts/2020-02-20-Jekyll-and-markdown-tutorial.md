@@ -1,4 +1,4 @@
-This tutorial describes how to make a Jekyll + Markdown website<!--more-->
+This tutorial describes how to make a Jekyll + Markdown website and host it for free on github<!--more-->
 
 ## Table of content:
 - [1. The problem](#the-problem)
