@@ -4,7 +4,7 @@ email:       30n1st@gmail.com
 author:      Eonist
 description: "A blog about making programmatic UI's in swift"
 baseurl:     ""
-url:         "http://eon.codes"
+url:         "https://eon.codes"
 date_format: "%b %-d, %Y"
 excerpt_separator: <!--more-->  #global excerpt separator for the blog posts
 header_pages:
@@ -117,7 +117,7 @@ text:
 
 # Build settings
 markdown: kramdown
-kramdown: 
+kramdown:
   input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
 #markdown:     kramdown
 #redcarpet:
@@ -134,4 +134,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
-permalink: /blog/:year/:month/:day/:title/ # pretty urls 
+permalink: /blog/:year/:month/:day/:title/ # pretty urls
