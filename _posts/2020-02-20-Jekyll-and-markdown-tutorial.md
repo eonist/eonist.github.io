@@ -23,10 +23,10 @@ Making a jekyll theme tutorial<!--more-->
 <img width="484" alt="img" src="https://github.com/stylekit/img/blob/master/payed_themes.gif?raw=true">
 
 ### Get started
-1. Sign up for hosting: [github](https://github.com)
-2. Sign up for domain: [Namecheap](https://namecheap.com) (optional step)
+1. Sign up for hosting: [github](https://github.com) (Free)
+2. Sign up for domain: [Namecheap](https://namecheap.com) (Optional step)
 3. Customize your design in [sketch](http://sketch.com) Icons from [Naunproject](https://thenounproject.com)
-4. Fork a jekyll theme [Lightstream theme](https://github.com/light-stream/) or Buy one: [jekyllthemes.io/premium](https://jekyllthemes.io/premium)
+4. Fork a jekyll theme [Lightstream theme](https://github.com/light-stream/light-stream.github.io) or Buy one: [jekyllthemes.io/premium](https://jekyllthemes.io/premium)
 5. Add your domain to your site [how to setup config in 30sec](https://vimeo.com/154566844)
 
 <img width="455" alt="img" src="https://github.com/stylekit/img/blob/master/sketch.gif?raw=true">
