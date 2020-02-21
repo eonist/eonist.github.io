@@ -27,7 +27,7 @@ This tutorial describes how to make a Jekyll + Markdown website and host it for 
 2. Sign up for domain: [Namecheap](https://namecheap.com) (Optional step)
 3. Customize your design in [sketch](http://sketch.com) (30-day-free) and add Icons from [Nounproject](https://thenounproject.com)
 4. Fork the custom [Lightstream theme](https://github.com/light-stream/light-stream.github.io) or Buy one: [jekyllthemes.io/premium](https://jekyllthemes.io/premium)
-5. Add your domain to your site [how to setup config in 30sec](https://vimeo.com/154566844) and [Setup DNS](https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site)
+5. Add your domain to your site [how to setup config in 30sec](https://vimeo.com/392963735) and [Setup DNS](https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site)
 
 <img width="455" alt="img" src="https://github.com/stylekit/img/blob/master/sketch.gif?raw=true">
 
@@ -56,5 +56,5 @@ This tutorial describes how to make a Jekyll + Markdown website and host it for 
 
 ### Appendix:
 - Link to full site you can use [Lightstream theme](https://github.com/light-stream/)
-- Watch my 30sec to Jekyll site video [on vimeo](https://vimeo.com/154566844)
+- Watch my 30sec to Jekyll site video [on vimeo](https://vimeo.com/392963735)
 - DM me on [instagram/voyantium](https://instagram/voyantium) if you get stuck or have questions
