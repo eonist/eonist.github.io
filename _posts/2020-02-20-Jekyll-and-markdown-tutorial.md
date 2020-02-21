@@ -25,19 +25,19 @@ This tutorial describes how to make a Jekyll + Markdown website and host it for 
 ### Get started
 1. Sign up for hosting: [github](https://github.com) (Free)
 2. Sign up for domain: [Namecheap](https://namecheap.com) (Optional step)
-3. Customize your design in [sketch](http://sketch.com) (30-day-free) and add Icons from [Naunproject](https://thenounproject.com)
+3. Customize your design in [sketch](http://sketch.com) (30-day-free) and add Icons from [Nounproject](https://thenounproject.com)
 4. Fork the custom [Lightstream theme](https://github.com/light-stream/light-stream.github.io) or Buy one: [jekyllthemes.io/premium](https://jekyllthemes.io/premium)
-5. Add your domain to your site [how to setup config in 30sec](https://vimeo.com/154566844) and [Setup DNS](https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site) 
+5. Add your domain to your site [how to setup config in 30sec](https://vimeo.com/154566844) and [Setup DNS](https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site)
 
 <img width="455" alt="img" src="https://github.com/stylekit/img/blob/master/sketch.gif?raw=true">
 
 ### Add content
 - What is markdown? [Quick overview](https://guides.github.com/features/mastering-markdown/)
 - Edit markdown in [Atom.io](https://atom.io) or TextEdit
-- Drag and drop to github, edit directly, use [Atom.io](https://atom.io) or [desktop.github.com](https://desktop.github.com)
+- Drag and drop to github, edit directly on github, or upload with [Atom.io](https://atom.io) or [desktop.github.com](https://desktop.github.com)
 - See the changes at your own url, here is my result: [lightstream.to](https://lightstream.to)
 
-<img width="320" alt="img" src="https://github.com/stylekit/img/blob/master/atom.gif?raw=true">
+<img width="484" alt="img" src="https://github.com/stylekit/img/blob/master/atom2.gif?raw=true">
 
 ### Add services
 - Google analytics (Anonymous and GDPR-fiendly)
@@ -52,9 +52,9 @@ This tutorial describes how to make a Jekyll + Markdown website and host it for 
 - Customise the design by adding [Goole fonts](https://fonts.google.com)
 - Debug your site on your local machine: [Jekyll local server](https://github.com/eonist/Research/blob/master/other/jekyll/jekyll-install.md)
 
-<img width="320" alt="img" src="https://github.com/stylekit/img/blob/master/googlefonts.gif?raw=true">
+<img width="484" alt="img" src="https://github.com/stylekit/img/blob/master/googlefonts2.gif?raw=true">
 
 ### Appendix:
-- Link to full site [Lightstream theme](https://github.com/light-stream/)
+- Link to full site you can use [Lightstream theme](https://github.com/light-stream/)
 - Watch my 30sec to Jekyll site video [on vimeo](https://vimeo.com/154566844)
 - DM me on [instagram/voyantium](https://instagram/voyantium) if you get stuck or have questions
