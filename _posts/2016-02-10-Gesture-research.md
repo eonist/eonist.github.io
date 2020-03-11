@@ -1,9 +1,27 @@
 Notes on gestures<!--more-->
 
+### Simple tap gesture in iOS
+
+```swift
+class View: UIView {
+   init(frame: CGRect) {
+      let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+      self.addGestureRecognizer(tapGestureRecognizer)
+   }
+   /**
+    * On single tap
+    */
+   @objc func handleTapGesture(gestureRecognizer: UITapGestureRecognizer) {
+      Swift.print("tap")
+   }
+}
+```
+
+
 Doubleclick gesture recognizer (el capitan only)
 http://stackoverflow.com/questions/33225520/adding-click-handler-to-nstextfield-in-swift
 
-[apple docs on gestures and multi touch tracking](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/HandlingTouchEvents/HandlingTouchEvents.html#//apple_ref/doc/uid/10000060i-CH13-SW10) 
+[apple docs on gestures and multi touch tracking](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/HandlingTouchEvents/HandlingTouchEvents.html#//apple_ref/doc/uid/10000060i-CH13-SW10)
 
 
 Scroll view and gestures video: https://developer.apple.com/videos/play/wwdc2014-235/
@@ -16,7 +34,7 @@ this has some gesture tricks: http://www.raywenderlich.com/77975/making-a-gestur
 ```swift
 //
 //set the `acceptsTouchEvents = true` in init of your NSView
- 
+
 override func touchesEndedWithEvent(event: NSEvent) {
     Swift.print("touchesEndedWithEvent: " + "\(touchesEndedWithEvent)")
 }
@@ -128,7 +146,7 @@ override func magnifyWithEvent(event: NSEvent) {
         newSize.height = self.frame.size.height * event.magnification + 1.0
         newSize.width = self.frame.size.width * event.magnification + 1.0
         //[self setFrameSize:newSize];
-        
+
         if(event.momentumPhase == NSEventPhase.Ended){
             Swift.print("the zoom ended")
             tempPagePos = CGPoint(page.x,page.y)
@@ -141,7 +159,7 @@ override func magnifyWithEvent(event: NSEvent) {
             Swift.print("the zoom changed")
             appendZoom(event.magnification);
         }
-        
+
         super.magnifyWithEvent(event)
     }
 ```
@@ -154,5 +172,5 @@ override func magnifyWithEvent(event: NSEvent) {
 
 ## Resources:
 -  The PictureSwiper sample in the 10.7 SDK is a good place to start. (The 10.8 version of PictureSwiper uses NSPageController
-- this link has a discussion on swiping: [here](http://stackoverflow.com/questions/12748072/how-to-properly-use-swipewithevent-to-navigate-a-webview-obj-c) 
+- this link has a discussion on swiping: [here](http://stackoverflow.com/questions/12748072/how-to-properly-use-swipewithevent-to-navigate-a-webview-obj-c)
 - zooming with the DrawKit: http://apptree.net/gczoomview.htm

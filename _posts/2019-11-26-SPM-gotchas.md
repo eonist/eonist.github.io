@@ -1,15 +1,15 @@
 My notes on SPM<!--more-->
 
 ## Basic gotchas:
-`swift package init` creates the init spm project
-`swift package init --type library` ⚠️️ untested ⚠️️
-`swift build` Builds deps
-`swift package generate-xcodeproj` makes xcode proj
-`swift package update` updates deps
+`swift package init` Creates the init spm project
+`swift package init --type library` ⚠️️ Untested ⚠️️
+`swift build` Builds dependencies
+`swift package generate-xcodeproj` Makes xCode proj
+`swift package update` Updates dependencies
 
 ### Other gotchas:
 - Use a framework target in your app project as an umbrella framework so that you don't have to rebuild src code on every build. (Because SPM only handles src code)
-- make sure packages build, before you add them as deps. Or else xcode may crash etc
+- Make sure packages build, before you add them as dependencies. Or else xCode may crash etc
 
 ## Target branch:
 ```swift
