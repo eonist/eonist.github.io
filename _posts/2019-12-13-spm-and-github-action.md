@@ -2,7 +2,7 @@ My notes on using swift package manager and Github actions together<!--more-->
 
 ## Adding SPM unit-test to github actions:
 
-1. Swift package init
+1. Terminal: in project-path: `Swift package init`
 2. Make xCode project
 3. Add unit-test target
 4. Drag /Tests folder into xCode file-pan
