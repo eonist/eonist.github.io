@@ -1,9 +1,7 @@
 My notes on how to export sketch artboards to pdf<!--more-->
 
-
 ### Problem:
 You can use the built in export artboards to pdf feature. But the problem is that it creates a pdf with all the raw resources in the sketch project. sometimes its over 100mb. The bellow solution creates a small pdf while retaining quality. You can use an online pdf convert to do the same thing. But quality may end up worse than you expect.
-
 
 ### Sketch artboards to pdf
 
