@@ -208,7 +208,7 @@ default:
 https://stackoverflow.com/questions/51235876/swift-pattern-matching-switch-downcasting-and-optional-binding-in-a-single-s
 
 
-### 13 Manipulate an object in a closure
+### 13 Manipulate an object in a closure (disregard result)
 
 ```swift
 @discardableResult // 👈 Avoids xcode compiler warnings if result is not used

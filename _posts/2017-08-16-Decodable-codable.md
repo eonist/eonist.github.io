@@ -1,4 +1,4 @@
-My notes on Decodable and Encodable in swift<!--more--> 
+My notes on Decodable and Encodable in swift<!--more-->
 
 ### Why Use Decodable / Encodable?
 
@@ -9,9 +9,9 @@ My notes on Decodable and Encodable in swift<!--more-->
 
 #### Cons:
 
-- You could achive all of what these new features offer with reflection. 
+- You could achieve all of what these new features offer with reflection.
 
-- Must implement another required init for all subclasses 
+- Must implement another required init for all subclasses
 
 ### Examples:
 - Nice simple example: https://stackoverflow.com/questions/44423309/swift-4-codable-decoding-json
