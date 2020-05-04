@@ -6,6 +6,7 @@ Notes on gestures<!--more-->
 class View: UIView {
    init(frame: CGRect) {
       let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+      self.isUserInteractionEnabled = true
       self.addGestureRecognizer(tapGestureRecognizer)
    }
    /**

@@ -657,3 +657,31 @@ func b: Bool { print("b"); return true }
 let valid: Bool = r && g && b
 print(valid) // r,g false (skips calling b)
 ```
+## 37. Structure colors:
+```swift
+import UIKit
+/**
+ * ## Examples:
+ * Color.Text.header // white
+ * Color.UI.Background.secondary // lightGray
+ */
+struct Color {
+   struct Text {
+      static let header: UIColor = .white
+      static let button: UIColor = .systemBlue
+      static let description: UIColor = .lightGray
+      static let paragraph: UIColor = .gray
+      static let title: UIColor = .white
+   }
+   struct UI {
+      struct Foreground {
+         static let primary: UIColor = .darkGray
+         static let secondary: UIColor = .gray
+      }
+      struct Background {
+         static let primary: UIColor = .gray
+         static let secondary: UIColor = .lightGray
+      }
+   }
+}
+```
