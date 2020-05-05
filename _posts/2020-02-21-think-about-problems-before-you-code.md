@@ -1,6 +1,6 @@
 My notes regarding thinking about the problem before you start coding<!--more-->
 
-# Things to consider:
+### Things to consider:
 - Thinking about the problem / problems you have before you start to program a feature
 - Pseudo coding to uncover potential roadblocks with out getting too entangled with production code and it's limitations etc
 - Iterating on the pseudo-code, even starting over, with the intimate knowledge of your first attempt
