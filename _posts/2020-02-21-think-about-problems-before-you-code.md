@@ -6,6 +6,7 @@ My notes regarding thinking about the problem before you start coding<!--more-->
 - Iterating on the pseudo-code, even starting over, with the intimate knowledge of your first attempt
 - Programming in an isolated module with fake data
 - Slowly adding the module into the mothership code
+- Problems are often easier to reason about in a new and pristine project, vs a big cluster-code base were you have to constantly watch out for pitfalls / rabbit-holes
 - This way even if it doesn't work well in the mothership code, you can try again with another module with the same API and attach it to the mothership.
 - This way you avoid growing the mothership out of control
 
