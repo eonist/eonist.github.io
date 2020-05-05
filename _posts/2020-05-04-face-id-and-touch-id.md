@@ -15,3 +15,6 @@ func notifyUser(_ msg: String, err: String?) {
     self.present(alert, animated: true, completion: nil)
 }
 ```
+
+### Resources:
+[https://github.com/passbook/BioAuth](https://github.com/passbook/BioAuth) 
