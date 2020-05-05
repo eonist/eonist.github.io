@@ -3,6 +3,7 @@ My notes on secure enclave and KeyChain<!--more-->
 ### Gotchas:
 - Secure enclave is great for encrypting cipher texts
 - KeyChain is great for saving simple data such as dictionaries
+- You can store NSData in KeyChain (JSON -> NSData -> KeyChain)
 - CryptoKit is a more modern and easy to use kit to deal with secure enclave (although limited in features?)
 
 ##### Secure enclave
@@ -20,8 +21,18 @@ My notes on secure enclave and KeyChain<!--more-->
 - ⭐⭐ Using keychain with biometric authentication: [https://medium.com/@alx.gridnev/biometry-protected-entries-in-ios-keychain-6125e130e0d5](https://medium.com/@alx.gridnev/biometry-protected-entries-in-ios-keychain-6125e130e0d5)
 - simple userdefault like keychain wrapper: [https://github.com/jrendel/SwiftKeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper)
 - has biometric support for keychain items: [https://github.com/kishikawakatsumi/KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess)
+- Store Data in KeyChain [https://stackoverflow.com/a/42360846](https://stackoverflow.com/a/42360846)  
 
 ##### CryptoKit
 - ⭐ "CryptoKit + Secure enclave" basics: [https://www.andyibanez.com/posts/cryptokit-secure-enclave/](https://www.andyibanez.com/posts/cryptokit-secure-enclave/)
 - Using cryptokit and enclave: [https://stackoverflow.com/questions/58102399/apple-ios-13-cryptokit-secure-enclave-enforce-biometric-authentication-ahea](https://stackoverflow.com/questions/58102399/apple-ios-13-cryptokit-secure-enclave-enforce-biometric-authentication-ahea)
 - Apples cryptokit docs: [https://developer.apple.com/documentation/cryptokit](https://developer.apple.com/documentation/cryptokit)
+
+
+##### Other:
+- UnitTestin Keychain: [https://build.thebeat.co/how-to-write-a-testable-keychain-wrapper-library-47ffbe3880ed](https://build.thebeat.co/how-to-write-a-testable-keychain-wrapper-library-47ffbe3880ed)
+
+
+
+##### Keychain wrappers:
+[https://github.com/beatlabs/BeatChain](https://github.com/beatlabs/BeatChain)
