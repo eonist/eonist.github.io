@@ -1,4 +1,4 @@
-My notes on starting a business in Norway<!--more-->
+My notes on starting a business in Norway<!--more--> (WIP)
 
 
 ## Table of content:
@@ -28,22 +28,25 @@ My notes on starting a business in Norway<!--more-->
 - 700k nok (biz dev / prototype dev, match 1/2 priv invest)
 - 1.5m nok (must match 1/3 of priv invest, repay within 4yr)
 
-**Book keeping**
+**Book keeping**   
+to come  
 
-**Expenses**
+**Expenses**  
+to come  
 
 ### Employees
-Q: How to split the shares?
-A: General rule of thumb is to allocate 10% of shares to future employees. There is also https://slicingpie.com/learn-slicing-pie-model/ Or you can set a up an employee benefit scheme. Where the 10% generates yearly dividend to all employees and then the employees can them self invest in stocks like Appl amzn goog etc.
+**Q:** How to split the shares?
+**A:** General rule of thumb is to allocate 10% of shares to future employees. There is also https://slicingpie.com/learn-slicing-pie-model/ Or you can set a up an employee benefit scheme. Where the 10% generates yearly dividend to all employees and then the employees can them self invest in stocks like Appl amzn goog etc.
 
-Q: How do you pay employee?
-A: 1. Write a simple contract with amount earn and work hours 2. Register the employment in altinn. 3. Pay gov fees and vacation money to separate company accounts according to this tutorial: https://firmanytt.no/ansette-seg-selv-i-eget-as/
+**Q:** How do you pay employee?
+**A:** 1. Write a simple contract with amount earn and work hours 2. Register the employment in altinn. 3. Pay gov fees and vacation money to separate company accounts according to this tutorial: https://firmanytt.no/ansette-seg-selv-i-eget-as/
 
 **contractors**
-Q: How do you pay contractors?
-A: Define the task to be completed, on completion pay the agreed amount. Write it off as an expense in your budget
+**Q:** How do you pay contractors?
+**A:** Define the task to be completed, on completion pay the agreed amount. Write it off as an expense in your budget
 
 ### Other
+to come
 
 ### Resources
 - Google sheet for company declaration, articles of association, cap table etc: https://www.entrepedia.com/no/dokumenter/cap-table/
@@ -52,14 +55,14 @@ A: Define the task to be completed, on completion pay the agreed amount. Write i
 - incorporation law: https://lovdata.no/dokument/NL/lov/1997-06-13-44
 
 ### Gotchas:
-Q: Why you shouldn't pay consultants with stock in the begining
-A: Because when you get VC funding later, these consultants wont have the same insentive as you have to put in the extraordinary efforts required.
+**Q:** Why you shouldn't pay consultants with stock in the begining  
+**A:** Because when you get VC funding later, these consultants wont have the same insentive as you have to put in the extraordinary efforts required.
 
-Q: Do you need a revisioner?
-A: Not unless you bank more than 6mill nok a year. or have 23mil nok in ballance.
+**Q:** Do you need a revisioner?  
+**A:** Not unless you bank more than 6mill nok a year. or have 23mil nok in ballance.
 
-Q: Do you need an accountant?
-A: No, but you should, to save time. anual cost 10k nok
+**Q:** Do you need an accountant?  
+**A:** No, but you should, to save time. anual cost 10k nok
 
-Q: Are you personally responsible for losses?
-A: Not with a AS. If you start a ENK. The you are. so Start a AS
+**Q:** Are you personally responsible for losses?  
+**A:** Not with a AS. If you start a ENK. The you are. so Start a AS
