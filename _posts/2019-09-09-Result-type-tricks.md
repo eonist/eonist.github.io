@@ -174,3 +174,24 @@ public func value<T>() -> T? {
 ### Other:
 
 There is also: mapError() and flatMapError(), they transform the error value rather than the success value.
+
+
+### Simple result:
+
+
+```swift
+func divide(_ x: Int, by y: Int) -> Result<Int, DivisionError> {
+    guard y != 0 else {
+        return .failure(.zeroDivisor)
+    }
+    return .success(x / y)
+}
+
+let result = divide(10, by: 2)
+switch result {
+case .success(let number):
+    print(number)
+case .failure(let error):
+    print(error.localizedDescription)
+}
+```

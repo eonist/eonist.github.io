@@ -9,16 +9,9 @@ My notes on Face ID and Touch ID in swift<!--more-->
 
 ```swift
 func notifyUser(_ msg: String, err: String?) {
-    let alert = UIAlertController(title: msg,
-		message: err,
-		preferredStyle: .alert)
-
-    let cancelAction = UIAlertAction(title: "OK",
-		style: .cancel, handler: nil)
-
+    let alert = UIAlertController(title: msg, message: err, preferredStyle: .alert)
+    let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
     alert.addAction(cancelAction)
-
-    self.present(alert, animated: true,
-                        completion: nil)
+    self.present(alert, animated: true, completion: nil)
 }
 ```
