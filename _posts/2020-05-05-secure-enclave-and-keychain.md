@@ -20,7 +20,7 @@ My notes on secure enclave and KeyChain<!--more-->
 - using keychain with custom password: [https://medium.com/@alx.gridnev/password-protected-entries-in-ios-keychain-1add5fc97149](https://medium.com/@alx.gridnev/password-protected-entries-in-ios-keychain-1add5fc97149)
 - ⭐⭐ Using keychain with biometric authentication: [https://medium.com/@alx.gridnev/biometry-protected-entries-in-ios-keychain-6125e130e0d5](https://medium.com/@alx.gridnev/biometry-protected-entries-in-ios-keychain-6125e130e0d5)
 - simple userdefault like keychain wrapper: [https://github.com/jrendel/SwiftKeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper)
-- has biometric support for keychain items: [https://github.com/kishikawakatsumi/KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess)
+- ⭐has biometric support for keychain items: [https://github.com/kishikawakatsumi/KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess)
 - Store Data in KeyChain [https://stackoverflow.com/a/42360846](https://stackoverflow.com/a/42360846)  
 - Store Array/JSON in Keychain: [https://stackoverflow.com/a/49450486](https://stackoverflow.com/a/49450486)  
 
@@ -29,11 +29,8 @@ My notes on secure enclave and KeyChain<!--more-->
 - Using cryptokit and enclave: [https://stackoverflow.com/questions/58102399/apple-ios-13-cryptokit-secure-enclave-enforce-biometric-authentication-ahea](https://stackoverflow.com/questions/58102399/apple-ios-13-cryptokit-secure-enclave-enforce-biometric-authentication-ahea)
 - Apples cryptokit docs: [https://developer.apple.com/documentation/cryptokit](https://developer.apple.com/documentation/cryptokit)
 
-
 ##### Other:
 - UnitTestin Keychain: [https://build.thebeat.co/how-to-write-a-testable-keychain-wrapper-library-47ffbe3880ed](https://build.thebeat.co/how-to-write-a-testable-keychain-wrapper-library-47ffbe3880ed)
-
-
 
 ##### Keychain wrappers:
 [https://github.com/beatlabs/BeatChain](https://github.com/beatlabs/BeatChain)
