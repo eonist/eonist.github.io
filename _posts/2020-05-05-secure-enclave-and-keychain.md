@@ -22,6 +22,7 @@ My notes on secure enclave and KeyChain<!--more-->
 - simple userdefault like keychain wrapper: [https://github.com/jrendel/SwiftKeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper)
 - has biometric support for keychain items: [https://github.com/kishikawakatsumi/KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess)
 - Store Data in KeyChain [https://stackoverflow.com/a/42360846](https://stackoverflow.com/a/42360846)  
+- Store Array/JSON in Keychain: [https://stackoverflow.com/a/49450486](https://stackoverflow.com/a/49450486)  
 
 ##### CryptoKit
 - ⭐ "CryptoKit + Secure enclave" basics: [https://www.andyibanez.com/posts/cryptokit-secure-enclave/](https://www.andyibanez.com/posts/cryptokit-secure-enclave/)
@@ -36,3 +37,4 @@ My notes on secure enclave and KeyChain<!--more-->
 
 ##### Keychain wrappers:
 [https://github.com/beatlabs/BeatChain](https://github.com/beatlabs/BeatChain)
+[https://github.com/granoff/Strongbox](https://github.com/granoff/Strongbox)
