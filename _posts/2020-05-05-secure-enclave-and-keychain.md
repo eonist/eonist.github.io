@@ -23,6 +23,9 @@ My notes on secure enclave and KeyChain<!--more-->
 - ⭐has biometric support for keychain items: [https://github.com/kishikawakatsumi/KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess)
 - Store Data in KeyChain [https://stackoverflow.com/a/42360846](https://stackoverflow.com/a/42360846)  
 - Store Array/JSON in Keychain: [https://stackoverflow.com/a/49450486](https://stackoverflow.com/a/49450486)  
+- ⭐⭐ KeyChainWrapper tutorial: [https://www.raywenderlich.com/9240-keychain-services-api-tutorial-for-passwords-in-swift](https://www.raywenderlich.com/9240-keychain-services-api-tutorial-for-passwords-in-swift)  
+- ⭐ Apples own KeyChain wrapper[https://developer.apple.com/library/archive/samplecode/GenericKeychain/Introduction/Intro.html#//apple_ref/doc/uid/DTS40007797-Intro-DontLinkElementID_2](https://developer.apple.com/library/archive/samplecode/GenericKeychain/Introduction/Intro.html#//apple_ref/doc/uid/DTS40007797-Intro-DontLinkElementID_2)
+- ⭐⭐ Apples docs on Restricting keychain access with BioAuth [https://developer.apple.com/documentation/security/keychain_services/keychain_items/restricting_keychain_item_accessibility](https://developer.apple.com/documentation/security/keychain_services/keychain_items/restricting_keychain_item_accessibility)
 
 ##### CryptoKit
 - ⭐ "CryptoKit + Secure enclave" basics: [https://www.andyibanez.com/posts/cryptokit-secure-enclave/](https://www.andyibanez.com/posts/cryptokit-secure-enclave/)
@@ -33,5 +36,9 @@ My notes on secure enclave and KeyChain<!--more-->
 - UnitTestin Keychain: [https://build.thebeat.co/how-to-write-a-testable-keychain-wrapper-library-47ffbe3880ed](https://build.thebeat.co/how-to-write-a-testable-keychain-wrapper-library-47ffbe3880ed)
 
 ##### Keychain wrappers:
-[https://github.com/beatlabs/BeatChain](https://github.com/beatlabs/BeatChain)
-[https://github.com/granoff/Strongbox](https://github.com/granoff/Strongbox)
+[https://github.com/beatlabs/BeatChain](https://github.com/beatlabs/BeatChain)  
+[https://github.com/granoff/Strongbox](https://github.com/granoff/Strongbox)  
+[https://github.com/evgenyneu/keychain-swift/](https://github.com/evgenyneu/keychain-swift/)   
+[https://github.com/endocrimes/Latch](https://github.com/endocrimes/Latch)   
+[https://github.com/jrendel/SwiftKeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper)  
+[https://github.com/kishikawakatsumi/KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess)   

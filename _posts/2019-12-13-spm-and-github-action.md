@@ -16,19 +16,19 @@ My notes on using swift package manager and Github actions together<!--more-->
 ## Add a build badge:
 **Code:**  
 ```markdown
-[![Github actions badge](https://github.com/light-stream/Stream-lib/workflows/Builds/badge.svg)](https://github.com/light-stream/Stream-lib/actions)
+![Swift](https://github.com/passbook/Key/workflows/Swift/badge.svg)
 ```
 **Result:**   
-[![Github actions badge](https://github.com/light-stream/Stream-lib/workflows/Builds/badge.svg)](https://github.com/light-stream/Stream-lib/actions)
+![Swift](https://github.com/passbook/Key/workflows/Swift/badge.svg)
 
 ## Third party alternative build badge:
 - Only works in public repos (were as github's own badge solution works on private repos)
 **Code:**  
 ```markdown
-[![Github actions badge](https://badgen.net/github/checks/light-stream/Stream-lib?icon=github&label=Build%20Status)](https://github.com/light-stream/Stream-lib/actions)
+[![Github actions badge](https://badgen.net/github/checks/passbook/Key?icon=github&label=Build%20Status)](https://github.com/passbook/Key/actions)
 ```
 **Result:**  
-[![Github actions badge](https://badgen.net/github/checks/light-stream/Stream-lib?icon=github&label=Build%20Status)](https://github.com/light-stream/Stream-lib/actions)
+[![Github actions badge](https://badgen.net/github/checks/passbook/Key?icon=github&label=Build%20Status)](https://github.com/passbook/Key/actions)
 
 ## Gotchas:
 - TestTarget must have unique name if you use them as dependencies of other repos. Or else swift wont know which is correct 🤷, So name the TestTarget YourProjectName_OSName_Tests (drop the underscores)
