@@ -2,7 +2,7 @@
 title:       Eon's swift blog
 email:       30n1st@gmail.com
 author:      Eonist
-description: "A blog about making programmatic UI's in swift"
+description: "A blog with focus on making apps in swift"
 baseurl:     ""
 url:         "https://eon.codes"
 date_format: "%b %-d, %Y"
