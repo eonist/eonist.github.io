@@ -58,6 +58,7 @@ https://store.raywenderlich.com/products/machine-learning-by-tutorials
 https://store.raywenderlich.com/products/metal-by-tutorials
 https://www.raywenderlich.com/5428948-core-image-from-ciimage-to-metal-and-beyond ⭐⭐⭐
 Metal Programming Guide: Tutorial and Reference via Swift chapter 15: Parallel Programming
+
 ### Gotchas:
 - shared instance of CIContext to reuse for each image
 - Dealloc CGImage creation with autorelease
