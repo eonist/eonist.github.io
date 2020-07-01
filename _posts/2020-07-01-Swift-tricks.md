@@ -685,3 +685,14 @@ struct Color {
    }
 }
 ```
+
+## 38. Store constant in array types
+Great way to store values in array types, or add custom methods to array types
+```swift
+typealias ColorMapItem = UIColor
+typealias ColorMap = [ColorMapItem]
+extension Array where Element = ColorMapItem {
+   static let rainbow = [.blue, .red, .yellow]
+}
+let rainbowColors: ColorMaps = .rainbow
+```
