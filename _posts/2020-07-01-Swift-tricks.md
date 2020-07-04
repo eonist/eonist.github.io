@@ -687,12 +687,92 @@ struct Color {
 ```
 
 ## 38. Store constant in array types
-Great way to store values in array types, or add custom methods to array types
+- Great way to store values in array types, or add custom methods to array types
+- Allows you to get rid of clunky looking `Array where Element = SomeThing`
 ```swift
 typealias ColorMapItem = UIColor
 typealias ColorMap = [ColorMapItem]
-extension Array where Element = ColorMapItem {
+extension ColorMap { // Array where Element = ColorMapItem
    static let rainbow = [.blue, .red, .yellow]
 }
 let rainbowColors: ColorMaps = .rainbow
+
+
+```
+
+
+## 39. Accounting for iPhoneX notch
+```swift
+override func viewDidAppear(_ animated: Bool) {
+     super.viewDidAppear(animated)
+     view.frame = UIScreen.main.bounds.inset(by: view.safeAreaInsets)
+}
+override func viewDidLoad() {
+     super.viewDidLoad()
+     self.view = View(frame: .zero)
+}
+```
+
+### 40. Flattening nested loops:
+
+```swift
+let width = 4
+let height = 4
+// nested loop
+for y in (0..<height) {
+   for x in (0..<width) {
+      let index: Int = y * width + x
+      print("index: \(index)")
+   }
+}
+// flattening:
+var x = 0
+var y = 0
+while x < width && y < height {
+   let index: Int = y * width + x
+   print("i: \(index)")
+   x += 1
+   if x == width { y += 1; x = 0 }
+}
+```
+### 41. Use an online swift playground for quick tests:
+
+[http://online.swiftplayground.run](http://online.swiftplayground.run)
+
+```swift
+import Foundation
+
+print("Hello World")
+
+print((1...40).contains(1)) // true
+print((1...40).contains(40)) // true
+
+```
+
+
+### 42. Map ranges:
+
+```swift
+func randInt() -> Int { return Int(arc4random()) }
+
+let randomArray = (1...4).map { _ in randInt() } // 3,1,2,2
+```
+
+### 43. Do many things simultaneously and call onComplete when things are done
+```swift
+/**
+ * - Abstract: process data in parallel on a background thread and calls a onComplete when it's complete
+ * ## Examples:
+ * processData { Swift.print("✅") } // Output: start, 1, 2, 0, 3, ✅
+ */
+func processData(onComplete: @escaping () -> Void) {
+   Swift.print("start")
+   DispatchQueue.global().async {
+      DispatchQueue.concurrentPerform(iterations: 4) { index in
+         Swift.print("\(index)")
+         sleep((1..<3).randomElement()!) // Wait for n secs
+      }
+      onComplete()
+   }
+}
 ```
