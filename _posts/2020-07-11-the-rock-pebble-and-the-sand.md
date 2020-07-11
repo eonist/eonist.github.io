@@ -8,7 +8,7 @@ The simple premiss is that you fill up a jar, first the rocks, then the pebbles,
 - The sand, the fixes, the adjustments, the minor tweaks
 
 ### Defining your roadmap Rock, pebble, sand style
-- You need some rocks, but make sure you make room for pebbles and sand
+You need some rocks, but make sure you make room for pebbles and sand
 - The rocks you ship now and then, every quarter, or every year etc
 - The pebbles you ship monthly
 - The sand you deal with all the time, and ship everyday, every week at least
