@@ -776,3 +776,20 @@ func processData(onComplete: @escaping () -> Void) {
    }
 }
 ```
+
+### 44. Measure time consumed by a closure
+
+```swift
+/**
+ * Measures how long a closure takes to complete
+ * ## Examples:
+ * timeElapsed { sleep(2.2) } // 2.20000
+ */
+func timeElapsed(_ closure: () -> ()) -> Double {
+    let start = DispatchTime.now()
+    closure()
+    let end = DispatchTime.now()
+    let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
+    return Double(diff) / 1_000_000_000
+}
+```

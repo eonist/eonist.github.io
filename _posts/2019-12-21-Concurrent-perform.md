@@ -90,7 +90,7 @@ DispatchQueue.concurrentPerform(iterations: iterations) { i in
 ```
 
 ### Another example (untested):
-
+- You should be able to update the total async in this example
 ```swift
 var total = 0
 
