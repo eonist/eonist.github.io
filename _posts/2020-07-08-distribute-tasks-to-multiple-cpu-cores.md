@@ -22,7 +22,7 @@ DispatchQueue.concurrentPerform(iterations: numOfCores) { (i: Int) in
 }
 ```
 
-## background thread:
+## Background thread:
 
 ```swift
 DispatchQueue.global(qos: .userInitiated).async {
@@ -43,9 +43,9 @@ pixels.withUnsafeMutableBufferPointer { pixelsPtr in
 ```
 
 ## ConcurrentMap
-- Simplifying parralism by combining ConcurrentPerform and map like abilities
+- Simplifying parallelism by combining ConcurrentPerform and map like abilities
 - A further study into concurrent map can be found here: [https://gist.github.com/dabrahams/ea5495b4cccc2970cd56e8cfc72ca761](https://gist.github.com/dabrahams/ea5495b4cccc2970cd56e8cfc72ca761)
-- Oldschool way of doing concurrentApply: [https://stackoverflow.com/a/26693953/5389500](https://stackoverflow.com/a/26693953/5389500)
+- Old-school way of doing concurrentApply: [https://stackoverflow.com/a/26693953/5389500](https://stackoverflow.com/a/26693953/5389500)
 - Similar approach using semaphore [https://stackoverflow.com/a/54774379/5389500](https://stackoverflow.com/a/54774379/5389500)
 - Seems like a better approach unsafe pointers etc: [https://gist.github.com/alextrob/a4e9885f063e1d5ea02e77771c464b78](https://gist.github.com/alextrob/a4e9885f063e1d5ea02e77771c464b78)
 ```swift

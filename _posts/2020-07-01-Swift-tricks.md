@@ -785,7 +785,7 @@ func processData(onComplete: @escaping () -> Void) {
  * ## Examples:
  * timeElapsed { sleep(2.2) } // 2.20000
  */
-func timeElapsed(_ closure: () -> ()) -> Double {
+func timeElapsed(_ closure: () -> Void) -> Double {
     let start = DispatchTime.now()
     closure()
     let end = DispatchTime.now()

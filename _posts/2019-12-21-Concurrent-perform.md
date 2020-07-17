@@ -69,9 +69,9 @@ DispatchQueue.global(qos: .userInitiated).async {
 
 ### Stride:
 ```swift
-let lock = NSLock()
+let lock = NSLock() // needed when accessing a variable from many threads
 
-let stride = maxY / 20
+let stride = maxY / 20 // maybe set stride to num of cores?
 let iterations = Int((Double(height) / Double(stride)).rounded(.up))
 
 DispatchQueue.concurrentPerform(iterations: iterations) { i in
@@ -85,7 +85,7 @@ DispatchQueue.concurrentPerform(iterations: iterations) { i in
         }
     }
 
-    lock.sync { count += subTotal }
+    lock.sync { count += subTotal } // needed when accessing a variable from many threads
 }
 ```
 
@@ -94,7 +94,7 @@ DispatchQueue.concurrentPerform(iterations: iterations) { i in
 ```swift
 var total = 0
 
-let syncQueue = DispatchQueue(label: "...")
+let syncQueue = DispatchQueue(label: "...") // needed when accessing a variable from many threads
 
 DispatchQueue.concurrentPerform(iterations: maxY) { y in
     var subTotal = 0
@@ -103,7 +103,7 @@ DispatchQueue.concurrentPerform(iterations: maxY) { y in
             subTotal += 1
         }
     }
-    syncQueue.sync {
+    syncQueue.sync { // needed when accessing a variable from many threads
         total += subTotal
     }
 }
@@ -120,3 +120,4 @@ print(total)
 
 ## Resources:
 - Alot of info on concurrency in swift: https://www.uraimo.com/2017/05/07/all-about-concurrency-in-swift-1-the-present/
+- Lots of info nuggets on concurrent performance: https://gist.github.com/FWEugene/3861f0460c3e23f684e113f0f8d6947f
