@@ -6,7 +6,7 @@ My notes on measuring cpu performance in swift code<!--more-->
 ```swift
 let readTime: Date = .init()
 sleep(2.2) // simulating doing heavy task
-self.readTime += abs(readTime.timeIntervalSinceNow) // 2.2000
+abs(readTime.timeIntervalSinceNow) // 2.2000
 ```
 
 **Great for testing how long a closure takes to finish**
