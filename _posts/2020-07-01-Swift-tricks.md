@@ -793,3 +793,14 @@ func timeElapsed(_ closure: () -> Void) -> Double {
     return Double(diff) / 1_000_000_000
 }
 ```
+
+### 45: Mark methods as deprecated and get warning :
+- Document API changes with @available keyword.
+```swift
+@available(*, deprecated, renamed: "newMethodName")
+func foo() {
+  ...
+}
+// Each time foo() is called, a deprecation warning will appear:
+// foo is deprecated, renamed `newMethodName`
+```

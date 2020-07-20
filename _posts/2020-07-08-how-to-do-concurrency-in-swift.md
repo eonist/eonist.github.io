@@ -1,5 +1,8 @@
 My notes on distributing tasks to multiple cpu cores<!--more-->. The easiest way to perform a loop of calculations in parallel is concurrentPerform
 
+> After writing this article, I made ParallelLoop 💞, a functional and easy to understand library for doing parallel tasks in swift.
+[https://github.com/passbook/ParallelLoop](https://github.com/passbook/ParallelLoop)  
+
 ## Find num of available cores and threads
 ```swift
 let processInfo = ProcessInfo()

@@ -2,7 +2,7 @@ My notes on github actions and iOS xcode project<!--more-->
 
 ### Steps:
 1. Add a test target to your xCode project: `Click "+ button" in targets menu`
-2. Add `.yml` file to `.github/workflows/main.yml`
+2. Add `.yml` file to `.github/workflows/CI.yml`
 3. Add CI-badge to Readme.md
 
 ### YML Example
