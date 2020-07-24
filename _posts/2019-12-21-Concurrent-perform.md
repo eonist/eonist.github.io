@@ -1,5 +1,7 @@
 My notes on Parallel Execution <!--more-->
 
+
+
 ### concurrentPerform
 Grand Central Dispatch implements an efficient parallel for-loop. It must be called on a specific queue not to accidentally block the main one:
 
@@ -110,6 +112,12 @@ DispatchQueue.concurrentPerform(iterations: maxY) { y in
 
 print(total)
 ```
+
+### Avoid creating too many threads
+It might be tempting to create a lot of queues to gain better performance in your app. Unfortunately, creating threads comes with a cost and you should, therefore, avoid excessive thread creation.
+There are two common scenarios in which excessive thread creation occurs:
+- Too many blocking tasks are added to concurrent queues forcing the system to create additional threads until the system runs out of threads for your app
+- Too many private concurrent dispatch queues exist that all consume thread resources.
 
 ## Gotchas:
 - Sometimes doing concurrentPerform on the inner loop is more performant than on the outer loop
