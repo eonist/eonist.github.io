@@ -1,16 +1,34 @@
-When dealing with swift objects in general, we sometimes forget about memory issues or safety, because Swift is handling it for us. But it comes with a cost or performance.
+My notes on performance in swift<!--more-->When dealing with swift objects in general, we sometimes forget about memory issues or safety, because Swift is handling it for us. But it comes with a cost or performance.
 
 once your done with the array, remember to dealocate it
+
+Often, the optimizer can eliminate bounds checks within an array algorithm, but when that fails, invoking the same algorithm on the buffer pointer passed into your closure lets you trade safety for speed.
+
+The following example shows how you can iterate over the contents of the buffer pointer:
+
 ```swift
+// The pointer passed as an argument to body is valid only during the execution of withUnsafeBufferPointer(_:). Do not store or return the pointer for later use.
 func unsafeArray() {
-     let arr = ["a","c","b"]
-     var x = 0
-     arr.withUnsafeBufferPointer { unsafedArray -> () in
-         for i in unsafedArray {
-             x += i.count
-         }
-     }
+   let numbers = [1, 2, 3, 4, 5]
+   let sum = numbers.withUnsafeBufferPointer { buffer -> Int in
+    var result = 0
+    for i in stride(from: buffer.startIndex, to: buffer.endIndex, by: 2) {
+        result += buffer[i]
+    }
+    return result
+   }
  }
+```
+
+### While loop
+while loop is often faster than for loop on big sets:
+```swift
+let capacity: Int = 1000000000
+var i: Int = 0
+while i < capacity {
+   functor(i) // dos stuff here
+   i = i &+ 1
+}
 ```
 
 ## ContiguousArray

@@ -804,3 +804,12 @@ func foo() {
 // Each time foo() is called, a deprecation warning will appear:
 // foo is deprecated, renamed `newMethodName`
 ```
+
+### 46: Instead of opening playground. Use terminal
+- All you do is open terminal. And write swift. copy paste any code and hit enter to run it.
+```swift
+while i < 4 {
+   print("🎉")
+   i += 1
+}
+```
