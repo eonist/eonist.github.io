@@ -1,6 +1,6 @@
 If people say no, please don’t stigmatise them 🙏<!--more-->
 
->"But everyone else has time for this why are you so important?"
+>"But everyone else has time for this why do you require special treatment?"
 
 Self-help books / blogs keep telling us to say no to stuff, and they tell us to validate what we say yes to. So why is it still so difficult to say no? No is good, it means your aware of your limitations and the finite resources you posses. In my opinion saying No is one of the strongest ways to optimise for asymmetric outcomes. Saying yes to everything under group pressure only results in symmetric base line performance that anyone can achieve. Think of a sports car, a sports-car is optimised for speed and only that, a sports car says no to a lot of things to optimise winning the race. It says no to safety, no to legroom, air-condition, baby seats, the list goes on.
 
