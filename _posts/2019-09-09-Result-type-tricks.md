@@ -195,3 +195,13 @@ case .failure(let error):
     print(error.localizedDescription)
 }
 ```
+
+
+### one-liner:
+
+```swift
+func test(result: Result<CVImageBuffer, Error>) {
+   guard let imageBuffer: CVImageBuffer = try? result.get() else { if case .failure(let error) = result { Swift.print("error:  \(error)") }; return }
+   //read imageBuffer
+}
+```

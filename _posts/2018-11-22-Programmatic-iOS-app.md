@@ -46,5 +46,5 @@ class View: UIView {
 }
 ```
 
-## Programatic UI resources:
+## Programmatic UI resources:
 [https://www.hackingwithswift.com/example-code/uikit/how-to-make-your-user-interface-in-code](https://www.hackingwithswift.com/example-code/uikit/how-to-make-your-user-interface-in-code)

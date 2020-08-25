@@ -796,6 +796,7 @@ func timeElapsed(_ closure: () -> Void) -> Double {
 
 ### 45: Mark methods as deprecated and get warning :
 - Document API changes with @available keyword.
+- Great way to rename code, just make an typealias with the bellow code above it
 ```swift
 @available(*, deprecated, renamed: "newMethodName")
 func foo() {
@@ -812,4 +813,12 @@ while i < 4 {
    print("🎉")
    i += 1
 }
+```
+
+
+### 48: Generic typealias
+
+```swift
+typealias Parser<A> = (String) -> [(A, String)]
+func parse<A>(stringToParse: String, parser: Parser)
 ```

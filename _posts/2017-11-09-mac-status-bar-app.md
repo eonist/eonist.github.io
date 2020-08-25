@@ -1,4 +1,4 @@
-My notes on making a status-bar-app <!--more--> in swift 4
+My notes on making a status-bar-app <!--more--> in swift
 
 ```swift
 import Cocoa
