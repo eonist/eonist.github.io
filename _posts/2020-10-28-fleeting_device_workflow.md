@@ -20,3 +20,6 @@ My resent revelation is a culmination of a few things. Trying to do a fresh inst
 
 
 **Food for thought:** If you do a digital reset, then you can do a analog rest. The former is much harder IMO. because mentally we think we have unlimited bandwidth in the digital realm.  
+
+
+**This post was originally written in 2017, but never released for some reason**

@@ -1,7 +1,9 @@
 My notes on how to make a responsive landing page. <!--more-->
 
 ### The concept
-The idea is to make each page make up the size of your macbook / iPhone screen like in the example bellow
+- The idea is to make each page make up the size of your macbook / iPhone screen like in the example bellow
+- The key to building a responsive webpage is to strip to down to the bare essentials, make sure that works in both mobile and desktop, then add content.
+- Try to only work with divisions with background colors in the beginning. Nail this. Then fiddle with image, and text later, which can get finicky
 
 <img width="300" alt="img" src="https://github.com/stylekit/img/blob/master/one-pager-sections.gif?raw=true">
 

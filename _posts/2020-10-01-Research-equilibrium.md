@@ -15,7 +15,7 @@
 - Doing your own research is also important because you more easily forge the brain connections need to analyse  further. as oppose to reading someone elses compendium.
 
 ### You are biased
-The major reason that people do not become aware of black swans is because people more often than not wish to confirm what they already believe, instead of what the truth actually is. If you look hard enough, it is easy to find sources that confirm what you believe to be true.
+The major reason that people do not become aware of black swans is because people more often than not wish to confrm what they already believe, instead of what the truth actually is. If you look hard enough, it is easy to find sources that confirm what you believe to be true.
 Unfortunately, this is the wrong way to view things. You should look at the evidence and then reach a hypothesis, instead of the other way around. As soon as you formulate a hypothesis, you should immediately try to find evidence to the contrary of your hypothesis to test it. Ask yourself, "what evidence would prove me wrong?
 
 and here lay the important key, finding black swans are costly. They don't appear on mindmaps, they appear in deeply nested subfolders of domain research. And the only way to find them is to complete saturate your domain. only after will you be able to find anything that is related to blackswan events. Schools are contrary to this, they want you to remain on the surface, to have broad strokes, but never deep knowledge.

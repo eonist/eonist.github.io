@@ -804,6 +804,7 @@ func foo() {
 }
 // Each time foo() is called, a deprecation warning will appear:
 // foo is deprecated, renamed `newMethodName`
+// name things: allItems(SecClass:) if the type of the param is the only change etc
 ```
 
 ### 46: Instead of opening playground. Use terminal
@@ -821,4 +822,28 @@ while i < 4 {
 ```swift
 typealias Parser<A> = (String) -> [(A, String)]
 func parse<A>(stringToParse: String, parser: Parser)
+```
+
+### 49: Init an enum
+
+```swift
+enum Apperance : String {
+   case Dark, Light
+}
+extension Apperance {
+   init() {
+      let type = UserDefaults.standard.string(forKey: "AppleInterfaceStyle") ?? "Light"
+      self = Apperance(rawValue: type)!
+   }
+   var inDarkMode: Bool {
+      let currentStyle = Apperance()
+      if case .Dark = currentStyle {
+         return true
+      } else if case .Light = currentStyle {
+         return false
+      } else {
+         fatalError("Not supported")
+      }
+   }
+}
 ```

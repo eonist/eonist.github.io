@@ -1,24 +1,24 @@
-Reflection and UnWrapping now has Dictionary support <!--more--> 
+Reflection and UnWrapping now has Dictionary support <!--more-->
 
 ### Swift example:
 
 ```swift
 let temp:Temp = Temp([0:"test",3:"testing",5:"more testing"])//create a dict
-let xml:XML = Reflection.toXML(temp) //reflect the dict to xml
+let xml: XML = Reflection.toXML(temp) //reflect the dict to xml
 Swift.print(xml.XMLString)//print the xml
 
-let newInstance:Temp = Temp.unWrap(xml)!//unwrap the xml to dict
+let newInstance: Temp = Temp.unWrap(xml)!//unwrap the xml to dict
 newInstance.someDict.forEach{
     Swift.print("key: \($0.0) value: \($0.1)")//print key,value
 }
 
-class Temp{
-    var someDict:[Int:String]
-    init(_ someDict:[Int:String]){
+class Temp {
+    var someDict: [Int:String]
+    init(_ someDict: [Int:String]){
         self.someDict = someDict
     }
 }
-extension Temp:UnWrappable{
+extension Temp: UnWrappable{
     static func unWrap<T>(xml:XML) -> T? {
         let someDict:[Int:String] = unWrap(xml,"someDict")
         return Temp(someDict) as? T
@@ -79,7 +79,7 @@ class Temp{
 ```
 
 ### Note:
-Storing key and value in separate nodes is important because key can have different types and value can have nested nodes. Aka complex content. As can key when I think about it, as long as it extends the Hashable protocol. 
+Storing key and value in separate nodes is important because key can have different types and value can have nested nodes. Aka complex content. As can key when I think about it, as long as it extends the Hashable protocol.
 
 
 Here is my reflection library in swift: [ReflectionLib](https://github.com/gitsync/ReflectionLib) 

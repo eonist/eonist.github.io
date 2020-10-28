@@ -43,3 +43,29 @@ open class View: NSView {
 
 ## Gotchas
 Sometimes you have to set the signing certificate to run locally
+
+## Headless app:
+
+```swift
+// the bellow code must be added to AppDelegate.swift
+import Cocoa
+
+class AppDelegate: NSObject, NSApplicationDelegate {
+   func applicationDidFinishLaunching(_ aNotification: Notification) {
+      // Insert code here to initialize your application
+      Swift.print("hello world")
+   }
+   func applicationWillTerminate(_ aNotification: Notification) {
+      // Insert code here to tear down your application
+   }
+}
+// the bellow code must be added to main.swift
+import Cocoa
+
+private let app = NSApplication.shared
+private let delegate = AppDelegate()
+app.delegate = delegate
+app.run()
+
+
+```

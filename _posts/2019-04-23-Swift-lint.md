@@ -1,16 +1,15 @@
 My notes on using swift-lint in XCode<!--more-->.
 
-1. install swift-lint: [https://github.com/realm/SwiftLint/releases](https://github.com/realm/SwiftLint/releases) 
+1. install swift-lint: [https://github.com/realm/SwiftLint/releases](https://github.com/realm/SwiftLint/releases)
 
 2. Add `.swiftlint.yml` to your xcode project folder
-  - Example of swift-lint rule set: [https://github.com/realm/SwiftLint/blob/master/.swiftlint.yml](https://github.com/realm/SwiftLint/blob/master/.swiftlint.yml)
-  - Another swift-lint example from Sindre Sorhus project GifSki: [https://github.com/sindresorhus/gifski-app/blob/master/.swiftlint.yml](https://github.com/sindresorhus/gifski-app/blob/master/.swiftlint.yml)
+- Example of swift-lint rule set: [https://github.com/realm/SwiftLint/blob/master/.swiftlint.yml](https://github.com/realm/SwiftLint/blob/master/.swiftlint.yml)
+- Another swift-lint example from Sindre Sorhus project GifSki: [https://github.com/sindresorhus/gifski-app/blob/master/.swiftlint.yml](https://github.com/sindresorhus/gifski-app/blob/master/.swiftlint.yml)
 
 3. Add swift-lint script to your xcodeproject:
-
-  - XCode 👉 Build phases
-  - Click "plus-button" 👉 Add run script
-  - Paste in the bellow:
+- XCode 👉 Build phases
+- Click "plus-button" 👉 Add run script
+- Paste in the bellow:
 
 ```
 if which swiftlint >/dev/null; then
