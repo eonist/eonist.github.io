@@ -1,3 +1,5 @@
+A story about reaching peak research.<!--more-->
+
 **Research equilibrium**
 
 - You reach domain saturation when you keep bumping into things you already know.
