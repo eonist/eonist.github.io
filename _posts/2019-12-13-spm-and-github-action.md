@@ -1,4 +1,4 @@
-My notes on using swift package manager and Github actions together<!--more-->
+My notes on using swift package manager and Github actions together<!--more--> ⚠️️ CAUTION ⚠️️ Syntax is extremely sensitive to indentation, don't use tabs etc. Keep the structure github provides
 
 ## Adding SPM unit-test to github actions:
 
@@ -7,11 +7,12 @@ My notes on using swift package manager and Github actions together<!--more-->
 3. Add unit-test target in XCode name it: `SomeTest`
 4. Drag `/Tests` folder into xCode top level of file-sidemenu (you created Tests/ via SPM)
 5. Move the `SomeTest` into Tests folder (you created this in xcode)
-6. In the `test-target` build setting search for info.plist and edit the path to be `/Tests/SomeTest/`
-7. make sure `swift build` and `swift test` in terminal works
+6. In the `test-target` build setting search for info.plist and edit the path to be `Tests/SomeTest/Info.plist`
+7. make sure `swift build` and `swift test` in terminal works (add deps test-target in package.swift)
 7. push to github
 8. in github/repo: actions -> swift action (change the name to Tests, so the badge makes sense later)
-9. Now every time you push, the project is built and tested 🎉
+9. Go to actions/tests and click the 3 dotted menu, then click create status badge, add this to your readme
+10. Now every time you push, the project is built and tested 🎉
 
 ## Add a build badge:
 **Code:**  
@@ -77,4 +78,48 @@ on:
      - master
   schedule:
   - cron: "0 17 * * 0-6" # 17:00 every day of the week
+```
+
+### To use github actions with xcode projects (ios):
+
+```yml
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Start xcodebuild test
+      run: xcodebuild clean test -project SentryIOS.xcodeproj -scheme SentryIOS -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+```
+
+### To use github actions with xcode projects (macOS):
+```yml
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+   schedule:
+      - cron: "0 12 * * 4-4" # Thursdays at 12
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@main
+    - name: Start xcodebuild test
+      run: xcodebuild clean build -project SentryMacOS.xcodeproj -scheme SentryMacOS
 ```

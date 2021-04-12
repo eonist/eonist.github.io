@@ -1,5 +1,39 @@
 My note on debouncing method calls<!--more-->
 
+### Simple debounce:
+
+```swift
+import UIKit
+/**
+ * Event
+ */
+extension SliderCell {
+   /**
+    * On slider change
+    */
+   @objc func sliderValueDidChange(sender: UISlider) {
+      NSObject.cancelPreviousPerformRequests(withTarget: self)
+      // Debounce: wait until the user stops typing to send search requests
+      perform(#selector(update(with:)), with: sender, afterDelay: 0.01)
+   }
+}
+extension SliderCell {
+   /**
+    *
+    */
+   @objc private func update(with sender: UISlider) {
+      // Do stuff here
+      let str: String = .init(format: "%.00f", sender.value)+".0"
+      if str != valueLabel.text {
+         valueLabel.text = str//"\(sender.value)"
+         action(value: sender.value)
+      }
+   }
+}
+
+```
+
+
 ### Example
 This example shows how you can debounce network calls on every keystroke while the user types in a search-field. In order to only call backend every 0.3seconds to avoid congestion.
 
@@ -168,38 +202,4 @@ class Dispatcher {
         }
     }
 }
-```
-
-
-### Simple debounce:
-
-```swift
-import UIKit
-/**
- * Event
- */
-extension SliderCell {
-   /**
-    * On slider change
-    */
-   @objc func sliderValueDidChange(sender: UISlider) {
-      NSObject.cancelPreviousPerformRequests(withTarget: self)
-      // Debounce: wait until the user stops typing to send search requests
-      perform(#selector(update(with:)), with: sender, afterDelay: 0.01)
-   }
-}
-extension SliderCell {
-   /**
-    *
-    */
-   @objc private func update(with sender: UISlider) {
-      // Do stuff here
-      let str: String = .init(format: "%.00f", sender.value)+".0"
-      if str != valueLabel.text {
-         valueLabel.text = str//"\(sender.value)"
-         action(value: sender.value)
-      }
-   }
-}
-
 ```

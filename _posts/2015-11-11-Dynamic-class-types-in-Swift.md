@@ -1,9 +1,9 @@
-Here is a pure swift implementation of dynamic class types. It does require the classes to extend the same protocol.<!--more--> 
+Here is a pure swift implementation of dynamic class types. It does require the classes to extend the same protocol.<!--more-->
 
 ```swift
-protocol ILayout{ init(_ a:String)}
-class A:ILayout{required init(_ a:String)}
-class B:ILayout{required init(_ a:String)}
+protocol ILayout{ init(_ a: String)}
+class A: ILayout{ required init(_ a: String) }
+class B: ILayout{ required init(_ a: String) }
 var instance:ILayout
 var classType:ILayout.Type
 
@@ -13,3 +13,5 @@ instance = classType.init("abc")
 classType = B.self
 instance = classType.init("abc")
 ```
+
+// see TestRunner and AccessRunner for similar code

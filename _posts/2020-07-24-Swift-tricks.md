@@ -6,7 +6,6 @@ enum State {
     case a, b, c
 }
 let state: State = .b
-
 if [.a, .b].contains(state) {
     Swift.print("either a or b")
 }else if case .a = state {
@@ -846,4 +845,15 @@ extension Apperance {
       }
    }
 }
+```
+
+### 50 Simple diffing in swift:
+```swift
+let arrayA: [String] = ["a", "b", "c"]
+let arrayB: [String] = ["c", "a", "d", "f", "g"]
+// Find items in b that is not in a
+let diff: [String] = arrayB.filter { item in
+   !arrayA.contains { item == $0 }
+}
+Swift.print("diff:  \(diff)") // ["d", "f", "g"]
 ```

@@ -1,5 +1,8 @@
 My notes on making a status-bar-app <!--more--> in swift
 
+- Add image icon to statusbar app: [https://stackoverflow.com/questions/38461449/validatemenuitem-or-menuwillopen-not-called-for-nsmenu](https://stackoverflow.com/questions/38461449/validatemenuitem-or-menuwillopen-not-called-for-nsmenu)
+- Toggle darkmode[https://www.raywenderlich.com/165853/menus-popovers-menu-bar-apps-macos](https://www.raywenderlich.com/165853/menus-popovers-menu-bar-apps-macos)
+
 ```swift
 import Cocoa
 
@@ -52,6 +55,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
 ```
-
-- add image icon to statusbar app: [https://stackoverflow.com/questions/38461449/validatemenuitem-or-menuwillopen-not-called-for-nsmenu](https://stackoverflow.com/questions/38461449/validatemenuitem-or-menuwillopen-not-called-for-nsmenu)
-- toggle darkmode[https://www.raywenderlich.com/165853/menus-popovers-menu-bar-apps-macos](https://www.raywenderlich.com/165853/menus-popovers-menu-bar-apps-macos)

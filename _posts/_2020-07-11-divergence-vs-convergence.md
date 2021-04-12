@@ -1,7 +1,7 @@
 ### Radical divergence
 
 
-WHAT IS DIVERGENT THINKING?
+### WHAT IS DIVERGENT THINKING?
 The term “divergent thinking” refers to that strategy of solving problems characterized by the proposal of a multiplicity of possible solutions in an attempt to determine the one that works. It usually happens in a free-flowing, spontaneous manner, where multiple creative ideas are engendered and evaluated. A manifold number of potential solutions are studied in a brief span of time, and unconventional connections may be drawn. Once the stage of divergent thinking is complete, information and ideas are structured and organized using convergent thinking. Brainstorming and free writing are two processes that involve divergent thinking.
 
 Divergent Thinking

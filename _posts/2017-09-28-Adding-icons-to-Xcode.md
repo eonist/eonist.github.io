@@ -10,5 +10,4 @@ My notes on how you can create and add an .icns to your xcode mac app project<!-
 6. Clean the project  (shift + cmd + k)
 7. Run the app (cmd + r)
 
-
 [Converting .png to .icns](http://eon.codes/blog/2016/12/06/Creating-an-app-icon/)

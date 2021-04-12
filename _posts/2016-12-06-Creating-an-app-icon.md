@@ -3,7 +3,7 @@ Creating an app icon that can be use for macOS apps<!--more--> It also supports 
 ### .png 👉 .icns
 1. Download [IconMaker.app](https://raw.githubusercontent.com/stylekit/img/master/iconmaker.app.zip) 👈 (It's just an .applescript won't bite)   
 2. If you get a warning while using the app go to `MacOS prefs -> security & privacy -> General -> click open anyway`
-3. Drag and drop your .png onto the IconMaker.app and your done 🎉
+3. Drag and drop your icon.png (1024x1024px) onto the IconMaker.app and your done 🎉
 
 ### Example:
 here is an app icon I created in Illustrator:  
@@ -24,14 +24,11 @@ This applescripts can convert a .png to an .icns file in **4 simple steps:**
 
 Credits to JoeFrizzell via: [http://apple.stackexchange.com/a/140361/179041](http://apple.stackexchange.com/a/140361/179041)
 
-
 ### Running the app requires:
 MacOS Sierra has stricter security than before. To bring back running apps from unidentified developers simply write sudo spctl `--master-disable` in terminal and hit enter, as per: [http://osxdaily.com/2016/09/27/allow-apps-from-anywhere-macos-gatekeeper/](http://osxdaily.com/2016/09/27/allow-apps-from-anywhere-macos-gatekeeper/) (You can always enable it after) Or you can build from source your self and GateKeeper won't complain.
 
-
 ### High Sierra update:
 Since macOS high sierra, you need to be strict about size. Make sure the png size is exactly 1024x1024px. Or else it won't work. Basically the `iconutil` that IconMaker utilises has been upgraded in High Sierra. I tested a 1000x1000px file in Sierra and it worked. But not in High Sierra. So make sure your source png is the correct size. 💪
-
 
 ### Doing all of this with just terminal:
 1. Create a png file that is exactly 1024x1024px
