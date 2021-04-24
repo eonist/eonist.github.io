@@ -857,3 +857,23 @@ let diff: [String] = arrayB.filter { item in
 }
 Swift.print("diff:  \(diff)") // ["d", "f", "g"]
 ```
+
+### 51 Fixed numbers:
+```swift
+let duration = String(format: "%.01f", 3.32323242) // 3.3
+```
+
+### 52 Capitalize first letter:
+```swift
+extension String {
+   /**
+    * ## Examples:
+    * let test = "the rain in Spain"
+    * print(test.capFirst()) // "The rain in Spain"
+    */
+   var capFirst: String {
+      prefix(1).capitalized + dropFirst()
+   }
+}
+
+```

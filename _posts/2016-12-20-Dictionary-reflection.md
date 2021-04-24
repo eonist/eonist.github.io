@@ -82,4 +82,27 @@ class Temp{
 Storing key and value in separate nodes is important because key can have different types and value can have nested nodes. Aka complex content. As can key when I think about it, as long as it extends the Hashable protocol.
 
 
-Here is my reflection library in swift: [ReflectionLib](https://github.com/gitsync/ReflectionLib) 
+Here is my reflection library in swift: [ReflectionLib](https://github.com/gitsync/ReflectionLib)
+
+
+### Useful extension
+```swift
+import Foundation
+
+internal class Reflection {
+   /**
+    * Creates dictionary of struct
+    * - Parameter instance: instance of struct
+    * - Returns: dictionary with key value
+    */
+   internal static func dict<T>(instance: T) -> [String: Any] {
+      let mirror = Mirror(reflecting: instance)
+      let keysWithValues = mirror.children.compactMap { (label: String?, value: Any) -> (String, Any)? in
+         guard let label = label else { return nil }
+         return (label, value)
+      }
+      return Dictionary(uniqueKeysWithValues: keysWithValues)
+   }
+}
+
+```
