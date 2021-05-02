@@ -114,7 +114,7 @@ let newView =UILabel()
 }
 ```
 
-#### Dodging the infamous "Notch"
+#### Dodging the infamous "Notch" in iPhoneX
 Alternatively you can set the the root view in didLayoutSubviews, with a bit off offset
 ```swift
 someView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -171,3 +171,20 @@ self.view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: self.view.dire
 
 ```
 The specification of autolayout constraints taking into account margins is possible with the layout guide available through the layoutMarginsGuide property and also using the preservesSuperviewLayoutMargins                                                        
+
+
+### Hugging and resistance
+See blog post named: Compression, resistance, priority when using AutoLayout
+
+
+### resources:
+
+https://www.hackingwithswift.com/articles/140/the-auto-layout-cheat-sheet
+
+dynamic height lable: https://medium.com/@aainajain/dynamic-label-using-auto-layout-with-maximum-height-b3211a446de6
+
+### When using autolayout on NSIMageView: 
+
+```swift
+nsImageView.imageScaling = .scaleAxesIndependently
+```

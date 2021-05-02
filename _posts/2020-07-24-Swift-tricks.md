@@ -877,3 +877,9 @@ extension String {
 }
 
 ```
+### 53 Reduce to total amount 
+```swift
+let totalW: CGFloat = TabType.allCases.reduce(CGFloat(0)) {
+   $0 + itemWidth(text: $1.rawValue)
+}
+```

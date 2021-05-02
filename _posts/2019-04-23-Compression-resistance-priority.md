@@ -1,7 +1,6 @@
 My notes on Compression, resistance, priority when using AutoLayout<!--more-->
 
 ## Overview:
-
 - Hugging: content does not want to grow
 - Compression Resistance: content does not want to shrink
 
