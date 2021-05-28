@@ -877,9 +877,17 @@ extension String {
 }
 
 ```
-### 53 Reduce to total amount 
+### 53 Reduce to total amount
 ```swift
 let totalW: CGFloat = TabType.allCases.reduce(CGFloat(0)) {
    $0 + itemWidth(text: $1.rawValue)
 }
+```
+
+### 54 Clamp a value between min and max
+```swift
+let value: CGFloat = 700
+let lower: CGFloat = 200
+let upper: CGFloat = 400
+let clampedValue = max(lower, min(upper, value)) // 400
 ```
