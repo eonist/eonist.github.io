@@ -1,3 +1,5 @@
+My notes on clean installs of mac and iPhone<!--more-->
+
 ### Mac
 - Atom, Sync: `~/.atom` via github, add git token via github
 - XCode, swiftlint

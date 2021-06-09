@@ -1,4 +1,4 @@
-Overseas collaboration routines<!--more-->
+Overseas collaboration routines when working freelance for NYC tech companies<!--more-->
 
 ### Overlapping work hours
 Norway is 6 Hours in front of New york

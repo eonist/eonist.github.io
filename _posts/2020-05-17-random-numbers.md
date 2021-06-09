@@ -1,4 +1,4 @@
-My notes on random numbers<!--more-->
+My notes on random numbers in swift<!--more-->
 
 ### Random numbers
 
