@@ -294,9 +294,11 @@ class AsynchronousOperation: Operation {
 
 
 ### Photo app example code:
+This simple class represents each photo displayed in the app, together with its current state, which defaults to .new. The image defaults to a placeholder.
 
-import UIKit
+Ref: https://www.raywenderlich.com/5293-operation-and-operationqueue-tutorial-in-swift
 
+```swift
 // This enum contains all the possible states a photo record can be in
 enum PhotoRecordState {
   case new, downloaded, filtered, failed
@@ -313,3 +315,203 @@ class PhotoRecord {
     self.url = url
   }
 }
+```
+
+To track the status of each operation, you’ll need a separate class. Add the following definition to the end of PhotoOperations.swift:
+
+```swift
+class PendingOperations {
+  lazy var downloadsInProgress: [IndexPath: Operation] = [:]
+  lazy var downloadQueue: OperationQueue = {
+    var queue = OperationQueue()
+    queue.name = "Download queue"
+    queue.maxConcurrentOperationCount = 1
+    return queue
+  }()
+
+  lazy var filtrationsInProgress: [IndexPath: Operation] = [:]
+  lazy var filtrationQueue: OperationQueue = {
+    var queue = OperationQueue()
+    queue.name = "Image Filtration queue"
+    queue.maxConcurrentOperationCount = 1
+    return queue
+  }()
+}
+```
+Note: The methods for downloading and filtering images are implemented separately, as there is a possibility that while an image is being downloaded the user could scroll away, and you won’t yet have applied the image filter. So next time the user comes to the same row, you don’t need to re-download the image; you only need to apply the image filter! Efficiency rocks! :]
+
+Downloader
+```swift
+class ImageDownloader: Operation {
+  //1
+  let photoRecord: PhotoRecord
+  //2
+  init(_ photoRecord: PhotoRecord) {
+    self.photoRecord = photoRecord
+  }
+  //3
+  override func main() {
+    //4
+    if isCancelled {
+      return
+    }
+    //5
+    guard let imageData = try? Data(contentsOf: photoRecord.url) else { return }
+    //6
+    if isCancelled {
+      return
+    }
+    //7
+    if !imageData.isEmpty {
+      photoRecord.image = UIImage(data:imageData)
+      photoRecord.state = .downloaded
+    } else {
+      photoRecord.state = .failed
+      photoRecord.image = UIImage(named: "Failed")
+    }
+  }
+}
+```
+filter
+```swift
+class ImageFiltration: Operation {
+  let photoRecord: PhotoRecord
+
+  init(_ photoRecord: PhotoRecord) {
+    self.photoRecord = photoRecord
+  }
+
+  override func main () {
+    if isCancelled {
+        return
+    }
+
+    guard self.photoRecord.state == .downloaded else {
+      return
+    }
+
+    if let image = photoRecord.image,
+       let filteredImage = applySepiaFilter(image) {
+      photoRecord.image = filteredImage
+      photoRecord.state = .filtered
+    }
+  }
+  func applySepiaFilter(_ image: UIImage) -> UIImage? {
+  guard let data = UIImagePNGRepresentation(image) else { return nil }
+  let inputImage = CIImage(data: data)
+
+  if isCancelled {
+    return nil
+  }
+
+  let context = CIContext(options: nil)
+
+  guard let filter = CIFilter(name: "CISepiaTone") else { return nil }
+  filter.setValue(inputImage, forKey: kCIInputImageKey)
+  filter.setValue(0.8, forKey: "inputIntensity")
+
+  if isCancelled {
+    return nil
+  }
+
+  guard
+    let outputImage = filter.outputImage,
+    let outImage = context.createCGImage(outputImage, from: outputImage.extent)
+  else {
+    return nil
+  }
+
+  return UIImage(cgImage: outImage)
+}
+}
+
+```
+
+In the table code:
+
+```swift
+func startOperations(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
+  switch (photoRecord.state) {
+  case .new:
+    startDownload(for: photoRecord, at: indexPath)
+  case .downloaded:
+    startFiltration(for: photoRecord, at: indexPath)
+  default:
+    NSLog("do nothing")
+  }
+}
+
+func startDownload(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
+  //1
+  guard pendingOperations.downloadsInProgress[indexPath] == nil else {
+    return
+  }
+
+  //2
+  let downloader = ImageDownloader(photoRecord)
+
+  //3
+  downloader.completionBlock = {
+    if downloader.isCancelled {
+      return
+    }
+
+    DispatchQueue.main.async {
+      self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+      self.tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+  }
+
+  //4
+  pendingOperations.downloadsInProgress[indexPath] = downloader
+
+  //5
+  pendingOperations.downloadQueue.addOperation(downloader)
+}
+
+func startFiltration(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
+  guard pendingOperations.filtrationsInProgress[indexPath] == nil else {
+      return
+  }
+
+  let filterer = ImageFiltration(photoRecord)
+  filterer.completionBlock = {
+    if filterer.isCancelled {
+      return
+    }
+
+    DispatchQueue.main.async {
+      self.pendingOperations.filtrationsInProgress.removeValue(forKey: indexPath)
+      self.tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+  }
+
+  pendingOperations.filtrationsInProgress[indexPath] = filterer
+  pendingOperations.filtrationQueue.addOperation(filterer)
+}
+
+if !tableView.isDragging && !tableView.isDecelerating {
+  startOperations(for: photoDetails, at: indexPath)
+}
+
+override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+  //1
+  suspendAllOperations()
+}
+
+override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+  // 2
+  if !decelerate {
+    loadImagesForOnscreenCells()
+    resumeAllOperations()
+  }
+}
+
+override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+  // 3
+  loadImagesForOnscreenCells()
+  resumeAllOperations()
+}
+
+More and full project code at the bottom: https://www.raywenderlich.com/5293-operation-and-operationqueue-tutorial-in-swift
+```
