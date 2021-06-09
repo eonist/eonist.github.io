@@ -8,5 +8,5 @@ go download python installer from pythons website
 - install from googles website
 - cmd shift g `/usr/local/bin` (copy chromedriver here)
 
-## to use pythin scripts:
+## To use pythin scripts:
 `python3 ` + drag and drop python script to terminal + hit enter

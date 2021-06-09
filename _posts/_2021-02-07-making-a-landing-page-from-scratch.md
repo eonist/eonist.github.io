@@ -12,7 +12,7 @@ Happy coding
 
 Some tips:
 
-Centering things vertically:
+**Centering things vertically:** 😅
 ```
 outer div:
 display: flex;

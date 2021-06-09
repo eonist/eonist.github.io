@@ -36,5 +36,5 @@ Standard IQ tests measure convergent thinking. Logic thought flow, pattern recog
 
 ## Divergent programing
 - Programing for Divergence
-- Store ideas that pop in to your head with out loosing focus on big pic  
--
+- Store ideas that pop in to your head with out loosing focus on big picture  
+- 

@@ -66,7 +66,6 @@ override func loadView() {
 ```
 
 ### Simple NSLayoutConstraint example:
-
 Conventional programatic AutoLayout ( NSLayoutConstraint Style )
 ```swift
 let horizontalConstraint = NSLayoutConstraint(item: childView, attribute: .centerX, relatedBy: .equal, toItem: parentView, attribute: .centerX, multiplier: 1.0, constant: 0)
@@ -94,14 +93,13 @@ NSLayoutConstraint.activate([
     square.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
 ])
 ```
-Addendum:
+### Addendum:
 - Anchor style is the preferred method over NSLayoutConstraint Style, however it is only available from iOS 9, so if you are supporting iOS 8 then you should still use NSLayoutConstraint Style.
-- Anchor style has these types of anchors: `topAnchor,bottomAnchor,leadingAnchor,trailingAnchor,widthAnchor,heightAnchor`
+- Anchor style has these types of anchors: `topAnchor, bottomAnchor, leadingAnchor, trailingAnchor, widthAnchor, heightAnchor`
 - Conceptually speaking: The NSLayoutAnchor class is a factory class for creating NSLayoutConstraint objects using a fluent API. Use these constraints to programatically define your layout using Auto Layout.
 
 
 ### Pinning to edges: (Using older Constraint syntax)
-
 ```swift
 let newView =UILabel()
     self.view.addSubview(newView)
@@ -124,17 +122,17 @@ someView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAn
 ```
 
 ### Gotchas:
-- If you want to update layers with AutoLayout: you can put this update code in: `viewDidLayoutSubviews` or `override var bounds: CGRect { didSet { /*Add custom layer code here*/ } }`
+- If you want to update layers with AutoLayout: you can put this update code in: `viewDidLayoutSubviews` or alternatively `override var bounds: CGRect { didSet { /* Add custom layer code here */ } }`
 
 ### Gotchas when animating:
 - Use standard UIView animation with layoutIfNeeded
 - Always deactivate constraints first
-- Store constraints in the instances, for re-creating after deactivate
+- Store constraints in the instances, for re-creating after deactivate action
 
 ### Using a LayoutGuide:  
-Layout guides provides a lightweight method for encapsulating part of your layout. Note that this technique only affects how Auto Layout interacts with the encapsulated views. It does not change the view hierarchy in any way.
+Layout guides provides a lightweight method for encapsulating part of your layout. Note that this technique only affects how Auto Layout interacts with the encapsulated views. It does not change the view hierarchy in any way. (Use layout guides to replace the dummy views )
 ```swift
-let container = UILayoutGuide()
+let container = UILayoutGuide() // define autolayout on this guide the same way you would an NSView etc
 view.addLayoutGuide(container)
 
 // Set interior constraints
@@ -176,14 +174,22 @@ The specification of autolayout constraints taking into account margins is possi
 ### Hugging and resistance
 See blog post named: Compression, resistance, priority when using AutoLayout
 
+### Summary:
+Autolauoyt is about 4 core things:
+- Views (views to layout)
+- Constraints (mechanics of the layout)
+- Priorities (prioritise constraints over the other)
+- InstrinsicContentSize (subViews grow)
 
-### resources:
+### Resources:
 
 https://www.hackingwithswift.com/articles/140/the-auto-layout-cheat-sheet
 
 dynamic height lable: https://medium.com/@aainajain/dynamic-label-using-auto-layout-with-maximum-height-b3211a446de6
 
-### When using autolayout on NSIMageView: 
+Analytical breakdown of why you should avoid IB: https://www.flowtoolz.com/2019/09/27/the-reasons-for-why-i-hate-xcode-interface-builder.html
+
+### When using autolayout on NSIMageView:
 
 ```swift
 nsImageView.imageScaling = .scaleAxesIndependently

@@ -12,7 +12,7 @@ Work is being affected by the twin juggernauts of automation and globalization
 - Tasks to solve problems
 - Skills to perform tasks
 
-Does your team have the skills and knowledge to perform thous tasks to solve thous problems, at the level you need them to be performed.
+Does your team have the skills and knowledge to perform thous tasks to solve thous problems, at the level you need them to be performed. Within the time constraints budget / resources / mandate allows?
 
 Using this lense helps you distill down to the basic building block of your team. And it can help you understand your teams contributions to the overall organization.
 
@@ -43,7 +43,3 @@ In order to keep the future workforce engaged you need to empower individuals to
 - Rapid vetting process
 - Speedy onboarding process
 - Fast separation process
-
-
-### Word cloud:
-Initiative

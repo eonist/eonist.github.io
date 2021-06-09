@@ -1,3 +1,5 @@
+My notes on cisual color sin xcode <!--more-->
+
 ### Visual-colors-in-xcode
 
 A nice way to have visual representation of colors in code:

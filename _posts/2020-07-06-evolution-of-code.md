@@ -15,4 +15,4 @@ My notes on evolution of codebases as it progresses over time<!--more-->
 - You tweak, refactor with tests, add small additions. Remove small things
 
 ### The pivot
-- Times have changed, and there is new demand, either make v2 from scratch or try bigger refactors with bigger design changes
+- Times have changed, and there is new demand, either make v2 from scratch or try bigger refactors with bigger design changes, or spin off into a new startup and create product nr.2

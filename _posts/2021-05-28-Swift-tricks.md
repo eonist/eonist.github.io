@@ -891,3 +891,25 @@ let lower: CGFloat = 200
 let upper: CGFloat = 400
 let clampedValue = max(lower, min(upper, value)) // 400
 ```
+
+### 55 Better clamping:
+```swift
+/**
+ * Clamp
+ * ## Examples:
+ * CGFloat.clamp(val: 44, min: 33, max: 38) // 38
+ */
+static func clamp(val: CGFloat, min: CGFloat, max: CGFloat) -> CGFloat {
+   if val <= min { // under
+      return min
+   } else if val >= max { // over
+      return max
+   } else { // between
+      return val
+   }
+}
+```
+
+### 56 Autolayout across different subviews
+
+Nice to know. If you ever want to use autolayout but need things to be above other elements etc. Autolayout works across subviews 👌
