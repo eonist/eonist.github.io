@@ -2,8 +2,7 @@ My notes on queuing things in swift<!--more-->
 
 ### Gotchas:
 - A queue is a list where you can only insert new items at the back and remove items from the front. This ensures that the first item you enqueue is also the first item you dequeue. First come, first serve!
-
--  A Queue fits quite well any use-cases where the information needs to be computed in the specific entry order. For instance, if you build a chat interface, you want to include each message in the same way they have been typed. Queueing them in the same order while sent to a backend service would be a nice way to do it.
+- A Queue fits quite well any use-cases where the information needs to be computed in the specific entry order. For instance, if you build a chat interface, you want to include each message in the same way they have been typed. Queueing them in the same order while sent to a backend service would be a nice way to do it.
 
 ### NSOperation
 - What is Nsoperationqueue in Swift?
@@ -55,6 +54,7 @@ NSOperationQueue.mainQueue().addOperation(operation)
 - serialize operations on a given context. That happens naturally if you use a single thread, but NSOperationQueue also serializes its operations if you set **maxConcurrentOperationCount** to 1
 - Link: https://developer.apple.com/documentation/foundation/nsoperationqueue
 - If the operation does not fully respond to the application’s needs, an NSOperation subclass can be created to add the missing functionality.
+- use Operation because you’re dealing with a table view and, for performance and power consumption reasons, **you need the ability to cancel an operation for a specific image** if the user has scrolled that image off the screen. Even if the operations are on a background thread, if there are dozens of them waiting on the queue, **performance will still suffer.**
 
 ### Calls:
 - `addOperation`: Adds the specified operation to the receiver
@@ -169,6 +169,13 @@ let nextToServe = queue.head // Julia
 - Great read on NSOperation https://nshipster.com/nsoperation/
 - Explains addDependency: https://stackoverflow.com/questions/39100653/how-adddependency-method-works-in-nsoperationqueue/39100827
 
+### Questions:
+- What about timeout for tasks?
+
+### Colloquy:
+- **Task:** a simple, single piece of work that needs to be done.
+- **Thread:** a mechanism provided by the operating system that allows multiple sets of instructions to operate at the same time within a single application.
+- **Process:** an executable chunk of code, which can be made up of multiple threads.
 
 ### Snippet to support async closures waiting:
 Alternatively to the code bellow, you could eschew the use of NSOperation and use a dispatch_group_t to get similar behavior; call dispatch_group_enter() initially, call dispatch_group_leave() in the download task's completion handler, and use dispatch_notify() to run your completion block.
@@ -227,6 +234,7 @@ open class AsyncBlockOperation: AsyncOperation {
 ```
 
 ### More modern variation:
+From here: https://medium.com/shakuro/nsoperation-and-nsoperationqueue-to-improve-concurrency-in-ios-e31ee79c98ef
 
 ```swift
 class AsynchronousOperation: Operation {
@@ -283,3 +291,25 @@ class AsynchronousOperation: Operation {
    }
 }
 ```
+
+
+### Photo app example code:
+
+import UIKit
+
+// This enum contains all the possible states a photo record can be in
+enum PhotoRecordState {
+  case new, downloaded, filtered, failed
+}
+
+class PhotoRecord {
+  let name: String
+  let url: URL
+  var state = PhotoRecordState.new
+  var image = UIImage(named: "Placeholder")
+
+  init(name:String, url:URL) {
+    self.name = name
+    self.url = url
+  }
+}

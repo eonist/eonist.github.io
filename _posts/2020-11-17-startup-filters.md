@@ -1,4 +1,4 @@
-The startup game:
+My notes on the different levels of a startup journey<!--more-->The startup game:
 
 Start here: (You little startup rats 🐀)
 
