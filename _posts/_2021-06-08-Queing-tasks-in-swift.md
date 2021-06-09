@@ -74,6 +74,13 @@ NSOperationQueue.mainQueue().addOperation(operation)
 - Support of operations priorities and influencing their execution order.
 - Cancellation option, allowing to stop the operation at the time of its execution.
 
+### Overarching benefits of Operations:
+- They are reusable within your project, and often between projects.
+- They are multi-core aware, so you’re always using as many cores as possible on the device.
+- They know about thread quality of service, so the OS can make intelligent decisions about resource management.
+- They are priority-aware, meaning you can tell the system what’s important (loading more tweets) vs. what’s not-so-important (downloading user avatars).
+- They are testable, making your code robust ᕦ(ò_óˇ)ᕤ
+
 ### Force a NSOperationQueue runs on one thread:
 There are 2 ways you could potentially handle this:
 
@@ -82,6 +89,32 @@ There are 2 ways you could potentially handle this:
 2. Make operation1 dependent on operation0. If you need to keep the operation queue concurrent, you can use NSOperation.addDependency(_:) to explicitly make sure that operation1 will only begin once operation0 has completed.
 
 In operation1, make sure you call refresh() on the Realm object you're using to fetch your Realm object in order to make absolutely sure that the changes you made in operation0 have been properly exposed on that queue.
+
+### Lifecycle of an Operation:
+These states are controlled by 4 KVO-enabled boolean properties: isReady, isExecuting, isFinished and isCancelled.
+
+- Operations start in the Pending state when they are first added to a queue. Nothing really interesting to see here. The 4 flags are all false
+
+- At some point, when an Operation becomes ready to execute, it moves to the Ready state. It’s now eligible to be executed by the OperationQueue. isReady now equals true and all the other flags equal false.
+
+(Actually, there’s a little more that goes into Operations becoming Ready, and we’ll talk more about it in part 2 of this series.)
+
+- Then the operation moves to the Executing state. This means it’s currently doing its thing (i.e. executing its main() method). isReady and isExecuting equal true and the other 2 flags equal false.
+
+- Finally, when it’s done, the operation moves to the Finished state. At this point, isExecuting equals false and isFinished equals true. Do notice, however, that this state provides no indication as to whether or not the operation was successful. This’ll be important to keep in mind for later ☝️
+
+- Also, at any point before it’s finished, an Operation can be cancelled. This moves it to the Cancelled state (isCancelled is true).
+
+### Cancelling Operations
+Cancelling means exactly what you would expect it to: abort whatever you are doing and clean up as soon as possible. You can cancel an Operation by using its cancel() method and you can check if it was cancelled by using its cancelled property.
+
+There’s a catch to this though. Since the meaning of “cancel” can change from operation to operation, it’s up to you to periodically check the isCancelled flag during the execution of your operation in order to stop execution and/or clean up any ongoing tasks. This could amount to cancelling a URLSessionTask, for example.
+
+### Suspend queues:
+The isSuspended flag allows you to start and stop an operation queue. In the next article, we’ll see how we can make use of this property for some interesting behavior. By default, queues are not suspended (i.e. isSuspended is false).
+
+### maxConcurrentOperationCount
+Allows you to set how many operations you want to execute at once. By default, it’ll run as many as possible. Usually this is fine. By setting this value to 1, you can create a serial queue.
 
 
 ### Example (swift)
@@ -123,13 +156,22 @@ NSOperation *operation3 = [[NetworkOperation alloc] initWithRequest:request3 com
 [queue addOperation:operation2];
 [queue addOperation:operation3];
 ```
-### Pseudo-code
+### Logging operation example:
 
 ```swift
+An Operation that logs to the console looks something like this:
 
+class LoggingOperation : Operation {
+   // When the Operation becomes ready to execute, the OperationQueue will run its main() method. Once the main() method is completed, the operation’s isFinished flag gets set to true and the operation gets removed from the queue.
+    override func main() {
+        if isCancelled { return }
+        print("Logging operation")
+    }
+}
 ```
 
 ### Queue:
+Queue system that doesnt use operations:
 
 ```swift
 struct Queue<T> {
@@ -289,6 +331,82 @@ class AsynchronousOperation: Operation {
          //Asynchronous logic (eg: n/w calls) with callback {
       }
    }
+}
+```
+
+### And another variation:
+We’ve effectively created a base class for all the concurrent operations we’ll create in the future. It overrides both isExecuting and isFinished, as well as adding a new method called completeOperation(). This is the method we’re going to call in order to tell the rest of the system that our operation is, in fact, finished.
+
+But beware! When using this base class, we’ll need to make sure that all code paths lead to completeOperation(). Otherwise, the operation will never finish, and thus never get removed from the queue.
+
+```swift
+class ConcurrentOperation: Operation {
+    private var backing_executing : Bool
+    override var isExecuting : Bool {
+        get { return backing_executing }
+        set {
+            willChangeValue(forKey: "isExecuting")
+            backing_executing = newValue
+            didChangeValue(forKey: "isExecuting")
+        }
+    }
+
+    private var backing_finished : Bool
+    override var isFinished : Bool {
+        get { return backing_finished }
+        set {
+            willChangeValue(forKey: "isFinished")
+            backing_finished = newValue
+            didChangeValue(forKey: "isFinished")
+        }
+    }
+
+    override init() {
+        backing_executing = false
+        backing_finished = false
+
+        super.init()
+    }
+
+    func completeOperation() {
+        isExecuting = false
+        isFinished = true
+    }
+}
+```
+
+### Super class for the above
+
+```swift
+class FetchPokemonOperation : ConcurrentOperation {
+    private var task: URLSessionDataTask?
+    var data: AnyObject?
+
+    override func main() {
+        if isCancelled {
+	    completeOperation()
+            return
+        }
+
+        let session = URLSession(configuration: .ephemeral)
+        let request = URLRequest(url: URL.init(string: "http://pokeapi.co/api/v2/pokemon/151/")!)
+
+        task = session.dataTask(with: request, completionHandler: { (data, response, error) in
+            if self.isCancelled {
+	        self.completeOperation()
+                return
+            }
+
+            //Be a good citizen and handle errors, ok? :)
+
+            let parsedResponse = try! JSONSerialization.jsonObject(with: data!)
+            self.data = parsedResponse as AnyObject
+            print(self.data!)
+	    self.completeOperation()
+        })
+
+        task?.resume()
+    }
 }
 ```
 
@@ -515,3 +633,6 @@ override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 
 More and full project code at the bottom: https://www.raywenderlich.com/5293-operation-and-operationqueue-tutorial-in-swift
 ```
+
+### Todo:
+- Figure out how to add timeout to NSOperation

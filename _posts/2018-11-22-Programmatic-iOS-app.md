@@ -45,3 +45,6 @@ class View: UIView {
    }
 }
 ```
+
+### References:
+- https://ioscoachfrank.com/remove-main-storyboard.html
