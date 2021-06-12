@@ -10,14 +10,14 @@ And handle these accordingly from the first try call in the "try-hierarchy". In 
  * TODO: Add description switch in the error types
  * TODO: Add relevant JSON case
  */
-struct A{
-   let b:B?
+struct A {
+   let b: B?
    struct B{
-       let c:C?
-       struct C{
+       let c: C?
+       struct C {
            let value:String?
        }
-       func getC() throws -> C{
+       func getC() throws -> C {
            guard let c = self.c else {
                throw OuterError.InnerError(error:.RegularInnerError)//👈 this is 2 steps deep in the call hierarchy
            }
@@ -39,7 +39,7 @@ func test(_ a:A) throws -> String {
 
 
 enum OuterError: Swift.Error { //, CustomStringConvertible
-   enum InnerErrorType:Swift.Error{
+   enum InnerErrorType:Swift.Error {
       case RegularInnerError
       case OtherInnerError
    }
@@ -72,10 +72,10 @@ func login() {
 
 login()
 
-//Output:
-//login
-//inner err
-//regular inner err 🎉 i'm deep in the hierarchy 💪
+// Output:
+// login
+// inner err
+// regular inner err 🎉 i'm deep in the hierarchy 💪
 ```
 
 
@@ -85,7 +85,7 @@ login()
 Suppose a function myFunction is supposed to return a String, however, at some point it can run into an error. A common approach is to have this function return an optional String? where we return nil if something went wrong.
 
 Example:
-    */   
+*/   
 func readFile(named filename: String) -> String? {
     guard let file = openFile(named: filename) else { return nil }
     let fileContents = file.read()
@@ -103,9 +103,8 @@ func printSomeFile() {
 }
 /*
 Instead, we should be using Swift's try/catch behavior when it is appropriate to know the reason for the failure.
-
 You can use a struct such as the following:
-    */
+*/
 
 struct Error: Swift.Error {
     public let file: StaticString
@@ -141,3 +140,6 @@ func printSomeFile() {
     }
 }
 ```
+
+### References:
+- decodable and subclases: insp: https://medium.com/tsengineering/swift-4-0-codable-decoding-subclasses-inherited-classes-heterogeneous-arrays-ee3e180eb556

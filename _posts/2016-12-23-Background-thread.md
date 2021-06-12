@@ -1,4 +1,4 @@
-UI on the Main-thread everything else on a background thread<!--more--> 
+UI on the Main-thread everything else on a background thread<!--more-->
 
 ## Terminology:
 
@@ -24,11 +24,10 @@ Swift’s built-in data types, like Array and Dictionary, are implemented as str
 
 
 ## Queue type examples:  
-  
 - **async - concurrent**: the code runs on a background thread. Control returns immediately to the main thread (and UI). The block can't assume that it's the only block running on that queue  
 
 ```swift
-func doLongASyncTaskInConcurrentQueue() {
+func doLongASyncTaskInConcurrentQueue() { // all together at the same time, doesnt wait until finished
       let concurrentQueue = DispatchQueue(label: "com.queue.Concurrent", attributes: .concurrent)
       for i in 1...5 {
           concurrentQueue.async {
@@ -45,7 +44,7 @@ Task will run in different thread(other than main thread) when you use GCD. Asyn
 - **async - serial**: the code runs on a background thread. Control returns immediately to the main thread. The block can assume that it's the only block running on that queue    
 
 ```swift
- func doLongAsyncTaskInSerialQueue() {
+ func doLongAsyncTaskInSerialQueue() { // one after the other, doesnt wait until finished
     let serialQueue = DispatchQueue(label: "com.queue.Serial")
     for i in 1...5 {
         serialQueue.async {
@@ -61,7 +60,7 @@ Task will run in different thread(other than main thread) when you use GCD. Asyn
 - **sync - concurrent**: the code runs on a background thread but the main thread waits for it to finish, blocking any updates to the UI. The block can't assume that it's the only block running on that queue (I could have added another block using async a few seconds previously)  
 
 ```swift
-func doLongSyncTaskInConcurrentQueue() {
+func doLongSyncTaskInConcurrentQueue() { // waits until finished
      let concurrentQueue = DispatchQueue(label: "com.queue.Concurrent", attributes: .concurrent)
      for i in 1...5 {
          concurrentQueue.sync {
@@ -78,7 +77,7 @@ Task will run in different thread(other than main thread) when you use GCD. Sync
 - **sync - serial**: the code runs on a background thread but the main thread waits for it to finish, blocking any updates to the UI. The block can assume that it's the only block running on that queue  
 
 ```swift
-func doLongSyncTaskInSerialQueue() {
+func doLongSyncTaskInSerialQueue() { // waits until finished
     let serialQueue = DispatchQueue(label: "com.queue.Serial")
     for i in 1...5 {
         serialQueue.sync {
@@ -90,7 +89,7 @@ func doLongSyncTaskInSerialQueue() {
 }
 Task will run in different thread(other than main thread) when you use GCD. Sync runs a block on a given queue and waits for it to complete which results in blocking main thread. Since its serial queue, all are executed in the order they are added(FIFO).
 ```
-  
+
 **NOTE:** You can also combine: "async - concurrent" & "sync - serial":  
 
 ```swift
@@ -108,19 +107,19 @@ func doMultipleSyncTaskWithinAsynchronousOperation() {
 }
 ```
 
-## Queue priority: 
+## Queue priority:
 - **DISPATCH_QUEUE_PRIORITY_HIGH**   
 Items dispatched to the queue will run at high priority, i.e. the queue will be scheduled for execution before any default priority or low priority queue.
 
 - **DISPATCH_QUEUE_PRIORITY_DEFAULT**   
 Items dispatched to the queue will run at the default priority, i.e. the queue will be scheduled for execution after all high priority queues have been scheduled, but before any low priority queues have been scheduled.
 
-_ **DISPATCH_QUEUE_PRIORITY_LOW**   
+- **DISPATCH_QUEUE_PRIORITY_LOW**   
 Items dispatched to the queue will run at low priority, i.e. the queue will be scheduled for execution after all default priority and high priority queues have been scheduled.
 
 - **DISPATCH_QUEUE_PRIORITY_BACKGROUND**   
 Items dispatched to the queue will run at background priority, i.e. the queue will be scheduled for execution after all higher priority queues have been scheduled and the system will run items on this queue on a thread with background status as per setpriority(2) (i.e. disk I/O is throttled and the thread's scheduling priority is set to lowest value).
-  
+
 ## Background thread example:  
 
 ```swift
@@ -137,26 +136,26 @@ dispatch_async(backgroundQueue, {
 ```
 
 ## Question?
-I still don't understand the difference between async concurrent and async serial. What is the implication of using either. They both run in the background not disturbing the UI. And why would you ever use sync? Isn't all code sync. one after the other? 
+I still don't understand the difference between async concurrent and async serial. What is the implication of using either. They both run in the background not disturbing the UI. And why would you ever use sync? Isn't all code sync. one after the other?
 
-## Cancel tasks: 
-
+## Cancel tasks:
+// this is realeted to NSOperation queue
 ```swift
 if isRunning {
   buildTask.terminate()
 }
 ```
 
-This seems to have info about canceling operations on threads [here](http://stackoverflow.com/questions/27259570/how-can-an-nsoperationqueue-wait-for-two-async-operations?rq=1) 
+This seems to have info about canceling operations on threads [here](http://stackoverflow.com/questions/27259570/how-can-an-nsoperationqueue-wait-for-two-async-operations?rq=1)
 
 
 ## Debugging:
 
 ```swift
-sleep(4)//great for testing asyncronisity 
+sleep(4) // great for testing asyncronisity , to simulate task taking 4 seconds
 ```
 
-## Resources: 
+## Resources:
 
 **Nice thread snippet for swift 2.0:**  
 http://stackoverflow.com/a/30841417
@@ -181,6 +180,4 @@ http://stackoverflow.com/questions/19179358/concurrent-vs-serial-queues-in-gcd/3
 
 - **Check AMShell**  
 http://www.harmless.de/cocoa-code.php
-
 - **Check ATask Bolt, Promises** (these are thin wrappers / sugar))
-

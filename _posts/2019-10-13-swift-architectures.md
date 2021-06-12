@@ -1,6 +1,6 @@
 My notes on different swift architectures<!--more-->
 
-## MVC:
+# MVC:
 
 ##### Model
 **Models store your data, such as the names of products in a store**  
@@ -41,8 +41,8 @@ extension Controller {
 ```swift
 class View: UITableView {
 	init(){
-		//register cells
-		//set table style
+		// Register cells
+		// Set table style
 	}
 }
 extension View {

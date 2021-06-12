@@ -1,4 +1,4 @@
-<!--more-->
+My notes on Dynamic member look up<!--more-->
 
 
 Dynamic member look up
@@ -155,3 +155,8 @@ json[0]?.name?.first?.stringValue
 I think this example is particularly important because it gets to the nub of what @dynamicMemberLookup does: it’s syntactic sugar that turns a custom subscript into simple dot syntax.
 
 Note: Using dynamic member lookup means that code completion loses much if not all of its usefulness, because there’s nothing to complete. This isn’t too much of a surprise, though, and it’s something that Python IDEs have had to deal with for some time. Chris Lattner (the author of SE-0195) discussed future possibilities for code completion in the proposal itself – it’s worth reading.
+
+### references:
+- [https://www.hackingwithswift.com/articles/55/how-to-use-dynamic-member-lookup-in-swift](https://www.hackingwithswift.com/articles/55/how-to-use-dynamic-member-lookup-in-swift)
+- [https://github.com/saoudrizwan/DynamicJSON](https://github.com/saoudrizwan/DynamicJSON)
+- [https://www.avanderlee.com/swift/dynamic-member-lookup/](https://www.avanderlee.com/swift/dynamic-member-lookup/)

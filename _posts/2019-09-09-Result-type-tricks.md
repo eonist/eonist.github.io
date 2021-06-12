@@ -4,7 +4,6 @@ My notes on the Swift Result type<!--more-->
 - Result is great with callbacks
 - Result is not great for returning methods, use throw instead, with light `do { try } catch {error}` code
 
-
 ### Simple Result
 ```swift
 typealias Complete = (Result<UIImage, Error>) -> Void

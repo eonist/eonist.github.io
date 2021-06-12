@@ -1,7 +1,12 @@
-My notes on distributing tasks to multiple cpu cores<!--more-->. The easiest way to perform a loop of calculations in parallel is concurrentPerform
+My notes on distributing tasks to multiple cpu cores<!--more-->.
+- The easiest way to perform a loop of calculations in parallel is concurrentPerform
 
 > After writing this article, I made ParallelLoop 💞, a functional and easy to understand library for doing parallel tasks in swift.
-[https://github.com/passbook/ParallelLoop](https://github.com/passbook/ParallelLoop)  
+[https://github.com/eonist/ParallelLoop](https://github.com/eonist/ParallelLoop)  
+
+## Gotchas
+- `concurrentPerform` is a great way to enjoy concurrency in a for loop in such a way that you won't exhaust GCD worker threads.
+- The tasks performed within the concurrentPerform should in them self be threadsafe, meaning they should be serial. Creating/reading a QR-Image is likely a parallel process
 
 ## Find num of available cores and threads
 ```swift
@@ -90,7 +95,6 @@ class MyAppTests: XCTestCase {
     }
     func performHeavyTask(iteration: Int) {
         let pi = calculatePi(iterations: 100_000_000)
-
         print(iteration, .pi - pi)
     }
     func testSerial () {
@@ -112,12 +116,12 @@ class MyAppTests: XCTestCase {
 ```
 
 ### Thread safe wrapper
-https://talk.objc.io/episodes/S01E90-concurrent-map
+- There is also AtomicValue in the ParallelLoop project at [https://github.com/eonist/ParallelLoop](https://github.com/eonist/ParallelLoop)
+- Ref: https://talk.objc.io/episodes/S01E90-concurrent-map
 
 ```swift
 final class ThreadSafe<A> {
     // ...
-
     func atomically(_ transform: (inout A) -> ()) {
         queue.sync {
             transform(&self._value)
@@ -135,16 +139,11 @@ extension Array {
             }
         }
         return result.value.map { $0! }
-
     }
 }
 ```
 
-## Gotchas
-- concurrentPerform is a great way to enjoy concurrency in a for loop in such a way that you won't exhaust GCD worker threads.
-- The tasks performed within the concurrentPerform should in them self be threadsafe, meaning they should be serial. Creating/reading a QR-Image is likley a paralell process
-
 ## Resources:
 - Great resource for SyncroDictonary and SyncroArray: [https://stackoverflow.com/a/61257101/5389500](https://stackoverflow.com/a/61257101/5389500)
 - Comprehensive on GDC: [https://medium.com/@aliakhtar_16369/concurrency-in-swift-grand-central-dispatch-part-1-945ff05e8863](https://medium.com/@aliakhtar_16369/concurrency-in-swift-grand-central-dispatch-part-1-945ff05e8863)
-- Comprehensive speed chart for variouse concurrentMap implementations: https://gist.github.com/dabrahams/ea5495b4cccc2970cd56e8cfc72ca761
+- Comprehensive speed chart for various concurrentMap implementations: https://gist.github.com/dabrahams/ea5495b4cccc2970cd56e8cfc72ca761

@@ -7,3 +7,7 @@
 2018-07-31-swift-doc-formating
 2018-07-16-Github-collaboration
 2017-07-29-swift-style-guides
+2021-06-12-design-pattern-overview
+_posts/2021-06-12-Naming-conventions-in-code.md
+Swift architecture (MVC / delegates): 2019-10-13-swift-architectures
+2019-10-09-static-methods

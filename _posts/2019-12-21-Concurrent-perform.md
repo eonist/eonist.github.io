@@ -28,7 +28,6 @@ func processData(onComplete: @escaping () -> Void) {
       onComplete()
    }
 }
-
 ```
 
 ## Using concurrentPerform with async network processes
@@ -69,10 +68,8 @@ DispatchQueue.global(qos: .userInitiated).async {
 ### Stride:
 ```swift
 let lock = NSLock() // needed when accessing a variable from many threads
-
 let stride = maxY / 20 // maybe set stride to num of cores?
 let iterations = Int((Double(height) / Double(stride)).rounded(.up))
-
 DispatchQueue.concurrentPerform(iterations: iterations) { i in
     var subTotal = 0
     let range = i * stride ..< min(maxY, (i + 1) * stride)
@@ -83,7 +80,6 @@ DispatchQueue.concurrentPerform(iterations: iterations) { i in
             }
         }
     }
-
     lock.sync { count += subTotal } // needed when accessing a variable from many threads
 }
 ```
@@ -92,9 +88,7 @@ DispatchQueue.concurrentPerform(iterations: iterations) { i in
 - You should be able to update the total async in this example
 ```swift
 var total = 0
-
 let syncQueue = DispatchQueue(label: "...") // needed when accessing a variable from many threads
-
 DispatchQueue.concurrentPerform(iterations: maxY) { y in
     var subTotal = 0
     for x in 0..<maxX {
@@ -102,11 +96,10 @@ DispatchQueue.concurrentPerform(iterations: maxY) { y in
             subTotal += 1
         }
     }
-    syncQueue.sync { // needed when accessing a variable from many threads
+    syncQueue.sync { // Needed when accessing a variable from many threads
         total += subTotal
     }
 }
-
 print(total)
 ```
 
@@ -124,6 +117,6 @@ There are two common scenarios in which excessive thread creation occurs:
 - Always run concurrentPerform: in a Global queue.
 
 ## Resources:
-- Alot of info on concurrency in swift: https://www.uraimo.com/2017/05/07/all-about-concurrency-in-swift-1-the-present/
+- A lot of info on concurrency in swift: https://www.uraimo.com/2017/05/07/all-about-concurrency-in-swift-1-the-present/
 - Lots of info nuggets on concurrent performance: https://gist.github.com/FWEugene/3861f0460c3e23f684e113f0f8d6947f
 - Create barrier: Using a barrier on a concurrent queue to synchronize writes https://www.avanderlee.com/swift/concurrent-serial-dispatchqueue/

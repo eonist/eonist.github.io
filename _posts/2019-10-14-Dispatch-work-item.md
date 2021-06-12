@@ -17,9 +17,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 }
 ```
 
-
 ### Combining DispatchWorkItem and DispatchGroup:
-
 ```swift
 var storedError: NSError?
 let downloadGroup = DispatchGroup()

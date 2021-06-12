@@ -2,7 +2,23 @@ My notes on queuing things with NSOperationQueue in swift<!--more-->
 
 > NSOperation is an object that can be subclassed, added to NSOperationQueues, etc. DispatchWorkItem is more "lightweight"
 
-### NSOperation
+### Main benefits of NSOperationQueue:
+- Dependencies, preventing operations start before the previous ones are finished. Dependencies also work between different operation queues and threads.
+- Support of the additional completion block.
+- Monitoring operations changes of state by using KVO.
+- Support of operations priorities and influencing their execution order.
+- Cancellation option, allowing to stop the operation at the time of its execution.
+- Has ability to run nested queues
+- Has ability to run serialized queues (set max to 1) (execute one after the other after the previous finish)
+
+### Overarching benefits of Operations:
+- They are reusable within your project, and often between projects.
+- They are multi-core aware, so you’re always using as many cores as possible on the device.
+- They know about thread quality of service, so the OS can make intelligent decisions about resource management.
+- They are priority-aware, meaning you can tell the system what’s important (loading more tweets) vs. what’s not-so-important (downloading user avatars).
+- They are testable, making your code robust ᕦ(ò_óˇ)ᕤ
+
+### Notes:
 - What is NsOperationQueue in Swift? A queue that regulates the execution of operations.
 - NSOperation represents a single unit of work. It’s an abstract class that offers a useful, thread-safe structure for modeling state, priority, dependencies, and management.
 - Examples of tasks that lend themselves well to NSOperation include network requests, image resizing, text processing, or any other repeatable, structured, long-running task that produces associated state or data.
@@ -28,7 +44,7 @@ let operationQueue = NSOperationQueue.mainQueue()
 operationQueue.addOperations([networkingOperation, resizingOperation], waitUntilFinished: false)
 ```
 
-Completion block:
+**Completion block:**
 
 ```swift
 let operation = NSOperation()
@@ -63,20 +79,6 @@ NSOperationQueue.mainQueue().addOperation(operation)
 - `waitUntilAllOperationsAreFinished` - Blocks the current thread until all the receiver’s queued and executing operations finish executing
 - `maxConcurrentOperationCount` The maximum number of queued operations that can run at the same time
 - `progress` An object that represents the total progress of the operations executing in the queue
-
-### Main benefits of NSOperationQueue
-- Dependencies, preventing operations start before the previous ones are finished. Dependencies also work between different operation queues and threads.
-- Support of the additional completion block.
-- Monitoring operations changes of state by using KVO.
-- Support of operations priorities and influencing their execution order.
-- Cancellation option, allowing to stop the operation at the time of its execution.
-
-### Overarching benefits of Operations:
-- They are reusable within your project, and often between projects.
-- They are multi-core aware, so you’re always using as many cores as possible on the device.
-- They know about thread quality of service, so the OS can make intelligent decisions about resource management.
-- They are priority-aware, meaning you can tell the system what’s important (loading more tweets) vs. what’s not-so-important (downloading user avatars).
-- They are testable, making your code robust ᕦ(ò_óˇ)ᕤ
 
 ### Force a NSOperationQueue runs on one thread:
 There are 2 ways you could potentially handle this:

@@ -7,7 +7,6 @@ My notes on DispatchGroup <!--more-->
 - DispatchGroups seems to work best when wanting to do many async tasks on background thread at the same time and have one onComplete for when all tasks complete.
 
 ```swift
-
 import Foundation
 @testable import Utils
 

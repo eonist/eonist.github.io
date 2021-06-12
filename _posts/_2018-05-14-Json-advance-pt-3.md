@@ -1,1 +1,0 @@
-decodable and subclases: insp: https://medium.com/tsengineering/swift-4-0-codable-decoding-subclasses-inherited-classes-heterogeneous-arrays-ee3e180eb556

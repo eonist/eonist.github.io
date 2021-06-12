@@ -35,7 +35,7 @@ Hold down the `alt` key and press the method name from a caller. And this dialog
 ///
 /// This commenting style is pretty common in the swift community
 /// One drawback is that you have to click 3 times every time you want to add another line
-/// THis commenting style is used in obj-c and swift but not in many other languages
+/// This commenting style is used in obj-c and swift but not in many other languages
 ///
 ```
 
