@@ -2,10 +2,13 @@ Sometimes you want to make an app that isn't using SPM4<!--more-->. Because SPM4
 
 #### 1. Create an iOS/Mac app project in XCode. Name AwesomeApp  
 <img width="576" alt="img" src="https://rawgit.com/stylekit/img/master/makeproject.gif">
+
 #### 2. In the app project go to `file -> new -> target -> Cocoa framework` Name it AwesomeLib  
 <img width="588" alt="img" src="https://rawgit.com/stylekit/img/master/addlib.gif">
+
 #### 3. Add code to AwesomeLib/AwesomeLib.swift like `func testing(){print("Hello world")}`  
 <img width="574" alt="img" src="https://rawgit.com/stylekit/img/master/addlibcode.gif">
+
 #### 4. Add `@testable import AwesomeLib` to AppDelegate.swift and add `testing()` inside applicationDidFinishLaunching  
 <img width="588" alt="img" src="https://rawgit.com/stylekit/img/master/import.gif">  
 CMD + R should now print: `hello world` 🎉   

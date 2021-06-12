@@ -1,12 +1,11 @@
-My notes on Face ID and Touch ID in swift<!--more-->
+My notes on FaceID and TouchID in swift<!--more-->
 
-### Face id resources:
+### FaceID resources:
 - Nice intro https://www.hackingwithswift.com/read/28/4/touch-to-activate-touch-id-face-id-and-localauthentication
 - Really good (covers a lot): https://www.techotopia.com/index.php/Implementing_TouchID_Authentication_in_iOS_8_Apps
 - Massive resource: https://github.com/rushisangani/BiometricAuthentication
 
 ### Notify user:
-
 ```swift
 func notifyUser(_ msg: String, err: String?) {
     let alert = UIAlertController(title: msg, message: err, preferredStyle: .alert)
@@ -17,4 +16,4 @@ func notifyUser(_ msg: String, err: String?) {
 ```
 
 ### Resources:
-[https://github.com/passbook/BioAuth](https://github.com/passbook/BioAuth) 
+[https://github.com/sentryco/BioAuth](https://github.com/sentryco/BioAuth)

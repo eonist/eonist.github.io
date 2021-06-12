@@ -3,13 +3,11 @@ Notes on custom UIAlertController<!--more-->
 ### Resources:
 - [https://github.com/podkovyrin/DWAlertController](https://github.com/podkovyrin/DWAlertController)
 
-
 ### Code
 - Custom alert views:
 [https://github.com/DrankoLQ/CustomAlertView](https://github.com/DrankoLQ/CustomAlertView)
 And   
 [https://medium.com/if-let-swift-programming/design-and-code-your-own-uialertview-ec3d8c000f0a](https://medium.com/if-let-swift-programming/design-and-code-your-own-uialertview-ec3d8c000f0a)
-
 
 ```swift
 /**

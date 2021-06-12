@@ -12,3 +12,6 @@ Swift.print("uiImage.size: \(uiImage.size)") // 500x500
 
 ### Resources:
 [https://github.com/eonist/ResourceHelper/](https://github.com/eonist/ResourceHelper/)
+
+### Note:
+- In newer swift version you can add assets. It has some limitations. Research needed

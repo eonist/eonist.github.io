@@ -17,7 +17,6 @@ print("Current thread \(Thread.current)")
 Get additional thread info [https://stackoverflow.com/a/42645509/5389500](https://stackoverflow.com/a/42645509/5389500)
 
 ## Execute optimal num of tasks depending on cpu core count:
-
 ```swift
 let numOfCores: Int = ProcessInfo().activeProcessorCount
 DispatchQueue.concurrentPerform(iterations: numOfCores) { (i: Int) in
@@ -26,7 +25,6 @@ DispatchQueue.concurrentPerform(iterations: numOfCores) { (i: Int) in
 ```
 
 ## Background thread:
-
 ```swift
 DispatchQueue.global(qos: .userInitiated).async {
     // concurrentPerform
@@ -51,6 +49,7 @@ pixels.withUnsafeMutableBufferPointer { pixelsPtr in
 - Old-school way of doing concurrentApply: [https://stackoverflow.com/a/26693953/5389500](https://stackoverflow.com/a/26693953/5389500)
 - Similar approach using semaphore [https://stackoverflow.com/a/54774379/5389500](https://stackoverflow.com/a/54774379/5389500)
 - Seems like a better approach unsafe pointers etc: [https://gist.github.com/alextrob/a4e9885f063e1d5ea02e77771c464b78](https://gist.github.com/alextrob/a4e9885f063e1d5ea02e77771c464b78)
+
 ```swift
 extension Array {
 	/**
@@ -112,8 +111,9 @@ class MyAppTests: XCTestCase {
 // MacBook Pro 2018 with 2.9 GHz Intel Core i9, with a release build the concurrent test took, on average, 0.247 seconds, whereas the serial test took roughly four times as long, 1.030 seconds.
 ```
 
-// theadsafe wrapper
+### Thread safe wrapper
 https://talk.objc.io/episodes/S01E90-concurrent-map
+
 ```swift
 final class ThreadSafe<A> {
     // ...

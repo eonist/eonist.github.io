@@ -62,9 +62,6 @@ person!.name // nil
 ```
 
 
-
-
-
 ### Nested struct decoding with decodable:
 
 ```swift

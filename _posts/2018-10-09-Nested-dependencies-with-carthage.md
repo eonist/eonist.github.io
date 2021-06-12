@@ -1,8 +1,7 @@
-My notes on using nested dependencies with Carthage<!--more-->
+My notes on using nested dependencies with Carthage<!--more--> ⚠️️ This article is not relevant anymore. Use swift package manager ⚠️️
 
 ### Introduction
 This article shows you how to organize your project so one dependency will use the next in the dependency graph. Instructions w/ gif  how to use and make carthage projects can be found here:  [http://eon.codes/blog/2017/01/15/Carthage/](http://eon.codes/blog/2017/01/15/Carthage/)
-
 
 ### Carthage files:
 Repo `B` - Cartfile
@@ -28,8 +27,8 @@ Repo `B` - Demo.swift
 ```swift
 import A
 
-public class Demo{
-   public static func test(){
+public class Demo {
+   public static func test() {
       Swift.print("\(self).test()")
       A.Demo.test()
    }

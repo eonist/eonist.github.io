@@ -3,28 +3,28 @@ My notes on Subclassing with generics <!--more-->
 **Base:**
 
 ```swift
-class Card<T:CardDataKind>:UIView{
+class Card<T: CardDataKind>: UIView {
     /**
      * When you set the data diferent UI's are updated
      */
-    var data:T?
+    var data: T?
 }
-protocol CardDataKind{/*Add required variables here, if needed*/}
+protocol CardDataKind {/*Add required variables here, if needed*/}
 ```
 
 **Model:**
 
 ```swift
-struct TopCardData:CardDataKind{
-   let title:String
-   let content:String
+struct TopCardData: CardDataKind {
+   let title: String
+   let content: String
 }
-struct MiddleCardData:CellDataKind{
-   let content:String
-   let date:Date
+struct MiddleCardData: CellDataKind {
+   let content: String
+   let date: Date
 }
-struct BottomCardData:CellDataKind{
-   let title:String
+struct BottomCardData: CellDataKind {
+   let title: String
 }
 ```
 

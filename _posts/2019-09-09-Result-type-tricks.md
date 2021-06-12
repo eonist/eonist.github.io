@@ -1,9 +1,11 @@
 My notes on the Swift Result type<!--more-->
 
 ### Simple Result:
-- Result are great with callbacks
-- Results are not great for returning methods, use throw instead, with light `do {try} catch {error}` code
+- Result is great with callbacks
+- Result is not great for returning methods, use throw instead, with light `do { try } catch {error}` code
 
+
+### Simple Result
 ```swift
 typealias Complete = (Result<UIImage, Error>) -> Void
 
@@ -113,12 +115,10 @@ let customErrorResult = $0.flatMapError { (error) -> Result<Void, CamUtil.MicAnd
 }
 ```
 
-
 ### Casting a throwing method to a Result:
 ```swift
 let result = Result { try String(contentsOfFile: someFile) }
 ```
-
 
 ### Using result extensions for Result:
 ```swift
@@ -197,7 +197,7 @@ case .failure(let error):
 ```
 
 
-### one-liner:
+### One-liner:
 
 ```swift
 func test(result: Result<CVImageBuffer, Error>) {

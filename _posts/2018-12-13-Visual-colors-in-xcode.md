@@ -12,5 +12,5 @@ enum Colors{
 	static let lightTeal: UIColor = #colorLiteral(red: 0.6, green: 1, blue: 0.3921568627, alpha: 1)
 	static let darkTeal: UIColor = #colorLiteral(red: 0, green: 0.6, blue: 0.6, alpha: 1)
 }
-//Colors.teal
+// Colors.teal
 ```

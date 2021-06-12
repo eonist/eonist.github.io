@@ -1,5 +1,6 @@
 My notes on DispatchWorkItem<!--more-->
 
+// TODO 🏀 write some description of benefits etc
 
 ## Example:
 ```swift
@@ -74,4 +75,5 @@ downloadGroup.notify(queue: DispatchQueue.main) {
 ```
 
 ### Resources:
-- Canceling, resuming all items: [https://blog.natanrolnik.me/dispatch-work-item](https://blog.natanrolnik.me/dispatch-work-item) 
+- Canceling, resuming all items: [https://blog.natanrolnik.me/dispatch-work-item](https://blog.natanrolnik.me/dispatch-work-item)
+- debouncer: https://github.com/onmyway133/blog/issues/376 and https://twitter.com/_inside/status/984827954432798723/photo/1

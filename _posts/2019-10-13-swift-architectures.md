@@ -36,6 +36,7 @@ extension Controller {
 	}
 }
 ```
+
 ##### view
 ```swift
 class View: UITableView {
@@ -50,6 +51,7 @@ extension View {
   }
 }
 ```
+
 ##### Model
 ```swift
 class Model {
@@ -98,5 +100,5 @@ extension ViewController: ModelDelegate {
 }
 ```
 
-### Gotachas:
+### Gotchas:
 -  Models should ideally be simple data containers that don't contain much (if any) logic.

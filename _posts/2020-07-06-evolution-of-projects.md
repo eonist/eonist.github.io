@@ -1,4 +1,4 @@
-My notes on evolution of codebases as it progresses over time<!--more-->
+My notes on evolution of projects as it progresses over time<!--more-->
 
 ### The simple beginnings
 - Everything is simple

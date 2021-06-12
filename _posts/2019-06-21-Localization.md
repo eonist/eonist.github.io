@@ -9,6 +9,7 @@ My notes on adding localization to an iOS app<!--more-->
 
 ## Format:
 In the sub .strings file name ...spanish.strings add:
+
 ```
 "Freedom" = "Libre";
 "The world" = "El mundo";

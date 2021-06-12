@@ -1,4 +1,4 @@
-Creating a Programatic NSMenu <!--more--> 
+Creating a Programatic NSMenu <!--more-->
 
 ### Conceptually:
 
@@ -12,7 +12,7 @@ Creating a Programatic NSMenu <!--more-->
 //coming soon
 ```
 
-**to enable s + ctrl key combo:**
+**To enable s + ctrl key combo:**
 ```swift
 keyEquivalentModifierMask = NSEventModifierFlags.ControlKeyMask.rawValue.int
 ```

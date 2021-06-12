@@ -1,16 +1,15 @@
-Basic XML parsing in swift (Mac): <!--more--> 
+Basic XML parsing in swift (Mac): <!--more-->
 
 ```swift
 import Foundation
 
-
-let xmlStr:String = "<media>" +
+let xmlStr: String = "<media>" +
                         "<book>The shining</book>" +
                         "<music type=\"digital\"></music>" +
                         "<movie title=\"Psycho\"/>" +
                     "</media>"
 func testing(){
-    let xmlDoc:NSXMLDocument = try! NSXMLDocument(XMLString: xmlStr, options: 0)
+    let xmlDoc: NSXMLDocument = try! NSXMLDocument(XMLString: xmlStr, options: 0)
     let rootElement:NSXMLElement = xmlDoc.rootElement()!
     let children:NSArray = rootElement.children!
     let count = children.count//or use rootElement.childCount
@@ -23,9 +22,9 @@ func testing(){
         //print(XMLParser.attribute(child, "type"))
         let attributes:[Dictionary<String,String>] = XMLParser.attributes(child)
         if(attributes.count > 0) {  print("attr.value: "+"\(attributes[0]["value"])") }
-           
+
         print("value: " + XMLParser.value(child))
-        
+
         //
         print("hasAttribute: " + "\(XMLAsserter.hasAttribute(child,"type"))")
         //XPath expressions
@@ -50,7 +49,7 @@ Basics of parsing XML in ios :
 //parser:didEndElement:namespaceURI:qName: On the contrary to the above method, this is called when the closing tag of an element is found.
 //parser:foundCharacters: This method is called during the parsing of the contents of an element. Its second argument is a string value containing the character that was just parsed.
 
-//EXAMPLE: 
+//EXAMPLE:
 
 import UIKit
 
@@ -59,7 +58,7 @@ class TableViewController: UITableViewController, XMLParserDelegate {
     var elementName: String = ""//name of each element name at variouse stages in the xml hierarchy
     var bookTitle = ""
     var bookAuthor = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if let path = Bundle.main.url(forResource: "books", withExtension: "xml") {
@@ -114,7 +113,7 @@ class TableViewController: UITableViewController, XMLParserDelegate {
      */
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         let data = string.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-        
+
         if !data.isEmpty {//make sure its not empty data!?!?
             if elementName == "title" {//when elementName is title then append the char to the temp data
                 bookTitle += data
@@ -123,7 +122,7 @@ class TableViewController: UITableViewController, XMLParserDelegate {
             }
         }
     }
-    
+
 }
 
 ```

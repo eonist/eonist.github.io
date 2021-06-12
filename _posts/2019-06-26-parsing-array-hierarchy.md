@@ -1,12 +1,10 @@
 My notes on parsing a data hierarchy.<!--more-->Code for finding an illusive element in a UI-structure
 
 ```swift
-let dimensionalArray: [Any] = [["a"],[["b","c"],["d","e","f"]],"g","h"]
+let dimensionalArray: [Any] = [["a"], [["b", "c"], ["d", "e", "f"]], "g", "h"]
 //print(dimensionalArray[0])
 //print(dimensionalArray[1])
 //print(((dimensionalArray[1] as! Array<Any>)[1]as! Array<Any>)[1] )
-
-
 func element(root: [Any], index: [Int]) -> Any? {
    let children = root
    if index.count == 0 { return root }/*returns the root*/
@@ -21,11 +19,10 @@ func element(root: [Any], index: [Int]) -> Any? {
    } /*here is where the recursive magic happens*/
    return nil
 }
-
 print(element(root: dimensionalArray, index: [1,0,1]))
-
 ```
 
+### Ancestry method for UITesting:
 ```swift
 public typealias MatchCondition = (_ element: XCUIElement) -> Bool
    /**
@@ -47,7 +44,7 @@ public typealias MatchCondition = (_ element: XCUIElement) -> Bool
          let metCondition: Bool = condition(child)
          Swift.print("metCondition:  \(metCondition)")
          if metCondition {
-            collector = [(i, child)] // found the item, we don't include the actual item we are looking for
+            collector = [(i, child)] // Found the item, we don't include the actual item we are looking for
             break
          } else if let descendants = ancestry(root: (0, child), condition: condition) { // try to traverse the descendants
             collector = [(i, child)] + descendants
@@ -59,3 +56,6 @@ public typealias MatchCondition = (_ element: XCUIElement) -> Bool
       return collector
    }
 ```
+
+### Resources:
+- [https://github.com/eonist/UITestSugar](https://github.com/eonist/UITestSugar)

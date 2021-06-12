@@ -10,5 +10,3 @@ A way to visualise project dependencies in markdown<!--more-->
      ├── slider           # Vertical / Horizontal slider
      └── spinner          # Value changer
 ```
-
-Here from the Hybrid-project: [https://github.com/eonist/Hybrid](https://github.com/eonist/Hybrid) 

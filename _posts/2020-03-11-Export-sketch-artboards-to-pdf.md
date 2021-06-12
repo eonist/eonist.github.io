@@ -6,8 +6,8 @@ You can use the built in export artboards to pdf feature. But the problem is tha
 ### Sketch artboards to pdf
 
 1. Make multiple artboards
-2. name the artboards chronologically 01-front, 02-about, 03-features etc
+2. Name the artboards chronologically 01-front, 02-about, 03-features etc
 3. File -> Export as png files (set individual artboard resolution if needed)
 4. Open apples own Automator and search for image to pdf
-5. drag the png images above the image to pdf automation
-6. hit play and your .pdf is generated
+5. Drag the png images above the image to pdf automation
+6. Hit play and your .pdf is generated

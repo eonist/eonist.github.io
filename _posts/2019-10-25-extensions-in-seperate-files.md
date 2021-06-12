@@ -1,6 +1,5 @@
 My notes on splitting up projects into extensions <!--more-->
 
-
 ### Arguments
 - Blog post on the subject: https://medium.com/@KaushElsewhere/better-way-to-manage-swift-extensions-in-ios-project-78dc34221bc8
 - Ultra mega controllers are not very readable. I doubt many would argue that 1000++ line files  are easy to reason about.

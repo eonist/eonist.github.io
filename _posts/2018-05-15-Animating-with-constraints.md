@@ -1,4 +1,4 @@
-My notes on animating with constraints in swift<!--more-->. This example constitutes my "starter kit" when making animation scenarios that works with UIKit. 
+My notes on animating with constraints in swift<!--more-->. This example constitutes my "starter kit" when making animation scenarios that works with UIKit.
 
 ### Example app:
 
@@ -6,7 +6,7 @@ My notes on animating with constraints in swift<!--more-->. This example constit
 
 ### App source code:
 
-[https://github.com/eonist/WeatherApp](https://github.com/eonist/WeatherApp) 
+[https://github.com/eonist/WeatherApp](https://github.com/eonist/WeatherApp)
 
 ### Demo gif:
 <img width="516" alt="img" src="https://rawgit.com/stylekit/img/master/constraint_animation.mov.gif">
@@ -14,7 +14,7 @@ My notes on animating with constraints in swift<!--more-->. This example constit
 ### Swift code:
 
 ```swift
-class AnimVC:UIViewController{
+class AnimVC: UIViewController{
     lazy var square:Square = createSquare()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class AnimVC:UIViewController{
         _ = square
     }
 }
-extension AnimVC{
+extension AnimVC {
     func createSquare() -> Square{
         let square = Square()
         square.backgroundColor = .orange
@@ -35,7 +35,7 @@ extension AnimVC{
             square.size = size
             NSLayoutConstraint.activate([anchor.x,anchor.y,size.w,size.h])
         }()
-        
+
         let tap = UITapGestureRecognizer(target: self, action:  #selector(handleTap))
         square.addGestureRecognizer(tap)
         return square
@@ -55,16 +55,16 @@ extension AnimVC{
         anim.startAnimation()
     }
 }
-class Square:UIView{
-    var anchor:(x:NSLayoutConstraint,y:NSLayoutConstraint)?
-    var size:(w:NSLayoutConstraint,h:NSLayoutConstraint)?
+class Square: UIView {
+    var anchor: (x:NSLayoutConstraint,y:NSLayoutConstraint)?
+    var size: (w:NSLayoutConstraint,h:NSLayoutConstraint)?
 }
 
 ```
 
 ### Supporting files:
 
-After the jump, hit the keyboard char `T` and search for Constraint.swift and Alignment.swift. These are 2 very simple extensions that makes constraints easier to work with. 
-All this can be achieved with regular constraints as well. 
+After the jump, hit the keyboard char `T` and search for Constraint.swift and Alignment.swift. These are 2 very simple extensions that makes constraints easier to work with.
+All this can be achieved with regular constraints as well.
 
-[https://github.com/eonist/swift-utils](https://github.com/eonist/swift-utils) 
+[https://github.com/eonist/swift-utils](https://github.com/eonist/swift-utils)

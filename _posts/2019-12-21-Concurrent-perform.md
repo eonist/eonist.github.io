@@ -1,7 +1,5 @@
 My notes on Parallel Execution <!--more-->
 
-
-
 ### concurrentPerform
 Grand Central Dispatch implements an efficient parallel for-loop. It must be called on a specific queue not to accidentally block the main one:
 
@@ -34,7 +32,6 @@ func processData(onComplete: @escaping () -> Void) {
 ```
 
 ## Using concurrentPerform with async network processes
-
 ```swift
 func downloadSync(path: String) -> (Data?, URLResponse?, Error?) {
     var result: (Data?, URLResponse?, Error?)! = nil
@@ -129,3 +126,4 @@ There are two common scenarios in which excessive thread creation occurs:
 ## Resources:
 - Alot of info on concurrency in swift: https://www.uraimo.com/2017/05/07/all-about-concurrency-in-swift-1-the-present/
 - Lots of info nuggets on concurrent performance: https://gist.github.com/FWEugene/3861f0460c3e23f684e113f0f8d6947f
+- Create barrier: Using a barrier on a concurrent queue to synchronize writes https://www.avanderlee.com/swift/concurrent-serial-dispatchqueue/

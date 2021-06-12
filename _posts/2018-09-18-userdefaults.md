@@ -1,4 +1,6 @@
-My notes on UserDefaults<!--more-->. User defaults can be used for saving types such as: `Bool, Dictionary, Int, String, Data, Array`
+My research on UserDefaults<!--more-->. User defaults can be used for saving types such as: `Bool, Dictionary, Int, String, Data, Array`
+
+I made this library to make user-default simpler: [https://github.com/eonist/UserDefaultSugar](https://github.com/eonist/UserDefaultSugar) 
 
 ### Example
 ```swift

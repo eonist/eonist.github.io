@@ -58,7 +58,8 @@ textView.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
 
 ### Gotchas:
 - If NSWindow is stuck or cannot be resized set the width constraint of subview to `w.priority = NSLayoutConstraint.Priority(rawValue: 499)`
- - there are two different methods, one can be set to a view, the other can be set to a constraint
+- there are two different methods, one can be set to a view, the other can be set to a constraint
+- Consider using priority with min max default rather than hugging and comppression. priority is simpler to reason about
 
  ```swift
  @available(OSX 10.7, *)

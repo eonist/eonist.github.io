@@ -1,8 +1,10 @@
 My notes on different commenting styles for swift <!--more-->.
 
 ### Code documentation:
-Commenting is vital when creating complex systems. So much resolution about how the method came to be and it's artefacts and gotchas are lost if there is no documentation in the code. I usually include massive amounts of comments in the code because when I later revisit the code a year later, my initial thinking has disappeared and I need something to accelerate my reasoning to get back into the code. I also leave references to where parts of the solution was found, like stackoverflow links or other github projects, or github-issues where the solution was discussed. To give credit where credit is due. Personally I use a commenting style that is closer to java-doc as a lot of people know it and it feels universal. It even renders to apples dialog boxes like bellow:
-
+- Commenting is vital when creating complex systems. So much resolution about how the method came to be and it's artefacts and gotchas are lost if there is no documentation in the code.
+- I usually include massive amounts of comments in the code because when I later revisit the code a year later, my initial thinking has disappeared and I need something to accelerate my reasoning to get back into the code.
+- I also leave references to where parts of the solution was found, like stackoverflow links or other github projects, or github-issues where the solution was discussed. To give credit where credit is due.
+- Personally I use a commenting style that is closer to java-doc as a lot of people know it and it feels universal. It even renders to apples dialog boxes like bellow:
 
 ```swift
  /**
@@ -12,12 +14,11 @@ Commenting is vital when creating complex systems. So much resolution about how 
   *   - alpha: only awesome alpha values allowed
   * - Returns: A color with new alpha value
   */
- static func test(color:UIColor, alpha:CGFloat) -> UIColor{
+ static func test(color: UIColor, alpha: CGFloat) -> UIColor{
      _ = color
      _ = alpha
      return color.withAlpha(alpha)
  }
-
 ```
 
 Hold down the `alt` key and press the method name from a caller. And this dialog will pop up
@@ -188,4 +189,5 @@ The keywords available in the swift commenting syntax
 - Write a documentation comment for every declaration. Insights gained by writing documentation can have a profound impact on your design, so don’t put it off.
 
 ### Resources:
-- The Boy Scout Rule : `Leave the campground cleaner than you found it` [https://medium.com/@biratkirat/step-8-the-boy-scout-rule-robert-c-martin-uncle-bob-9ac839778385](https://medium.com/@biratkirat/step-8-the-boy-scout-rule-robert-c-martin-uncle-bob-9ac839778385)
+- The Boy Scout Rule: `Leave the campground cleaner than you found it` [https://medium.com/@biratkirat/step-8-the-boy-scout-rule-robert-c-martin-uncle-bob-9ac839778385](https://medium.com/@biratkirat/step-8-the-boy-scout-rule-robert-c-martin-uncle-bob-9ac839778385)
+- intercepting book: https://www.amazon.com/Swift-Style-Opinionated-Guide-Language/dp/1680502352

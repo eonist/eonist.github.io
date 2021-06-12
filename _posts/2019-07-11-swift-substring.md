@@ -1,4 +1,4 @@
-My notes on substring<!--more-->
+My notes on substring<!--more-->Swift have tedious string methods. These are common programming string modifiers and parsers:
 
 ## Beginning of a string
 ```swift
@@ -6,7 +6,7 @@ let index = str.index(str.startIndex, offsetBy: 5)
 let mySubstring = str[..<index] // Hello
 ```
 
-## prefix:
+## Prefix:
 ```swift
 let index = str.index(str.startIndex, offsetBy: 5)
 let mySubstring = str.prefix(upTo: index) // Hello
@@ -19,7 +19,7 @@ let index = str.index(str.endIndex, offsetBy: -10)
 let mySubstring = str[index...] // playground
 ```
 
-## suffix:
+## Suffix:
 ```swift
 let index = str.index(str.endIndex, offsetBy: -10)
 let mySubstring = str.suffix(from: index) // playground

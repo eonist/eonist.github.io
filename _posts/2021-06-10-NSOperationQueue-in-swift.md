@@ -1,12 +1,9 @@
-My notes on queuing things in swift<!--more-->
+My notes on queuing things with NSOperationQueue in swift<!--more-->
 
-### Gotchas:
-- A queue is a list where you can only insert new items at the back and remove items from the front. This ensures that the first item you enqueue is also the first item you dequeue. First come, first serve!
-- A Queue fits quite well any use-cases where the information needs to be computed in the specific entry order. For instance, if you build a chat interface, you want to include each message in the same way they have been typed. Queueing them in the same order while sent to a backend service would be a nice way to do it.
+> NSOperation is an object that can be subclassed, added to NSOperationQueues, etc. DispatchWorkItem is more "lightweight"
 
 ### NSOperation
-- What is Nsoperationqueue in Swift?
-A queue that regulates the execution of operations.
+- What is NsOperationQueue in Swift? A queue that regulates the execution of operations.
 - NSOperation represents a single unit of work. It’s an abstract class that offers a useful, thread-safe structure for modeling state, priority, dependencies, and management.
 - Examples of tasks that lend themselves well to NSOperation include network requests, image resizing, text processing, or any other repeatable, structured, long-running task that produces associated state or data.
 - GCD is ideal for in-line asynchronous processing, NSOperation provides a more comprehensive, object-oriented model of computation for encapsulating all of the data around structured, repeatable tasks in an application.
@@ -68,7 +65,7 @@ NSOperationQueue.mainQueue().addOperation(operation)
 - `progress` An object that represents the total progress of the operations executing in the queue
 
 ### Main benefits of NSOperationQueue
-- Dependencies, preventing operations start before the previous ones are finished.
+- Dependencies, preventing operations start before the previous ones are finished. Dependencies also work between different operation queues and threads.
 - Support of the additional completion block.
 - Monitoring operations changes of state by using KVO.
 - Support of operations priorities and influencing their execution order.
@@ -85,7 +82,6 @@ NSOperationQueue.mainQueue().addOperation(operation)
 There are 2 ways you could potentially handle this:
 
 1. Make the operation queue serial. Set the maxConcurrentOperationCount property of the queue to 1, so that even if you add the operations to the queue at the same time, they'll only be executed in the order in which they were added.
-
 2. Make operation1 dependent on operation0. If you need to keep the operation queue concurrent, you can use NSOperation.addDependency(_:) to explicitly make sure that operation1 will only begin once operation0 has completed.
 
 In operation1, make sure you call refresh() on the Realm object you're using to fetch your Realm object in order to make absolutely sure that the changes you made in operation0 have been properly exposed on that queue.
@@ -94,15 +90,12 @@ In operation1, make sure you call refresh() on the Realm object you're using to 
 These states are controlled by 4 KVO-enabled boolean properties: isReady, isExecuting, isFinished and isCancelled.
 
 - Operations start in the Pending state when they are first added to a queue. Nothing really interesting to see here. The 4 flags are all false
-
 - At some point, when an Operation becomes ready to execute, it moves to the Ready state. It’s now eligible to be executed by the OperationQueue. isReady now equals true and all the other flags equal false.
 
 (Actually, there’s a little more that goes into Operations becoming Ready, and we’ll talk more about it in part 2 of this series.)
 
 - Then the operation moves to the Executing state. This means it’s currently doing its thing (i.e. executing its main() method). isReady and isExecuting equal true and the other 2 flags equal false.
-
 - Finally, when it’s done, the operation moves to the Finished state. At this point, isExecuting equals false and isFinished equals true. Do notice, however, that this state provides no indication as to whether or not the operation was successful. This’ll be important to keep in mind for later ☝️
-
 - Also, at any point before it’s finished, an Operation can be cancelled. This moves it to the Cancelled state (isCancelled is true).
 
 ### Cancelling Operations
@@ -136,19 +129,15 @@ NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 queue.maxConcurrentOperationCount = 4;   // generally with network requests, you don't want to exceed 4 or 5 concurrent operations;
                                          // it doesn't matter too much here, since there are only 3 operations, but don't
                                          // try to run more than 4 or 5 network requests at the same time
-
 NSOperation *operation1 = [[NetworkOperation alloc] initWithRequest:request1 completionHandler:^(NSData *data, NSError *error) {
     [self doSomethingWithData:data fromRequest:request1 error:error];
 }];
-
 NSOperation *operation2 = [[NetworkOperation alloc] initWithRequest:request2 completionHandler:^(NSData *data, NSError *error) {
     [self doSomethingWithData:data fromRequest:request2 error:error];
 }];
-
 NSOperation *operation3 = [[NetworkOperation alloc] initWithRequest:request3 completionHandler:^(NSData *data, NSError *error) {
     [self doSomethingWithData:data fromRequest:request3 error:error];
 }];
-
 [operation2 addDependency:operation1];   // don't start operation2 or 3 until operation1 is done
 [operation3 addDependency:operation1];
 
@@ -170,9 +159,34 @@ class LoggingOperation : Operation {
 }
 ```
 
-### Queue:
-Queue system that doesnt use operations:
+### Queue concept:
+- A queue is a list where you can only insert new items at the back and remove items from the front. This ensures that the first item you enqueue is also the first item you dequeue. First come, first serve!
+- A Queue fits quite well any use-cases where the information needs to be computed in the specific entry order. For instance, if you build a chat interface, you want to include each message in the same way they have been typed. Queueing them in the same order while sent to a backend service would be a nice way to do it.
 
+### Queue:
+Queue system that doesn't use operations:
+- Enqueue inserts an element to the back of the queue.
+- Dequeue removes the element at the front of the queue.
+
+**String example:**
+```swift
+struct Queue {
+    var items:[String] = []
+    mutating func enqueue(element: String) {
+        items.append(element)
+    }
+    mutating func dequeue() -> String? {
+        if items.isEmpty { return nil }
+        else {
+            let tempElement = items.first
+            items.remove(at: 0)
+            return tempElement
+        }
+    }
+}
+```
+
+**Generic example:**
 ```swift
 struct Queue<T> {
   private var elements: [T] = []
@@ -207,9 +221,48 @@ let serving = queue.dequeue() // Adam
 let nextToServe = queue.head // Julia
 ```
 
+### Double Ended Queue
+A Double Ended Queue lets you add and remove elements at both ends of the queue. That means besides the enqueue, dequeue functions, you need to add two additional equeueFront and dequeueBack functions too.
+
+Following code shows a Double Ended Queue structure using an Array.
+```swift
+public struct Deque<T> {
+    private var items = [T]()
+    mutating func enqueue(element: T) {
+        items.append(element)
+    }
+    mutating func enqueueFront(element: T) {
+        items.insert(element, at: 0)
+    }
+    mutating func dequeue() -> T?{
+        if items.isEmpty {
+            return nil
+        } else {
+            return items.removeFirst()
+        }
+    }
+    mutating func dequeueBack() -> T? {
+        if items.isEmpty {
+            return nil
+        } else {
+            return items.removeLast()
+        }
+    }
+}
+```
+In the above illustration, enqueueFront adds the new element before the current one. deuqueBack() deletes the last element from the queue.
+
+This brings an end to this quick tutorial on Swift Queue data structure implementation.
+
 ### References
 - Great read on NSOperation https://nshipster.com/nsoperation/
 - Explains addDependency: https://stackoverflow.com/questions/39100653/how-adddependency-method-works-in-nsoperationqueue/39100827
+- Passing data from one operation to the other: https://ioscoachfrank.com/chaining-nsoperations.html
+- Creating umbrella operations with many queues: (asbtract away common sequences of tasks etc) https://ioscoachfrank.com/grouping-operations.html
+- Stack is a LIFO data structure: https://www.journaldev.com/21287/swift-stack-implementation
+- complexe queues in swift: https://www.raywenderlich.com/books/data-structures-algorithms-in-swift/v3.0/chapters/8-queues (paid article)
+- Apple doc: https://developer.apple.com/documentation/foundation/operationqueue and https://developer.apple.com/documentation/dispatch/dispatchqueue
+- Algo club queue: https://github.com/raywenderlich/swift-algorithm-club/tree/master/Queue
 
 ### Questions:
 - What about timeout for tasks?
@@ -421,13 +474,11 @@ Ref: https://www.raywenderlich.com/5293-operation-and-operationqueue-tutorial-in
 enum PhotoRecordState {
   case new, downloaded, filtered, failed
 }
-
 class PhotoRecord {
   let name: String
   let url: URL
   var state = PhotoRecordState.new
   var image = UIImage(named: "Placeholder")
-
   init(name:String, url:URL) {
     self.name = name
     self.url = url
@@ -446,7 +497,6 @@ class PendingOperations {
     queue.maxConcurrentOperationCount = 1
     return queue
   }()
-
   lazy var filtrationsInProgress: [IndexPath: Operation] = [:]
   lazy var filtrationQueue: OperationQueue = {
     var queue = OperationQueue()

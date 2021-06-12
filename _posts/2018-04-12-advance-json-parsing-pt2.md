@@ -7,7 +7,7 @@ And handle these accordingly from the first try call in the "try-hierarchy". In 
 
 ```swift
 /*
- * TODO: Add description switch in the error types 
+ * TODO: Add description switch in the error types
  * TODO: Add relevant JSON case
  */
 struct A{
@@ -79,7 +79,7 @@ login()
 ```
 
 
-### Throw oriented code should be favoured to nil coalesing code: 
+### Throw oriented code should be favoured to nil coalesing code:
 ```swift
 /*
 Suppose a function myFunction is supposed to return a String, however, at some point it can run into an error. A common approach is to have this function return an optional String? where we return nil if something went wrong.
@@ -87,10 +87,7 @@ Suppose a function myFunction is supposed to return a String, however, at some p
 Example:
     */   
 func readFile(named filename: String) -> String? {
-    guard let file = openFile(named: filename) else {
-        return nil
-    }
-
+    guard let file = openFile(named: filename) else { return nil }
     let fileContents = file.read()
     file.close()
     return fileContents

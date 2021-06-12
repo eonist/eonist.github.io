@@ -16,7 +16,7 @@ My notes on setting up a UI-testing-framework<!--more-->
 ## Nesting UI-Testing frameworks
 - Use the same methodology as Non-nested UI-testing frameworks.
 
-## Partial carthage solution: (for the sake of reference, dont use this)
+## Partial carthage solution: (for the sake of reference, don't use this)
 - Add XCTest.framework in the linked framework and libraries list in General.
 - You have to add Framework search-path: `$(PLATFORM_DIR)/Developer/Library/Frameworks` in Build settings
 - import `MyTestFramework`

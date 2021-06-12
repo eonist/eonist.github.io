@@ -1,11 +1,13 @@
-My notes on semaphores<!--more-->Semaphores has the ability to convert-a-callback based method into a returning-style-method. Semaphore also has the ability to timeout 👌
+My notes on semaphores<!--more-->
+
+- Semaphores has the ability to convert-a-callback based method into a returning-style-method. ✨
+- Semaphores also has the ability to timeout 👌
 
 ### Limiting concurrent tasks:
 As we already know, unlimited work might lead to a deadlock. Here is how we can apply dispatch semaphore to limit a queue to 3 concurrent tasks:
 
 ```swift
 let concurrentTasks = 3
-
 let queue = DispatchQueue(label: "Concurrent queue", attributes: .concurrent)
 let sema = DispatchSemaphore(value: concurrentTasks)
 print("began")
@@ -20,22 +22,18 @@ print("ended") // Called when all 999 items where processed
 ```
 
 ### Testing network connection:
-
 ```swift
 let url = URL(string: urlString)
-
 // 1
 let semaphore = DispatchSemaphore(value: 0)
 let _ = DownloadPhoto(url: url!) { _, error in
   if let error = error {
     XCTFail("\(urlString) failed. \(error.localizedDescription)")
   }
-
   // 2
   semaphore.signal()
 }
 let timeout = DispatchTime.now() + .seconds(defaultTimeoutLengthInSeconds)
-
 // 3
 if semaphore.wait(timeout: timeout) == .timedOut {
   XCTFail("\(urlString) timed out")
@@ -49,28 +47,22 @@ extension Array where Element == DataSource {
     func load() throws -> NoteCollection {
         let semaphore = DispatchSemaphore(value: 0)
         var loadedCollection: NoteCollection?
-
         // We create a new queue to do our work on, since calling wait() on
         // the semaphore will cause it to block the current queue
         let loadingQueue = DispatchQueue.global()
-
         loadingQueue.async {
             // We extend 'load' to perform its work on a specific queue
             self.load(onQueue: loadingQueue) { collection in
                 loadedCollection = collection
-
                 // Once we're done, we signal the semaphore to unblock its queue
                 semaphore.signal()
             }
         }
-
         // Wait with a timeout of 5 seconds
         semaphore.wait(timeout: .now() + 5)
-
         guard let collection = loadedCollection else {
             throw NoteLoadingError.timedOut
         }
-
         return collection
     }
 }
@@ -79,7 +71,6 @@ let dataSources: [DataSource] = [
     iCloudDataSource,
     backendDataSource
 ]
-
 do {
     let collection = try dataSources.load()
     output(collection)

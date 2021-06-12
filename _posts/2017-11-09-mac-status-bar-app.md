@@ -49,9 +49,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
    @objc func quitApp(){
       Swift.print("quitApp")
    }
-
 }
-
-
 
 ```

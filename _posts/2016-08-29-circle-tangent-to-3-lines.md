@@ -1,4 +1,4 @@
-Fitting a circle Given 4 points. p1,p2,p3,p4 <!--more--> 
+Fitting a circle Given 4 points. p1, p2, p3, p4 <!--more--> 
 
 #### The steps:
 

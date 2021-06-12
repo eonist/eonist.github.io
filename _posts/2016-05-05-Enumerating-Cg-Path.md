@@ -1,4 +1,4 @@
-Notes on Parsing CGPath <!--more--> 
+Research on Parsing CGPath <!--more-->
 
 Reading CGPath instances
 
@@ -15,7 +15,7 @@ A wrapper: https://gist.github.com/zwaldowski/e6aa7f3f81303a688ad4
 obj-c wrapper: https://gist.github.com/adamawolf/3823502
 
 ```swift
-//These are the Element types: 
+//These are the Element types:
 public enum CGPathElementType : Int32 {
     case MoveToPoint
     case AddLineToPoint

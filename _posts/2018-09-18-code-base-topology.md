@@ -10,7 +10,7 @@ My notes on source code topology<!--more-->
       - manager (Singleton navigation, state of the app)
          - Config.swift (toggle debug/release)
          - Nav.swift (enum based app navigation)
-      - view (views hierarchy and controller hierarchy)
+      - view (views / controller hierarchy)
          - account
          - send
          - receive

@@ -8,10 +8,9 @@ If you add a direct url in the commit message, it will be compressed down to a t
 ### Quick find on github:
 Just hit the `t` button in any repo and voila:
 
-
 ### Github markdown:
 [https://guides.github.com/features/mastering-markdown/](https://guides.github.com/features/mastering-markdown/)
 
 ## Remove last commit from github
-git reset --soft HEAD^
-git push origin +master --force
+`git reset --soft HEAD^`
+`git push origin +master --force`

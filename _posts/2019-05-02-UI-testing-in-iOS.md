@@ -16,15 +16,15 @@ My notes on UI-testing in Xcode <!--more-->
 - Prefer using: `waitForExistence(timeout:)` over a regular `exists` check
 - Prefer using `firstMatch` over `element`
 - Open the `Accessibility Inspector.app` in macOS as a way of identifying accessibility ids.
-- for IOS there is the:  `iOS Simulator's Accessibility Inspector`
+- for iOS there is the:  `iOS Simulator's Accessibility Inspector`
 - To access elements by accessibility ids: set/override: `accessibilityLabel`  with an id and set/override the `isAccessibilityElement` with true
 - For some strange reason sometimes only `accessibilityIdentifier` works and you have to set the `isAccessibilityElement` setting or overide works
 - Find accessibility elements by: `element.label == "someLabel"` if you are using accessibilityIdentifier or `element.identifier == "someId"` if you are using accessibilityLabel
 - Use `XCUIElementQuery.debugDescription` to debug a query (Accessibility Hierarchy)
-- ⚠️️IMPORTANT ⚠️️ Containers can have accessibilityIdentifier but they should have accessibility turned off. Logic is that we don't interact with containers, but we do need to access testing via accessibility hierarchy. setting isAccessibilityElement to true on a container will cause problems with UITesting. Setting it on leaf elements such as buttons etc is fine.
+- ⚠️️ IMPORTANT ⚠️️ Containers can have accessibilityIdentifier but they should have accessibility turned off. Logic is that we don't interact with containers, but we do need to access testing via accessibility hierarchy. setting isAccessibilityElement to true on a container will cause problems with UITesting. Setting it on leaf elements such as buttons etc is fine.
 - Parsing a queries is much faster than parsing element
-- ️⚠️IMPORTANT ⚠️️ Don´t try to store refrences to elenents outside the scope where you use it, as you interact with the UI hierachy, it will change, and it must be traversed again
-- Keep animations enabled. As things can be different if you dont have animations. A suggestion is to set the view speed to 2x or 4x
+- ️⚠️ IMPORTANT ⚠️️ Don´t try to store references to elements outside the scope where you use it, as you interact with the UI hierarchy, it will change, and it must be traversed again
+- Keep animations enabled. As things can be different if you don't have animations. A suggestion is to set the view speed to 2x or 4x
 
 ## Terminology:
 - **XCUIApplication:** This class responsible for launching, terminating apps. ⚠️️ Not a singleton. ⚠️️

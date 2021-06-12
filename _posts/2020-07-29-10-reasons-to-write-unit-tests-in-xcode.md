@@ -1,3 +1,6 @@
+My notes on unit tests <!--more-->
+
+
 # 10 Reasons to Write Unit Tests
 - Tests Reduce Bugs in New Features.
 - Tests Reduce Bugs in Existing Features.

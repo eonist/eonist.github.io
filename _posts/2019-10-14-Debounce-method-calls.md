@@ -123,8 +123,8 @@ extension TableView {
 ```
 
 ### Resources:
-
-Debouncing can also be done with DispatchWorkItem: [https://www.swiftbysundell.com/articles/a-deep-dive-into-grand-central-dispatch-in-swift/](https://www.swiftbysundell.com/articles/a-deep-dive-into-grand-central-dispatch-in-swift/)  and [https://blog.natanrolnik.me/dispatch-work-item](https://blog.natanrolnik.me/dispatch-work-item)
+- Debouncing can also be done with DispatchWorkItem: [https://www.swiftbysundell.com/articles/a-deep-dive-into-grand-central-dispatch-in-swift/](https://www.swiftbysundell.com/articles/a-deep-dive-into-grand-central-dispatch-in-swift/)  and [https://blog.natanrolnik.me/dispatch-work-item](https://blog.natanrolnik.me/dispatch-work-item)
+- debouncer: https://github.com/onmyway133/blog/issues/376 and https://twitter.com/_inside/status/984827954432798723/photo/1
 
 
 ### Notification throttler:

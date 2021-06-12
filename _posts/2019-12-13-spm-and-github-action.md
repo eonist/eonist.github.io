@@ -17,17 +17,16 @@ My notes on using swift package manager and Github actions together<!--more--> â
 ## Add a build badge:
 **Code:**  
 ```markdown
-![Swift](https://github.com/passbook/Key/workflows/Swift/badge.svg)
+![Swift](https://github.com/eonist/Spatial/workflows/Swift/badge.svg)
 ```
 **Result:**   
-![Swift](https://github.com/passbook/Key/workflows/Swift/badge.svg)
+![Swift](https://github.com/eonist/Spatial/workflows/Swift/badge.svg)
 
 ## Gotchas:
 - TestTarget must have unique name if you use them as dependencies of other repos. Or else swift wont know which is correct ðŸ¤·, So name the TestTarget YourProjectName_OSName_Tests (drop the underscores)
 - "Swift test" in terminal builds for macOS
 
 ## Example:
-
 ```swift
 name: Swift
 

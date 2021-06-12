@@ -18,8 +18,8 @@ My notes on starting a business in Norway<!--more--> (WIP)
 
 ### Reregistering
 1. Make company declaration
-2. make company bank-account and add 30k
-3. register your company in (call Tlf 75 00 75 00 or 800 33 840 if u need help) [alltin.no](https://www.altinn.no/en/forms-overview/bronnoysund-register-centre/stiftelse-av-aksjeselskap/)  
+2. Make company bank-account and add 30k
+3. Register your company in (call Tlf 75 00 75 00 or 800 33 840 if u need help) [alltin.no](https://www.altinn.no/en/forms-overview/bronnoysund-register-centre/stiftelse-av-aksjeselskap/)  
 4. Wait for org nr and give this to bank. then regain access to 30k
 
 ### Financials
