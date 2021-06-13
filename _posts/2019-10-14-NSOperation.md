@@ -1,30 +1,27 @@
 My notes on NSOperation<!--more-->Operations can render assistance in concurrency
 
-The NSOperationQueue adds a number of benefits. For example, you can specify the maximum number of queued operations that can run simultaneously. This makes it easy to control how many operations run at the same time or to create a serial operation queue
+- The NSOperationQueue adds a number of benefits.
+- For example, you can specify the maximum number of queued operations that can run simultaneously.
+- This makes it easy to control how many operations run at the same time or to create a serial operation queue
 
 ```swift
 let operation = NSBlockOperation(block: { () -> Void in
     // Do Something
     ...
 })
-
 operationQueue.addOperation(operation)
 ```
-
 
 ```swift
 let queue = OperationQueue()
 queue.maxConcurrentOperationCount = 2
-
 let operation1 = BlockOperation(block: {
   //...
 })
 operation1.qualityOfService = .userInitiated
-
 let operation2 = BlockOperation(block: {
   //...
 })
-
 operation1.completionBlock = {
     //...
 }
@@ -33,7 +30,6 @@ operation2.completionBlock = {
 }
 
 operation2.addDependency(operation1)
-
 queue.addOperation(operation1)
 queue.addOperation(operation2)
 

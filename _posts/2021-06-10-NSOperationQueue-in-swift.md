@@ -2,12 +2,22 @@ My notes on queuing things with NSOperationQueue in swift<!--more-->
 
 > NSOperation is an object that can be subclassed, added to NSOperationQueues, etc. DispatchWorkItem is more "lightweight"
 
+### Use NsOperationQueue when:
+NSOperation can be scheduled with a set of dependencies at a particular queue priority and quality of service. Unlike a block scheduled on a GCD queue, an NSOperation can be cancelled and have its operational state queried. And by subclassing, NSOperation can associate the result of its work on itself for future reference.
+- network requests
+- image resizing
+- text processing
+- or any other repeatable structured, long-running task that produces associated state or data.
+
+### When not to use NsOperationQueue:
+- For one-off computation, or simply speeding up an existing method, it will often be more convenient to use a lightweight GCD dispatch than employ NSOperation.
+
 ### Main benefits of NSOperationQueue:
 - Dependencies, preventing operations start before the previous ones are finished. Dependencies also work between different operation queues and threads.
 - Support of the additional completion block.
 - Monitoring operations changes of state by using KVO.
 - Support of operations priorities and influencing their execution order.
-- Cancellation option, allowing to stop the operation at the time of its execution.
+- Cancellation option, allowing to stop the operation at the time of it's execution.
 - Has ability to run nested queues
 - Has ability to run serialized queues (set max to 1) (execute one after the other after the previous finish)
 
@@ -59,12 +69,15 @@ NSOperationQueue.mainQueue().addOperation(operation)
 - https://www.raywenderlich.com/1197-nstask-tutorial-for-os-x#toc-anchor-001
 - Linked lists: https://www.raywenderlich.com/947-swift-algorithm-club-swift-linked-list-data-structure (related)
 
+### Subclasses:
+- For situations where it doesn’t make sense to build out a custom NSOperation subclass,
+- Foundation provides the concrete implementations [NSBlockOperation](https://developer.apple.com/documentation/foundation/blockoperation) and [NSInvocationOperation](https://developer.apple.com/documentation/foundation/nsinvocationoperation)
 
 ### NSOperationQueue:
--  If the operations in a queue have a similar priority, they are executed by the FIFO principle. (first in, first out)
+- If the operations in a queue have a similar priority, they are executed by the FIFO principle. (first in, first out)
 - Example in how to make NSOperationQueue async with subclassing: https://stackoverflow.com/a/24943851/5389500 (swift version lower on the page)
 - wait until the prior one finishes: With an NSOperationQueue, you achieve that simply by setting **maxConcurrentOperationCount** to 1.
-- serialize operations on a given context. That happens naturally if you use a single thread, but NSOperationQueue also serializes its operations if you set **maxConcurrentOperationCount** to 1
+- Serialize operations on a given context. That happens naturally if you use a single thread, but NSOperationQueue also serializes its operations if you set **maxConcurrentOperationCount** to 1
 - Link: https://developer.apple.com/documentation/foundation/nsoperationqueue
 - If the operation does not fully respond to the application’s needs, an NSOperation subclass can be created to add the missing functionality.
 - use Operation because you’re dealing with a table view and, for performance and power consumption reasons, **you need the ability to cancel an operation for a specific image** if the user has scrolled that image off the screen. Even if the operations are on a background thread, if there are dozens of them waiting on the queue, **performance will still suffer.**
@@ -139,7 +152,7 @@ class LoggingOperation : Operation {
     }
 }
 ```
-
+// 🏀 figure out how to add tasks while it's running, and how it starts etc, same with WorkItem
 ### References
 - Great read on NSOperation https://nshipster.com/nsoperation/
 - Explains addDependency: https://stackoverflow.com/questions/39100653/how-adddependency-method-works-in-nsoperationqueue/39100827

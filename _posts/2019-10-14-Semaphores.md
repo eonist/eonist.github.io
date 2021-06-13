@@ -2,6 +2,45 @@ My notes on semaphores<!--more-->
 
 - Semaphores has the ability to convert-a-callback based method into a returning-style-method. ✨
 - Semaphores also has the ability to timeout 👌
+- As we already know, unlimited work might lead to a deadlock.
+- Here is how we can apply dispatch semaphore to limit a queue to 3 concurrent tasks:
+
+### Making async call a return method:
+
+```swift
+func makeAPICall() -> String {
+    var result: String = ""
+    let semaphore = DispatchSemaphore(value: 0)
+    DispatchQueue.global(qos: .background).async { // We need to put this on the main thread or else transition becomes glitchy
+      sleep(2)
+      result = "happy days"
+      semaphore.signal()
+    }
+    semaphore.wait() // (wallTimeout: .distantFuture)
+    return result
+}
+```
+
+### Example (Timeout)
+> We can also specify a timeout for the wait function.
+
+```swift
+let sem = DispatchSemaphore(value: 0)
+DispatchQueue.global().async {
+    print("waiting for at least one signal for 1 second")
+    let res = sem.wait(timeout: DispatchTime.now() + 1) //wait for a signal
+    if(res == .timedOut){
+        print("wait timed out")
+    }else{
+        print("At least one signal has been received")
+    }
+}
+DispatchQueue.global().async {
+    sleep(3)
+    print("calling signal")
+    sem.signal() //send the signal
+}
+```
 
 ### Limiting concurrent tasks:
 As we already know, unlimited work might lead to a deadlock. Here is how we can apply dispatch semaphore to limit a queue to 3 concurrent tasks:
