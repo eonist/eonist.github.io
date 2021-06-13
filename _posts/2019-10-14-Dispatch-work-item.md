@@ -1,6 +1,9 @@
 My notes on DispatchWorkItem<!--more-->
 
-// TODO 🏀 write some description of benefits etc
+### Main benefits:
+- Ability to cancel many tasks in the queue
+- Simpler than NsOperationQueue
+- Can be built for Search trotting functionality for instance
 
 ## Example:
 ```swift
@@ -24,18 +27,11 @@ let downloadGroup = DispatchGroup()
 var addresses = [PhotoURLString.overlyAttachedGirlfriend,
                  PhotoURLString.successKid,
                  PhotoURLString.lotsOfFaces]
-
-// 1
-addresses += addresses + addresses
-
-// 2
-var blocks: [DispatchWorkItem] = []
-
+addresses += addresses + addresses // You expand the addresses array to hold three copies of each image.
+var blocks: [DispatchWorkItem] = [] // You initialize a blocks array to hold dispatch block objects for later use.
 for index in 0..<addresses.count {
   downloadGroup.enter()
-
-  // 3
-  let block = DispatchWorkItem(flags: .inheritQoS) {
+  let block = DispatchWorkItem(flags: .inheritQoS) { // You create a new DispatchWorkItem. You pass in a flags parameter to specify that the block should inherit its Quality of Service class from the queue you dispatch it to. Then, you define the work to do in a closure.
     let address = addresses[index]
     let url = URL(string: address)
     let photo = DownloadPhoto(url: url!) { _, error in
@@ -47,26 +43,15 @@ for index in 0..<addresses.count {
     PhotoManager.shared.addPhoto(photo)
   }
   blocks.append(block)
-
-  // 4
-  DispatchQueue.main.async(execute: block)
+  DispatchQueue.main.async(execute: block) // You dispatch the block asynchronously to the main queue. For this example, using the main queue makes it easier to cancel select blocks since it's a serial queue. The code that sets up the dispatch blocks is already executing on the main queue so you are guaranteed that the download blocks will execute at some later time.
 }
-
-// 5
-for block in blocks[3..<blocks.count] {
-
-  // 6
-  let cancel = Bool.random()
+for block in blocks[3..<blocks.count] { // You skip the first three download blocks by slicing the blocks array.
+  let cancel = Bool.random() // Here you use Bool.random() to randomly pick between true and false. It's like a coin toss.
   if cancel {
-
-    // 7
-    block.cancel()
-
-    // 8
-    downloadGroup.leave()
+    block.cancel() // If the random value is true, you cancel the block. This can only cancel blocks that are still in a queue and haven't began executing. You can't cancel a block in the middle of execution.
+    downloadGroup.leave() // Here you remember to remove the canceled block from the dispatch group.
   }
 }
-
 downloadGroup.notify(queue: DispatchQueue.main) {
   completion?(storedError)
 }
@@ -75,3 +60,4 @@ downloadGroup.notify(queue: DispatchQueue.main) {
 ### Resources:
 - Canceling, resuming all items: [https://blog.natanrolnik.me/dispatch-work-item](https://blog.natanrolnik.me/dispatch-work-item)
 - debouncer: https://github.com/onmyway133/blog/issues/376 and https://twitter.com/_inside/status/984827954432798723/photo/1
+- Examples and description: [https://www.raywenderlich.com/5371-grand-central-dispatch-tutorial-for-swift-4-part-2-2#toc-anchor-005](https://www.raywenderlich.com/5371-grand-central-dispatch-tutorial-for-swift-4-part-2-2#toc-anchor-005)  

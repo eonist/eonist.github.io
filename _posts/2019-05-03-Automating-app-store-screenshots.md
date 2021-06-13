@@ -1,6 +1,6 @@
 My notes on automating screenshots for the app store<!--more-->.
 
-> The quality on an app’s screenshot is fundamental in the decision of buying/downloading on the AppStore.
+> The quality of an app’s screenshot is fundamental in the decision of buying/downloading on the AppStore.
 
 ### Requisites:
 1. Download and install Fastlane Snapshot for terminal: [https://github.com/fastlane/fastlane/releases](https://github.com/fastlane/fastlane/releases)  
@@ -21,7 +21,8 @@ My notes on automating screenshots for the app store<!--more-->.
 - Edit the titles.strings file in xcode (other apps breaks the syntax)
 - To only add frame with out title, just provide the default fastlane.json
 - ⚠️Important: ⚠️If you set the langue to different than english in snapfile, then after you run a snapshot session. This lang will be inherited in xcode simulator. If you use the setupSnapshot method. To roll this back either set the lang to english and run a snapshot session from terminal or comment out the setupSnapshot method.
-- ⚠️Important: ⚠️Language will hang in snapshot: if you don’t set the scheme lang back to system lang. Also uncomment setupSnapshot if you did that 
+- ⚠️Important: ⚠️Language will hang in snapshot: if you don’t set the scheme lang back to system lang. Also uncomment setupSnapshot if you did that
+
 ### Tips:
 - To reset all simulators: Terminal: `fastlane snapshot reset_simulators`
 
@@ -33,4 +34,4 @@ My notes on automating screenshots for the app store<!--more-->.
 - Using XCode-UI-testing:
 - Great overview of all the Fastlane tools: [https://www.raywenderlich.com/233168-fastlane-tutorial-getting-started](https://www.raywenderlich.com/233168-fastlane-tutorial-getting-started)
 - StatusMagic: [https://medium.com/@juli1quere/a-perfect-status-bar-on-screenshots-with-fastlane-84a94a350b2a](https://medium.com/@juli1quere/a-perfect-status-bar-on-screenshots-with-fastlane-84a94a350b2a)
-- Shots is a sketch plugin that helps frame iphone screens. [https://github.com/jtholloran/shots](https://github.com/jtholloran/shots)
+- Shots is a sketch plugin that helps frame iPhone screens. [https://github.com/jtholloran/shots](https://github.com/jtholloran/shots)

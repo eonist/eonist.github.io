@@ -55,6 +55,32 @@ DispatchQueue.concurrentPerform(iterations: paths.count) { i in
 
 ```
 
+### Using concurrentPerform and DispatchGroup:
+
+```swift
+var storedError: NSError?
+let downloadGroup = DispatchGroup()
+let addresses = [PhotoURLString.overlyAttachedGirlfriend,
+                 PhotoURLString.successKid,
+                 PhotoURLString.lotsOfFaces]
+let _ = DispatchQueue.global(qos: .userInitiated)
+DispatchQueue.concurrentPerform(iterations: addresses.count) { index in
+  let address = addresses[index]
+  let url = URL(string: address)
+  downloadGroup.enter()
+  let photo = DownloadPhoto(url: url!) { _, error in
+    if error != nil {
+      storedError = error
+    }
+    downloadGroup.leave()
+  }
+  PhotoManager.shared.addPhoto(photo)
+}
+downloadGroup.notify(queue: DispatchQueue.main) {
+  completion?(storedError)
+}
+```
+
 ### Correct way to specify the QoS is to dispatch the call to concurrentPerform to the desired queue:
 [https://developer.apple.com/videos/play/wwdc2017/706/?time=285](https://developer.apple.com/videos/play/wwdc2017/706/?time=285)
 ```swift

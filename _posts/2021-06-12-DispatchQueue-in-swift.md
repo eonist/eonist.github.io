@@ -3,10 +3,10 @@ My notes on DispatchQueue in swift<!--more-->
 ### Examples:
 ```swift
 DispatchQueue.main.async {
-   //do something on the main thread
+   sleep(2) // do something on the main thread
 }
 DispatchQueue.global(qos: .background).async {
-   //do something on a background thread
+   sleep(2) // do something on a background thread
 }
 
 ```

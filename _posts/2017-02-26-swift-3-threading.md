@@ -31,7 +31,7 @@ A must if you also need to cancel your async tasks: [https://www.raywenderlich.c
 
 ## Threading 1 0n 1:
 
-Awesome guy:http://stackoverflow.com/users/4665907/that-lazy-ios-guy-웃 Made a 15min video about Threading in swift 3 just for me:
+Awesome guy: http://stackoverflow.com/users/4665907/that-lazy-ios-guy-웃 Made a 15min video about Threading in swift 3 just for me:
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/YhZahnTiA8U" frameborder="0" allowfullscreen></iframe>
 

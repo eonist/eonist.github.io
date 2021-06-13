@@ -11,9 +11,9 @@ My notes on making things async in swift <!--more-->
 // 🏀
 
 ### DispatchWorkItem
-- Ability to cancel tasks in the queue
+- Ability to cancel many tasks in the queue
 - Simpler than NsOperationQueue
-- Can be used for Search trotting for instance
+- Can be built for Search trotting functionality for instance
 // 🏀
 
 ### NSOperationQueue
@@ -44,4 +44,5 @@ _2021-06-12-DispatchQueue-in-swift
 2020-07-08-how-to-do-concurrency-in-swift
 2019-12-21-Concurrent-perform
 2019-10-14-Semaphores
+2017-02-26-swift-3-threading
 https://github.com/eonist/ParallelLoop

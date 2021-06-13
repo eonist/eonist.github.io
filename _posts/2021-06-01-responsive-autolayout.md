@@ -1,7 +1,6 @@
 My notes on making responsive layouts with auto-layout<!--more-->
 
 ### Priority
-
 - Think of setting priorities to constraints as a way of giving more mass to objects, if they have more priority they manipulate other elements, if they have less, then other lements manipulate their size or position
 - You can make elements have dynamic priorities by adding min, max, default priorities to constraints.
 - Using priority is a great way to experiment with responsive layouts

@@ -1,4 +1,5 @@
 My notes on setting up a UI-testing-framework<!--more-->
+> This is for carthage, but can easily be done with SPM
 
 ## 100% Carthage .framework support
 - Add the `UITestSugar.framework` to the Test-project folder 👉 drag it to the frameworks folder. 👉 select the UITestTarget

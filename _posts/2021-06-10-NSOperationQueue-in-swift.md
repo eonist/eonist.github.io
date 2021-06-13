@@ -125,28 +125,7 @@ imgSaveQueue.addOperation(BlockOperation(block: {
  	//your image saving code here
 }))
 ```
-### Example (objc):
-```objc
-NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-queue.maxConcurrentOperationCount = 4;   // generally with network requests, you don't want to exceed 4 or 5 concurrent operations;
-                                         // it doesn't matter too much here, since there are only 3 operations, but don't
-                                         // try to run more than 4 or 5 network requests at the same time
-NSOperation *operation1 = [[NetworkOperation alloc] initWithRequest:request1 completionHandler:^(NSData *data, NSError *error) {
-    [self doSomethingWithData:data fromRequest:request1 error:error];
-}];
-NSOperation *operation2 = [[NetworkOperation alloc] initWithRequest:request2 completionHandler:^(NSData *data, NSError *error) {
-    [self doSomethingWithData:data fromRequest:request2 error:error];
-}];
-NSOperation *operation3 = [[NetworkOperation alloc] initWithRequest:request3 completionHandler:^(NSData *data, NSError *error) {
-    [self doSomethingWithData:data fromRequest:request3 error:error];
-}];
-[operation2 addDependency:operation1];   // don't start operation2 or 3 until operation1 is done
-[operation3 addDependency:operation1];
 
-[queue addOperation:operation1];         // now add all three to the queue
-[queue addOperation:operation2];
-[queue addOperation:operation3];
-```
 ### Logging operation example:
 
 ```swift
@@ -161,110 +140,12 @@ class LoggingOperation : Operation {
 }
 ```
 
-### Queue concept:
-- A queue is a list where you can only insert new items at the back and remove items from the front. This ensures that the first item you enqueue is also the first item you dequeue. First come, first serve!
-- A Queue fits quite well any use-cases where the information needs to be computed in the specific entry order. For instance, if you build a chat interface, you want to include each message in the same way they have been typed. Queueing them in the same order while sent to a backend service would be a nice way to do it.
-
-### Queue:
-Queue system that doesn't use operations:
-- Enqueue inserts an element to the back of the queue.
-- Dequeue removes the element at the front of the queue.
-
-**String example:**
-```swift
-struct Queue {
-    var items:[String] = []
-    mutating func enqueue(element: String) {
-        items.append(element)
-    }
-    mutating func dequeue() -> String? {
-        if items.isEmpty { return nil }
-        else {
-            let tempElement = items.first
-            items.remove(at: 0)
-            return tempElement
-        }
-    }
-}
-```
-
-**Generic example:**
-```swift
-struct Queue<T> {
-  private var elements: [T] = []
-  // Add
-  mutating func enqueue(_ value: T) {
-    elements.append(value)
-  }
-  // Remove
-  mutating func dequeue() -> T? {
-    guard !elements.isEmpty else { return nil }
-    return elements.removeFirst()
-  }
-  // first
-  var head: T? {
-    return elements.first
-  }
-  // last
-  var tail: T? {
-     return elements.last
-  }
-  public var isEmpty: Bool {
-     return list.isEmpty
-  }
-}
-let queue = Queue<String>()
-queue.enqueue("Adam")
-queue.enqueue("Julia")
-queue.enqueue("Ben")
-
-// We have 3 customers to serve, we're going to serve them in order of arrived
-let serving = queue.dequeue() // Adam
-let nextToServe = queue.head // Julia
-```
-
-### Double Ended Queue
-A Double Ended Queue lets you add and remove elements at both ends of the queue. That means besides the enqueue, dequeue functions, you need to add two additional equeueFront and dequeueBack functions too.
-
-Following code shows a Double Ended Queue structure using an Array.
-```swift
-public struct Deque<T> {
-    private var items = [T]()
-    mutating func enqueue(element: T) {
-        items.append(element)
-    }
-    mutating func enqueueFront(element: T) {
-        items.insert(element, at: 0)
-    }
-    mutating func dequeue() -> T?{
-        if items.isEmpty {
-            return nil
-        } else {
-            return items.removeFirst()
-        }
-    }
-    mutating func dequeueBack() -> T? {
-        if items.isEmpty {
-            return nil
-        } else {
-            return items.removeLast()
-        }
-    }
-}
-```
-In the above illustration, enqueueFront adds the new element before the current one. deuqueBack() deletes the last element from the queue.
-
-This brings an end to this quick tutorial on Swift Queue data structure implementation.
-
 ### References
 - Great read on NSOperation https://nshipster.com/nsoperation/
 - Explains addDependency: https://stackoverflow.com/questions/39100653/how-adddependency-method-works-in-nsoperationqueue/39100827
 - Passing data from one operation to the other: https://ioscoachfrank.com/chaining-nsoperations.html
-- Creating umbrella operations with many queues: (asbtract away common sequences of tasks etc) https://ioscoachfrank.com/grouping-operations.html
-- Stack is a LIFO data structure: https://www.journaldev.com/21287/swift-stack-implementation
-- complexe queues in swift: https://www.raywenderlich.com/books/data-structures-algorithms-in-swift/v3.0/chapters/8-queues (paid article)
+- Creating umbrella operations with many queues: (abstract away common sequences of tasks etc) https://ioscoachfrank.com/grouping-operations.html
 - Apple doc: https://developer.apple.com/documentation/foundation/operationqueue and https://developer.apple.com/documentation/dispatch/dispatchqueue
-- Algo club queue: https://github.com/raywenderlich/swift-algorithm-club/tree/master/Queue
 
 ### Questions:
 - What about timeout for tasks?
@@ -288,8 +169,7 @@ open class AsyncOperation: Operation {
         case done
     }
     private var state: State = .initial {
-        willSet {
-            // due to a legacy issue, these have to be strings. Don't make them key paths.
+        willSet { // due to a legacy issue, these have to be strings. Don't make them key paths.
             self.willChangeValue(forKey: "isExecuting")
             self.willChangeValue(forKey: "isFinished")
         }
@@ -339,11 +219,7 @@ class AsynchronousOperation: Operation {
       case Ready
       case Executing
       case Finished
-      private var keyPath: String {
-         get {
-            return "is" + self.rawValue
-         }
-      }
+      private var keyPath: String { return "is" + self.rawValue }
    }
    var state: State = .Ready {
       willSet {
@@ -355,21 +231,9 @@ class AsynchronousOperation: Operation {
          didChangeValue(forKey: oldValue.rawValue)
       }
    }
-   override var isAsynchronous: Bool {
-      get {
-         return true
-      }
-   }
-   override var isExecuting: Bool {
-      get {
-         return state == .Executing
-      }
-   }
-   override var isFinished: Bool {
-      get {
-         return state == .Finished
-      }
-   }
+   override var isAsynchronous: Bool { true }
+   override var isExecuting: Bool { state == .Executing }
+   override var isFinished: Bool { state == .Finished }
    override func start() {
       if self.isCancelled {
          state = .Finished
@@ -382,8 +246,7 @@ class AsynchronousOperation: Operation {
       if self.isCancelled {
          state = .Finished
       } else {
-         state = .Executing
-         //Asynchronous logic (eg: n/w calls) with callback {
+         state = .Executing // Asynchronous logic (eg: n/w calls) with callback {
       }
    }
 }
@@ -398,31 +261,27 @@ But beware! When using this base class, we’ll need to make sure that all code 
 class ConcurrentOperation: Operation {
     private var backing_executing : Bool
     override var isExecuting : Bool {
-        get { return backing_executing }
+        get { backing_executing }
         set {
             willChangeValue(forKey: "isExecuting")
             backing_executing = newValue
             didChangeValue(forKey: "isExecuting")
         }
     }
-
     private var backing_finished : Bool
     override var isFinished : Bool {
-        get { return backing_finished }
+        get { backing_finished }
         set {
             willChangeValue(forKey: "isFinished")
             backing_finished = newValue
             didChangeValue(forKey: "isFinished")
         }
     }
-
     override init() {
         backing_executing = false
         backing_finished = false
-
         super.init()
     }
-
     func completeOperation() {
         isExecuting = false
         isFinished = true
@@ -431,40 +290,32 @@ class ConcurrentOperation: Operation {
 ```
 
 ### Super class for the above
-
 ```swift
 class FetchPokemonOperation : ConcurrentOperation {
     private var task: URLSessionDataTask?
     var data: AnyObject?
-
     override func main() {
         if isCancelled {
 	    completeOperation()
             return
         }
-
         let session = URLSession(configuration: .ephemeral)
         let request = URLRequest(url: URL.init(string: "http://pokeapi.co/api/v2/pokemon/151/")!)
-
         task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             if self.isCancelled {
 	        self.completeOperation()
                 return
             }
-
-            //Be a good citizen and handle errors, ok? :)
-
+            // Be a good citizen and handle errors, ok? :)
             let parsedResponse = try! JSONSerialization.jsonObject(with: data!)
             self.data = parsedResponse as AnyObject
             print(self.data!)
 	    self.completeOperation()
         })
-
         task?.resume()
     }
 }
 ```
-
 
 ### Photo app example code:
 This simple class represents each photo displayed in the app, together with its current state, which defaults to .new. The image defaults to a placeholder.
@@ -513,26 +364,19 @@ Note: The methods for downloading and filtering images are implemented separatel
 Downloader
 ```swift
 class ImageDownloader: Operation {
-  //1
-  let photoRecord: PhotoRecord
-  //2
-  init(_ photoRecord: PhotoRecord) {
+  let photoRecord: PhotoRecord //1
+  init(_ photoRecord: PhotoRecord) { //2
     self.photoRecord = photoRecord
   }
-  //3
-  override func main() {
-    //4
-    if isCancelled {
+  override func main() { //3
+    if isCancelled { //4
       return
     }
-    //5
-    guard let imageData = try? Data(contentsOf: photoRecord.url) else { return }
-    //6
-    if isCancelled {
+    guard let imageData = try? Data(contentsOf: photoRecord.url) else { return } //5
+    if isCancelled { //6
       return
     }
-    //7
-    if !imageData.isEmpty {
+    if !imageData.isEmpty { //7
       photoRecord.image = UIImage(data:imageData)
       photoRecord.state = .downloaded
     } else {
@@ -542,24 +386,16 @@ class ImageDownloader: Operation {
   }
 }
 ```
-filter
+**filter**
 ```swift
 class ImageFiltration: Operation {
   let photoRecord: PhotoRecord
-
   init(_ photoRecord: PhotoRecord) {
     self.photoRecord = photoRecord
   }
-
   override func main () {
-    if isCancelled {
-        return
-    }
-
-    guard self.photoRecord.state == .downloaded else {
-      return
-    }
-
+    if isCancelled { return }
+    guard self.photoRecord.state == .downloaded else { return }
     if let image = photoRecord.image,
        let filteredImage = applySepiaFilter(image) {
       photoRecord.image = filteredImage
@@ -567,37 +403,27 @@ class ImageFiltration: Operation {
     }
   }
   func applySepiaFilter(_ image: UIImage) -> UIImage? {
-  guard let data = UIImagePNGRepresentation(image) else { return nil }
-  let inputImage = CIImage(data: data)
-
-  if isCancelled {
-    return nil
-  }
-
-  let context = CIContext(options: nil)
-
-  guard let filter = CIFilter(name: "CISepiaTone") else { return nil }
-  filter.setValue(inputImage, forKey: kCIInputImageKey)
-  filter.setValue(0.8, forKey: "inputIntensity")
-
-  if isCancelled {
-    return nil
-  }
-
-  guard
-    let outputImage = filter.outputImage,
-    let outImage = context.createCGImage(outputImage, from: outputImage.extent)
-  else {
-    return nil
-  }
-
-  return UIImage(cgImage: outImage)
-}
+     guard let data = UIImagePNGRepresentation(image) else { return nil }
+     let inputImage = CIImage(data: data)
+     if isCancelled { return nil }
+     let context = CIContext(options: nil)
+     guard let filter = CIFilter(name: "CISepiaTone") else { return nil }
+     filter.setValue(inputImage, forKey: kCIInputImageKey)
+     filter.setValue(0.8, forKey: "inputIntensity")
+     if isCancelled { return nil }
+     guard
+       let outputImage = filter.outputImage,
+       let outImage = context.createCGImage(outputImage, from: outputImage.extent)
+     else {
+       return nil
+     }
+     return UIImage(cgImage: outImage)
+   }
 }
 
 ```
 
-In the table code:
+**In the table code:**
 
 ```swift
 func startOperations(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
@@ -612,79 +438,82 @@ func startOperations(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
 }
 
 func startDownload(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
-  //1
-  guard pendingOperations.downloadsInProgress[indexPath] == nil else {
+  guard pendingOperations.downloadsInProgress[indexPath] == nil else { //1
     return
   }
-
-  //2
-  let downloader = ImageDownloader(photoRecord)
-
-  //3
-  downloader.completionBlock = {
+  let downloader = ImageDownloader(photoRecord) //2
+  downloader.completionBlock = { //3
     if downloader.isCancelled {
       return
     }
-
     DispatchQueue.main.async {
       self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
       self.tableView.reloadRows(at: [indexPath], with: .fade)
     }
   }
-
-  //4
-  pendingOperations.downloadsInProgress[indexPath] = downloader
-
-  //5
-  pendingOperations.downloadQueue.addOperation(downloader)
+  pendingOperations.downloadsInProgress[indexPath] = downloader //4
+  pendingOperations.downloadQueue.addOperation(downloader) //5
 }
 
 func startFiltration(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
   guard pendingOperations.filtrationsInProgress[indexPath] == nil else {
       return
   }
-
   let filterer = ImageFiltration(photoRecord)
   filterer.completionBlock = {
     if filterer.isCancelled {
       return
     }
-
     DispatchQueue.main.async {
       self.pendingOperations.filtrationsInProgress.removeValue(forKey: indexPath)
       self.tableView.reloadRows(at: [indexPath], with: .fade)
     }
   }
-
   pendingOperations.filtrationsInProgress[indexPath] = filterer
   pendingOperations.filtrationQueue.addOperation(filterer)
 }
-
 if !tableView.isDragging && !tableView.isDecelerating {
   startOperations(for: photoDetails, at: indexPath)
 }
-
 override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-  //1
-  suspendAllOperations()
+  suspendAllOperations()//1
 }
-
 override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-  // 2
-  if !decelerate {
+  if !decelerate { // 2
     loadImagesForOnscreenCells()
     resumeAllOperations()
   }
 }
-
 override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-  // 3
-  loadImagesForOnscreenCells()
+  loadImagesForOnscreenCells() // 3
   resumeAllOperations()
 }
+// More and full project code at the bottom: https://www.raywenderlich.com/5293-operation-and-operationqueue-tutorial-in-swift
+```
 
-More and full project code at the bottom: https://www.raywenderlich.com/5293-operation-and-operationqueue-tutorial-in-swift
+### Example (objc):
+```objc
+NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+queue.maxConcurrentOperationCount = 4;   // generally with network requests, you don't want to exceed 4 or 5 concurrent operations;
+                                         // it doesn't matter too much here, since there are only 3 operations, but don't
+                                         // try to run more than 4 or 5 network requests at the same time
+NSOperation *operation1 = [[NetworkOperation alloc] initWithRequest:request1 completionHandler:^(NSData *data, NSError *error) {
+    [self doSomethingWithData:data fromRequest:request1 error:error];
+}];
+NSOperation *operation2 = [[NetworkOperation alloc] initWithRequest:request2 completionHandler:^(NSData *data, NSError *error) {
+    [self doSomethingWithData:data fromRequest:request2 error:error];
+}];
+NSOperation *operation3 = [[NetworkOperation alloc] initWithRequest:request3 completionHandler:^(NSData *data, NSError *error) {
+    [self doSomethingWithData:data fromRequest:request3 error:error];
+}];
+[operation2 addDependency:operation1];   // don't start operation2 or 3 until operation1 is done
+[operation3 addDependency:operation1];
+
+[queue addOperation:operation1];         // now add all three to the queue
+[queue addOperation:operation2];
+[queue addOperation:operation3];
 ```
 
 ### Todo:
 - Figure out how to add timeout to NSOperation
+- Figure out how NSOperation is started, can it be added to while it runs etc? 🏀
