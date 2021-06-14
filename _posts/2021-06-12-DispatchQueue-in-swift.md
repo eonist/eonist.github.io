@@ -8,8 +8,15 @@ DispatchQueue.main.async {
 DispatchQueue.global(qos: .background).async {
    sleep(2) // do something on a background thread
 }
-
 ```
+
+### Example with delay:
+```swift
+DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+   // Do something after 4 seconds have passed
+}
+```
+
 ### DispatchQoS Priority Levels:
 - **.userInteractive:** Used for work directly involved in providing an interactive UI
 - **.userInitiated:** Used for performing work that has been explicitly requested by the user

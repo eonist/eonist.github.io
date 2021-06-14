@@ -1,4 +1,4 @@
-# Code naming conventions:
+My notes on Code naming conventions<!--more-->
 
 ### Assertitional (to compare
 assert (state a fact or belief confidently)  
