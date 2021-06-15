@@ -1,7 +1,7 @@
 My top general advice posts<!--more-->
 
 ### Problem solving:
-- exposure to the problem [https://eon.codes/blog/2020/07/04/exposure-to-the-problem](https://eon.codes/blog/2020/07/04/exposure-to-the-problem)
+- Exposure to the problem [https://eon.codes/blog/2020/07/04/exposure-to-the-problem](https://eon.codes/blog/2020/07/04/exposure-to-the-problem)
 - Think about problems before you code [https://eon.codes/blog/2020/02/21/think-about-problems-before-you-code](https://eon.codes/blog/2020/02/21/think-about-problems-before-you-code)
 - 24 hour sprints [https://eon.codes/blog/2020/01/26/24-hour-sprints](https://eon.codes/blog/2020/01/26/24-hour-sprints)
 - Think research plan build [https://eon.codes/blog/2018/08/23/think-research-plan-build](https://eon.codes/blog/2018/08/23/think-research-plan-build)

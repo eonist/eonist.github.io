@@ -3,15 +3,15 @@ An overview of my most relevant projects on github <!--more-->
 ### Useful projects:
 - Simplifies adding DarkMode (for iOS and macOS): [https://github.com/sentryco/DarkMode](https://github.com/sentryco/DarkMode)
 - Camera Kit [https://github.com/eonist/Hybrid-Camera](https://github.com/eonist/Hybrid-Camera)
-- Concurrency helpers [https://github.com/eonist/ParallelLoop](https://github.com/eonist/ParallelLoop)
+- Concurrency tools [https://github.com/eonist/ParallelLoop](https://github.com/eonist/ParallelLoop)
 - AutoLayout framework [https://github.com/eonist/Spatial](https://github.com/eonist/Spatial)
-- MacOS UI elements [https://github.com/eonist/MUI](https://github.com/eonist/MUI)
+- Simple to use MacOS UI elements [https://github.com/eonist/MUI](https://github.com/eonist/MUI)
 - Track your file events [https://github.com/eonist/FileWatcher](https://github.com/eonist/FileWatcher)
-- Create hash of files [https://github.com/eonist/FileHasher](https://github.com/eonist/FileHasher)
 - Set properties with a closure [https://github.com/eonist/With](https://github.com/eonist/With)
-- Stream files [https://github.com/eonist/FileStreamer](https://github.com/eonist/FileStreamer)
+- Stream files to storage [https://github.com/eonist/FileStreamer](https://github.com/eonist/FileStreamer)
 - Fancy layout framework [https://github.com/eonist/FlowLayout](https://github.com/eonist/FlowLayout)
 - Makes running test sequences easier [https://github.com/eonist/TestRunner](https://github.com/eonist/TestRunner)
+- Create hash of files [https://github.com/eonist/FileHasher](https://github.com/eonist/FileHasher)
 
 ### Sugar:
 - UITest helpers [https://github.com/eonist/UITestSugar](https://github.com/eonist/UITestSugar)
