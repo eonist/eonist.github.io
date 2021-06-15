@@ -90,11 +90,10 @@ public struct Deque<T> {
     }
 }
 ```
-In the above illustration, enqueueFront adds the new element before the current one. deuqueBack() deletes the last element from the queue.
-
-This brings an end to this quick tutorial on Swift Queue data structure implementation.
+- In the above illustration, enqueueFront adds the new element before the current one. deuqueBack() deletes the last element from the queue.
+- This brings an end to this quick tutorial on Swift Queue data structure implementation.
 
 ### References:
-- Algo club queue: https://github.com/raywenderlich/swift-algorithm-club/tree/master/Queue
-- Stack is a LIFO data structure: https://www.journaldev.com/21287/swift-stack-implementation
-- complexe queues in swift: https://www.raywenderlich.com/books/data-structures-algorithms-in-swift/v3.0/chapters/8-queues (paid article)
+- Algo club queue: [https://github.com/raywenderlich/swift-algorithm-club/tree/master/Queue](https://github.com/raywenderlich/swift-algorithm-club/tree/master/Queue)
+- Stack is a LIFO data structure: [https://www.journaldev.com/21287/swift-stack-implementation](https://www.journaldev.com/21287/swift-stack-implementation)  
+- Complexe queues in swift: [https://www.raywenderlich.com/books/data-structures-algorithms-in-swift/v3.0/chapters/8-queues (paid article)](https://www.raywenderlich.com/books/data-structures-algorithms-in-swift/v3.0/chapters/8-queues (paid article))

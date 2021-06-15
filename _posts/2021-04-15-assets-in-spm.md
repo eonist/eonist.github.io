@@ -1,4 +1,4 @@
-Add assets to spm<!--more--> Only for Swift tools version of 5.3 or later
+Add assets to SPM<!--more--> Only for Swift tools version of 5.3 or later
 
 ### Examples
 In the Package.swift

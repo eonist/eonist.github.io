@@ -34,7 +34,8 @@ An overview of my most relevant projects on github <!--more-->
 
 ### Oldies but goodies:
 - A way to create classes and structs from json or xml: [https://github.com/eonist/ReflectionLib](https://github.com/eonist/ReflectionLib)  (Needs some love soon)
-- Custom design progress indicators: [https://github.com/eonist/ProgressIndicator](https://github.com/eonist/ProgressIndicator) 
+- Custom design progress indicators: [https://github.com/eonist/ProgressIndicator](https://github.com/eonist/ProgressIndicator)
+- Alternative way to added file assets in SPM: [https://github.com/eonist/ResourceHelper](https://github.com/eonist/ResourceHelper) 
 
 ### Gists:
 - Extension to get device model name [https://github.com/eonist/DeviceModelName](https://github.com/eonist/DeviceModelName)
