@@ -1,4 +1,4 @@
-My notes on making things async in swift <!--more-->
+My notes on queuing tasks up and making things concurrent in swift <!--more-->
 
 ### DispatchQueue
 - Call items async or sync
@@ -8,13 +8,11 @@ My notes on making things async in swift <!--more-->
 ### DispatchGroup:
 - Launch many operations async or serial and attach a completionBlock when they all complete
 - If one operation fail, you have to call .leave. or else complete is never called, you can use .wait for group timeout
-// 🏀
 
 ### DispatchWorkItem
 - Ability to cancel many tasks in the queue
 - Simpler than NsOperationQueue
 - Can be built for Search trotting functionality for instance
-// 🏀
 
 ### NSOperationQueue
 - More complex than DispatchWorkItem (can be a good idea to start with DispatchWorkItem before advancing to NSOperation)
@@ -37,16 +35,17 @@ My notes on making things async in swift <!--more-->
 - Semaphores also has the ability to timeout similarly to `dispatchgroup`
 
 ### References:
-2016-12-23-Background-thread
-_2021-06-12-DispatchQueue-in-swift
-2017-04-03-Dispatch-group
-2021-06-10-NSOperationQueue-in-swift
-2020-07-08-how-to-do-concurrency-in-swift
-2019-12-21-Concurrent-perform
-2019-10-14-Semaphores
-2017-02-26-swift-3-threading
-https://github.com/eonist/ParallelLoop
+- [https://eon.codes/blog/2021/06/12/design-pattern-overview.md](https://eon.codes/blog/2021/06/12/design-pattern-overview.md)
+- [https://eon.codes/blog/2016/12/23/Background-thread.md](https://eon.codes/blog/2016/12/23/Background-thread.md)
+- [https://eon.codes/blog/2021/06/12/DispatchQueue-in-swift.md](https://eon.codes/blog/2021/06/12/DispatchQueue-in-swift.md)
+- [https://eon.codes/blog/2017/04/03/Dispatch-group.md](https://eon.codes/blog/2017/04/03/Dispatch-group.md)
+- [https://eon.codes/blog/2021/06/10/NSOperationQueue-in-swift.md](https://eon.codes/blog/2021/06/10/NSOperationQueue-in-swift.md)
+- [https://eon.codes/blog/2020/07/08/how-to-do-concurrency-in-swift.md](https://eon.codes/blog/2020/07/08/how-to-do-concurrency-in-swift.md)
+- [https://eon.codes/blog/2019/12/21/Concurrent-perform.md](https://eon.codes/blog/2019/12/21/Concurrent-perform.md)
+- [https://eon.codes/blog/2019/10/14/Semaphores.md](https://eon.codes/blog/2019/10/14/Semaphores.md)
+- [https://eon.codes/blog/2017/02/26/swift-3-threading.md](https://eon.codes/blog/2017/02/26/swift-3-threading.md)
+- [https://github.com/eonist/ParallelLoop](https://github.com/eonist/ParallelLoop)
 
 
 ### Todo:
-- write about async UnitTesting in xCode
+- write about async UnitTesting in xCode (or ref to the one you wrote before)
