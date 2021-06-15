@@ -2,7 +2,7 @@ My notes on complexity<!--more-->It's always the complexities that gets you. Cre
 
 Basically you get to a point were you don't have the resources to maintain the creation.
 
-The sweet spot is:
+### The sweet spot is:
 1. Easy to maintain
 2. High utility
 3. Solves something elegantly

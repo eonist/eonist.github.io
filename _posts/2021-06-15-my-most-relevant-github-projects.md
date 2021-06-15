@@ -1,6 +1,7 @@
 An overview of my most relevant projects on github <!--more-->
 
 ### Useful projects:
+- Simplifies adding DarkMode (for iOS and macOS): [https://github.com/sentryco/DarkMode](https://github.com/sentryco/DarkMode)
 - Camera Kit [https://github.com/eonist/Hybrid-Camera](https://github.com/eonist/Hybrid-Camera)
 - Concurrency helpers [https://github.com/eonist/ParallelLoop](https://github.com/eonist/ParallelLoop)
 - AutoLayout framework [https://github.com/eonist/Spatial](https://github.com/eonist/Spatial)
@@ -35,7 +36,7 @@ An overview of my most relevant projects on github <!--more-->
 ### Oldies but goodies:
 - A way to create classes and structs from json or xml: [https://github.com/eonist/ReflectionLib](https://github.com/eonist/ReflectionLib)  (Needs some love soon)
 - Custom design progress indicators: [https://github.com/eonist/ProgressIndicator](https://github.com/eonist/ProgressIndicator)
-- Alternative way to added file assets in SPM: [https://github.com/eonist/ResourceHelper](https://github.com/eonist/ResourceHelper) 
+- Alternative way to added file assets in SPM: [https://github.com/eonist/ResourceHelper](https://github.com/eonist/ResourceHelper)
 
 ### Gists:
 - Extension to get device model name [https://github.com/eonist/DeviceModelName](https://github.com/eonist/DeviceModelName)
