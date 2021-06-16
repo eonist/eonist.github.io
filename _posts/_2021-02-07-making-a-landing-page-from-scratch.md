@@ -1,4 +1,4 @@
-For me it's hard to use something exciting and trying to customize it. When something has matured, its hard to wrangle it to be something else. Unless the changes are miniscule. They often are not. Builing something from scratch is sort of easier, because you can always start with simple bricks and a state that is pristine and has no legacy and things to worry about. But what do you start with?<!--more-->
+For me it's hard to use something exciting and trying to customize it. When something has matured, it's hard to wrangle it to be something else. Unless the changes are miniscule. They often are not. Builing something from scratch is sort of easier, because you can always start with simple bricks and a state that is pristine and has no legacy and things to worry about. But what do you start with?<!--more-->
 
 Sketch out the design in a notebook, one for desktop, and one for mobile. And use figma or sketch to make the blueprints how the site should look. Use a 12 column grid with gutter and margins. Google this to get the sizes needed. Elements should snap to the 12 column grid. try to use simple row spacing. like 6, 12, 24, 32, 48, 96, 128 etc.
 
@@ -10,7 +10,7 @@ Sketch out the design in a notebook, one for desktop, and one for mobile. And us
 
 Happy coding
 
-Some tips:
+### Some tips:
 
 **Centering things vertically:** 😅
 ```
@@ -33,7 +33,7 @@ justify-content: center;
 align-items: center;
 ```
 
-target nth:
+### target nth:
 ```css
 header nav ul li:nth-of-type(1) {
 	background-color: cyan;

@@ -18,5 +18,5 @@ My top general advice posts<!--more-->
 - Reducing complexity [https://eon.codes/blog/2021/06/09/reducing-complexity](https://eon.codes/blog/2021/06/09/reducing-complexity)
 - The art of simplicity [https://eon.codes/blog/2021/06/09/The-art-of-simplicity](https://eon.codes/blog/2021/06/09/The-art-of-simplicity)
 - Fleeting device workflow [https://eon.codes/blog/2020/10/28/fleeting-device-workflow](https://eon.codes/blog/2020/10/28/fleeting-device-workflow)
-- Github-collaboration [https://eon.codes/blog/2018/07/16/Github-collaboration](https://eon.codes/blog/2018/07/16/Github-collaboration)
+- Github collaboration [https://eon.codes/blog/2018/07/16/Github-collaboration](https://eon.codes/blog/2018/07/16/Github-collaboration)
 - The rock pebble and the sand (⚠️️ unfinished article ⚠️️) [https://eon.codes/blog/2020/07/11/the-rock-pebble-and-the-sand](https://eon.codes/blog/2020/07/11/the-rock-pebble-and-the-sand)

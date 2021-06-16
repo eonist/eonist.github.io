@@ -43,4 +43,4 @@ An overview of my most relevant projects on github <!--more-->
 
 ### Honourable mentions:
 - Always loved the DrawLab experiment: Totally want to revisit it one day and work on it:
-https://github.com/eonist/DrawLab
+[https://github.com/eonist/DrawLab](https://github.com/eonist/DrawLab) 
