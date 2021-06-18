@@ -6,7 +6,7 @@ My notes on DispatchWorkItem<!--more-->
 - Ability to cancel many tasks in the queue
 - Simpler than NsOperationQueue
 - Can be built for Search trotting functionality for instance
-
+- Has ability to wait until work is done (similar to semaphore)
 ## Basic example:
 ```swift
 let workItem = DispatchWorkItem {
@@ -23,9 +23,9 @@ let dwi = DispatchWorkItem {
         print("DispatchWorkItem \(i)")
     }
 }
-//perform on the current thread
+// Perform on the current thread
 dwi.perform()
-//perpform on the global queue
+// Perform on the global queue
 DispatchQueue.global().async(execute: dwi)
 ```
 
@@ -98,13 +98,13 @@ class Controller {
          print ("fetching data from the server")
          print (Thread.current)
       } // async task to fetch results based on the query
-      DispatchQueue. global().async(execute: newWorkItem) // starts the execution of new work item asynchronously
-      newWorkItem. wait( ) // blocks the thread until newWorkitem finishes execution
+      DispatchQueue.global().async(execute: newWorkItem) // starts the execution of new work item asynchronously
+      newWorkItem.wait( ) // blocks the thread until newWorkitem finishes execution
       print ("finished execution") // This gets printed after newWorkitem finishes execution
    }
 }
-let cont = Controller()
-cont . getSomethingFromServer( )
+let controller = Controller()
+controller.getSomethingFromServer( )
 ```
 
 - It is not recommended to use to wait() as it blocks the thread from execution.
@@ -158,7 +158,7 @@ let dispatchWorkItem = DispatchWorkItem{
 }
 
 let dg = DispatchGroup()
-//submiy work items to the group
+//submit work items to the group
 let dispatchQueue = DispatchQueue(label: "custom dq")
 dispatchQueue.async(group: dg) {
     print("block start")
@@ -172,7 +172,7 @@ dg.notify(queue: DispatchQueue.global()) {
 }
 ```
 
-### Example (use isCanceled flag to interupt processing)
+### Example (use isCanceled flag to interrupt processing)
 
 ```swift
 //create the dispatch work item
@@ -237,7 +237,6 @@ When the work item with the barrier flag starts executing, all the tasks in the 
 - Canceling, resuming all items: [https://blog.natanrolnik.me/dispatch-work-item](https://blog.natanrolnik.me/dispatch-work-item)
 - debouncer: https://github.com/onmyway133/blog/issues/376 and https://twitter.com/_inside/status/984827954432798723/photo/1
 - Examples and description: [https://www.raywenderlich.com/5371-grand-central-dispatch-tutorial-for-swift-4-part-2-2#toc-anchor-005](https://www.raywenderlich.com/5371-grand-central-dispatch-tutorial-for-swift-4-part-2-2#toc-anchor-005)  
-
 
 ## Example (cancel callback, but contrived 🤷, for reference):
 ```swift

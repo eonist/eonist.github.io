@@ -5,6 +5,7 @@ My notes on DispatchGroup <!--more-->
 - Calls must have the same amount of enter and leaves.
 - I suppose one could pass dispatch group refs as a variable and use it in a nested scenario.
 - DispatchGroups seems to work best when wanting to do many async tasks on background thread at the same time and have one onComplete for when all tasks complete.
+- DispatchGroup can also be used in conjunction with DispatchWorkItem
 
 ```swift
 import Foundation
@@ -15,7 +16,7 @@ import Foundation
 
 class ASyncTest {
    var bg = { return DispatchQueue.global(qos: DispatchQoS.QoSClass.background) }()/*Convenience*/
-	var main = { return DispatchQueue.main } ()/*Convenience*/
+	var main = { return DispatchQueue.main } () // Convenience
     /**
      * Next implement the bellow in your example:
      * - Todo: Also research blocks
@@ -23,26 +24,26 @@ class ASyncTest {
     init(){
             let group = DispatchGroup()
             group.enter()
-            bg.async{/*do 2 things at the same time*/
+            bg.async { // do 2 things at the same time
                 Swift.print("do default")
-                sleep(IntParser.random(3, 6).uint32)/*simulates task that takes between 1 and 6 secs*/
+                sleep(IntParser.random(3, 6).uint32) // simulates task that takes between 1 and 6 secs
                 group.leave()
             }
-            if("" != ""){
+            if("" != "") { // false
                 group.enter()
-                bg.async{/*do 2 things at the same time*/
+                bg.async { // do 2 things at the same time
                     Swift.print("do the first")
-                    sleep(IntParser.random(2, 7).uint32)/*simulates task that takes between 1 and 6 secs*/
+                    sleep(IntParser.random(2, 7).uint32) // simulates task that takes between 1 and 6 secs
                     group.leave()
                 }
-            }else{
+            } else { // true
                 Swift.print("do the second")
             }
 
-            //group.wait()/*wait blocks main thread, blocks UI, Its important that the notify comes after all enter and leaves has been assigned*/
-            /*notify also fires when nothing left or entered*/
-            group.notify(queue: main, execute: {/*you have to jump back on main thread to call things on main thread as this scope is still on bg thread*/
-                    Swift.print("🏁 group completed: 🏁")//make a method on mainThread and call that instead.
+            // group.wait()/*wait blocks main thread, blocks UI, Its important that the notify comes after all enter and leaves has been assigned*/
+            // notify also fires when nothing left or entered
+            group.notify(queue: main, execute: { // you have to jump back on main thread to call things on main thread as this scope is still on bg thread
+                    Swift.print("🏁 group completed: 🏁") // make a method on mainThread and call that instead.
             })
     }
 }
@@ -52,7 +53,6 @@ class ASyncTest {
 
 ## DispatchGroup and DispatchWorkItem
 A must if you also need to cancel your async tasks: [https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2](https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2)
-
 
 ## Threading 1 0n 1:
 Awesome guy:http://stackoverflow.com/users/4665907/that-lazy-ios-guy-웃 Made a 15min video about Threading in swift 3 just for me:
@@ -72,8 +72,8 @@ func myFunction() {
         a = 1
         group.leave()
     }
-    // does not wait. But the code in notify() is run
-    // after enter() and leave() calls are balanced
+    // Does not wait. But the code in notify() is run
+    // After enter() and leave() calls are balanced
     group.notify(queue: .main) {
         print(a)
     }
@@ -82,36 +82,25 @@ func myFunction() {
 
 ### Or you can wait (and return):
 ```swift
-
 func myFunction() -> Int? {
     var a: Int?
-
     let group = DispatchGroup()
     group.enter()
-
-    // avoid deadlocks by not using .main queue here
-    DispatchQueue.global(attributes: .qosDefault).async {
+    DispatchQueue.global(attributes: .qosDefault).async { // avoid deadlocks by not using .main queue here
         a = 1
         group.leave()
     }
-
-    // wait ...
-    group.wait()
-
-    // ... and return as soon as "a" has a value
-    return a
+    group.wait() // wait ...
+    return a // ... and return as soon as "a" has a value
 }
 ```
-
 
 ## Another example:
 ```swift
 // First, we create a group to synchronize our tasks
 let group = DispatchGroup()
-
 // NoteCollection is a thread-safe collection class for storing notes
 let collection = NoteCollection()
-
 // The 'enter' method increments the group's task count…
 group.enter()
 localDataSource.load { notes in
@@ -119,19 +108,16 @@ localDataSource.load { notes in
     // …while the 'leave' methods decrements it
     group.leave()
 }
-
 group.enter()
 iCloudDataSource.load { notes in
     collection.add(notes)
     group.leave()
 }
-
 group.enter()
 backendDataSource.load { notes in
     collection.add(notes)
     group.leave()
 }
-
 // This closure will be called when the group's task count reaches 0
 group.notify(queue: .main) { [weak self] in
     self?.render(collection)
