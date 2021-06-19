@@ -1,8 +1,8 @@
 My checklist when making a programmatic iOS app<!--more-->
 
 1. Clean up the `AppDelegate.swift` class and add a Window variable:
-2. Delete `Main storyboard file base name` in the info.plist (since xcode 11 also remove scenedelegate)
-3. Now you can delete ViewController.swift `and` Main.storyboard (since xcode 11 also remove scenedelegate)
+2. Delete `Main storyboard file base name` in the info.plist (since xCode 11 also remove scenedelegate)
+3. Now you can delete ViewController.swift `and` Main.storyboard (since xCode 11 also remove scenedelegate)
 4. Add MainVC and MainView
 5. `CMD + R` Run the app, if the background is orange it works
 
