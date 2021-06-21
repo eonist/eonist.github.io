@@ -12,6 +12,7 @@ My notes on queuing tasks up and making things concurrent in swift <!--more-->
 ### DispatchWorkItem:
 - Ability to cancel many tasks in the queue
 - Simpler than NsOperationQueue
+- has ability to wait (side effect is that it block the thread)
 - Can be built for Search trotting functionality for instance
 
 ### NSOperationQueue:

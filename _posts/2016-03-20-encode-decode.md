@@ -1,9 +1,9 @@
-Encoding and decoding of text<!--more-->, Use full when calling shell commands etc. 
+Encoding and decoding of text<!--more-->, Use full when calling shell commands etc.
 
 
 ```swift
 let str = "testing this stuff.121"
-        
+
 let escaped = str.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLPathAllowedCharacterSet())
 Swift.print("escaped: " + "\(escaped)")//escaped: Optional("testing%20this%20stuff.121")
 //(test as NSString).UTF8String
@@ -12,8 +12,6 @@ let unEscaped = escaped!.stringByRemovingPercentEncoding
 Swift.print("unEscaped: " + "\(unEscaped)")//unEscaped: Optional("testing this stuff.121")
 ```
 
-
-
 ```swift
 let myFileString = "My File.txt"
 if let urlwithPercentEscapes = myFileString.stringByAddingPercentEncodingWithAllowedCharacters( NSCharacterSet.URLPathAllowedCharacterSet()) {
@@ -21,7 +19,7 @@ if let urlwithPercentEscapes = myFileString.stringByAddingPercentEncodingWithAll
 }
 ```
 
-## Options: 
+## Options:
 
 - URLFragmentAllowedCharacterSet()
 
@@ -55,5 +53,5 @@ if let urlwithPercentEscapes = myUrlString.stringByAddingPercentEncodingWithAllo
 ## Links:
 http://stackoverflow.com/questions/8086584/objective-c-url-encoding
 
-## Unicode guide: 
+## Unicode guide:
 https://www.objc.io/issues/9-strings/unicode/

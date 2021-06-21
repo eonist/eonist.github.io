@@ -1,11 +1,11 @@
-My notes on nesting async tasks on a background thread<!--more--> 
+My notes on nesting async tasks on a background thread<!--more-->
 
 **⚠️️ This is not the proper way to group Tasks this is considered callback hell, Instead use: DispatchGroup ⚠️️**
 
 ```swift
 
-//do 3 things async, 
-//then in each 3 things do 2 things async 
+//do 3 things async,
+//then in each 3 things do 2 things async
 //report back when all inner tasks finish 🍏
 //report back when all outer tasks finish 🏁
 
@@ -87,8 +87,8 @@ Outputs:
 
 
 ### DispatchGroup:
-Dispatch groups must enter and leave inside async calls on the bg thread. and must have the same amount of enter and leaves. 
-I suppose one could pass dispatch group refs as a variable and use it in a nested scenario. But DispatchGroups seems to work best when wanting to do many async tasks on bg thread at the same time and have one onComplete for when all tasks complete. 
+Dispatch groups must enter and leave inside async calls on the bg thread. and must have the same amount of enter and leaves.
+I suppose one could pass dispatch group refs as a variable and use it in a nested scenario. But DispatchGroups seems to work best when wanting to do many async tasks on bg thread at the same time and have one onComplete for when all tasks complete.
 
 ```swift
 class ASyncTest {
@@ -96,7 +96,7 @@ class ASyncTest {
 	var main = {return DispatchQueue.main}()/*Convenience*/
     init(){
             let group = DispatchGroup()
-            
+
             bg.async{/*do 2 things at the same time*/
                 group.enter()
                 Swift.print("do default")
@@ -113,7 +113,7 @@ class ASyncTest {
             }else{
                 Swift.print("do the second")
             }
-            
+
             //group.wait()/*wait blocks main thread*/
             group.notify(queue: bg, execute: {
                 main.async {/*you have to jump back on main thread to call things on main thread as this scope is still on bg thread*/
@@ -124,3 +124,14 @@ class ASyncTest {
     }
 }
 ```
+
+## Other:
+Has custom cancel code: (Operations can be paused, resumed, and cancelled. Once you dispatch a task using Grand Central Dispatch, you no longer have control or insight into the execution of that task. The NSOperation)
+
+https://www.raywenderlich.com/76341/use-nsoperation-nsoperationqueue-swift
+
+Hydra:
+https://github.com/malcommac/Hydra
+
+FreshOs/then
+https://github.com/freshOS/then

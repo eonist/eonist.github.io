@@ -750,10 +750,10 @@ print((1...40).contains(40)) // true
 
 
 ### 42. Map ranges:
+Creates an array of random numbers
 
 ```swift
 func randInt() -> Int { return Int(arc4random()) }
-
 let randomArray = (1...4).map { _ in randInt() } // 3,1,2,2
 ```
 
@@ -913,3 +913,10 @@ static func clamp(val: CGFloat, min: CGFloat, max: CGFloat) -> CGFloat {
 ### 56 Autolayout across different subviews
 
 Nice to know. If you ever want to use autolayout but need things to be above other elements etc. Autolayout works across subviews 👌
+
+### 57 EitherOr
+by adding more .random calls you decrease the chance of being false.  
+1/2, 1/4, 1/6, 1/8 etc
+```swift
+let eitherOr: Bool = !(Bool.random() && Bool.random()) // 1 in 4
+```
