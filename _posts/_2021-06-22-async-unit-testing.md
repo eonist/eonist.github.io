@@ -25,4 +25,7 @@ func testAsyncFunction() {
 ```
 
 ### Inverted Expectations
-Inverted Expectations allows us to verify that something did not happen:
+Inverted Expectations allows us to verify that something did not happen
+
+### Todo:
+- look into: XCTNSPredicateExpectation
