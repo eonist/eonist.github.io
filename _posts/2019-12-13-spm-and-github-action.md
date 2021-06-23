@@ -1,16 +1,17 @@
 My notes on using swift package manager and Github actions together<!--more--> ⚠️️ CAUTION ⚠️️ Syntax is extremely sensitive to indentation, don't use tabs etc. Keep the structure github provides
 
 ## Adding SPM unit-test to github actions:
+> You can also copy pre-existing `.github/` folders and reuse the Test.yml file, just make sure you run `swift test` in terminal before you upload etc. Also add a badge to your readme in the github actions pan on github
 
 1. Terminal: in project-path: `Swift package init`
 2. Make xCode project
-3. Add unit-test target in XCode name it: `SomeTest`
+3. Add unit-test target in xCode name it: `SomeTest`
 4. Drag `/Tests` folder into xCode top level of file-sidemenu (you created Tests/ via SPM)
-5. Move the `SomeTest` into Tests folder (you created this in xcode)
+5. Move the `SomeTest` into Tests folder (you created this in xCode)
 6. In the `test-target` build setting search for info.plist and edit the path to be `Tests/SomeTest/Info.plist`
 7. make sure `swift build` and `swift test` in terminal works (add deps test-target in package.swift)
 7. push to github
-8. in github/repo: actions -> swift action (change the name to Tests, so the badge makes sense later)
+8. in `github/repo`: actions -> swift action (change the name to Tests, so the badge makes sense later)
 9. Go to actions/tests and click the 3 dotted menu, then click create status badge, add this to your readme
 10. Now every time you push, the project is built and tested 🎉
 

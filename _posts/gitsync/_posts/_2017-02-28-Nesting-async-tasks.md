@@ -97,20 +97,20 @@ class ASyncTest {
     init(){
             let group = DispatchGroup()
 
-            bg.async{/*do 2 things at the same time*/
+            bg.async {/*do 2 things at the same time*/
                 group.enter()
                 Swift.print("do default")
                 sleep(IntParser.random(3, 6).uint32)/*simulates task that takes between 1 and 6 secs*/
                 group.leave()
             }
-            if("" != ""){
+            if "" != "" {
                 bg.async{/*do 2 things at the same time*/
                     group.enter()
                     Swift.print("do the first")
                     sleep(IntParser.random(2, 7).uint32)/*simulates task that takes between 1 and 6 secs*/
                     group.leave()
                 }
-            }else{
+            } else {
                 Swift.print("do the second")
             }
 

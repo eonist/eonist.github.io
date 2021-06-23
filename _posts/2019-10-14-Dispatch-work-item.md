@@ -228,7 +228,7 @@ We are essentially canceling the previous workItem when a new letter is typed wi
 This can also be implemented for text fields that require server-side validation. Let’s say the user is entering a user name to register on our website, we can use the DispatchWorkItem as in the above example to validate if the user name is already taken
 
 ### DispatchWorkItemFlags
-This flag defines a set of behaviors for a work item, such as its quality-of-service class and whether to create a barrier or spawn a new detached thread. The most commonly used flags are assignCurrentContext and barrier.
+This flag defines a set of behaviours for a work item, such as its quality-of-service class and whether to create a barrier or spawn a new detached thread. The most commonly used flags are assignCurrentContext and barrier.
 - barrier: Causes the work item to act as a barrier block when submitted to a concurrent queue. In a concurrent queue, multiple tasks are executed simultaneously on different threads.
 When the work item with the barrier flag starts executing, all the tasks in the queue are temporarily suspended and will be resumed once this work item is finished.
 - assignCurrentContext: Sets the attributes of the work item to match the attributes of the current execution context.
@@ -243,7 +243,7 @@ When the work item with the barrier flag starts executing, all the tasks in the 
 var workItem: DispatchWorkItem?
 workItem = DispatchWorkItem {
     for i in 1..<6 {
-        guard let item = workItem, !item.isCancelled else {
+        guard let item = workItem, !item.isCancelled else { // interrupt processing
             print("cancelled"); break
         }
         sleep(1)
@@ -254,7 +254,7 @@ workItem?.notify(queue: .main) {
     print("done")
 }
 DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
-    workItem?.cancel()
+    workItem?.cancel() // stop after 2 items are processed etc
 }
 DispatchQueue.main.async(execute: workItem!)
 // you can use perform to run on the current queue instead of queue.async(execute:)

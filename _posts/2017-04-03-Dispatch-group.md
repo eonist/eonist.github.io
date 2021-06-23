@@ -1,11 +1,15 @@
 My notes on DispatchGroup <!--more-->
 
-### DispatchGroup:
+### DispatchGroup (pros):
 - Dispatch groups must enter and leave inside async calls on the bg thread.
 - Calls must have the same amount of enter and leaves.
 - I suppose one could pass dispatch group refs as a variable and use it in a nested scenario.
 - DispatchGroups seems to work best when wanting to do many async tasks on background thread at the same time and have one onComplete for when all tasks complete.
 - DispatchGroup can also be used in conjunction with DispatchWorkItem
+
+### Cons:
+- cant cancel items (maybe you can if you call .leave()?)
+- does not support retry?
 
 ```swift
 import Foundation
@@ -52,7 +56,7 @@ class ASyncTest {
 ```
 
 ## DispatchGroup and DispatchWorkItem
-A must if you also need to cancel your async tasks: [https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2](https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2)
+- A must if you also need to cancel your async tasks: [https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2](https://www.raywenderlich.com/148515/grand-central-dispatch-tutorial-swift-3-part-2)
 
 ## Threading 1 0n 1:
 Awesome guy:http://stackoverflow.com/users/4665907/that-lazy-ios-guy-웃 Made a 15min video about Threading in swift 3 just for me:

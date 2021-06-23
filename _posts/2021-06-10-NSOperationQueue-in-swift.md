@@ -12,14 +12,19 @@ NSOperation can be scheduled with a set of dependencies at a particular queue pr
 ### When not to use NsOperationQueue:
 - For one-off computation, or simply speeding up an existing method, it will often be more convenient to use a lightweight GCD dispatch than employ NSOperation.
 
-### Main benefits of NSOperationQueue:
+### Main benefits of NSOperationQueue (pros):
 - Dependencies, preventing operations start before the previous ones are finished. Dependencies also work between different operation queues and threads.
 - Support of the additional completion block.
 - Monitoring operations changes of state by using KVO.
 - Support of operations priorities and influencing their execution order.
 - Cancellation option, allowing to stop the operation at the time of it's execution.
-- Has ability to run nested queues
+- Has ability to run nested queues ✨
+- Has ability to run concurrent queues
 - Has ability to run serialized queues (set max to 1) (execute one after the other after the previous finish)
+
+### Cons:
+- Does not support retry?
+- ASync operations require subclassing + a bit complicated code
 
 ### Overarching benefits of Operations:
 - They are reusable within your project, and often between projects.
@@ -154,11 +159,12 @@ class LoggingOperation : Operation {
 ```
 
 ### References
-- Great read on NSOperation https://nshipster.com/nsoperation/
-- Explains addDependency: https://stackoverflow.com/questions/39100653/how-adddependency-method-works-in-nsoperationqueue/39100827
-- Passing data from one operation to the other: https://ioscoachfrank.com/chaining-nsoperations.html
-- Creating umbrella operations with many queues: (abstract away common sequences of tasks etc) https://ioscoachfrank.com/grouping-operations.html
-- Apple doc: https://developer.apple.com/documentation/foundation/operationqueue and https://developer.apple.com/documentation/dispatch/dispatchqueue
+- Great read on NSOperation [https://nshipster.com/nsoperation/](https://nshipster.com/nsoperation/)
+- Explains addDependency: [https://stackoverflow.com/questions/39100653/how-adddependency-method-works-in-nsoperationqueue/39100827](https://stackoverflow.com/questions/39100653/how-adddependency-method-works-in-nsoperationqueue/39100827)
+- Passing data from one operation to the other: [https://ioscoachfrank.com/chaining-nsoperations.html](https://ioscoachfrank.com/chaining-nsoperations.html)
+- Creating umbrella operations with many queues: (abstract away common sequences of tasks etc) [https://ioscoachfrank.com/grouping-operations.html](https://ioscoachfrank.com/grouping-operations.html)
+- Apple doc: [https://developer.apple.com/documentation/foundation/operationqueue](https://developer.apple.com/documentation/foundation/operationqueue)  and [https://developer.apple.com/documentation/dispatch/dispatchqueue](https://developer.apple.com/documentation/dispatch/dispatchqueue)
+- Operations: [https://developer.apple.com/documentation/foundation/operation](https://developer.apple.com/documentation/foundation/operation)
 
 ### Questions:
 - What about timeout for tasks?
@@ -173,9 +179,9 @@ Alternatively to the code bellow, you could eschew the use of NSOperation and us
 
 ```swift
 open class AsyncOperation: Operation {
-    override open var isAsynchronous: Bool { return true }
-    override open var isExecuting: Bool { return self.state == .started }
-    override open var isFinished: Bool { return self.state == .done }
+    override open var isAsynchronous: Bool { true }
+    override open var isExecuting: Bool { self.state == .started }
+    override open var isFinished: Bool { self.state == .done }
     private enum State {
         case initial
         case started
@@ -232,7 +238,7 @@ class AsynchronousOperation: Operation {
       case Ready
       case Executing
       case Finished
-      private var keyPath: String { return "is" + self.rawValue }
+      private var keyPath: String { "is" + self.rawValue }
    }
    var state: State = .Ready {
       willSet {
@@ -382,9 +388,7 @@ class ImageDownloader: Operation {
     self.photoRecord = photoRecord
   }
   override func main() { //3
-    if isCancelled { //4
-      return
-    }
+    if isCancelled { return }//4
     guard let imageData = try? Data(contentsOf: photoRecord.url) else { return } //5
     if isCancelled { //6
       return
@@ -529,4 +533,4 @@ NSOperation *operation3 = [[NetworkOperation alloc] initWithRequest:request3 com
 
 ### Todo:
 - Figure out how to add timeout to NSOperation
-- Figure out how NSOperation is started, can it be added to while it runs etc? 🏀
+- Figure out how NSOperation is started, can it be added to while it runs etc? Answer: it begins when you add something to the queue i thin
