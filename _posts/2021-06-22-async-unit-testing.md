@@ -27,5 +27,8 @@ func testAsyncFunction() {
 ### Inverted Expectations
 Inverted Expectations allows us to verify that something did not happen
 
+### References:
+- [https://www.vadimbulavin.com/unit-testing-async-code-in-swift/](https://www.vadimbulavin.com/unit-testing-async-code-in-swift/) 
+
 ### Todo:
 - look into: XCTNSPredicateExpectation

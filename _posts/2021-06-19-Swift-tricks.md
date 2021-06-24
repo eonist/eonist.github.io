@@ -558,7 +558,7 @@ func recursiveFlatmap<T>() -> [T] {
 ## 31: Simulate network behaviour
 Sleep for a random amount of time between 1 and 7 seconds. (Great for simulating async network calls etc)
 ```swift
-sleep((1..<7).randomElement()!)
+sleep((1..<7).randomElement() ?? 1)
 ```
 
 
@@ -915,8 +915,8 @@ static func clamp(val: CGFloat, min: CGFloat, max: CGFloat) -> CGFloat {
 Nice to know. If you ever want to use autolayout but need things to be above other elements etc. Autolayout works across subviews 👌
 
 ### 57 EitherOr
-by adding more .random calls you decrease the chance of being false.  
+By adding more .random calls you decrease the chance of being false.  
 1/2, 1/4, 1/6, 1/8 etc
 ```swift
-let eitherOr: Bool = !(Bool.random() && Bool.random()) // 1 in 4
+let eitherOr: Bool = !(Bool.random() && Bool.random()) // 1 in 4 is false
 ```
