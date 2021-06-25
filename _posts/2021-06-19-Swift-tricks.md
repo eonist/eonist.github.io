@@ -920,3 +920,21 @@ By adding more .random calls you decrease the chance of being false.
 ```swift
 let eitherOr: Bool = !(Bool.random() && Bool.random()) // 1 in 4 is false
 ```
+
+### 58 For loops:
+
+10++ different to for loop:
+
+- ``for i in 0..4 {}`` 👈 regular forward looping
+- ``for (i, obj) in arr.enumerated() { print(i); print(obj) }`` 👈 access to i and obj
+- ``for obj in arr {}`` 👈 iterate over objects (no access to original array)
+- ``for i in (0..<4).reversed() {}`` 👈 backward looping
+- ``var i = 0; while(i < 4) { print(i); i += 1 }`` 👈 If you want to manipulate i while looping
+- ``for i in stride(from: 0, to: 10, skip: 2) {}`` 👈 Skips every other
+- ``arr.forEach{$0}`` 👈 Easiest for-loop but only if you don't need to exit early
+- ``for i in arr.indices {print(i)}`` 👈 Access to i
+- ``for _ in 0..<arr.count`` 👈 If you just wan't to loop something and not use any value
+- ``arr.reversed.forEach{$0}`` 👈 reversed forEach, more functional 🤖 .map also works
+- `(0..<4).indices.map { i in return UIButton.init(frame: .zero) }` 👈 makes 4 buttons 🤖
+- `for (i, str):(Int, String) in strings.enumerated() { print(("\(i) and \(str)")) }` 👈 special for loop
+- `arr.enumerated().forEach { (_ i: Int,_ str: Data) in print(("\(i) and \(str)")) }` 👈 👌

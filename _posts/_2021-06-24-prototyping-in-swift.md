@@ -17,3 +17,5 @@ My notes on prototyping applications in swift<!--more-->
 - Focus on getting the spacing and interactions right
 - Since mock-data is always simpler to code, the codebase remain easy to experiment with
 - Once your happy with how the app feels, Start adding more complex logic and apis and cover side effects
+- Begin with the simplest elements you can make. Squares with color and lay these out for the important views, then slowly add text and UI elements, then start refining the interactions etc
+- Begin with new drawing sticks and a blank canvas is always more motivating
