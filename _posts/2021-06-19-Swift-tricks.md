@@ -758,6 +758,7 @@ let randomArray = (1...4).map { _ in randInt() } // 3,1,2,2
 ```
 
 ### 43. Do many things simultaneously and call onComplete when things are done
+For more complex scenarios see: [https://github.com/eonist/parallelloops](https://github.com/eonist/parallelloops)
 ```swift
 /**
  * - Abstract: process data in parallel on a background thread and calls a onComplete when it's complete
@@ -938,3 +939,52 @@ let eitherOr: Bool = !(Bool.random() && Bool.random()) // 1 in 4 is false
 - `(0..<4).indices.map { i in return UIButton.init(frame: .zero) }` 👈 makes 4 buttons 🤖
 - `for (i, str):(Int, String) in strings.enumerated() { print(("\(i) and \(str)")) }` 👈 special for loop
 - `arr.enumerated().forEach { (_ i: Int,_ str: Data) in print(("\(i) and \(str)")) }` 👈 👌
+
+
+### 59: Fitting a size to a ratio:
+```swift
+/**
+ * Fits inside a frame (Scales to ratio)
+ * - Fixme: ⚠️ Add zoom method: Always fills a frame, ️  do this laster
+ * - Note: Basically used to get a new size that fits inside size, and has the correct ratio
+ * ## Examples:
+ * fit(size: CGSize(width: 200, height: 200), ratio: 0.5) // CGSize(100, 200)
+ */
+static func fit(_ size: CGSize, ratio: CGFloat) -> CGSize{
+    let w: CGFloat = size.width
+    let h: CGFloat = size.height
+    if (w / h) > ratio { // w is wider than ratio allows
+        return CGSize(height: h * ratio, height: h)
+    } else if (w / h) < ratio { // h is taller than ratio allows
+        return CGSize(width: w, height: w * ratio)
+    } else {
+        return CGSize(width: w, height: h)
+    }
+}
+```
+
+### 60: Performance testing:
+```swift
+/**
+ * NOTE: Set a NSDate to measure the time like this: var startTime:NSDate = NSDate();abs(startTime!.timeIntervalSinceNow)
+ * NOTE: Or even easier: let d = CACurrentMediaTime(); /*Do heavy computing*/let d1 = CACurrentMediaTime()-d; print(d1)//0.452 sec
+ * ## Examples:
+ * testPerformance("Adding styles took: "){CSSFileParser.cssString(url)}//Adding styles took 2.4secs
+ * - Parameter startTime: performance test start time
+ */
+func testPerformance(_ context: String = "", _ startTime: Date = Date(), _ closure:@escaping ()->Void) {
+    closure()/*Executes the closure*/
+    Swift.print(context + " \(abs(startTime.timeIntervalSinceNow))" + " Secs")/*Prints performance test end time*/
+}
+/**
+ * Allows you to test performance and also return a value
+ * ## Examples:
+ * let result:String = testPerformance{readData()}//0.028 Secs
+ */
+func testPerformance<T>(_ context: String = "", _ startTime:Date = Date(), _ closure:@escaping ()->T) -> T {
+    defer {/*execute just before code execution leaves the current block of code*/
+        Swift.print(context + " \(abs(startTime.timeIntervalSinceNow))" + " Secs")/*Prints performance test end time*/
+    }
+    return closure()/*Executes the closure*/
+}
+```
