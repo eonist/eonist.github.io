@@ -27,7 +27,7 @@ fi
 [![SwiftLint Eonist](https://img.shields.io/badge/SwiftLint-Eonist-purple.svg)](https://github.com/eonist/Swift-lint)  
 `[![Swift-lint Eonist](https://img.shields.io/badge/swift--lint-eonist-purple.svg)](https://github.com/eonist/Swift-lint)`
 
-6. Don't forget the terminal auto correct feature `swiftlint autocorrect` in your project path. ⚠️️Remember to commit before you auto correct the project.
+6. ✨ Don't forget the terminal auto correct feature Terminal: `swiftlint autocorrect` in your project path. And it auto corrects the entire project ✨ ⚠️️Remember to commit before you auto correct the project.
 
 
 ### Notes:
