@@ -7,62 +7,77 @@ My notes on creating a custom tab bar in swift<!--more-->
 - Simple Embedding vc inside vc: https://stackoverflow.com/q/56837437/5389500
 - Apples docs on custom View controller setups: https://developer.apple.com/documentation/uikit/view_controllers/creating_a_custom_container_view_controller
 - Managing state with ViewController hierarchies: https://www.swiftbysundell.com/articles/custom-container-view-controllers-in-swift/
-
+- Great break down of UIViewController hierarchy: https://cocoacasts.com/managing-view-controllers-with-container-view-controllers/
 
 ### Gotchas:
 - Establishing a container-child relationship between view controllers prevents UIKit from interfering with your interface unintentionally. UIKit normally routes information to each of your app’s view controllers independently. When a container-child relationship exists, UIKit routes many requests through the container view controller first, giving it a chance to alter the behavior for any child view controllers. For example, a container view controller may override the traits of its children, forcing them to adopt a specific appearance or behavior.
 - By using a container view controller, a user interface can be split up into logical or functional components, each managed by a view controller.
-
+- Remember that a container view controller is responsible for sizing and positioning the view of the child view controller it manages.
+- Why use ViewController instead of just view? A view controller gets access to events like viewDidLoad and viewWillAppear, even when used as a child, which can be really useful for many kinds of UI code.
 ### Add a child UIViewController
 ```swift
+/**
+ * Add view and controller
+ * - Note: Key difference of using VC is that the childVC receives events about appearing and disssapearing
+ */
 private func add(asChildViewController viewController: UIViewController) {
-    addChildViewController(viewController) // Add Child View Controller
-    view.addSubview(viewController.view) // Add Child View as Subview
+	 // addChildViewController(viewController) // // Add Child View Controller (attaches events that notify child VC about appearing and dissapearing)
+    view.addSubview(viewController.view) // Add Child View as Subview (Add the child’s root view to your container’s view hierarchy.)
     viewController.view.frame = view.bounds // Configure Child View
     viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    viewController.didMove(toParentViewController: self) // Notify Child View Controller
+    viewController.didMove(toParentViewController: self) // Notify Child View Controller (all the didMove(toParent:) method of the child view controller to notify it that the transition is complete.)
 }
 ```
 ### Removing a child UIViewController:
 ```swift
+/**
+ * Remove view and controller
+ */
 private func remove(asChildViewController viewController: UIViewController) {
+    guard parent != nil else { return } // Just to be safe, we check that this view controller, is actually added to a parent before removing it.
     viewController.willMove(toParentViewController: nil) // Notify Child View Controller
     viewController.view.removeFromSuperview() // Remove Child View From Superview
     viewController.removeFromParentViewController() // Notify Child View Controller
 }
 ```
-### Embedding view controller
+
+### Toggle UIViewController's
 ```swift
-override func viewDidLoad() {
-    super.viewDidLoad()
-    let controller = storyboard!.instantiateViewController(withIdentifier: "Second")
-    addChild(controller)
-    controller.view.translatesAutoresizingMaskIntoConstraints = false
-    view.addSubview(controller.view) // Add the child’s root view to your container’s view hierarchy.
-    NSLayoutConstraint.activate([ // Add constraints to set the size and position of the child’s root view.
-        controller.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-        controller.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-        controller.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-        controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
-    ])
-    controller.didMove(toParent: self)
+enum State { case session, summary }
+private func toggle(state: State) {
+    if state == .summary {
+        remove(asChildViewController: sessionsViewController)
+        add(asChildViewController: summaryViewController)
+    } else { // session
+        remove(asChildViewController: summaryViewController)
+        add(asChildViewController: sessionsViewController)
+    }
 }
 ```
-### Another Example
+
+### Detecting appearing and disappearing
 ```swift
-override func viewDidLoad() {
-    super.viewDidLoad()
-    setUpViews()
-    let secondViewController = SecondViewController()
-    secondViewController.willMove(toParent: self)
-    containerView.addSubview(secondViewController.view) // Add the child’s root view to your container’s view hierarchy.
-    // set the frame
-    secondViewController.view.frame = containerView.bounds // Add constraints to set the size and position of the child’s root view.
-    // enable auto-sizing (for example, if the device is rotated)
-    secondViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    self.addChild(secondViewController)
-    secondViewController.didMove(toParent: self) // all the didMove(toParent:) method of the child view controller to notify it that the transition is complete.
+override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    print("Summary View Controller Will Appear")
 }
+override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    print("Summary View Controller Will Disappear")
+}
+```
+
+### Setting size or adding constraints:
+```swift
+NSLayoutConstraint.activate([ // Add constraints to set the size and position of the child’s root view.
+	 controller.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+	 controller.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+	 controller.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+	 controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
+])
+// or we can use the frame:
+viewController.view.frame = view.bounds // Add constraints to set the size and position of the child’s root view.
+viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight] // // enable auto-sizing (for example, if the device is rotated)
 ```
 
 ### Remove a Child View Controller from Your Content
