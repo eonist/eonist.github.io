@@ -14,10 +14,13 @@ My notes on creating a custom tab bar in swift<!--more-->
 - By using a container view controller, a user interface can be split up into logical or functional components, each managed by a view controller.
 - Remember that a container view controller is responsible for sizing and positioning the view of the child view controller it manages.
 - Why use ViewController instead of just view? A view controller gets access to events like viewDidLoad and viewWillAppear, even when used as a child, which can be really useful for many kinds of UI code.
+- **Containment API**: The basic idea is that a UIViewController is not limited to containing views. It can contain other UIViewControllers as well. It is then the container’s responsibility to manage the children and decide what to show, when, and how to handle their interactions.
+
 ### Add a child UIViewController
 ```swift
 /**
  * Add view and controller
+ * - Fixme: ⚠️️ consider moving the sizing code into a closure that can support .frame or autolayout?
  * - Note: Key difference of using VC is that the childVC receives events about appearing and disssapearing
  */
 private func add(asChildViewController viewController: UIViewController) {
