@@ -1,7 +1,7 @@
 My notes on creating a custom tab bar in swift<!--more-->
 
 ### Resources:
-- Custom Bar and navigator: https://github.com/BartSimpsons/BartRootTaabbarViewController and tutorial: https://programmer.help/blogs/swift-special-custom-uitabbar-uitabbarcontroller-and-uinavigation-controller.html
+- Custom TabBar and navigatorBar: https://github.com/BartSimpsons/BartRootTaabbarViewController and tutorial: https://programmer.help/blogs/swift-special-custom-uitabbar-uitabbarcontroller-and-uinavigation-controller.html
 - View embedder code: https://stackoverflow.com/a/47764799/5389500
 - Embedding view controllers within view controllers: ✨ https://stackoverflow.com/a/44333386/5389500
 - Simple Embedding vc inside vc: https://stackoverflow.com/q/56837437/5389500
@@ -11,10 +11,11 @@ My notes on creating a custom tab bar in swift<!--more-->
 
 ### Gotchas:
 - Establishing a container-child relationship between view controllers prevents UIKit from interfering with your interface unintentionally. UIKit normally routes information to each of your app’s view controllers independently. When a container-child relationship exists, UIKit routes many requests through the container view controller first, giving it a chance to alter the behavior for any child view controllers. For example, a container view controller may override the traits of its children, forcing them to adopt a specific appearance or behavior.
-- By using a container view controller, a user interface can be split up into logical or functional components, each managed by a view controller.
+- By using a `container view controller`, a user interface can be split up into logical or functional components, each managed by a view controller.
 - Remember that a container view controller is responsible for sizing and positioning the view of the child view controller it manages.
 - Why use ViewController instead of just view? A view controller gets access to events like viewDidLoad and viewWillAppear, even when used as a child, which can be really useful for many kinds of UI code.
 - **Containment API**: The basic idea is that a UIViewController is not limited to containing views. It can contain other UIViewControllers as well. It is then the container’s responsibility to manage the children and decide what to show, when, and how to handle their interactions.
+- UIView do have life cycle didMoveToSuperview that can be used to avoid excessive VC usage?
 
 ### Add a child UIViewController
 ```swift
@@ -24,7 +25,7 @@ My notes on creating a custom tab bar in swift<!--more-->
  * - Note: Key difference of using VC is that the childVC receives events about appearing and disssapearing
  */
 private func add(asChildViewController viewController: UIViewController) {
-	 // addChildViewController(viewController) // // Add Child View Controller (attaches events that notify child VC about appearing and dissapearing)
+	 addChild(viewController) // // Add Child View Controller (attaches events that notify child VC about appearing and dissapearing)
     view.addSubview(viewController.view) // Add Child View as Subview (Add the child’s root view to your container’s view hierarchy.)
     viewController.view.frame = view.bounds // Configure Child View
     viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]

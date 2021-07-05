@@ -1,11 +1,12 @@
 Notes<!--more-->
 
 ### Thoughts on extending UITabBar:
-- You have to add tabbaritem to the viewController that it activates,
-- You have to pull tabbaritems from the viewcontrollers in the tabbarviewcontroller
+- You have to add `tabbaritem` to the viewController that it activates,
+- You have to pull `tabbaritems` from the viewcontrollers in the tabbarviewcontroller
 - There is a lot of apple cruft in the tabbar classes
 - complicated to customize
 - complicated to add support for SVG, Font icons
+- you cant see the code your subclassing
 
 ### Thoughts on writing a tabbar from scratch:
 - The code will be more isolated and easier to understand
@@ -13,9 +14,10 @@ Notes<!--more-->
 - Easier to get the look and feel you want (can support special translucent background)
 - Usually when you get design from Figma, its all custom design that doesn't convert well to native design
 - Native TabBar doesnt support selected state with custom design / background / animation
+- More speccific code to the use case and less boilplate code to workaround apple shenanigans
 
 ### Gotchas:
-- Pin the bottom of the tabbar to:  `safeAreaInsets.bottom` to account for the notch
+- Pin the bottom of the tabbar to: `safeAreaInsets.bottom` to account for the notch (get this var from window if using autolayout, see utils method) [here](https://stackoverflow.com/questions/46829840/get-safe-area-inset-top-and-bottom-heights)
 
 ### Resources:
 - Customizing UITabBar: https://stackoverflow.com/a/57616340/5389500
@@ -24,6 +26,17 @@ Notes<!--more-->
 - Custom navcontroller + tabbar with uiviews as tabbaritem: https://medium.com/sprinthub/creating-a-customized-tab-bar-in-ios-with-swift-41ed380f2a30 and github: https://github.com/quacklabs/customTabBarSwift
 - Awesome animated tabbar (uses stackviews) https://medium.com/nickelfox/ios-swift-custom-tabbarcontroller-with-tab-item-animation-b26f6a6e2c62
 - UICOllectionView based TabBar (uses ViewModel, bit too elaborate ☠️): https://betterprogramming.pub/how-to-create-a-custom-tabbar-in-swift-d44b3db3ac0e and github: https://github.com/cipolleschi/CustomTabBar
+- Overrides Native tabbar: https://github.com/Ramotion/adaptive-tab-bar animated: https://github.com/Ramotion/animated-tab-bar
+- Advance anim over native tabbar: https://github.com/softhausHQ/CircleBar and https://github.com/Yalantis/ColorMatchTabs
+- Fancy tabbar: https://github.com/Ahmadalsofi/SOTabBar
+
+### TabBar Scope:
+- background colors change on tab switch
+- tabbar-item should have icon and textfield
+- should have simple selected / unselected animation ✨
+- tabbar-item should have background highlight with rounded corners
+- tabbar-item bacgrkund should size it self based on text-size and padding
+- tabbar should be responsible for laying out items, and support different aligning types (spatial)
 
 ### Customizing UITabBar
 ```swift
@@ -97,6 +110,7 @@ open class CustomTabBarItem: UITabBarItem {
 - Skeleton of our custom tab bar
 ```swift
 import UIKit
+
 class TabNavigationMenu: UIView {
 var itemTapped: ((_ tab: Int) -> Void)?
     var activeItem: Int = 0

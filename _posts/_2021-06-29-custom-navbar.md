@@ -1,18 +1,23 @@
 <!--more-->
 
-
-### thoughts on Using native navigation class
+### Thoughts on Using native navigation class
 - Works for simple cases
+- you can't see the code your subclassing
 
 ### Thoughts on using custom nav class:
 - Supports responsive table view setups
 - Supports custom look and feel
 - Supports custom translucent background that blends into the background color
 
-
 ### Gotchas:
 - UIBarButtonItem is used for backbutton
 - to go back use. `navigationController?.popViewController(animated: true)`
+
+### Resources:
+- apple docs: https://developer.apple.com/documentation/uikit/uinavigationbar
+- customize native navbar anim: https://github.com/gontovnik/HidesNavigationBarWhenPushed
+- add alert-view bellow navbar: https://github.com/hemangshah/Zingle
+- customize color in transition : https://github.com/DanisFabric/RainbowNavigation and https://github.com/ltebean/LTNavigationBar
 ### Extra
 From here: https://stackoverflow.com/questions/44734628/swift-how-do-i-create-a-custom-uinavigationbar-and-add-a-custom-back-button
 ```swift
@@ -33,4 +38,12 @@ self.navigationItem.hidesBackButton = true
 let backButton = UIBarButtonItem(image: UIImage(named: "image_name"), style: .plain, target: self, action: #selector(Class.methodName))
 backButton.tintColor = UIColor.white
 self.navigationItem.leftBarButtonItem = backButton
+```
+
+### Custom api:
+
+```swift
+// leftBtn
+// title
+// rightBtn
 ```
