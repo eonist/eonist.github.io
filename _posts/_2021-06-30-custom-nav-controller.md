@@ -1,8 +1,8 @@
-<!--more-->
+My notes on customizing the native UINavigationController<!--more-->
 
 ### Thoughts on native nav controller:
-- you can't see the code your subclassing
-- native nav controller is needed to get free vc transitions
+- You can't see the code your subclassing
+- Native nav controller is needed to get free vc transitions
 
 ### Wants:
 - Implement a view controller that can hold some other view controllers.
@@ -14,7 +14,8 @@
 - A navigation controller is a container view that can manage the navigation of hierarchical contents.
 - Navigation stack can have “n” numbers of view controllers.
 - The bottom-most view controller in that stack is the root view controller and others are child view controller.
-- You have to use native navigationController to get sipe left / right etc. Or else build that logic in a custom project. Which is not easy. IF you want custom navbar, just hide the native one etc
+- ⚠️️ You have to use native navigationController to get swipe left / right etc. ⚠️️ Or else build that logic in a custom project. Which is not easy. IF you want custom navbar, just hide the native one etc
+- ⚠️️ You can strip down native uinavigationcontroller and just use its transitioning and vc array code. ⚠️️  THen roll your own navbar etc
 
 ### Resources:
 - Apple docs: https://developer.apple.com/documentation/uikit/uinavigationcontroller

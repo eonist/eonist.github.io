@@ -1,1 +1,1 @@
-has imgage cache: https://github.com/haoking/SwiftyUI
+has image cache: https://github.com/haoking/SwiftyUI

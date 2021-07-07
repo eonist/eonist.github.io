@@ -1,8 +1,8 @@
-<!--more-->
+My notes on customizing UINavigationBar<!--more-->
 
 ### Thoughts on Using native navigation class
 - Works for simple cases
-- you can't see the code your subclassing
+- You can't see the code your subclassing
 
 ### Thoughts on using custom nav class:
 - Supports responsive table view setups
@@ -14,10 +14,11 @@
 - to go back use. `navigationController?.popViewController(animated: true)`
 
 ### Resources:
-- apple docs: https://developer.apple.com/documentation/uikit/uinavigationbar
+- Apple docs: https://developer.apple.com/documentation/uikit/uinavigationbar
 - customize native navbar anim: https://github.com/gontovnik/HidesNavigationBarWhenPushed
 - add alert-view bellow navbar: https://github.com/hemangshah/Zingle
 - customize color in transition : https://github.com/DanisFabric/RainbowNavigation and https://github.com/ltebean/LTNavigationBar
+
 ### Extra
 From here: https://stackoverflow.com/questions/44734628/swift-how-do-i-create-a-custom-uinavigationbar-and-add-a-custom-back-button
 ```swift

@@ -1,4 +1,4 @@
-Notes<!--more-->
+My notes on customizing UITabBar<!--more-->
 
 ### Thoughts on extending UITabBar:
 - You have to add `tabbaritem` to the viewController that it activates,

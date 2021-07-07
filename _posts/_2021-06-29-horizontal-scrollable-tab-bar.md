@@ -8,7 +8,7 @@ My notes on making a horizontal tag bar<!--more-->
 - Scrollable StackView: https://github.com/gurhub/ScrollableStackView
 - Scrollable stackview with IB: https://medium.com/@mufakkharulislamnayem/scrolling-in-a-horizontal-uistackview-with-storyboard-e02a9aab555b
 - SwiftUI has native scrollable stackviews: https://developer.apple.com/documentation/swiftui/creating-performant-scrollable-stacks
-- Nice collection of info regarding spacing in stackview: https://uynguyen.github.io/2020/07/18/iOS-Introducing-Stack-Views/
+- Nice collection of info regarding spacing in stackview: https://uynguyen.github.io/2020/07/18/iOS-Introducing-Stack-Views/ with github: https://github.com/uynguyen/UIStackView
 - Discussion on horizontal uicollectionview: https://stackoverflow.com/questions/19301762/uicollectionview-horizontal-scroll-horizontal-layout
 - programatic uicollectionview: https://stackoverflow.com/questions/17856055/creating-a-uicollectionview-programmatically
 - Complete uicollectionview example: https://www.appsdeveloperblog.com/create-uicollectionview-programmatically-in-swift/
@@ -18,23 +18,24 @@ My notes on making a horizontal tag bar<!--more-->
 ### Gotchas:
 - The horizontal tag bar might need to be inside the vertical scrolling table. Dual uicollectionviews support this. But unsure if stackview supports this etc
 - UICollectionView has scrollToItem UIStackView needs to have this built custom. here is uicollectionview api: self.collectionView.scrollToItem(at: IndexPath(item: 12, section: 0), at: [.centeredVertically, .centeredHorizontally], animated: true)
+- Making the scrollToVisible could be tricky to make so that it scrolls into view from correct side. Either left, right, bottom, top. Consider making: scrollToNearestVisiblePosition?
 
 ### Scope:
 - selectedIndex 🔢
 - Horizontally scrollable ↔️
 - isSelected sets item in highlighted state 👇
-- Should have elastic animation 👌
+- Should have elastic animation (UIScrollView) 👌
 - Should have showSelectedIndex (makes selected item visible) (for end and begining items)
 - Work in DarkMode and light mode (use same look as desktop?) 🌓
-- Highlight should animate into place / size (reach goal) see notes app video for example ✨
 - Make a generic ScrollingStackView as baseclass that you can customize to custom look and feel 🛠
+- Highlight should animate into place / size (reach goal) see notes app video for example ✨
 
 ### Todo:
 - Do more research on dribbble ✅
 - Do more research on google (horizontal stackview scrollable, etc etc) ✨
 - Look through FlowLayout 👈
 - Look through resource links ✅
-- Write pseudo code 🏀
+- Write pseudo code ✅
 - Find instagram post on horizontal tag bar ✅
 
 ### Horizontal UICollectionView
@@ -111,14 +112,12 @@ import UIKit
 import PlaygroundSupport
 
 class TestViewController : UIViewController {
-
     let scrollView: UIScrollView = {
         let v = UIScrollView()
         v.translatesAutoresizingMaskIntoConstraints = false
         v.backgroundColor = .cyan
         return v
     }()
-
     let stackView : UIStackView = {
         let v = UIStackView()
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -127,8 +126,6 @@ class TestViewController : UIViewController {
         v.spacing = 10.0
         return v
     }()
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -369,25 +366,24 @@ class ViewController: UIViewController {
 ### ScrollableStackView class example:
 ```swift
 class ViewController: UIViewController {
+	let stackView = ScrollingStackView()
+	…
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
-let stackView = ScrollingStackView()
-…
-override func viewDidLoad() {
-super.viewDidLoad()
+		view.embed(stackView)
+		setupStackView()
+	}
+	…
+	func setupStackView() {
+	    stackView.spacing = 10.0
 
-view.embed(stackView)
-setupStackView()
-}
-…
-func setupStackView() {
-    stackView.spacing = 10.0
-
-    for i in 1..<30 {
-        let label = UILabel()
-        label.text = "Hello, this is label nº \(i)"
-        stackView.addArrangedSubview(label)
-    }
-}
+	    for i in 1..<30 {
+	        let label = UILabel()
+	        label.text = "Hello, this is label nº \(i)"
+	        stackView.addArrangedSubview(label)
+	    }
+	}
 ```
 - explination: https://sintraworks.github.io/swift/uikit/2018/12/24/scrolling-stackview.html
 - Source:
@@ -542,6 +538,7 @@ extension UIView {
 ### Other tidbits:
 ```swift
 // might be useful for scrolling to items:
+// for macos: https://www.fpposchmann.de/animate-nsviews-scrolltovisible/
 (void)accessibilityElementDidBecomeFocused
 {
 	[self.scrollView scrollRectToVisible:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.bounds.size.width, self.bounds.size.height) animated:YES];
