@@ -2,7 +2,7 @@ Pros and cons of different work methodlogies<!--more-->
 
 https://www.instagram.com/p/CQi0WNyjMYN/?utm_medium=copy_link
 
-### waterfal (cascade model)
+### Waterfal (cascade model)
 
 ### Scrum
 
