@@ -159,7 +159,7 @@ self.view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: self.view.dire
                                                              leading: 16,
                                                              bottom: self.view.directionalLayoutMargins.bottom,
                                                              trailing: 64)
-//For when layoutMargins are less than system minimum be sure to apply:
+// For when layoutMargins are less than system minimum be sure to apply:
 self.viewRespectsSystemMinimumLayoutMargins = false
 self.view.directionalLayoutMargins = NSDirectionalEdgeInsets(top: self.view.directionalLayoutMargins.top,
                                                             leading: 0,

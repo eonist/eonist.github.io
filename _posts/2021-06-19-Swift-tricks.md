@@ -699,7 +699,6 @@ let rainbowColors: ColorMaps = .rainbow
 
 ```
 
-
 ## 39. Accounting for iPhoneX notch
 ```swift
 override func viewDidAppear(_ animated: Bool) {
@@ -820,12 +819,12 @@ while i < 4 {
 ### 48: Generic typealias
 
 ```swift
+// Warning: ⚠️️ Generics does not work when overriding functions in extensions
 typealias Parser<A> = (String) -> [(A, String)]
 func parse<A>(stringToParse: String, parser: Parser)
 ```
 
 ### 49: Init an enum
-
 ```swift
 enum Apperance : String {
    case Dark, Light
@@ -986,5 +985,19 @@ func testPerformance<T>(_ context: String = "", _ startTime:Date = Date(), _ clo
         Swift.print(context + " \(abs(startTime.timeIntervalSinceNow))" + " Secs")/*Prints performance test end time*/
     }
     return closure()/*Executes the closure*/
+}
+```
+
+### 61: Getting indicies of filtered array
+
+```swift
+extension Array where Element: Equatable {
+   /**
+    * items.indexes(of: "A") // [0, 2, 4]
+    * items.indexes(of: "B") // [1]
+    */
+    func indexes(of element: Element) -> [Int] {
+        return self.enumerated().filter({ element == $0.element }).map({ $0.offset })
+    }
 }
 ```

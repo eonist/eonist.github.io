@@ -1,11 +1,17 @@
 My notes on alphabetically indexing an UITableView <!--more-->
 
 ### Gotchas:
-- `sectionIndexTitlesForTableView` To add an indexed table view, implement the sectionIndexTitles(for:) method.
+- You populate section headers with letters to add support for indexed UITableView
+- The issue with sections in an editable UITable is that you need a nested array. and then mapping that back and forth to a flat array is not trivial.
+- It might be easier to keep a flat array as datasource, then create a dictionary with count of each section. then use the key in the dictionary as the section
+- Turns out mapping between 1d and 2d array is better todo on edit, than on the fly. as you need speed when you render a tableview, but dont need speed when you edit a model
 
 ### Resources:
 - The core idea: https://medium.com/swlh/indexing-your-uitableviews-aad93948776c
 - Real example: https://www.ioscreator.com/tutorials/indexed-table-view-ios-tutorial-ios11
+- Uses a model and is grouped by category: https://alisoftware.github.io/architecture/2018/05/20/dedicated-datasources/
+- Uses diff method to update rows and section: https://stasost.medium.com/ios-aimate-tableview-updates-dc3df5b3fe07 and github: https://github.com/Stan-Ost/ReloadableTableView
+- Using generics with section / row data: https://www.ralfebert.de/ios-examples/uikit/uitableviewcontroller/grouping-sections/
 
 ### Relevant API:
 - `numberOfSectionsInTableView`: – returns the total number of sections in the table view. Usually we set the number of section to 1. If you want to have multiple sections, set this value to a larger number.
@@ -36,8 +42,10 @@ let cars = ["Audi", "Aston Martin", "BMW", "Bugatti", "Bentley", "Chevrolet", "C
  carSectionTitles = [String](carsDictionary.keys)
  carSectionTitles = carSectionTitles.sorted(by: { $0 < $1 })
 ```
+
 ### More modern example:
 - Ref: https://stackoverflow.com/a/53628028/5389500
+- And: https://newbedev.com/alphabetical-sections-in-table-table-view-in-swift
 ```swift
 struct Section {
     let letter : String
@@ -45,13 +53,21 @@ struct Section {
 }
 let usernames = ["John", "Nancy", "James", "Jenna", "Sue", "Eric", "Sam"]
 var sections = [Section]()
- // group the array to ["N": ["Nancy"], "S": ["Sue", "Sam"], "J": ["John", "James", "Jenna"], "E": ["Eric"]]
- let groupedDictionary = Dictionary(grouping: usernames, by: { String($0.prefix(1)) })
- // get the keys and sort them
- let keys = groupedDictionary.keys.sorted()
- // map the sorted keys to a struct
- sections = keys.map { Section(letter: $0, names: groupedDictionary[$0]!.sorted()) }
+// group the array to ["N": ["Nancy"], "S": ["Sue", "Sam"], "J": ["John", "James", "Jenna"], "E": ["Eric"]]
+let groupedDictionary = Dictionary(grouping: usernames, by: { String($0.prefix(1)) })
+// get the keys and sort them
+let keys = groupedDictionary.keys.sorted()
+// map the sorted keys to a struct
+sections = keys.map { Section(letter: $0, names: groupedDictionary[$0]!.sorted()) }
 ```
 
 ### Todo:
-- figure out how to add alphabetical index to MacOS (maybe model adds/removes ranges of indicies on alteration calls? pseudo code a bit to figure out how that would work)
+- Figure out how to add alphabetical index to MacOS (maybe model adds / removes ranges of indicies on alteration calls? pseudo code a bit to figure out how that would work)
+- Figure out what: `UILocalizedIndexedCollection` does
+
+### Bonus:
+- diffable collapsable sections: https://swiftsenpai.com/development/reload-diffable-section-header/
+
+### Nice to know:
+- MacOS doesn't have section in NSTable, but NSCollectionView does: https://developer.apple.com/documentation/appkit/nscollectionview
+- Or roll your own cell section in macOS. here is one approach: https://blog.krzyzanowskim.com/2015/05/29/lets-talk-about-sections-for-nstableview/
