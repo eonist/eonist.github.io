@@ -61,13 +61,18 @@ let keys = groupedDictionary.keys.sorted()
 sections = keys.map { Section(letter: $0, names: groupedDictionary[$0]!.sorted()) }
 ```
 
-### Todo:
-- Figure out how to add alphabetical index to MacOS (maybe model adds / removes ranges of indicies on alteration calls? pseudo code a bit to figure out how that would work)
-- Figure out what: `UILocalizedIndexedCollection` does
-
 ### Bonus:
 - diffable collapsable sections: https://swiftsenpai.com/development/reload-diffable-section-header/
 
 ### Nice to know:
 - MacOS doesn't have section in NSTable, but NSCollectionView does: https://developer.apple.com/documentation/appkit/nscollectionview
 - Or roll your own cell section in macOS. here is one approach: https://blog.krzyzanowskim.com/2015/05/29/lets-talk-about-sections-for-nstableview/
+
+### Thoughts:
+- What about making the all `a-z` sections upfront. And then only showing the sections that has items. that way you dont have to generate the sections on the fly
+- Using diffable adds another layer of complexity. you have to update the diffable model, and you have to update the source model as well
+- ✨ Maybe updating 1d-model and it updates 2d-model. And when you change 2d-model. You use UUID to change 1d-model and it updates 2d-model. This way you have a one way relationship. 1 source of truth. Maybe 1d-items must adher to hashable?
+
+### Todo:
+- Figure out how to add alphabetical index to MacOS (maybe model adds / removes ranges of indicies on alteration calls? pseudo code a bit to figure out how that would work)
+- Figure out what: `UILocalizedIndexedCollection` does
