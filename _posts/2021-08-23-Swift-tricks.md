@@ -691,7 +691,7 @@ struct Color {
 ```swift
 typealias ColorMapItem = UIColor
 typealias ColorMap = [ColorMapItem]
-extension ColorMap { // Array where Element = ColorMapItem
+extension ColorMap { // Array where Element == ColorMapItem
    static let rainbow = [.blue, .red, .yellow]
 }
 let rainbowColors: ColorMaps = .rainbow
@@ -1000,4 +1000,75 @@ extension Array where Element: Equatable {
         return self.enumerated().filter({ element == $0.element }).map({ $0.offset })
     }
 }
+```
+
+### 62: Remove duplicates from the array, preserving the items order
+
+```swift
+extension Array where Element: Hashable {
+    func filterDuplicates() -> Array<Element> {
+        var set = Set<Element>()
+        var filteredArray = Array<Element>()
+        for item in self {
+            if set.insert(item).inserted {
+                filteredArray.append(item)
+            }
+        }
+        return filteredArray
+    }
+}
+```
+
+### 63: Insert after match
+```swift
+extension Collection {
+   /**
+    * ## Examples:
+    * let arr = ["a", "g", "r"]
+    * let idx = arr.insertionIndex(of: "m", using: <)
+    * rowData.insert("m", at: idx) // ["a", "g", "m", "r"]
+    */
+   func insertionIndex(of element: Self.Iterator.Element, using areInIncreasingOrder: (Self.Iterator.Element, Self.Iterator.Element) -> Bool) -> Index {
+      firstIndex { !areInIncreasingOrder($0, element) } ?? endIndex
+   }
+}
+```
+
+### 64: Make a struct mutable
+```swift
+struct X {
+   let a: String, b: Bool, c: Int
+   init(a: String, b: Bool, c: Int) {
+      self.a = a
+      self.b = b
+      self.c = c
+   }
+}
+extension X {
+   init(x: X, a: String? = nil, b: Bool? = nil, c: Int? = nil) { // the x contains the default values
+      self.a = a ?? x.a
+      self.b = b ?? x.b
+      self.c = c ?? x.c
+   }
+}
+let x1: X = .init(a: "test", b: true, c: 4)
+Swift.print("x1:  \(x1)") // X(a: "test", b: true, c: 4)
+let x2: X = .init(x: x1, a: "lol")
+Swift.print("x2:  \(x2)") // X(a: "lol", b: true, c: 4)
+let x3: X = .init(x: x2, b: false)
+Swift.print("x3:  \(x3)") // X(a: "lol", b: false, c: 4)
+```
+
+### 65: Operate on an array of class types
+This can be useful for registering cell classes for instance
+```swift
+protocol Kind: AnyObject {}
+class A: Kind {}
+class B: Kind {}
+extension Array where Element == Kind.Type {
+   func read() {
+      self.forEach { Swift.print("$0: \($0)") }
+   }
+}
+[A.self, B.self].read() // A, B
 ```

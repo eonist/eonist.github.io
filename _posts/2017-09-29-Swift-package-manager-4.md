@@ -44,6 +44,7 @@ import PackageDescription
 
 let package = Package(
     name: "Awesome",
+    platforms: [.iOS(.v12), .macOS(.v10_13)],
     products: [
         .library(
 			//This is basically an umbrella

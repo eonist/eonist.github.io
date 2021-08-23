@@ -2,7 +2,7 @@ Notes on swift lint<!--more-->
 
 # Swift-lint
 
-1. install swift-lint: [https://github.com/realm/SwiftLint/releases](https://github.com/realm/SwiftLint/releases)   
+1. install swift-lint via swiftlint.pkg (give access in prefs/security): [https://github.com/realm/SwiftLint/releases](https://github.com/realm/SwiftLint/releases)   
 
 2. Add `.swiftlint.yml` to your xcode project folder
   - Example of swift-lint rule set: [https://github.com/realm/SwiftLint/blob/master/.swiftlint.yml](https://github.com/realm/SwiftLint/blob/master/.swiftlint.yml)

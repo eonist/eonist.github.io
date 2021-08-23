@@ -5,6 +5,7 @@ My notes on alphabetically indexing an UITableView <!--more-->
 - The issue with sections in an editable UITable is that you need a nested array. and then mapping that back and forth to a flat array is not trivial.
 - It might be easier to keep a flat array as datasource, then create a dictionary with count of each section. then use the key in the dictionary as the section
 - Turns out mapping between 1d and 2d array is better todo on edit, than on the fly. as you need speed when you render a tableview, but dont need speed when you edit a model
+- Its possible to structure. But doing bulk edits takes a bit of code to get right. And has limitations in the way it must be structured. Its simpler to use diffable api
 
 ### Resources:
 - The core idea: https://medium.com/swlh/indexing-your-uitableviews-aad93948776c
