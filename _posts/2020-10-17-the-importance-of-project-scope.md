@@ -16,8 +16,7 @@ Make the idea in stages. The MVP should really be that the minimal effort to som
 
 ###### Week 4  
 - Piece together each feature as the final MVP
-- Create a 1-pager, presskit, and add to app-store
-
+- Create a 1-pager, press-kit, and add to app-store
 
 ### Proving your self wrong
 The first thing you should do after you have written down the idea in a whitepaper is to start looking for pitfalls. Where are the areas that can drain you for time and money. Since the chance of de-railing is so high it's crusial to stick to the plan. So the more time you spend on proving something to be difficult and time consuming the better your chance of finishing a project in the aloted time you gave your project.

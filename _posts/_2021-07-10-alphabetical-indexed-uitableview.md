@@ -14,6 +14,11 @@ My notes on alphabetically indexing an UITableView <!--more-->
 - Uses diff method to update rows and section: https://stasost.medium.com/ios-aimate-tableview-updates-dc3df5b3fe07 and github: https://github.com/Stan-Ost/ReloadableTableView
 - Using generics with section / row data: https://www.ralfebert.de/ios-examples/uikit/uitableviewcontroller/grouping-sections/
 
+### Nice to know regarding macOS:
+- MacOS doesn't have section in NSTable, but NSCollectionView does: https://developer.apple.com/documentation/appkit/nscollectionview
+- Or roll your own cell section in macOS. here is one approach: https://blog.krzyzanowskim.com/2015/05/29/lets-talk-about-sections-for-nstableview/
+- Seems to support section headers for macOS: https://github.com/krzyzanowskim/NSTableView-Sections
+
 ### Relevant API:
 - `numberOfSectionsInTableView`: – returns the total number of sections in the table view. Usually we set the number of section to 1. If you want to have multiple sections, set this value to a larger number.
 - `titleForHeaderInSection`: method – returns the header titles for different sections. This method is optional if you do not assign titles for the section.
@@ -63,16 +68,16 @@ sections = keys.map { Section(letter: $0, names: groupedDictionary[$0]!.sorted()
 ```
 
 ### Bonus:
-- diffable collapsable sections: https://swiftsenpai.com/development/reload-diffable-section-header/
-
-### Nice to know:
-- MacOS doesn't have section in NSTable, but NSCollectionView does: https://developer.apple.com/documentation/appkit/nscollectionview
-- Or roll your own cell section in macOS. here is one approach: https://blog.krzyzanowskim.com/2015/05/29/lets-talk-about-sections-for-nstableview/
+- Diffable collapsable sections: https://swiftsenpai.com/development/reload-diffable-section-header/
 
 ### Thoughts:
 - What about making the all `a-z` sections upfront. And then only showing the sections that has items. that way you dont have to generate the sections on the fly
 - Using diffable adds another layer of complexity. you have to update the diffable model, and you have to update the source model as well
 - ✨ Maybe updating 1d-model and it updates 2d-model. And when you change 2d-model. You use UUID to change 1d-model and it updates 2d-model. This way you have a one way relationship. 1 source of truth. Maybe 1d-items must adher to hashable?
+
+## Extra:
+- NSCollectionview tutorial for macos: https://www.raywenderlich.com/783-nscollectionview-tutorial
+- NSCollectionview tutorial: https://www.raywenderlich.com/1047-advanced-collection-views-in-os-x-tutorial
 
 ### Todo:
 - Figure out how to add alphabetical index to MacOS (maybe model adds / removes ranges of indicies on alteration calls? pseudo code a bit to figure out how that would work)

@@ -30,7 +30,7 @@ This html code can serve as your primer when fleshing out your website
 
 ### The CSS:
 This html code can serve as your primer when fleshing out your website
-```CSS
+```css
 body {
   background-color: white;
 }
@@ -39,7 +39,7 @@ html, body {
   margin: 0px;
 }
 .outer {
- height: 100%; /*This is the key to making each page fit your screen*/
+   height: 100%; /*This is the key to making each page fit your screen*/
 }
 #one  {
   background: purple;
@@ -53,4 +53,16 @@ html, body {
 #four  {
   background: blue;
 }
+```
+
+### Adding support for smaller screens:
+use media querries
+
+```css
+@media screen and (max-width: 600px) {}
+```
+
+Hide elements that doesnt fit on a smaller screen:
+```css
+display: none;
 ```

@@ -10,6 +10,7 @@ My notes on SPM<!--more-->
 ### Other gotchas:
 - Use a framework target in your app project as an umbrella framework so that you don't have to rebuild src code on every build. (Because SPM only handles src code)
 - Make sure packages build, before you add them as dependencies. Or else xCode may crash etc
+- Instead of adding SPM dependencies to xcode, one by one. You could add a local SPM repo with dependencies, now you have a package.swift you can edit with an editor. even test with terminal 👌
 
 ## Target branch:
 ```swift

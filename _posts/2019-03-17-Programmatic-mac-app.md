@@ -49,7 +49,6 @@ open class View: NSView {
 Sometimes you have to set the signing certificate to run locally
 
 ## Headless app:
-
 ```swift
 // the bellow code must be added to AppDelegate.swift
 import Cocoa

@@ -16,8 +16,12 @@ In the code:
 let settingsURL = Bundle.module.url(forResource: "settings", withExtension: "plist")
 ```
 
+### Gotchas:
+- You can set folder paths and file paths as resources
+
 ### Resources
-- General spm assets: https://developer.apple.com/documentation/swift_packages/bundling_resources_with_a_swift_package
+- General SPM assets: https://developer.apple.com/documentation/swift_packages/bundling_resources_with_a_swift_package
 - Localizing spm assets: https://developer.apple.com/documentation/swift_packages/localizing_package_resources
 - Binary distro: https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages
 - Local spm modules: https://developer.apple.com/documentation/swift_packages/developing_a_swift_package_in_tandem_with_an_app
+- Bundle.module for mac: https://developer.apple.com/forums/thread/650158

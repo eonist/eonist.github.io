@@ -19,4 +19,4 @@ My notes on prototyping applications in swift<!--more-->
 - Once your happy with how the app feels, Start adding more complex logic and Api's and cover side effects
 - Begin with the simplest elements you can make. Squares with color and lay these out for the important views, then slowly add text and UI elements, then start refining the interactions etc
 - Begin with new drawing sticks and a blank canvas is always more motivating
-- Another approach is to make small modules of the app first. Nurture them to fruition individually before you load them into the mothership
+- ✨ Another approach ✨ is to make small modules of the app first. Nurture them to fruition individually before you load them into the mothership. If each part is awesome, then the sum will also be awesome. if you start with the sum. Its hard to stay motivated looking at all the not so awesome parts. 

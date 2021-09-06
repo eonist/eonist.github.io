@@ -1,9 +1,9 @@
 My notes on building a product website<!--more-->
 
 ### The process
-- Start by drawing in a notebook, to get a feel for what to build
-- Then start designing each page in sketch for macOS (For mobile and desktop layouts)
-- Then start building each page in isolation in CSS, just get the layout roughly complete
+- 🎨 Start by drawing in a notebook, to get a feel for what to build
+- 🖥 Then start designing each page in sketch for macOS (For mobile and desktop layouts)
+- 🙉 Then start building each page in isolation in CSS, just get the layout roughly complete
 - Then start to connect the pages together in css
 - Then start refining the css by adding images, fonts, colors, dropshadows etc
 - Then start making subpages, and link them up, so everything is clickable and works
