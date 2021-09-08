@@ -123,3 +123,17 @@ jobs:
     - name: Start xcodebuild test
       run: xcodebuild clean build -project SentryMacOS.xcodeproj -scheme SentryMacOS
 ```
+
+
+### Gotcha:
+
+You can also build from commandline to test before testing in CI:
+`xcodebuild clean build -workspace Sentry.xcworkspace -scheme SentryMac`
+
+
+### IOS:
+
+
+```
+xcodebuild clean build -workspace Sentry.xcworkspace -scheme SentryIOS -destination "platform=iOS Simulator,name=iPhone 12 Pro"
+```
