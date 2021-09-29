@@ -6,7 +6,7 @@ Diffable table<!--more-->
 - Manual section + UITable + diffable source (with github code): https://alfianlosari.medium.com/using-diffable-data-source-ios-13-api-in-uitableview-47343c2332be
 - diffable table Example https://wwdcbysundell.com/2019/diffable-data-sources-first-look/
 - Diffable data source (a lot of good detailed info):  https://www.donnywals.com/modern-table-views-with-diffable-data-sources/
-- diffable data source + section https://stackoverflow.com/questions/63981508/uitableview-diffable-data-source
+- Diffable data source + section https://stackoverflow.com/questions/63981508/uitableview-diffable-data-source
 - For macOS: NSTableViewDiffableDataSource https://developer.apple.com/documentation/appkit/nstableviewdiffabledatasource
 - For macOS NSCollectionView: https://developer.apple.com/documentation/appkit/nscollectionviewdiffabledatasource
 - Search with diffable: ✨ https://dev.to/ahmed_komsan12/getting-started-with-diffable-data-source-2581

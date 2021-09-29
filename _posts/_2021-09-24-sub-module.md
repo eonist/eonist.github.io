@@ -1,0 +1,21 @@
+notes on submodules<!--more--> Great way to split up a project into smaller modules
+
+### Resources:
+
+https://gist.github.com/gitaarik/8735255
+
+- Adding a submodule:
+```
+git submodule add https://github.com/eonist/UserDefaultsSugar.git Packages/Remote/UserDefaultsSugar/
+```
+
+### Editing existing
+1. Delete the folder with the submodule
+2. Delete ref in .submodules and Delete ref in .git/.config (⚠️️ This part can sometimes be skipped ⚠️️)
+3. force add with: `git submodule add --force https://github.com/eonist/With.git Packages/Remote/With/`
+
+### Resetting submodule
+Sometimes editing or changing a submodule just creates an avalanche of issues. So resetting is a better option
+1. compress your project, to back it up
+2. `git reset --hard`
+3. Add submodules ✨

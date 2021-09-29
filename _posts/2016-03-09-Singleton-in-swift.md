@@ -21,16 +21,16 @@ let singleton = TheOneAndOnlyKraken.sharedInstance
 singleton.test()
 ```
 
-## Another singleton example: 
+## Another singleton example:
 
 ```swift
 // Creating our Singleton
 
-class SharedManager {
-    // Declare our 'sharedInstance' property
-    static let sharedInstance = SomeManager()
+class Manager {
+    // Declare our 'sharedI' property
+    static let shared = SomeManager()
 
-    // Set an initializer - 
+    // Set an initializer -
     // it will only be called once
     init() {
         print("SomeManager initialized")
@@ -42,7 +42,7 @@ class SharedManager {
     }
 }
 
-// The 'init' function will 
+// The 'init' function will
 // only be called the first time
-SharedManager.sharedInstance.doSth()
+Manager.shared.doSth()
 ```

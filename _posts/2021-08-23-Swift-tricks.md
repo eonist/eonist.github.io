@@ -1072,3 +1072,53 @@ extension Array where Element == Kind.Type {
 }
 [A.self, B.self].read() // A, B
 ```
+
+### 66. Check equality between Arrays
+This works when order of the array doesn't matter
+```swift
+func isEqual(a: [String], b: [String]) -> Bool {
+   guard a.count == b.count else { return false } // check if count is the same
+   return !a.contains { item in // does it have a case where item isn't found in the other array
+      !b.contains { otherItem in // does it have a case where item isn't found in the other array
+         item != otherItem
+      }
+   }
+}
+```
+
+### 67. Find spm .build files
+These folders are hidden, and adds size to projects. Find them with terminal. Then delete them
+```
+find . -name ".build"
+```
+
+### 68. Sort with a more elaborate closure:
+
+```swift
+let closure: (_ a: Account, _ b: Account) -> Bool = { a, b in
+   if let a = a as? LoginItem, let b = b as? LoginItem {
+      return a.type < b.type
+   } else {
+      return a.date < b.date
+   }
+}
+return accounts.sorted(by: closure)
+```
+
+### 69. Loop through struct / class properties:
+```swift
+extension Encodable {
+    var dictionary: [String: Any]? {
+        guard let data = try? JSONEncoder().encode(self) else { return nil }
+        return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
+    }
+}
+struct Test: Encodable {
+    let title: String = "this is title"
+    let value: Int = 3
+}
+let test = Test()
+test.dictionary?.forEach { (key, value) in print("key: \(key) value: \(value)") }
+// key: value value: 3
+// key: title value: this is title
+```
