@@ -1122,3 +1122,51 @@ test.dictionary?.forEach { (key, value) in print("key: \(key) value: \(value)") 
 // key: value value: 3
 // key: title value: this is title
 ```
+
+### 70. Loop through struct with reflection
+```swift
+/**
+* Creates dictionary of struct
+* - Parameter instance: instance of struct
+* - Returns: dictionary with key value
+*/
+static func dict<T>(instance: T) -> [String: Any] {
+   let mirror = Mirror(reflecting: instance)
+   let keysWithValues = mirror.children.compactMap { (label: String?, value: Any) -> (String, Any)? in
+      guard let label = label else { return nil }
+      return (label, value)
+   }
+   return Dictionary(uniqueKeysWithValues: keysWithValues)
+}
+```
+
+## 71. Setting a value with a key
+```swift
+class MyObject: NSObject{
+    @objc public var myString : String = "Not working"
+}
+func test(){
+    let value = "It works!"
+    let member = "myString"
+    let myObject = MyObject()
+    myObject.setValue(value, forKey: member)
+    print("New value: \(myObject.myString)")
+}
+```
+
+## 72. Struct and dictionary conversion:
+```swift
+extension Codble {
+   public var dict: [String: Any]? {
+      guard let data = try? JSONEncoder().encode(self) else { return nil }
+      return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
+   }
+   public init(dict: [String: Any]) throws {
+      self = try JSONDecoder().decode(Self.self, from: JSONSerialization.data(withJSONObject: dict))
+   }
+}
+let job: Job = .init(number: 1234, name: "Awards Ceremony", client: "ACME Productions")
+let dict: [String: Any] = job.dict ?? [:]
+let clone = try? Job(dict: dict)
+print("\(job == clone ? "✅" : "🚫")") // ✅
+```
