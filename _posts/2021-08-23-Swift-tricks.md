@@ -1156,7 +1156,7 @@ func test(){
 
 ## 72. Struct and dictionary conversion:
 ```swift
-extension Codble {
+extension Encodable {
    public var dict: [String: Any]? {
       guard let data = try? JSONEncoder().encode(self) else { return nil }
       return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
@@ -1165,6 +1165,7 @@ extension Codble {
       self = try JSONDecoder().decode(Self.self, from: JSONSerialization.data(withJSONObject: dict))
    }
 }
+struct Job: Codable { let number: Int, name: String, client: String }
 let job: Job = .init(number: 1234, name: "Awards Ceremony", client: "ACME Productions")
 let dict: [String: Any] = job.dict ?? [:]
 let clone = try? Job(dict: dict)

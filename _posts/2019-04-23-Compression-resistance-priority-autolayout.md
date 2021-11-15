@@ -78,7 +78,6 @@ textView.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
 
 ```
 
-
 ### Resources:
 - [https://developer.apple.com/documentation/uikit/uiview/1622485-setcontenthuggingpriority](https://developer.apple.com/documentation/uikit/uiview/1622485-setcontenthuggingpriority)  
 - [https://medium.com/@dineshk1389/content-hugging-and-compression-resistance-in-ios-35a0e8f19118](https://medium.com/@dineshk1389/content-hugging-and-compression-resistance-in-ios-35a0e8f19118)

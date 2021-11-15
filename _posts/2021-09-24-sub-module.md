@@ -1,4 +1,4 @@
-Notes on submodules<!--more--> Great way to split up a project into smaller modules
+Notes on submodules<!--more--> A great way to split up a project into smaller modules
 
 ### Resources:
 
@@ -21,4 +21,4 @@ Sometimes editing or changing a submodule just creates an avalanche of issues. S
 3. Add submodules ✨
 
 ### Gotchas:
-- updating submodules: `git submodule update`
+- updating submodules: `git submodule update --remote`
