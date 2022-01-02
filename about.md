@@ -13,7 +13,7 @@ Email:
 
 
 Twitter:   
-[https://twitter.com/eoncodes](https://twitter.com/eoncodes) 
+[https://twitter.com/eoncodes](https://twitter.com/eoncodes/) 
 
 
 Instagram:  
@@ -21,4 +21,4 @@ Instagram:
 
 
 Stackoverflow:  
-[https://stackoverflow.com/users/5389500/eonist](https://stackoverflow.com/users/5389500/eonist) 
+[https://stackoverflow.com/users/5389500/eonist/](https://stackoverflow.com/users/5389500/eonist/) 
