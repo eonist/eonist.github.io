@@ -195,9 +195,9 @@ typealias DiffableSnapshot = NSDiffableDataSourceSnapshot<SectionItem<Header, [F
 
 ```
 ### Other tidbits:
-- potential solution: https://github.com/nemecek-filip/CompositionalDiffablePlayground.ios
-- and: https://nemecek.be/blog/62/how-to-refresh-headerfooter-with-diffable-data-source
-- interesting discussion  https://developer.apple.com/forums/thread/126742
-- gd https://www.raywenderlich.com/8241072-ios-tutorial-collection-view-and-diffable-data-source
--  try this project:  https://jamesrochabrun.medium.com/uicollectionviewdiffabledatasource-and-decodable-step-by-step-6b727dd2485
-- and https://github.com/jamesrochabrun/UICollectionViewDiffableDataSource
+- Potential solution: https://github.com/nemecek-filip/CompositionalDiffablePlayground.ios
+- And: https://nemecek.be/blog/62/how-to-refresh-headerfooter-with-diffable-data-source
+- Interesting discussion  https://developer.apple.com/forums/thread/126742
+- Good https://www.raywenderlich.com/8241072-ios-tutorial-collection-view-and-diffable-data-source
+- Try this project:  https://jamesrochabrun.medium.com/uicollectionviewdiffabledatasource-and-decodable-step-by-step-6b727dd2485
+- And https://github.com/jamesrochabrun/UICollectionViewDiffableDataSource

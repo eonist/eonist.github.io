@@ -1171,3 +1171,37 @@ let dict: [String: Any] = job.dict ?? [:]
 let clone = try? Job(dict: dict)
 print("\(job == clone ? "✅" : "🚫")") // ✅
 ```
+
+## 73. Switch on instance type:
+Nice way to switch on types etc.
+```swift
+class A {}
+class B {}
+
+let val: Any = B()
+switch val {
+  case is A:
+    print("A")
+  case is B:
+    print("B")
+  default:
+    print("nothing")
+}
+// B
+```
+## 74. Array and Identifiable:
+```Swift
+public extension Array where Element: Identifiable {
+    func find(_ id: Element.ID) -> Element? {
+        self.first { $0.id == id }
+    }
+
+    func findIndex(_ id: Element.ID) -> Int? {
+        self.firstIndex { $0.id == id }
+    }
+
+    mutating func remove(_ id: Element.ID) {
+        self.removeAll { $0.id == id }
+    }
+}
+```

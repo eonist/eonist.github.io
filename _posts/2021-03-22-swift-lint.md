@@ -31,14 +31,25 @@ fi
 
 
 ### Notes:
-
-you can disable swift lint inline:
+you can disable swift lint inline (copy the arg name like: empty_enum_arguments fro the warning):
 ```swift
-// swiftlint:disable comma
+// swiftlint:disable empty_enum_arguments
 (100,         30, 3),
 (10000,       30, 333),
 (1000000,     30, 33333),
 (100000000,   60, 1666666),
 (10000000000, 90, 111111111),
-// swiftlint:enable comma
+// swiftlint:enable empty_enum_arguments
+
+// swiftlint:disable empty_enum_arguments
+// swiftlint:enable empty_enum_arguments
+
+// swiftlint:disable all // swiftlint:enable all
+```
+
+## Exclude folders from linting:
+```
+excluded:
+- Pods
+- UnitTests/generated/GeneratedMocks.swift
 ```

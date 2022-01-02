@@ -42,7 +42,7 @@ backButton.tintColor = UIColor.white
 self.navigationItem.leftBarButtonItem = backButton
 ```
 
-### Custom api:
+### Custom API:
 
 ```swift
 // leftBtn

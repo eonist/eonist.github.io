@@ -6,7 +6,7 @@ https://gist.github.com/gitaarik/8735255
 
 - Adding a submodule:
 ```
-git submodule add https://github.com/eonist/UserDefaultsSugar.git Packages/Remote/UserDefaultsSugar/
+git submodule add https://github.com/eonist/SVGWrapper.git Packages/External/SVGWrapper/
 ```
 
 ### Editing existing
@@ -16,9 +16,9 @@ git submodule add https://github.com/eonist/UserDefaultsSugar.git Packages/Remot
 
 ### Resetting submodule
 Sometimes editing or changing a submodule just creates an avalanche of issues. So resetting is a better option
-1. compress your project, to back it up
+1. Compress your project, to back it up (This can be smart to do even when adding a submodule etc, submodule is DarkMagic(TM) )
 2. `git reset --hard`
 3. Add submodules ✨
 
 ### Gotchas:
-- updating submodules: `git submodule update --remote`
+- Updating submodules: `git submodule update --remote`
