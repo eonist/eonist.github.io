@@ -5,6 +5,16 @@ My notes on how to make a responsive landing page. <!--more-->
 - The key to building a responsive webpage is to strip to down to the bare essentials, make sure that works in both mobile and desktop, then add content.
 - Try to only work with divisions with background colors in the beginning. Nail this. Then fiddle with image, and text later, which can get finicky
 
+## Iterate forward
+- Start by defining your content in text. (Use atom and markdown to structure things)
+- Then start with index.html and style.css and reset.css (Code in Atom.io and preview in safari)
+- Begin to align dummy color boxes to how your end result will be (logos, menues, content etc)
+- Add headers and footers and content elements. import other css files for each module etc. Composability is key
+- Slowly add text and menues and images
+- then start to add design elements and refine sizes etc.
+- build out the subpages
+- once you have the basic html and css up and running you can start to reuse elements in a cms like Jekyll
+
 <img width="300" alt="img" src="https://github.com/stylekit/img/blob/master/one-pager-sections.gif?raw=true">
 
 ### The html
@@ -59,7 +69,7 @@ html, body {
 use media querries
 
 ```css
-@media screen and (max-width: 600px) {}
+@media screen and (max-width: 600px) {/*add styles for this size here*/}
 ```
 
 Hide elements that doesnt fit on a smaller screen:

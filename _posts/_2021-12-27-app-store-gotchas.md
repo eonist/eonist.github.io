@@ -1,7 +1,6 @@
 My notes on adding apps to Apple app store<!--more-->
 
 ### Here’s how to submit your app to the Apple App Store:
-
 - Create an iOS distribution provisioning profile and distribution certificate
 - Create an App Store Connect record for your app (Add new app)
 - Archive and upload your app using Xcode (Select Generic iOS Device) then `product - archive` click distribute app to upload
@@ -15,6 +14,10 @@ My notes on adding apps to Apple app store<!--more-->
 - Internal testers (100 org memebers)
 - external testers (10k people) email addresses or by enabling and sharing a public link ( go to your app’s TestFlight page, click an existing group, and click Enable Public Link.)
 - When sharing your app with external testers, you’ll need to let them know what to test and any other important information relevant to testing. Provide these details on your app’s Test Information page in App Store Connect.
+
+### App review:
+- There are two review processes. One for app store, and one for test-flight. Its not intutive, but you have to add app builds the app store reivew page to be able to initiate testflight app review. So you can begin testing on test-flight before passing app store review. The testflight review is suppose to be less strict than app review.
+- https://www.revenuecat.com/blog/getting-through-app-review
 
 ### Find message that resonates with target user:
 - Identify core user problem / pain
@@ -47,15 +50,12 @@ Your app’s promotional text appears at the top of the description and is up to
 
 #### Keywords
 - Keywords help determine where your app displays in search results, so choose them carefully to ensure your app is easily discoverable. Choose keywords based on words you think your audience will use to find an app like yours. Be specific when describing your app’s features and functionality to help the search algorithm surface your app in relevant searches. Consider the trade-off between ranking well for less common terms versus ranking lower for popular terms. Popular, functional terms, such as “jobs” or “social”, may drive a lot of traffic, but are highly competitive in the rankings. Less common terms drive lower traffic, but are less competitive.
-
 - Keywords are limited to 100 characters total, with terms separated by commas and no spaces. (Note that you can use spaces to separate words within keyword phrases. For example: Property,House,Real Estate.) Maximize the number of words that fit in this character limit by avoiding the following:
-
 - Plurals of words that you’ve already included in singular form
 - Names of categories or the word “app”
 - Duplicate words
 - Special characters — such as # or @ — unless they’re part of your brand identity. Special characters don’t carry extra weight when users search for your app.
 - Improper use of keywords is a common reason for App Store rejections. Do not use the following in your keywords:
-
 - Unauthorized use of trademarked terms, celebrity names, and other protected words and phrases
 - Terms that are not relevant to the app
 - Competing app names
@@ -83,7 +83,11 @@ Categories on the App Store help users discover new apps to meet their needs. Yo
 - ⚠️️ When you create a new build, you have to increment the build nr in general - build nr ⚠️ ️
 - Click save button a lot when filling out apples app store info pages (its a lot to fill out can take a day to finish)
 - Apple app review is a bit random, you might get rejected for wrong reasons etc. So make sure you have all the obviouse things in check. Like the design and UX works as expected with out bugs etc. or else the review will be a lot of back and forth
-
+- Send apps for review early and often
+- If rejected, send succinct info to reviewer. and try again. if it doesnt resolve. appeal to higher ups with your claim etc.
+- Reviewers Are usually not responsive and wont go out of their way to understand. So make things simple and keep trying.
+- It may take a little time after a build is uploaded to app connect, before it shows up in the app connect dashboard
+- After the build is added to the app store build dashboard. it will take some time before it can be added to TestFlight. It will say processing for a while. And then after a while it will be ready for testflight review
 ### FAQ:
 - Do I need to get approval to start testing beta builds?
 - To make your beta builds available to members of your App Store Connect team, your app doesn’t need review by TestFlight App Review. To make your beta builds available to external users, your beta build may require review. When you add the first build of your app to a group, the build gets sent to TestFlight App Review to make sure it follows the App Store Review Guidelines. A review is only required for the first build of a version and subsequent builds may not need a full review. Testing can begin once a build is approved.
