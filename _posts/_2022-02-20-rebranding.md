@@ -73,3 +73,4 @@ The launch of a new brand ties back to the purpose set at the start of the work.
 - icon inspo galore (a little bit generic, but can be a good starting point for ideas): https://no.pinterest.com/scalebrandingstore/_created/
 - ios icon inspo: https://www.iosicongallery.com
 - Process: https://uxdesign.cc/one-solid-technique-that-keeps-you-from-screwing-up-app-redesign-781c338c238c
+- Reshaping duolingo brand: https://blog.duolingo.com/reshaping-duo/
