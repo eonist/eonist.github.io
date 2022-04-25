@@ -10,8 +10,8 @@ My notes on brand creation<!--more-->
 - when you hit research saturation in one direction, explore others. embrace dead ends, they are valuable. think of them as antimatter. key to defining the visible universe.
 
 **Figuring out personality / vision / direction / mood**
-- this one is really hard. requires alot of shallow and deep research. the 80/20 rule definitly applies here. Most of the time its going down dead end rabit holes. but its important because in the later stages you will have aquired a map of what not to do. as a result it will be faster to find the most optimal solution. and finally when that amazing idea seemto come out of no where. its because of all this grinding and research marathon.
-- You have to immerse your self in alot of data. competitors, state of the industry, state of the adjecent industry. broading your map of the subject and adjecent subjects to the max. This is key to understanding what you want to build. Your inventing the future and so at the very least you have to understand the past and the present. And how to avoid just making what has been.
+- this one is really hard. requires a lot of shallow and deep research. the 80/20 rule definitly applies here. Most of the time its going down dead end rabit holes. but its important because in the later stages you will have aquired a map of what not to do. as a result it will be faster to find the most optimal solution. and finally when that amazing idea seemto come out of no where. its because of all this grinding and research marathon.
+- You have to immerse your self in a lot of data. competitors, state of the industry, state of the adjecent industry. broading your map of the subject and adjecent subjects to the max. This is key to understanding what you want to build. Your inventing the future and so at the very least you have to understand the past and the present. And how to avoid just making what has been.
 
 **Once you understand the overall direction**
 - Try to figure out the begining. the point where it starts. From there everything should deterministically unfold it self. Seed -> Seedling -> plant - > Tree -> Forest. wrong seed, wrong forest
@@ -31,3 +31,4 @@ My notes on brand creation<!--more-->
 - it will be hard but you will be able to create something others easily cant. they will want to copy you.
 - the reason why you should iterate and avoid planing too far, is because of the spagethi experiment. if you give spagethisticks and gum to kids iterating and learning they will build a better structure than mba execeutives trying to plan and executge.
 - everything is a scientific process. your job is just to apply it.
+- compose website copy from keywords, create an extensive keyword map of the subject you want to write about.

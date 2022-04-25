@@ -1,4 +1,4 @@
-Notes on Plist<!--more-->
+Notes on accessing Plist<!--more-->
 
 ### Example of accessing plist:
 ```swift
