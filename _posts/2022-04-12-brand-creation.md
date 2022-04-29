@@ -32,3 +32,5 @@ My notes on brand creation<!--more-->
 - the reason why you should iterate and avoid planing too far, is because of the spagethi experiment. if you give spagethisticks and gum to kids iterating and learning they will build a better structure than mba execeutives trying to plan and executge.
 - everything is a scientific process. your job is just to apply it.
 - compose website copy from keywords, create an extensive keyword map of the subject you want to write about.
+- Readymade logos: scalebranding.com
+- https://www.halo-lab.com/blog/brand-analysis

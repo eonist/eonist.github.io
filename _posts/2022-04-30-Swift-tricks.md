@@ -1205,3 +1205,15 @@ public extension Array where Element: Identifiable {
     }
 }
 ```
+
+## 75. Singleton extension (soon)
+
+```
+// Add singleton extension to tricks
+```
+
+## 76. .withValue for struct (soon)
+
+```
+// Add article to swift tips on withValue for struct
+```
