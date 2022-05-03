@@ -1,6 +1,8 @@
 My notes on **rebranding** <!--more--> There are many reasons to rebrand. A distinctive, effective one
 comes from three magic ingredients: purpose, process, and people.
 
+⚠️️ This needs some rewriting ⚠️️ before publishing etc
+
 ### Purpose
 A rebrand must be intentional, done with clarity of purpose
 and connected to the strategy and vision for the company.
