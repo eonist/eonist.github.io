@@ -65,12 +65,12 @@ The launch of a new brand ties back to the purpose set at the start of the work.
 ### Pro tips:
 - You have a better chance of making something better if your immersed in the material.
 - Create the logo for a niche core group. Keep going back to this niche core group. Dont, try to appeal broadly. Broad appeal will accept niche focus, when they are acclimated
-- exploring and drilling down the personality of the brand https://simplysecure.org/blog/branding-tails/
-- great colection of logo design processes: https://creativemarket.com/blog/logo-design-infographics-diagrams
-- ultimate collection of logo collections: https://www.behance.net/galleries/graphic-design/logo
-- ramotion has some reallly nice brand process posts here: https://www.behance.net/Ramotion-UX-Agency
-- great discovery example, especially interesting is how many iterations are created on the final direction: https://www.behance.net/gallery/51546457/Kitsu-Brand-Identity-Design
-- icon inspo galore (a little bit generic, but can be a good starting point for ideas): https://no.pinterest.com/scalebrandingstore/_created/
-- ios icon inspo: https://www.iosicongallery.com
+- Exploring and drilling down the personality of the brand https://simplysecure.org/blog/branding-tails/
+- Great colection of logo design processes: https://creativemarket.com/blog/logo-design-infographics-diagrams
+- Ultimate collection of logo collections: https://www.behance.net/galleries/graphic-design/logo
+- Ramotion has some reallly nice brand process posts here: https://www.behance.net/Ramotion-UX-Agency
+- Great discovery example, especially interesting is how many iterations are created on the final direction: https://www.behance.net/gallery/51546457/Kitsu-Brand-Identity-Design
+- Icon inspo galore (a little bit generic, but can be a good starting point for ideas): https://no.pinterest.com/scalebrandingstore/_created/
+- iOS icon inspo: https://www.iosicongallery.com
 - Process: https://uxdesign.cc/one-solid-technique-that-keeps-you-from-screwing-up-app-redesign-781c338c238c
 - Reshaping duolingo brand: https://blog.duolingo.com/reshaping-duo/

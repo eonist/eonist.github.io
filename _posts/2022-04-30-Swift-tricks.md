@@ -39,7 +39,7 @@ var myBigData : Data? {
 ### 3. Asserting if an array index exist:
 
 ```swift
-let arr = [1,2,3]
+let arr = [1, 2, 3]
 if let fourthItem = (3 < arr.count ?  arr[3] : nil ) {
      Swift.print("fourthItem:  \(fourthItem)")
 }else if let thirdItem = (2 < arr.count ?  arr[2] : nil) {
@@ -48,7 +48,7 @@ if let fourthItem = (3 < arr.count ?  arr[3] : nil ) {
 // Output: thirdItem: 3
 ```
 
-### 4. Simplify similar code with Closure
+### 4. Simplify similar code with a closure
 
 ```swift
 let closure = { (text: String, bgColor: UIColor, y: CGFloat, action: String) in
@@ -92,14 +92,12 @@ func createBtn(action: String) -> UIButton {
 let btn = createButton(action: "buttonTouched:") // 👈The : character is impportant
 ```
 
-
 ### 6. Override static variable
 
 ```swift
 class var id : String { return "\(HorCell.self)" } // In a class
 override class var id : String { return "\(PrimaryCell.self)" } // In a sub-class of the class
 ```
-
 
 ### 7. String enum's
 No need to hard code the string, as long as the enum type is string 👌, the name is auto converted to string when you call rawValue
@@ -111,7 +109,6 @@ print("\(CellType.primary.rawValue)") // primary
 print("\(CellType.tierary.rawValue)") // tierary
 ```
 
-
 ### 8. Accessing raw and hash of enum
 
 ```swift
@@ -122,7 +119,6 @@ let possibleCellType = CellType(rawValue: "tierary")
 possibleCellType // tierary
 possibleCellType?.hashValue // 2
 ```
-
 
 ### 9. Closure Generics
 
@@ -1216,4 +1212,16 @@ public extension Array where Element: Identifiable {
 
 ```
 // Add article to swift tips on withValue for struct
+```
+
+## 77. guard that throws
+Nice way to provide info regarding why a function didn't return the expected result etc
+
+```swift
+func someFunc(toggle: Boolean) -> String throws  {
+   guard toggle else { throw NSError(domain: "err", code: 0) }
+   return "someString"
+}
+try ? someFunc(toggle: true) // "someString"
+try ? someFunc(toggle: false) // nil
 ```
