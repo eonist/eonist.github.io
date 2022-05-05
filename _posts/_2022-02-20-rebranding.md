@@ -78,3 +78,4 @@ The launch of a new brand ties back to the purpose set at the start of the work.
 - Reshaping duolingo brand: https://blog.duolingo.com/reshaping-duo/
 - Readymade logos: scalebranding.com
 - https://www.halo-lab.com/blog/brand-analysis
+- Antonym Finder: https://www.wordhippo.com/what-is/the-opposite-of/

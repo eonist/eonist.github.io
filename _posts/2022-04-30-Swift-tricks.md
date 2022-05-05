@@ -1214,7 +1214,7 @@ public extension Array where Element: Identifiable {
 // Add article to swift tips on withValue for struct
 ```
 
-## 77. guard that throws
+## 77. Guard that throws
 Nice way to provide info regarding why a function didn't return the expected result etc
 
 ```swift
@@ -1224,4 +1224,15 @@ func someFunc(toggle: Boolean) -> String throws  {
 }
 try ? someFunc(toggle: true) // "someString"
 try ? someFunc(toggle: false) // nil
+```
+
+## 78. Traversing descendants
+
+```swift
+/**
+ * Traverses the entire UIView hierarchy downwards and collects views that are of specific PARAM: type
+ */
+public func descendants<T>(type: T.Type? = nil) -> [T] {
+   self.subviews.flatMap { $0.subviews.isEmpty ? [$0 as? T].compactMap { $0 } : $0.descendants(type: type) }
+}
 ```

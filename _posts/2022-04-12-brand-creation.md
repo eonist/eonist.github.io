@@ -4,10 +4,10 @@ My notes on brand creation<!--more-->
 - Iterating is really important
 - Innovation is 50% vision and 50% technology
 - Study the structure of the game your entering intensively
-- The more time you spend the better the end product (1-3 mnths)
+- The more time you spend the better the end product (1-3 months)
 - Even if you find something great early. keep going. you will find something better
 - Hit pintrest and insta and dribbble every day every night
-- When you hit research saturation in one direction, explore others. embrace dead ends, they are valuable. think of them as antimatter. key to defining the visible universe.
+- When you hit research saturation in one direction, explore others. embrace dead ends, they are valuable findings for making connections in later stages in the exploration.
 
 **Figuring out personality / vision / direction / mood**
 - This one is really hard. And requires a lot of both shallow and deep research. the 80/20 rule definitely applies here. Most of the time it's going down dead-end rabbit holes (80% of the time). But it's important because in the later stages you will have acquired a mental map of what not to do. To quote Thomas Edison: “I have not failed. I've just found 10,000 ways that won't work.” As a result it will be faster to find the most optimal solution later. And finally when that amazing idea seem to come out of no where. It's because of this research marathon and all the grinding / failing.
