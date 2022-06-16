@@ -1,5 +1,86 @@
 Some of my favourite swift tricks<!--more-->
 
+## 82. Simpler error for Result
+Sometimes you just want to read the error instead of switching
+```swift
+extension Result {
+   public func error<T>() -> T? where T: Error {
+      guard case .failure(let error) = self else { return nil }
+      return error as? T
+   }
+}
+```
+```swift
+enum DataReceivedError: Error { case offline, denied }
+typealias OnDataReceived = (Result<String, DataReceivedError>) -> Void
+var onDataReceived: OnDataReceived = { result in
+   guard value = try? result.get() else { print("Err: \(result.error?.localizedDescription)") }
+   print("content: \(value)")
+}
+onDataReceived(.success("some content"), nil) // success
+onDataReceived(.failure(.offline)) // failure
+```
+
+## 81. Handy UIAlertController shortcuts:
+Simplifies calling UIAllertController
+```swift
+// Extension:
+extension UIAlertController {
+    static func alertOnError(_ error: Swift.Error, handler: ((UIAlertAction?) -> Void)? = nil) -> UIAlertController {
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: handler))
+        return alert
+    }
+    static func alertOnErrorWithMessage(_ message: String, handler: ((UIAlertAction?) -> Void)? = nil) -> UIAlertController {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:handler))
+        return alert
+    }
+    static func alertWithMessage(_ message: String, handler: ((UIAlertAction?) -> Void)? = nil) -> UIAlertController {
+        let alert = UIAlertController(title: "Alert", message:message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:handler))
+        return alert
+    }
+}
+// Usage:
+let err = NSError(domain: "err", code: 0)
+let closure = { (_ action: UIAlertAction?) in print(action) }
+UIAlertController.alertOnError(err, closure).present()
+UIAlertController.alertOnErrorWithMessage("Uh oh", closure).present()
+UIAlertController.alertWithMessage("Open the bay doors?", closure).present()
+```
+
+## 80. Overriding computed variable in an extension
+It's nice to be able to put non stored variables in extensions
+```swift
+class A {}
+extension A {
+   @objc var data: String { "a" }
+}
+class B: A {}
+extension B {
+   override var data: String { "b" }
+}
+print(A().data) // a
+print(B().data) // b
+```
+## 79. guard continue in a for loop
+```swift
+for item in items {
+   guard item.uuid == uuid else { continue } // skip this loop iteration
+   print("found matching uuid: \(item.uuid)")
+   guard item.data.count > 0 { continue } // skip items that doesn't have data
+   print("data.count: \(data.count)")
+}
+```
+
+## 78. guard continue
+We mostly use guard return. But there is also guard continue.
+
+```swift
+let str = "abc"
+guard str == "abc" else { print("str is not abc"); continue }
+```
 
 ## 77. Disabling some code for swift lint
 Instead of disabling swift lint rules to avoid excessive xCode warnings you can disable small parts of the code:
@@ -446,10 +527,12 @@ func foo() {
 // name things: allItems(SecClass:) if the type of the param is the only change etc
 ```
 
-
+**There is also**:
+```swift
+@available(*, deprecated, message: "This closure will be removed in future version. Please use `handler`.")
+```
 
 ### 44. Measure time consumed by a closure
-
 ```swift
 /**
  * Measures how long a closure takes to complete
@@ -464,7 +547,6 @@ func timeElapsed(_ closure: () -> Void) -> Double {
     return Double(diff) / 1_000_000_000
 }
 ```
-
 
 ### 43. Do many things simultaneously and call onComplete when things are done
 For more complex scenarios see: [https://github.com/eonist/parallelloops](https://github.com/eonist/parallelloops)
@@ -486,8 +568,6 @@ func processData(onComplete: @escaping () -> Void) {
 }
 ```
 
-
-
 ### 42. Map ranges:
 Creates an array of random numbers
 
@@ -497,18 +577,16 @@ let randomArray = (1...4).map { _ in randInt() } // 3,1,2,2
 ```
 
 ### 41. Use an online swift playground for quick tests:
-
 [http://online.swiftplayground.run](http://online.swiftplayground.run)
 
 ```swift
 import Foundation
-
 print("Hello World")
-
 print((1...40).contains(1)) // true
 print((1...40).contains(40)) // true
-
 ```
+
+There is also terminal which can test swift code by typing swift and hitting enter
 
 ### 40. Flattening nested loops:
 
@@ -533,8 +611,6 @@ while x < width && y < height {
 }
 ```
 
-
-
 ## 39. Accounting for iPhoneX notch
 ```swift
 override func viewDidAppear(_ animated: Bool) {
@@ -547,7 +623,6 @@ override func viewDidLoad() {
 }
 ```
 
-
 ## 38. Store constant in array types
 - Great way to store values in array types, or add custom methods to array types
 - Allows you to get rid of clunky looking `Array where Element = SomeThing`
@@ -558,11 +633,7 @@ extension ColorMap { // Array where Element == ColorMapItem
    static let rainbow = [.blue, .red, .yellow]
 }
 let rainbowColors: ColorMaps = .rainbow
-
-
 ```
-
-
 
 ## 37. Structure colors:
 ```swift
@@ -593,9 +664,6 @@ struct Color {
 }
 ```
 
-
-
-
 ## 36. Call the method in the alternating bool assert
 - Imagine [r,g,b] are computational heavy methods
 - The assert has to execute every method to assert
@@ -607,8 +675,6 @@ func b: Bool { print("b"); return true }
 let valid: Bool = r && g && b
 print(valid) // r,g false (skips calling b)
 ```
-
-
 
 ## 35. Using try with for loops
 ```swift
@@ -731,8 +797,6 @@ func recursiveFlatmap<T>() -> [T] {
 }
 ```
 
-
-
 ## 29. Access name of int enum:
 This does not work on some native enums, often due to the fact that they are Objc enums, In such cases make an extension that has a switch that returns the name.
 ```swift
@@ -744,11 +808,7 @@ Swift.print("\(String(describing: TestEnum.three))") // three
 public enum FocalType: Int, CaseIterable { case ultraWide, wide, tele }
 print(FocalType.allCases.map { "\($0): \($0.rawValue)" }.joined(separator: ", "))
 // ultraWide : 0, wide : 1, tele : 2
-
 ```
-
-
-
 
 ## 28. Long numbers:
 ```swift
@@ -758,24 +818,17 @@ let valA: Int = 100000000 * 2
 let valB: Int = 100_000_000 * 2
 ```
 
-
-
-
 ## 27. Prefer contains over first
 ```swift
-//Good
+// Good
 arr.first(where: { $0 == match }) != nil
-//Better:
+// Better:
 arr.contains(where: { $0 == match })
-//Best
+// Best
 arr.contains { $0 == match }
 ```
 
-
-
-
-## 26. Visual colors in xcode
-
+## 26. Visual colors in xCode
 A nice way to have visual representation of colors in code:
 
 ```swift
@@ -787,15 +840,13 @@ enum Colors {
 // Colors.teal
 ```
 
-
 ## 25. Optional chaining
 ```swift
 Swift.print(Optional("✅") ?? "🚫") // 🚫
 Swift.print(Optional(nil) ?? "🚫") // ✅
 ```
 
-It's like providing a default value if the optional is nil. you can do. it's equivalent to doing `Optional("") != nil ? Optional("") : ""`
-
+It's like providing a default value if the optional is nil. You can do. it's equivalent to doing `Optional("") != nil ? Optional("") : ""`
 
 ## 24. Make rounded graphics look great
 - Use `NSScreen.main.backingScaleFactor` for macOS and `UIScreen.main.scale` for iOS
@@ -805,7 +856,6 @@ It's like providing a default value if the optional is nil. you can do. it's equ
 self.caLayer?.rasterizationScale = 2.0 * Screen.mainScreenScale
 self.caLayer?.shouldRasterize = true
 ```
-
 
 ## 23. Make methods off-limit
 [https://www.mokacoding.com/blog/swift-unavailable-how-to/](https://www.mokacoding.com/blog/swift-unavailable-how-to/)
@@ -818,7 +868,7 @@ public required init?(coder: NSCoder) {
 }
 ```
 
-## 22. Avoid XCode warning when returned value is not used:
+## 22. Avoid xCode warning when returned value is not used:
 
 ```swift
 @discardableResult
@@ -837,6 +887,7 @@ extension SomeTableViewCell {
 ```
 
 ## 20. Flattening 3d array:
+See also tip nr.40: Flattening nested loops:
 
 ```swift
 struct Subscription { let type: String }
@@ -861,8 +912,6 @@ let result2 = users.flatMap { $0.accounts }.flatMap { $0.subscriptions }.flatMap
 Swift.print("result2:  \(result2)")//["a", "b", "c", "d", "e", "f"]
 ```
 
-
-
 ### 19. Dot-syntax inference and array iteration with Enums
 
 ```swift
@@ -882,7 +931,6 @@ class Constants{
 }
 ```
 
-
 ### 18. Combinational types instead of generics
 
 The `setCardConstraints` method requires conformance to UIView and ConstraintKind
@@ -894,7 +942,7 @@ func setCardConstraints<T: UIView>(card: T) where T: ConstraintKind { // 👈 Lo
       // do stuff
    }
 }
-// Combinational type
+// Combination type:
 public typealias UIViewConstraintKind = UIView & ConstraintKind
 func setCardConstraints(card: UIViewConstraintKind) { // 👈 Looks much cleaner
    card.applyConstraint{ view in
@@ -903,8 +951,6 @@ func setCardConstraints(card: UIViewConstraintKind) { // 👈 Looks much cleaner
 }
 ```
 
-
-
 ### 17. Delay something
 ```swift
 DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
@@ -912,7 +958,6 @@ DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
 }
 
 // Alternatively:
-
 DispatchQueue.global(qos: .background).async { // asyncAfter also works here, instead of sleep
     sleep(4)
     print("Active after 4 sec, and doesn't block main")
@@ -922,12 +967,10 @@ DispatchQueue.global(qos: .background).async { // asyncAfter also works here, in
 }
 
 // Alternatively:
-
 let second: Double = 1000000
 usleep(useconds_t(0.002 * second)) // will sleep for 2 milliseconds (.002 seconds)
 
 // Alternatively:
-
 /**
  * Supports fractional time
  * ## Examples:
@@ -950,9 +993,7 @@ DispatchQueue.global(qos: .background).async {
 }
 ```
 
-
 ### 16. Enums in a closure to describe events
-
 ```swift
 class MyViewController {
     enum Error: Swift.Error {
@@ -990,10 +1031,7 @@ controller.eventHandler = handler
 controller.login(name: "John", password: "abc123")
 ```
 
-
-
 ### 15. Rethrows:
-
 The `rethrows` keyword indicates to the compiler that the outer function is a throwing function only if the closure passed in throws an error that is propagated to the current scope. Basically with `rethrows`, we can use throw inside the closure. When the error handlers are called within the function we use throws.
 
 ```swift
@@ -1003,10 +1041,7 @@ func doSomethingMagical(magicalOperation: MagicalOperation) rethrows -> MagicalR
 }
 ```
 
-
-
 ### 14 Use custom closures with the native sortedBy method:
-
 ```swift
 enum CardType {
    case heart, spades, diamond, clover
@@ -1034,8 +1069,6 @@ func arrayTest(){
   Swift.print("sorted.🔴")
 }
 ```
-
-
 
 ### 13 Manipulate an object in a closure
 
@@ -1164,8 +1197,7 @@ func activateConstraintKind(closure: ConstraintKindClosure) {
 }
 ```
 
-
-### 8. Accessing raw and hash of enum
+### 8. Accessing raw and hashValue of enum
 
 ```swift
 enum CellType: String {
@@ -1175,8 +1207,6 @@ let possibleCellType = CellType(rawValue: "tierary")
 possibleCellType // tierary
 possibleCellType?.hashValue // 2
 ```
-
-
 
 ### 7. String enum's
 No need to hard code the string, as long as the enum type is string 👌, the name is auto converted to string when you call rawValue
@@ -1199,7 +1229,6 @@ override class var id : String { return "\(PrimaryCell.self)" } // In a sub-clas
 
 
 ### 5. Action as argument
-
 In the case bellow we use an argument to assign the target. It could be possible to pass a ref to the buttonTouched method as well. Example of that comming soon.
 
 ```swift
@@ -1211,7 +1240,7 @@ func createBtn(action: String) -> UIButton {
 @objc func buttonTouched(_ sender: UIButton) {
     Swift.print("buttonTouched")
 }
-let btn = createButton(action: "buttonTouched:") // 👈The : character is impportant
+let btn = createButton(action: "buttonTouched:") // 👈 The : character is important
 ```
 
 
@@ -1243,8 +1272,6 @@ closure(
    "onbackButtonClick"
 )
 ```
-
-
 
 ### 3. Asserting if an array index exist:
 

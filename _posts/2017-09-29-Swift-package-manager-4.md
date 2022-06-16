@@ -16,7 +16,7 @@ Since SPM 4 doesn't support building to app target yet, we can't call `swift pac
 1. `cd ~/dev/Awesome/`
 2. `swift package init`
 3. `swift package generate-xcodeproj`
-4. Open the.xvodproj file and `XCode -> file -> Target -> Cocoa app` 👈 **This makes your project a real GUI App project**
+4. Open the.xcodproj file and `XCode -> file -> Target -> Cocoa app` 👈 **This makes your project a real GUI App project**
 5. switch to the AwesomeApp target (next to the run icon)
 6. Drag and drop the Awesome.framework into "embedded binaries" for AwesomeApp target
 7. add `func testing(){print("Hello world")}` to the Awesome.swift file

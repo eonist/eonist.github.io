@@ -1,7 +1,7 @@
 My notes on SPM<!--more-->
 
 ## Basic gotchas:
-`swift package init` Creates the init spm project
+`swift package init` Creates the init SPM project
 `swift package init --type library` ⚠️️ Untested ⚠️️
 `swift build` Builds dependencies
 `swift package generate-xcodeproj` Makes xCode proj

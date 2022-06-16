@@ -6,6 +6,7 @@ My notes on writing method step documentation<!--more-->
 - Instead of putting the responsibility of reasoning on the reader, why not write step documentation in the method doc.
 - This way you don't have to jump through a lot of files and methods and in the process lose your barrings
 - The reader can easily just derive the context from reading the steps in the method doc
+- Documentation is captured domain knowledge (humans lose domain knowledge quickly)
 
 ```swift
 /**
