@@ -5,7 +5,8 @@ My notes on semaphores<!--more-->
 - As we already know, unlimited work might lead to a deadlock.
 - Here is how we can apply dispatch semaphore to limit a queue to 3 concurrent tasks:
 
-- Fixme: ⚠️️ write about making callback method returnable in swift tips blog post?
+- Fixme: ⚠️️write about making callback method returnable in swift tips blog post?  
+- Fixme: 👉 Make a wrapper for making methods that are async sync 👈
 
 ### Making async call a return method:
 

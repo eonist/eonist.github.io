@@ -1,5 +1,36 @@
 Some of my favourite swift tricks<!--more-->
 
+## 84. Compare equality between two instance of type Any
+```swift
+/**
+ * A hack to compare any
+ */
+fileprivate extension Equatable {
+   /**
+    * Equate two values of unknown type.
+    * ## Examples
+    * let bool: Any = Bool.random()
+    * AnyHashable.equate(bool, bool) // true
+    */
+   static func equate(_ any0: Any?, _ any1: Any?) -> Bool {
+      if any0 == nil && any1 == nil { return true }
+      guard
+         let equatable0 = any0 as? Self,
+         let equatable1 = any1 as? Self
+      else { return false }
+
+      return equatable0 == equatable1
+   }
+}
+```
+
+## 83. Forced unwrap with context
+istead of unwrapping and getting no useful info if the value is nil, use fatalError instead.
+```swift
+let someValue: Int? = 0
+let value = someValue ?? { fatalError("Integer missing") }()
+```
+
 ## 82. Simpler error for Result
 Sometimes you just want to read the error instead of switching
 ```swift
@@ -982,7 +1013,7 @@ public func sleep(sec: Double){
 
 // Pausing in a loop:
 
-let array = [1,2,3]
+let array = [1, 2, 3]
 DispatchQueue.global(qos: .background).async {
     array.forEach { i in
         sleep(1)
