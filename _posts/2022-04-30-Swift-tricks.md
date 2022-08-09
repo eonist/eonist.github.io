@@ -1,5 +1,39 @@
 Some of my favourite swift tricks<!--more-->
 
+## 87. Weak self in a method
+Weak self can be used in methods, not just closures
+```swift
+func myInstanceMethod() {
+    weak var _self = self
+    func nestedFunction(result : Bool) {
+        _self?.anotherInstanceMethod()
+    }
+    functionExpectingClosure(nestedFunction)
+}
+```
+
+## 86. Intersection of two arrays
+We can also use Set to achieve intersection between arrays see stackoverflow
+```swift
+func intersection(a: [String], b: [String]) -> [String] {
+   a.filter { character in
+      b.contains(where: { character == $0 })
+   }
+}
+```
+
+## 85. Use deinit to clean up or cancel callbacks
+```swift
+class Test {
+    deinit {
+        print("deinit")
+        // cancel callbacks etc
+    }
+}
+var test: Test? = Test()
+test = nil // prints deinit
+```
+
 ## 84. Compare equality between two instance of type Any
 ```swift
 /**

@@ -6,7 +6,7 @@ My checklist when making a programmatic iOS app<!--more-->
 4. Now you can delete ViewController.swift `and` Main.storyboard (since xCode 11 also remove scenedelegate)
 5. Add MainVC and MainView
 6. `CMD + R` Run the app, if the background is orange it works
-7. In recent xCode apps you need to also remove main from Target - Main interface
+7. In recent xCode apps you need to also remove main from Target -> Main interface -> Set field to blank (might require xcode clean / restart)
 
 ### AppDelegate
 
