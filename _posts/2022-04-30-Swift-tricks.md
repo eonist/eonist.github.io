@@ -1,4 +1,42 @@
-Some of my favourite swift tricks<!--more-->
+singletonSome of my favourite swift tricks<!--more-->
+
+## 91. Customizable singleton
+- Normal usage in production code: `SomeClass.shared` // instance   
+- Test usage: `SomeClass.sharedInstance(isTestMode: true)` // test instance
+```swift
+public static let shared: SomeClass = .sharedInstance() // with default customization
+   private static var _shared: SomeClass? // One source of truth
+   /**
+    * - Note: Use this directly if this singleton needs to be customized (Call it only once in the beginning of the code, use regular .shared in subsequent calls etc)
+    * - Important: ⚠️️ Reference this in the code before .shared is referenced or it wont work
+    */
+   public static func sharedInstance(isTestMode: Bool = false) -> SomeClass {
+      guard let shared = _shared else { // if nil -> first run
+         let shared = SomeClass(isTestMode: isTestMode) // temp variable
+         _shared = shared // set permanent variable
+         return shared
+      }
+      return shared // Instance  already exist, return instance
+   }
+```
+
+## 90. Handy way to generate uuid's
+In terminal we can do: `uuidgen` output: `1745B9C9-A369-4FD7-1EDF-B3AE2C268047`
+```swift
+let uuid = UUID().uuidString // 2C432AEC-14A9-4F83-9ABB-60C6A7D948E7
+```
+
+## 89. Manipulating values in a Dictionary
+ Manipulate key and value
+```swift
+let newDict = Dictionary(uniqueKeysWithValues: oldDict.map { key, value in (key.uppercased(), value.lowercased()) })
+```
+
+## 88. Debugging main / background thread
+Great when working with network-IO and UI, since UI must happen on main thread and network usually on background.
+```swift
+print("Thread.isMainThread: \(Thread.isMainThread)") // true / false
+```
 
 ## 87. Weak self in a method
 Weak self can be used in methods, not just closures

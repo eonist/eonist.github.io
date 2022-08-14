@@ -12,7 +12,8 @@ Notes on how to get around hurdles when trying to run an app from xCode on an iP
 **Solution**: unplug iphone usb cable, restart xcode. Try again
 
 **Problem**: The operation couldn’t be completed. Unable to launch some.app.com because it has an invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user.
-**Solution**: On iphone settings -> device managment -> enable trust for the app
+**Solution**: On iPhone settings -> device managment -> enable trust for the app / developer
 
-F80A41CA-8B71-47BE-8A92-E05BB5F1F862
-F80A41CA-8B71-47BE-8A92-E05BB5F1F862
+
+**Problem**: Please delete apps signed with your free account from this device to remain under the limit.
+**Solution**: free accounts can only have 3 apps. Delete one or use a paid dev account
