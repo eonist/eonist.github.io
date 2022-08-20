@@ -1,4 +1,27 @@
-singletonSome of my favourite swift tricks<!--more-->
+Some of my favourite swift tricks<!--more-->
+## 93. Closure that throws
+Sometimes it's useful to be able to throw through a closure:
+```swift
+func someMethod() throws -> String { "works" }
+var closure: () throws -> Void {}
+closure {
+   print(try someMethod())
+}
+try closure() // works
+```
+
+## 92. Remove first where
+```swift
+extension Array {
+   /**
+    * Remove first item that match some criteria
+    */
+   @discardableResult mutating func removeFirst(closure: (Element) -> Bool) -> Element? {
+      guard let i: Int = self.firstIndex (where: { closure($0) }) else { return nil }
+      return self.remove(at: i)
+   }
+}
+```
 
 ## 91. Customizable singleton
 - Normal usage in production code: `SomeClass.shared` // instance   
@@ -1382,7 +1405,7 @@ closure(
 let arr = [1, 2, 3]
 if let fourthItem = (3 < arr.count ?  arr[3] : nil ) {
      Swift.print("fourthItem:  \(fourthItem)")
-}else if let thirdItem = (2 < arr.count ?  arr[2] : nil) {
+} else if let thirdItem = (2 < arr.count ?  arr[2] : nil) {
      Swift.print("thirdItem:  \(thirdItem)")
 }
 // Output: thirdItem: 3
