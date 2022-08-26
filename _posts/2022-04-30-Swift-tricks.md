@@ -1,4 +1,11 @@
 Some of my favourite swift tricks<!--more-->
+
+## 94. Converting one dictionary type to another
+```swift
+let dict: [String, Any] = [:]
+let newDict: [String: String] = dict.compactMapValues { $0 as? String }
+```
+
 ## 93. Closure that throws
 Sometimes it's useful to be able to throw through a closure:
 ```swift
