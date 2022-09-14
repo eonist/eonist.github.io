@@ -2,7 +2,8 @@ My notes on programatic macOS app<!--more-->
 
 - This code creates a pure programatic setup w/o storyboard
 - ~~(Uncheck use storyboard when you create the project)~~ 🚫
-- Since Xcode 11.2 you have to tick use XIB ✅
+- Since xCode 11.2 you have to tick use XIB ✅
+- Since xCode 13.x we have to add info.plist manually to the root of the project. Then add it in build settings infoplist field. and remove from build phase.
 
 ### The code:
 

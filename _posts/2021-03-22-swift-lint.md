@@ -27,11 +27,11 @@ fi
 [![SwiftLint Eonist](https://img.shields.io/badge/SwiftLint-Eonist-purple.svg)](https://github.com/eonist/Swift-lint)  
 `[![Swift-lint Eonist](https://img.shields.io/badge/swift--lint-eonist-purple.svg)](https://github.com/eonist/Swift-lint)`
 
-6. ✨ Don't forget the terminal auto correct feature Terminal: `swiftlint autocorrect` in your project path. And it auto corrects the entire project ✨ ⚠️️Remember to commit before you auto correct the project.
+6. ✨ Don't forget the terminal auto correct feature Terminal: `swiftlint autocorrect` now renamed to: `swiftlint fix` in your project path. And it auto corrects the entire project ✨ ⚠️️Remember to commit before you auto correct the project. `swiftlint lint` first to assert what will be changed. Before autocorrecting it can be smart to commit current state. and go through commits and assert that everything is good. It can also be a good idea to make sure the package or xcodeproj builds and runs all tests etc
 
 
 ### Notes:
-you can disable swift lint inline (copy the arg name like: empty_enum_arguments fro the warning):
+you can ignore or disable swift lint inline (copy the arg name like: empty_enum_arguments fro the warning):
 ```swift
 // swiftlint:disable empty_enum_arguments
 (100,         30, 3),
@@ -53,3 +53,6 @@ excluded:
 - Pods
 - UnitTests/generated/GeneratedMocks.swift
 ```
+
+## Add swift lint to Packages
+https://stackoverflow.com/questions/57461737/how-to-integrate-swiftlint-with-an-ios-app-using-swift-package-manager

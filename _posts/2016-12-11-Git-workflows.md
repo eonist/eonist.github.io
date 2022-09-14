@@ -1,4 +1,4 @@
-Overview of basic Git workflows<!--more--> 
+Overview of basic Git workflows<!--more-->
 
 **Content of page:**
 1.  [Git status](#git-status)
@@ -24,10 +24,10 @@ git status
 7. Keep all local file changes: **"git checkout --ours *"** (you may replace the * char with a file or path)
 8. Keep all remote file changes: **"git checkout --theirs *"** (you may replace the * char with a file or path)
 9. Then add, commit and push
-10. The commit history will now display remote commit, local commit, merge commit. 
+10. The commit history will now display remote commit, local commit, merge commit.
 
 
-### To manually clone into a populated folder 
+### To manually clone into a populated folder
 1. git init
 2. add and commit your files
 3. attach remote origin  
@@ -35,7 +35,7 @@ git status
 Then do the exact same steps as you do in the "Merge local to remote workflow"
 
 
-### **Use git as a local file merge tool** 
+### **Use git as a local file merge tool**
 Basically you are doing this: repoA -> repoX (remote) ->repoB    
 Pretext: I have a huge code lib that i recently updated alot of comments in from my ipad. Pre GitSync era. Now i want to merge back together with the lib on my macbok.  I can create a private repo on bitbucket, but i dont quite trust bitbucket with this code lib. So why not do it locally? We are using Github desktop app for doing the merging because it has a pretty good visual code diff feature. We use terminal to setup the "faux remote git"
 
@@ -47,10 +47,42 @@ git --bare init
 ```
 2. then you create 2 repos from the github desktop app named: "repoA" and "repoB" (use the add button)
 3. you then click the repo properties for both repoA and repoB and set their remote to the path of repoX: "~/Desktop/del/repo2.git"
-4. Add a file in repoA and publish it with the github desktop app. 
+4. Add a file in repoA and publish it with the github desktop app.
 5. in repoB click sync in the github desktop app. and you will now get the file originally from repoA
-6. Now the great thing about this is that you can add many files to repoA and then commit and sync from GitHub Desktop App and then in repoB you will get a nice visual feedback about the textual changes additions in green and subtractions of text as red. 
-7. To avoid messing with checking out previouse commits if you dont like a change etc. I recomend just keeping a stash of the new and old code lib and then just copy paste in any file you didnt like. Basically copy the old one or the new one, which ever you liked the most. Very non-destructive. Merging rebasing, checking out etc is not easy and can very quickly go astray. And its cognativly tasking, when you should focus on getting the right changes etc. 
+6. Now the great thing about this is that you can add many files to repoA and then commit and sync from GitHub Desktop App and then in repoB you will get a nice visual feedback about the textual changes additions in green and subtractions of text as red.
+7. To avoid messing with checking out previouse commits if you dont like a change etc. I recomend just keeping a stash of the new and old code lib and then just copy paste in any file you didnt like. Basically copy the old one or the new one, which ever you liked the most. Very non-destructive. Merging rebasing, checking out etc is not easy and can very quickly go astray. And its cognativly tasking, when you should focus on getting the right changes etc.
 
-**Note:** Actually you may only need RepoA and then a RepoB that you set as remote. when you feed in old code files into repoA and then commit to RepoB, and then just replace these files in repoA with the "new " files, you will get a vidsual feedback of what has changed. This simplifyies things. the approch described above is still valid. just replace repoB with repoX and you are good. 
+**Note:** Actually you may only need RepoA and then a RepoB that you set as remote. when you feed in old code files into repoA and then commit to RepoB, and then just replace these files in repoA with the "new " files, you will get a vidsual feedback of what has changed. This simplifyies things. the approch described above is still valid. just replace repoB with repoX and you are good.
 
+### Notes on git cleaning
+
+- run git gc --aggressive --prune=now
+- git repack -a -d --depth=250 --window=250
+- https://stackoverflow.com/a/68554906/5389500
+
+### Complete reset of repo:
+1. git stash
+2. git reset HEAD^
+3. git stash apply
+
+### Remove git history:
+
+git checkout --orphan latest_branch // Checkout
+git add -A // Add all the files
+git commit -am "commit message" // Commit the changes
+git branch -D main // Delete the branch
+git branch -m main // Rename the current branch to main
+git push -f origin main // Finally, force update your repository
+
+### Zap git history:
+If you are sure you want to remove all commit history, simply delete the .git directory in your project root (note that it's hidden). Then initialize a new repository in the same folder and link it to the GitHub repository:
+
+git init
+git remote add origin git@github.com:user/repo
+now commit your current version of code
+
+git add *
+git commit -am 'message'
+and finally force the update to GitHub:
+
+git push -f origin master

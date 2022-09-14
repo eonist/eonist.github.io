@@ -6,7 +6,7 @@ https://gist.github.com/gitaarik/8735255
 
 - Adding a submodule:
 ```
-git submodule add https://github.com/eonist/SVGWrapper.git Packages/External/SVGWrapper/
+git submodule add https://github.com/eonist/With.git Packages/External/With/
 ```
 
 ### Editing existing
