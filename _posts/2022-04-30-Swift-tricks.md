@@ -1,5 +1,34 @@
 Some of my favourite swift tricks<!--more-->
 
+## 96. Instantinating from an array of class types
+```swift
+class BaseType {
+   required init(frame: CGRect) {}
+}
+class A: BaseType {}
+class B: BaseType {}
+class C: BaseType {}
+let types: [BaseType.Type] = [A.self, B.self, C.self]
+types.forEach {
+   let instance = $0.init(frame: .zero)
+}
+```
+
+## 95. Calling apple async methods:
+- If your asynchronous work needs to be waited for, you don’t have much of a choice but to mark your current code as also being async so that you can use await as normal. However, sometimes this can result in a bit of an “async infection” – you mark one function as being async, which means its caller needs to be async too, as does its caller, and so on, until you’ve turned one error into 50.
+- In this situation, you can create a dedicated Task to solve the problem. We’ll be covering this API in more detail later on, but here’s how it would look in your code:
+```swift
+func doAsyncWork() async {
+    print("Doing async work")
+}
+func doRegularWork() {
+    Task {
+        await doAsyncWork()
+    }
+}
+doRegularWork() // Tasks like this one are created and run immediately. We aren’t waiting for the task to complete, so we shouldn’t use await when creating it.
+```
+
 ## 94. Converting one dictionary type to another
 ```swift
 let dict: [String, Any] = [:]
@@ -35,19 +64,19 @@ extension Array {
 - Test usage: `SomeClass.sharedInstance(isTestMode: true)` // test instance
 ```swift
 public static let shared: SomeClass = .sharedInstance() // with default customization
-   private static var _shared: SomeClass? // One source of truth
-   /**
-    * - Note: Use this directly if this singleton needs to be customized (Call it only once in the beginning of the code, use regular .shared in subsequent calls etc)
-    * - Important: ⚠️️ Reference this in the code before .shared is referenced or it wont work
-    */
-   public static func sharedInstance(isTestMode: Bool = false) -> SomeClass {
-      guard let shared = _shared else { // if nil -> first run
-         let shared = SomeClass(isTestMode: isTestMode) // temp variable
-         _shared = shared // set permanent variable
-         return shared
-      }
-      return shared // Instance  already exist, return instance
+private static var _shared: SomeClass? // One source of truth
+/**
+ * - Note: Use this directly if this singleton needs to be customized (Call it only once in the beginning of the code, use regular .shared in subsequent calls etc)
+ * - Important: ⚠️️ Reference this in the code before .shared is referenced or it wont work
+ */
+public static func sharedInstance(isTestMode: Bool = false) -> SomeClass {
+   guard let shared = _shared else { // if nil -> first run
+      let shared = SomeClass(isTestMode: isTestMode) // Temp variable
+      _shared = shared // Set permanent variable
+      return shared
    }
+   return shared // Instance  already exist, return instance
+}
 ```
 
 ## 90. Handy way to generate uuid's
