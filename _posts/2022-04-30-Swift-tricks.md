@@ -1,5 +1,47 @@
 Some of my favourite swift tricks<!--more-->
 
+## 98. Assert internet:
+```swift
+/**
+ * Checks to see if internet is reachable
+ * ## Example:
+ * Self.checkNetwork { Swift.print("Net: \($0)") }
+ * - Fixme: Add result? to print error etc? or just throw error?
+ * - Fixme: Add semaphore with timeout as well
+ */
+static func checkNetwork(completionHandler: @escaping (_ internet: Bool) -> Void) {
+   DispatchQueue.main.async {
+      let url: URL = .init(string: "https://www.apple.com/")!
+      let request: URLRequest = .init(url: url)
+      let task = URLSession.shared.dataTask(with: request) {data, response, error in
+         if error != nil {
+            Swift.print("Error:  \(String(describing: error))")
+            completionHandler(false)
+         } else if let httpResponse = response as? HTTPURLResponse {
+            if httpResponse.statusCode == 200 { completionHandler(true) }
+            else { print("Status-code: \(httpResponse.statusCode)") }
+         }
+      }
+      task.resume()
+   }
+}
+```
+
+## 97. Comparing class types
+```swift
+class A: X {}
+class B: X {}
+class X {}
+
+let b: X = B()
+print(type(of: b.self))
+
+let types: [X.Type] = [A.self, B.self]
+print(types[1]) // B
+print(type(of: b)) // B
+print(type(of: b) == types[1]) // true
+```
+
 ## 96. Instantinating from an array of class types
 ```swift
 class BaseType {
