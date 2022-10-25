@@ -1,5 +1,37 @@
 Some of my favourite swift tricks<!--more-->
 
+### 101. Reduce into:
+Reduce trickery: (https://stackoverflow.com/a/43429063/5389500)
+```swift
+[0, 1, 1, 0].reduce(into: "") { $0 += $1 } // "0110"
+...
+```
+
+### 100. Traversing view hierarchy
+Traverses the entire UIView hierarchy downwards and collects views that are of specific type
+
+```swift
+public func descendants<T>(type: T.Type? = nil) -> [T] {
+   self.subviews.flatMap { $0.subviews.isEmpty ? [$0 as? T].compactMap { $0 } : $0.descendants(type: type) }
+}
+```
+
+## 99. Remove first item in an array
+```swift
+extension Array {
+   /**
+    * Remove first item that match some criteria
+    * - Note: fileprivate is used because private won't work because we are in the Array scope
+    * ## Examples:
+    * uuids.removeFirst(closure: { $0 == uuid })
+    */
+   @discardableResult fileprivate mutating func removeFirst(closure: (Element) -> Bool) -> Element? {
+      guard let i: Int = self.firstIndex (where: { closure($0) }) else { return nil }
+      return self.remove(at: i)
+   }
+}
+```
+
 ## 98. Assert internet:
 ```swift
 /**
