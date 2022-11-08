@@ -44,7 +44,8 @@ you can ignore or disable swift lint inline (copy the arg name like: empty_enum_
 // swiftlint:disable empty_enum_arguments
 // swiftlint:enable empty_enum_arguments
 
-// swiftlint:disable all // swiftlint:enable all
+// swiftlint:disable all
+// swiftlint:enable all
 ```
 
 ## Exclude folders from linting:

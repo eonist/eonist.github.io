@@ -28,3 +28,7 @@ My notes on setting up a UI-testing-framework<!--more-->
 
 ### Gotchas:
 - Some limitations concerning Helper methods: [https://stackoverflow.com/questions/40184109/how-can-xctestcase-extensions-that-are-called-from-a-helper-method-know-what-pro](https://stackoverflow.com/questions/40184109/how-can-xctestcase-extensions-that-are-called-from-a-helper-method-know-what-pro)
+
+### This is much easier for SPM (Update):
+- Add package to the UITest target only, not the app target. Either via xcode packagemanager or manually.  
+- Add `linkerSettings: [.linkedFramework("XCTest")]` to the package. See https://github.com/eonist/UITestSugar for example

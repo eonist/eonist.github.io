@@ -9,16 +9,19 @@ My notes on UI-testing in Xcode <!--more-->
 6. Create a check: `XCTAssertEqual(app.tables.cells.count, 56, "There should be 56 words matching 'test'")` etc
 
 ## Accessibility
-- Use the Accessibility inspector to look at what your UI elements’ accessibility values are before you even need to run the test. Use this to make sure that the accessibilityLabel you assigned for your UI element is being found, or if the element is being considered an accessibility element at all. However, you’ll note that you can’t see the accessibilityIdentifier on this view. Nonetheless it is very useful especially to determine if your element is visible to accessibility in the first place. If you find you can’t highlight the view you’re looking for, chances are the superview is intercepting the accessibility focus, and you need to set its isAccessibilityElement to false.
+- Use the Accessibility inspector to look at what your UI elements’ accessibility values are before you even need to run the test.
+- Use this to make sure that the `accessibilityLabel` you assigned for your UI element is being found, or if the element is being considered an accessibility element at all.
+- However, you’ll note that you can’t see the accessibilityIdentifier on this view. Nonetheless it is very useful especially to determine if your element is visible to accessibility in the first place.
+- If you find you can’t highlight the view you’re looking for, chances are the superview is intercepting the accessibility focus, and you need to set its `isAccessibilityElement` to false.
 
 ## Gotchas:
-- Internal methods will run automatically in the test. Make them private to run them from setup.
+- Internal methods will run automatically in the test. Make them private to run them from setup. (sometimes static is also needed)
 - Prefer using: `waitForExistence(timeout:)` over a regular `exists` check
 - Prefer using `firstMatch` over `element`
-- Open the `Accessibility Inspector.app` in macOS as a way of identifying accessibility ids.
-- for iOS there is the:  `iOS Simulator's Accessibility Inspector`
-- To access elements by accessibility ids: set/override: `accessibilityLabel`  with an id and set/override the `isAccessibilityElement` with true
-- For some strange reason sometimes only `accessibilityIdentifier` works and you have to set the `isAccessibilityElement` setting or overide works
+- Open the `Accessibility Inspector.app` in macOS as a way of identifying accessibility ids. 👌
+- for iOS there is the:  `iOS Simulator's Accessibility Inspector` 👌
+- To access elements by accessibility ids: set/override: `accessibilityLabel` with an id and set/override the `isAccessibilityElement` with true
+- ⚠️️ For some strange reason sometimes only `accessibilityIdentifier` works and you have to set the `isAccessibilityElement` setting or overide works
 - Find accessibility elements by: `element.label == "someLabel"` if you are using accessibilityIdentifier or `element.identifier == "someId"` if you are using accessibilityLabel
 - Use `XCUIElementQuery.debugDescription` to debug a query (Accessibility Hierarchy)
 - ⚠️️ IMPORTANT ⚠️️ Containers can have accessibilityIdentifier but they should have accessibility turned off. Logic is that we don't interact with containers, but we do need to access testing via accessibility hierarchy. setting isAccessibilityElement to true on a container will cause problems with UITesting. Setting it on leaf elements such as buttons etc is fine.
@@ -44,7 +47,7 @@ app.pickers.element
 app.progressIndicators.element
 app.scrollViews.element
 app.segmentedControls.element
-app.staticTexts.element
+app.staticTexts.element 👈 UILabel
 app.switches.element
 app.tabBars.element
 app.tables.element
@@ -53,7 +56,8 @@ app.textViews.element
 app.webViews.element
 ```
 ## Pro's:
-- Great way to make Unit-tests that matters.
+- Great way to make Unit-tests that matters. Ensuring QA on every release.
+- QA teams can do more high-level tasks, when low level QA tasks are automated.
 
 ## Con's
 - Careful to not go overboard by testing everything, as that will make the app harder to develop on later

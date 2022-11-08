@@ -1,5 +1,28 @@
 Some of my favourite swift tricks<!--more-->
 
+### 102. overriding rawValue enum case
+Great for supporting localization efforts etc. 
+```swift
+enum Test: CaseIterable {
+   case a,b,c
+}
+extension Test {
+   init?(rawValue: String) {
+
+   }
+   var rawValue: String {
+      switch self {
+      case .a: return "A"
+      case .b: return "B"
+      case .c: return "C"
+      }
+   }
+}
+Test.allCases.forEach {
+   print($0.rawValue) // "A", "B", "C"
+}
+```
+
 ### 101. Reduce into:
 Reduce trickery: (https://stackoverflow.com/a/43429063/5389500)
 ```swift

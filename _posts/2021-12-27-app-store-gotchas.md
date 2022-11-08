@@ -130,3 +130,5 @@ Categories on the App Store help users discover new apps to meet their needs. Yo
 - Mac testflight walkthrough: https://developer.apple.com/videos/play/wwdc2021/10170/
 - ⭐ https://wwdcbysundell.com/2021/working-with-in-app-purchases-in-storekit2/
 - ⭐ paid for video 20$ ishh: https://www.udemy.com/course/storekitone/
+- ⭐⭐⭐ Simple and has all info: (paid article) https://www.kodeco.com/books/real-world-ios-by-tutorials/v1.0/chapters/14-deploying-to-the-app-store
+- ⭐⭐⭐⭐⭐ Rich content on distribution on appstore (payed) https://www.kodeco.com/books/ios-app-distribution-best-practices
