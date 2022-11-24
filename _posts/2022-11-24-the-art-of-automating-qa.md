@@ -18,6 +18,7 @@ My notes on automating quality assurance <!--more-->
 - Forces business to define a testing plan
 - It's fun to make robots that work for you around the clock for free
 - Automated tests are always available (Remote testing-teams cost $$$ and take time to return failure info, and the info is many times hard to reproduce, flakey)
+- You can run automated tests in random order with random mock data with random setup configs. On a scale and in way less time that no amount of humans could ever cover.
 
 **Cons:**
 - Initial setup is takes time and effort
@@ -127,6 +128,7 @@ login() // login user
 - ☁️ Run your Automated QA in the cloud all day every day.
 - 🔌 Connect your QA automation to slack, email and github
 - 🌅 Build QA automations from the start
+- 📈 QA Automation is extremely scalable
 - 😸 Automation is fun
 
 <img width="480" height="460" alt="img" src="https://media.giphy.com/media/nmM68Wdn0Ngc0/giphy.gif?raw=true">
