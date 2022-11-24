@@ -4,7 +4,7 @@ My notes on automating quality assurance <!--more-->
 
 <img width="480" height="261" alt="Gif of ghost in a shell typing on keyboard" src="https://media.giphy.com/media/9CffOPMLx0Hf2/giphy.gif">
 
-> Build something elegant with high utility that is > easy to maintain <
+> Build something elegant with high utility that is easy to maintain
 
 **Pros:**
 - More development velocity because bugs can be caught instantly
@@ -39,7 +39,7 @@ My notes on automating quality assurance <!--more-->
 - Instant feedback for all changes and updates
 - Get a printscreen emailed to your mailbox when a test fail
 
-<img width="480" height="440" alt="Whack a mole" src="https://media.giphy.com/media/ebITvSXYKNvRm/giphy.gif">
+<img width="480" height="270" alt="Whack a mole" src="https://media.giphy.com/media/aWNByu8u6sati/giphy.gif">
 
 ### Rational
 - Better, faster, stronger
@@ -116,8 +116,20 @@ login() // login user
 - UITesting blog post
 - Raywenderlich
 - Maker book chapter on Automating
-- Github book about colaboration the CI chapter
+- Github book about collaboration the CI chapter
 - Your unit testing posts
+
+### To sumarize:
+- 🦾 Automating QA > Manual QA
+- 🆓 QA automation != expensive
+- 🏝 QA automation is great for your work / life balance
+- ♻️ Design, Code, Test. Repeat
+- ☁️ Run your Automated QA in the cloud all day every day.
+- 🔌 Connect your QA automation to slack, email and github
+- 🌅 Build QA automations from the start
+- 😸 Automation is fun
+
+<img width="480" height="460" alt="img" src="https://media.giphy.com/media/nmM68Wdn0Ngc0/giphy.gif?raw=true">
 
 ### Todo:
 - write about Cloud integration with github actions
