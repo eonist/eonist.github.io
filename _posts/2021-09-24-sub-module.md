@@ -4,7 +4,8 @@ Notes on submodules<!--more--> A great way to split up a project into smaller mo
 
 https://gist.github.com/gitaarik/8735255
 
-- Adding a submodule:
+- Adding a submodule: (git-command url dir)
+- Set terminal to the root of the project
 ```
 git submodule add https://github.com/eonist/With.git Packages/External/With/
 ```
@@ -22,3 +23,5 @@ Sometimes editing or changing a submodule just creates an avalanche of issues. S
 
 ### Gotchas:
 - Updating submodules: `git submodule update --remote`
+- github desktop now has better support for updating submodules from the root project
+- you can also inspect the gitsubmodule list by opening .gitsubmodules in the root dir of your project

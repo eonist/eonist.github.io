@@ -47,7 +47,7 @@ app.pickers.element
 app.progressIndicators.element
 app.scrollViews.element
 app.segmentedControls.element
-app.staticTexts.element 👈 UILabel
+app.staticTexts.element // 👈 UILabel
 app.switches.element
 app.tabBars.element
 app.tables.element

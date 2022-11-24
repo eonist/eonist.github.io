@@ -1,7 +1,21 @@
 Some of my favourite swift tricks<!--more-->
 
-### 102. overriding rawValue enum case
-Great for supporting localization efforts etc. 
+### 103. Differentiating on typealias tuple
+A simple concept to diff on tuples. Useful for making mixed search queries etc.
+```swift
+typealias A = (type: String, id: String)
+typealias B = (type: String, label: String)
+let x: Any = (type: "", label: "")
+if x is A {
+    print("A")
+} else if x is B {
+    print("B")
+}
+// Prints "B"
+```
+
+### 102. Overriding rawValue enum case
+Great for supporting localization efforts etc.
 ```swift
 enum Test: CaseIterable {
    case a,b,c
@@ -1356,6 +1370,8 @@ Swift.print(color.cgColor.alpha) // 0.2
 
 
 ### 12. Result (for async callback returns)
+
+⚠️️ write result example with the try catch inline trick, and remove the bellow etc
 
 ⚠️️ improve this: ⚠️️
 

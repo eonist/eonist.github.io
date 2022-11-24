@@ -120,3 +120,6 @@ do {
     output(error)
 }
 ```
+
+### Resources:
+- https://www.fivestars.blog/articles/semaphores/
