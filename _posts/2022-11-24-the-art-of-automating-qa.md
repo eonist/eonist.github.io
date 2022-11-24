@@ -138,3 +138,4 @@ login() // login user
 - add links
 - clean up text
 - add article index for increased readability
+- write about the future of QA automation with machine learning and AI
