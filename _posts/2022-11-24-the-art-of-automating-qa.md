@@ -137,3 +137,4 @@ login() // login user
 - write about Cloud integration with github actions
 - add links
 - clean up text
+- add article index for increased readability
