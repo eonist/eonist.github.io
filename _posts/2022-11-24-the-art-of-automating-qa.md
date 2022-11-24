@@ -134,8 +134,9 @@ login() // login user
 <img width="480" height="460" alt="img" src="https://media.giphy.com/media/nmM68Wdn0Ngc0/giphy.gif?raw=true">
 
 ### Todo:
-- write about Cloud integration with github actions
-- add links
-- clean up text
-- add article index for increased readability
-- write about the future of QA automation with machine learning and AI
+- Write about Cloud integration with github actions
+- Add links
+- Clean up text
+- Add article index for increased readability
+- Write about the future of QA automation with machine learning and AI
+- Write insight regarding why adding complexity outside of your product is better than adding complexity inside your product
