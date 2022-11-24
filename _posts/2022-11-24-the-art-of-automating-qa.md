@@ -119,7 +119,7 @@ login() // login user
 - Github book about collaboration the CI chapter
 - Your unit testing posts
 
-### To sumarize:
+### To summarize:
 - 🦾 Automating QA > Manual QA
 - 🆓 QA automation != expensive
 - 🏝 QA automation is great for your work / life balance
