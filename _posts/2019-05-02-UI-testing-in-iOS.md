@@ -14,6 +14,21 @@ My notes on UI-testing in Xcode <!--more-->
 - However, you’ll note that you can’t see the accessibilityIdentifier on this view. Nonetheless it is very useful especially to determine if your element is visible to accessibility in the first place.
 - If you find you can’t highlight the view you’re looking for, chances are the superview is intercepting the accessibility focus, and you need to set its `isAccessibilityElement` to false.
 
+## Passing launch arguments:
+This is how you launch your app with custom argument in setUp:
+
+```swift
+override func setUp() {
+    super.setUp()
+    app = XCUIApplication()
+    app.launchArguments += ["-SPECIAL_FEATURE", "YES"]
+    app.launch()
+}
+```
+Then in your app, you can know if there is a launch argument with NSUserDefaults:
+```swift
+let specialFeature: Bool = UserDefaults.standard.bool(forKey: "SPECIAL_FEATURE")
+```
 ## Gotchas:
 - Internal methods will run automatically in the test. Make them private to run them from setup. (sometimes static is also needed)
 - Prefer using: `waitForExistence(timeout:)` over a regular `exists` check
@@ -54,6 +69,19 @@ app.tables.element
 app.textFields.element
 app.textViews.element
 app.webViews.element
+```
+### IOS vs IPADOS
+you have 2 test cases:
+
+```swift
+func testSnapshotPhone() {
+    guard UIDevice.currentDevice().userInterfaceIdiom == .Phone else { return }
+    // Capture screenshots for iPhone
+}
+func testSnapshotPad() {
+    guard UIDevice.currentDevice().userInterfaceIdiom == .Pad else { return }
+    // Capture screenshots for iPad
+}
 ```
 ## Pro's:
 - Great way to make Unit-tests that matters. Ensuring QA on every release.

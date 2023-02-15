@@ -68,14 +68,14 @@ The launch of a new brand ties back to the purpose set at the start of the work.
 - You have a better chance of making something better if your immersed in the material.
 - Create the logo for a niche core group. Keep going back to this niche core group. Dont, try to appeal broadly. Broad appeal will accept niche focus, when they are acclimated
 - Exploring and drilling down the personality of the brand https://simplysecure.org/blog/branding-tails/
-- Great colection of logo design processes: https://creativemarket.com/blog/logo-design-infographics-diagrams
+- Great collection of logo design processes: https://creativemarket.com/blog/logo-design-infographics-diagrams
 - Ultimate collection of logo collections: https://www.behance.net/galleries/graphic-design/logo
-- Ramotion has some reallly nice brand process posts here: https://www.behance.net/Ramotion-UX-Agency
+- Ramotion has some really nice brand process posts here: https://www.behance.net/Ramotion-UX-Agency
 - Great discovery example, especially interesting is how many iterations are created on the final direction: https://www.behance.net/gallery/51546457/Kitsu-Brand-Identity-Design
 - Icon inspo galore (a little bit generic, but can be a good starting point for ideas): https://no.pinterest.com/scalebrandingstore/_created/
 - iOS icon inspo: https://www.iosicongallery.com
 - Process: https://uxdesign.cc/one-solid-technique-that-keeps-you-from-screwing-up-app-redesign-781c338c238c
 - Reshaping duolingo brand: https://blog.duolingo.com/reshaping-duo/
-- Readymade logos: scalebranding.com
+- Readymade logos: https://scalebranding.com
 - https://www.halo-lab.com/blog/brand-analysis
 - Antonym Finder: https://www.wordhippo.com/what-is/the-opposite-of/

@@ -28,8 +28,9 @@ My notes on automating quality assurance <!--more-->
 
 ### Options
 - Apples mobile QA testing suite called XCUITest
-- Web technologies such as selecium
+- Web technologies such as selenium and playright
 - Sass services such as: https://waldo.com/
+- XCUITest saas: https://saucelabs.com/
 
 <img width="480" height="271" alt="Mad man actor vaction mode" src="https://media.giphy.com/media/3oEdv9duTLhWoNhcGs/giphy.gif">
 
@@ -129,7 +130,7 @@ login() // login user
 - 🔌 Connect your QA automation to slack, email and github
 - 🌅 Build QA automations from the start
 - 📈 QA Automation is extremely scalable
-- 😸 Automation is fun
+- 😸 Automation infrastructure is fun
 
 <img width="480" height="460" alt="img" src="https://media.giphy.com/media/nmM68Wdn0Ngc0/giphy.gif?raw=true">
 
@@ -140,3 +141,6 @@ login() // login user
 - Add article index for increased readability
 - Write about the future of QA automation with machine learning and AI
 - Write insight regarding why adding complexity outside of your product is better than adding complexity inside your product
+- Automated QA tests compound returns for every iteration, instead of iterations slowly corrupting your product
+- Add some emphasize on how not automating repetative tasks is not sustainable when you optimize for growth of your product offering
+- Write about training QA robot models

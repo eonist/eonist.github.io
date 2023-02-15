@@ -2,8 +2,13 @@ _site
 .sass-cache
 .DS_Store
 .jekyll-metadata
+*.gitignore
 
 # Ignore the config file that's used for gh-pages.
 _config.gh-pages.yml
 
 Gemfile.lock
+_posts/_2022-05-13-bluetooth-restoration-mode.md
+_posts/_2022-06-23-crdt.md
+_posts/_2022-06-30-core-data.md
+_posts/_2022-06-30-encrypted-db.md

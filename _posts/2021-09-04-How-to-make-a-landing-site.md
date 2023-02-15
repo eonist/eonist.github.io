@@ -1,5 +1,6 @@
 My notes on making a landing page. <!--more--> The thing about making websites are that you have to pick between simple or easy.
-- The **easy** approach is to use low-code alternatives wix, webflow, wordpress etc. But as they are easy to manage content they are not simple to change after the fact. And are hard to make custom and iterate on later. One size fits all etc. 
+
+- The **easy** approach is to use low-code alternatives wix, webflow, wordpress etc. But as they are easy to manage content they are not simple to change after the fact. And are hard to make custom and iterate on later. One size fits all etc.
 - The **simple** approach is to use a low-level CMS like Jekyll. And then manually write HTML + CSS that match the required design. This is simple to change and iterate on, but not easy to setup the first time. More analysis and thought needs to be made upfront. As pivoting away from the initial architecture might require starting from scratch etc.
 
 > I think the way to solve this kind of problem is to solve it first for the most degenerate, simple case you can think of, and then add any desired refinements.

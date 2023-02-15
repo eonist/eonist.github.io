@@ -1,5 +1,40 @@
 Some of my favourite swift tricks<!--more-->
 
+### 106. Attaching a subtype to a protocol conformance
+Setting the protocol type to CBManager directly wont compile. But using T with a type will
+```swift
+protocol StateUpdatable {
+   associatedtype T: CBManager
+   var manager: T { get }
+}
+class Central: StateUpdatable {
+   var manager: CBCentralManager = ... // CBCentralManager extends CBManager
+}
+class peripheral: StateUpdatable {
+   var manager: CBPeripheralManager = ... // CBPeripheralManager extends CBManager
+}
+```
+
+### 105. Initiating an instance from an abstract class type
+```swift
+let baseType: NSTextField.Type = isSecure ? NSSecureTextField.self : NSTextField.self
+let tf: NSTextField = baseType.init(frame: .init(origin: .zero, size: .init(width: 200, height: 24)))
+```
+
+## 104. Mouse position in an NSView for macOS
+```swift
+extension NSView {
+   /**
+    * Mouse point
+    * - Note: window.mouseLocationOutsideOfEventStream can also work as relativeToWin point
+    */
+   var mousePoint: CGPoint {
+      let relativeToWin = self.window?.convertPoint(fromScreen: NSEvent.mouseLocation) ?? .zero
+      return self.convert(relativeToWin, from: nil)
+   }
+}
+```
+
 ### 103. Differentiating on typealias tuple
 A simple concept to diff on tuples. Useful for making mixed search queries etc.
 ```swift
@@ -791,7 +826,7 @@ while i < 4 {
 - Document API changes with @available keyword.
 - Great way to rename code without breaking backward compatibility, but at the same time motivating users to use the new api name, just make a typealias with the bellow code above it
 ```swift
-@available(*, deprecated, renamed: "newMethodName")
+@available(*, deprecated, renamed: "newMethodName") // You can also point to new class : "UIAlertController.createAlert"
 func foo() {
   ...
 }
