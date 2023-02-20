@@ -2,7 +2,6 @@ Some of my favourite swift tricks<!--more-->
 
 ### 108. Overriding extension methods that has (parameter or return) with protocol types
 - We prefix the protocol with @objc because we need to return this protocol type in "objc-override" calls
-- This wont work for structs, but a workaround is to extend the struct with a protocol and in-directly use the struct etc
 - We do this so that we can group related code in extensions. Rather than have classes with too much code
 
 ```swift
