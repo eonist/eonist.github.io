@@ -1,5 +1,41 @@
 Some of my favourite swift tricks<!--more-->
 
+### 108. Overriding extension methods that has (parameter or return) with protocol types
+- We prefix the protocol with @objc because we need to return this protocol type in "objc-override" calls
+- This wont work for structs, but a workaround is to extend the struct with a protocol and in-directly use the struct etc
+- We do this so that we can group related code in extensions. Rather than have classes with too much code
+
+```swift
+@objc protocol TextKind {
+   var text: String { get set }
+}
+class A {}
+extension A {
+   @objc func getText() -> TextKind? {
+      print("A")
+      return nil
+   }
+}
+class B: A {}
+extension B {
+  override getText() {
+     print("B")
+     return nil
+  }
+}
+_ = A().getText() // A
+_ = B().getText() // B
+```
+
+### 107. Weakify closure variable
+Usually we can use `[weak self]` in closurs, but not if its being attached to an event variable. Here is a workaround:
+```swift
+Service.onRemoteEvent = { data in
+   guard let self = Optional(self) else { return } // Weakify
+   update(self) // Use self safely here
+}
+```
+
 ### 106. Attaching a subtype to a protocol conformance
 Setting the protocol type to CBManager directly wont compile. But using T with a type will
 ```swift
