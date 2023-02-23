@@ -1,5 +1,80 @@
 Some of my favourite swift tricks<!--more-->
 
+### 110. Curried calls that throw
+- This is an effort to reduce methods in an API.
+- Here we attach the network call in a closure block.
+- Usually we would duplicate the database api calls for network.
+- Like: `insertAndSync`, `deleteAndSync`, `deleteAllAndSync` and 10 more etc
+- Instead we attach the network call in a parameter to the database API
+- Bonus: We can read the error from the POV of the caller if network produce one etc
+- Bonus: The database API stays the same. If we don't add the complete param, everything is unchanged
+```swift
+typealias Complete = () throws -> Void
+let defaultComplete: Complete = {}
+
+class Database {
+   static var values: [String: String] = [:]
+   static func insert(uuid: String, value: String, _ complete: Complete = {}) throws {
+      print("Insert: \(uuid) value: \(value)")
+      values[uuid] = value
+      try complete()
+   }
+   static func delete(uuid: String, _ complete: Complete = {}) throws {
+      print("Delete: \(uuid)")
+      if values[uuid] == nil {
+         throw NSError.init(domain: "Err, delete - value at uuid: \(uuid) does not exists", code: 0)
+      }
+      values.removeValue(forKey: uuid)
+      try complete()
+   }
+}
+class Network {
+   static func sync() throws {
+      Swift.print("sync")
+      if Bool.random() {
+         throw NSError.init(domain: "Err, sync - unable to sync", code: 0)
+      }
+   }
+}
+// insert
+do { try Database.insert(uuid: "1234", value: "abc", Network.sync) }
+catch { Swift.print(error.localizedDescription) }
+// delete
+do { try Database.delete(uuid: "1234", Network.sync) }
+catch { Swift.print(error.localizedDescription) }
+// delete
+do { try Database.delete(uuid: "1234", Network.sync) }
+catch { Swift.print(error.localizedDescription) }
+// Prints:
+// Insert: 1234 value: abc
+// sync
+// Delete: 1234
+// sync
+// The operation couldn’t be completed. (Err, sync - unable to sync error 0.)
+// Delete: 1234
+// The operation couldn’t be completed. (Err, delete - value at uuid: 1234 does not exists error 0.)
+```
+
+### 109. Wonders of OOP (Object oriented programming)
+Neat trick to hock into subclass functionality
+```swift
+class A {
+    func update() {
+        insert() // Calls first B.insert not A.insert
+    }
+    func insert() {
+        print("A.insert()")
+    }
+}
+class B: A {
+    override func insert() {
+        print("B.insert()")
+        super.insert()
+    }
+}
+B().update() // Call B.insert() then A.insert() is called after
+```
+
 ### 108. Overriding extension methods that has (parameter or return) with protocol types
 - We prefix the protocol with @objc because we need to return this protocol type in "objc-override" calls
 - We do this so that we can group related code in extensions. Rather than have classes with too much code
