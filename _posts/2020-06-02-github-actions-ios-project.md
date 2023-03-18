@@ -1,7 +1,7 @@
-My notes on github actions and iOS xcode project<!--more-->
+My notes on github actions and iOS Xcode project<!--more-->
 
 ### Steps:
-1. Add a test target to your xCode project: `Click "+ button" in targets menu`
+1. Add a test target to your Xcode project: `Click "+ button" in targets menu`
 2. Add `.yml` file to `.github/workflows/CI.yml`
 3. Add CI-badge to Readme.md
 4. Remember to wrap all iOS specific code in iOS target wrappers, or else code wont build `#if os(iOS) #endif` 

@@ -4,14 +4,14 @@ My notes on using swift package manager and Github actions together<!--more--> â
 > You can also copy pre-existing `.github/` folders and reuse the Test.yml file, just make sure you run `swift test` in terminal before you upload etc. Also add a badge to your readme in the github actions pan on github
 
 1. Terminal: in project-path: `Swift package init`
-2. Make xCode project
+2. Make Xcode project
 3. Add unit-test target in xCode name it: `SomeTest`
 4. Drag `/Tests` folder into xCode top level of file-sidemenu (you created Tests/ via SPM)
-5. Move the `SomeTest` into Tests folder (you created this in xCode)
+5. Move the `SomeTest` into Tests folder (you created this in Xcode)
 6. In the `test-target` build setting search for info.plist and edit the path to be `Tests/SomeTest/Info.plist`
-7. make sure `swift build` and `swift test` in terminal works (add deps test-target in package.swift)
-7. push to github
-8. in `github/repo`: actions -> swift action (change the name to Tests, so the badge makes sense later)
+7. Make sure `swift build` and `swift test` in terminal works (add deps test-target in package.swift)
+7. Push to github
+8. In `github/repo`: actions -> swift action (change the name to Tests, so the badge makes sense later)
 9. Go to actions/tests and click the 3 dotted menu, then click create status badge, add this to your readme
 10. Now every time you push, the project is built and tested ðŸŽ‰
 
@@ -99,7 +99,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Start xcodebuild test
-      run: xcodebuild clean test -project SentryIOS.xcodeproj -scheme SentryIOS -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+      run: xcodebuild clean test -project MyAppIOS.xcodeproj -scheme MyAppIOS -destination "platform=iOS Simulator,name=iPhone 11 Pro"
 ```
 
 ### To use github actions with xcode projects (macOS):
@@ -121,19 +121,19 @@ jobs:
     steps:
     - uses: actions/checkout@main
     - name: Start xcodebuild test
-      run: xcodebuild clean build -project SentryMacOS.xcodeproj -scheme SentryMacOS
+      run: xcodebuild clean build -project MyAppMacOS.xcodeproj -scheme MyAppMacOS
 ```
 
 
 ### Gotcha:
 
 You can also build from commandline to test before testing in CI:
-`xcodebuild clean build -workspace Sentry.xcworkspace -scheme SentryMac`
+`xcodebuild clean build -workspace MyApp.xcworkspace -scheme MyAppMac`
 
 
 ### IOS:
 
 
 ```
-xcodebuild clean build -workspace Sentry.xcworkspace -scheme SentryIOS -destination "platform=iOS Simulator,name=iPhone 12 Pro"
+xcodebuild clean build -workspace MyApp.xcworkspace -scheme MyAppIOS -destination "platform=iOS Simulator,name=iPhone 12 Pro"
 ```

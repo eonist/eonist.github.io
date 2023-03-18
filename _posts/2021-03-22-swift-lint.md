@@ -57,3 +57,10 @@ excluded:
 
 ## Add swift lint to Packages
 https://stackoverflow.com/questions/57461737/how-to-integrate-swiftlint-with-an-ios-app-using-swift-package-manager
+
+## Commands
+
+```
+swiftlint autocorrect // apply lint corrections
+swiftlint lint // shows lint errors
+```

@@ -1,5 +1,168 @@
 Some of my favourite swift tricks<!--more-->
 
+### 118: Golden path:
+When coding with conditionals, the left-hand margin of the code should be the "golden" or "happy" path. That is, don't nest if statements. Multiple return statements are OK. The guard statement is built for this.
+
+```swift
+func computeFFT(context: Context?, inputData: InputData?) throws -> Frequencies {
+  guard let context = context else {
+    throw FFTError.noContext
+  }
+  guard let inputData = inputData else {
+    throw FFTError.noInputData
+  }
+  // Use context and input to compute the frequencies
+  return frequencies
+}
+```
+
+### 117: Shorthand syntax for unwrapping optionals
+For Swift 5.7 and up
+```swift
+if let textContainer {
+  // do many things with textContainer
+}
+
+```
+
+### 116: for-where Loops
+
+When the entirety of a for loop’s body would be a single if block testing a condition of the element, the test is placed in the where clause of the for statement instead.
+
+```swift
+// instead of:
+for item in collection {
+  if item.hasProperty {
+    // ...
+  }
+}
+// do this:
+for item in collection where item.hasProperty {
+  // ...
+}
+// for-where Loops
+// When the entirety of a for loop’s body would be a single if block testing a condition of the element, the test is placed in the where clause of the for statement instead
+for item in collection where item.hasProperty {
+  // ...
+}
+for item in collection {
+  if item.hasProperty {
+    // ...
+  }
+}
+```
+
+### 115: String from enum case:
+
+Also works even if a case is assigned a string
+
+```swift
+enum CarType {
+case ford, volvo, fiat
+}
+String(describing: CarType.ford) // ford
+```
+
+### 114: Autoclousure:
+```swift
+func printTest1(_ result: () -> Void) {
+    print("Before")
+    result()
+    print("After")
+}
+printTest1({ print("Hello") })
+// With auto-closure:
+func printTest2(_ result: @autoclosure () -> Void) {
+    print("Before")
+    result()
+    print("After")
+}
+
+printTest2(print("Hello"))
+```
+
+### 113: Using where in guards
+```swift
+currentRequest?.getValue { [weak self] result in
+  guard let user = result.okValue where result.errorValue == nil else {
+    self?.showRequestError(result.errorValue)
+    self?.isPerformingSignUp = false
+    return
+  }
+
+  self?.finishSignUp(user)
+}
+```
+
+### 112. Add property wrapper to user default
+
+```swift
+@propertyWrapper
+ struct UserDefault<T: Codable> {
+     let key: String
+     let defaultValue: T
+     init(_ key: String, defaultValue: T) {
+         self.key = key
+         self.defaultValue = defaultValue
+     }
+     var wrappedValue: T {
+         get {
+             if let data = UserDefaults.standard.object(forKey: key) as? Data,
+                 let user = try? JSONDecoder().decode(T.self, from: data) {
+                 return user
+             }
+             return  defaultValue
+         } set {
+             if let encoded = try? JSONEncoder().encode(newValue) {
+                 UserDefaults.standard.set(encoded, forKey: key)
+             }
+         }
+     }
+ }
+enum GlobalSettings {
+    @UserDefault("user", defaultValue: User(name:"",pass:"")) static var user: User
+}
+// Example User model confirm Codable
+struct User:Codable {
+    let name:String
+    let pass:String
+}
+// How to use it
+// Set value
+ GlobalSettings.user = User(name: "Ahmed", pass: "Ahmed")
+// GetValue
+print(GlobalSettings.user) // Ahmed
+```
+
+### 111. Use defer in init instad of didSet
+Invoke didSet when property’s value is set inside init context. Apple's docs specify that: "Property observers are only called when the property’s value is set outside of initialization context." Defer can change situation:
+```swift
+class AA {
+    var propertyAA: String! {
+        didSet {
+            print("Function: \(#function)")
+        }
+    }
+    init(propertyAA: String) {
+        self.propertyAA = propertyAA
+    }
+}
+class BB {
+    var propertyBB: String! {
+        didSet {
+            print("Function: \(#function)")
+        }
+    }
+    init(propertyBB: String) {
+        defer {
+            self.propertyBB = propertyBB
+        }
+    }
+}
+let aa = AA(propertyAA: "aa")
+let bb = BB(propertyBB: "bb")
+```
+
 ### 110. Curried calls that throw
 - This is an effort to reduce methods in an API.
 - Here we attach the network call in a closure block.

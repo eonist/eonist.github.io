@@ -120,6 +120,8 @@ login() // login user
 - Maker book chapter on Automating
 - Github book about collaboration the CI chapter
 - Your unit testing posts
+- https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan.md
+- https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan-autofill.md
 
 ### To summarize:
 - 🦾 Automating QA > Manual QA
