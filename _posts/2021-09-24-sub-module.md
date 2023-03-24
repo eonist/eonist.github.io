@@ -10,16 +10,20 @@ https://gist.github.com/gitaarik/8735255
 git submodule add https://github.com/eonist/With.git Packages/External/With/
 ```
 
-### Editing existing
-1. Delete the folder with the submodule
-2. Delete ref in .submodules and Delete ref in .git/.config (⚠️️ This part can sometimes be skipped ⚠️️)
-3. force add with: `git submodule add --force https://github.com/eonist/With.git Packages/Remote/With/`
+### Remove submodule
+1. git submodule deinit <relative-path-to-sub-module>
+2. git rm <relative-path-to-sub-module>
 
 ### Resetting submodule
 Sometimes editing or changing a submodule just creates an avalanche of issues. So resetting is a better option
 1. Compress your project, to back it up (This can be smart to do even when adding a submodule etc, submodule is DarkMagic(TM) )
 2. `git reset --hard`
 3. Add submodules ✨
+
+### Editing existing
+1. Delete the folder with the submodule
+2. Delete ref in .submodules and Delete ref in .git/.config (⚠️️ This part can sometimes be skipped ⚠️️)
+3. force add with: `git submodule add --force https://github.com/eonist/With.git Packages/Remote/With/`
 
 ### Gotchas:
 - Updating submodules: `git submodule update --remote`

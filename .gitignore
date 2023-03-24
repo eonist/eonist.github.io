@@ -8,7 +8,7 @@ _site
 _config.gh-pages.yml
 
 Gemfile.lock
-_posts/_2022-05-13-bluetooth-restoration-mode.md
-_posts/_2022-06-23-crdt.md
-_posts/_2022-06-30-core-data.md
-_posts/_2022-06-30-encrypted-db.md
+_posts/_research
+_posts/_temp
+_posts/_drafts
+_posts/_archive

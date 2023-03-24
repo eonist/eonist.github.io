@@ -19,3 +19,6 @@ My notes on prototyping with local swift packages<!--more-->
 ### Final note:
 - Now you can structure your prototype projects with proper framework structures
 - Making code more modular and single purpose and easier to reason about
+
+### Gotchas:
+- Embedding packages as submodules is a great way to speed up xcode build times
