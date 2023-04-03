@@ -19,7 +19,7 @@ func makeAPICall() -> String {
       result = "happy days"
       semaphore.signal()
     }
-    semaphore.wait() // (wallTimeout: .distantFuture)
+    semaphore.wait() // (wallTimeout: .distantFuture) // timeout: DispatchTime.now() + 1
     return result
 }
 ```

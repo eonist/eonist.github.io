@@ -26,6 +26,7 @@ My notes on using swift package manager and Github actions together<!--more--> �
 ## Gotchas:
 - TestTarget must have unique name if you use them as dependencies of other repos. Or else swift wont know which is correct 🤷, So name the TestTarget YourProjectName_OSName_Tests (drop the underscores)
 - "Swift test" in terminal builds for macOS
+- Having two .yml files in a project can be a problem. As can running parallel tests or projects commandline be. Im not sure github spins up new server for each .yml file etc. If it does it might not be a problem.  
 
 ## Example:
 ```swift
@@ -133,7 +134,114 @@ You can also build from commandline to test before testing in CI:
 
 ### IOS:
 
-
+building from workspace
 ```
 xcodebuild clean build -workspace MyApp.xcworkspace -scheme MyAppIOS -destination "platform=iOS Simulator,name=iPhone 12 Pro"
 ```
+testing an xcode project
+```
+xcodebuild clean test -project MyAppIOS.xcodeproj -scheme MyAppIOS -destination "platform=iOS Simulator,name=iPhone 13 Pro Max"
+```
+ui test:
+```
+xcodebuild test -project path/to/<project name>.xcodeproj/ -scheme <scheme>
+```
+
+### Tests:
+Running tests with xcodebuild
+xcodebuild is the primary command for both building Xcode projects & running tests and accepts a variety of parameters. The essential xcodebuild command to run a test looks like this:
+```
+$ xcodebuild
+ test
+ -project <Your-Project>.xcodeproj
+ -scheme <Your-Scheme>
+ -destination 'platform=iOS Simulator,name=iPhone 13'
+```
+- test: Run the test action for the specified scheme. This is like selecting Product > Test in Xcode.
+- project or -workspace: The path to your Xcode Project (.xcodeproj) or Xcode Workspace file (.xcworkspace).
+- scheme: A scheme is a specific configuration for your target. It defines what happens when you press “Run”, “Build”, “Test”, etc. in Xcode. Each target has at least one scheme by default and you can customize this in Xcode.
+- destination: A description of the simulator or physical device you want to run on.
+
+### The Scheme Argument
+Xcode lets you customize what should happen when you perform an action, such as “Test”, against a target. Using xcodebuild we can list the available schemes for a given Xcode project or workspace target by running the command.
+```
+xcodebuild -list -project <Your-Project>.xcodeproj
+# OR
+xcodebuild -list -workspace <Your-Workspace>.xcworkspace
+```
+
+### The Destination Argument
+The destination argument accepts a key-value pair string. The first key is the platform, which indicates the OS and if your target is a physical device or simulator. The syntax is key=value,key=value,... and note that there is no space separator between commas.
+
+For the platform key, you can specify any of Apple’s supported platforms (macOS, iOS, watchOS, tvOS), but I’ll focus on iOS. For iOS, we can specify if the platform is a local Simulator or a physical device.
+
+### iOS Simulator
+To target the iOS simulator, we can provide a destination string that at minimum should include a platform key set to iOS Simulator and a name key for the Simulator’s name. For example:
+```
+-destination 'platform=iOS Simulator,name=iPhone 13'
+```
+You can optionally pass an OS key as well, which is helpful if you have multiple Simulators of the same device type that differ on OS version. For example:
+```
+-destination 'platform=iOS Simulator,name=iPhone 13,OS=15.2'
+```
+
+### iOS Physical Device
+To target a physical iOS device, the platform key will be set to iOS and we can provide either a name key to target the device by its name or id to target it by its UDID. Note: either a name or id must be provided, but not both. If you have multiple devices plugged into your machine, id is convenient to use.
+```
+$ xcodebuild \
+ test \
+ -project NewTaukTestProject.xcodeproj
+ -scheme NewTaukTestProject
+ -destination 'platform=iOS,name=Nathan's iPhone'
+```
+or
+```
+$ xcodebuild \
+ test \
+ -project NewTaukTestProject.xcodeproj
+ -scheme NewTaukTestProject
+ -destination 'platform=iOS,id=00000000-000000000000000'
+```
+
+### Clean Project Before Running Tests
+If you want to ensure that the Xcode project or workspace is cleaned before running your tests you add the clean command before test. For example:
+```
+$ xcodebuild \
+ clean \
+ test \
+ -project <Your-Project>.xcodeproj \
+ -scheme <Your-Scheme> \
+ -destination <Your-Destination>
+```
+### Running an Individual Test
+To run an individual test case from your XCTest suite, you can use the -only-testing argument. The format for this argument is slightly different than the others we’ve shown so far and looks like this:
+```
+-only-testing:TestBundle/TestSuite/TestCase
+```
+
+### Add xcode cli
+```
+xcode-select --install
+xcode-select --print-path
+```
+
+### Changing build path and using submodules:
+```yml
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'true'
+    - name: Build
+      working-directory: Packages/MyPackage # The working directory path
+      run: swift build -v
+```
+
+### Resources:
+- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+- Run from terminal https://mokacoding.com/blog/running-tests-from-the-terminal/
+
+### Todo:
+Figure out what the  `-sdk iphonesimulator` does?

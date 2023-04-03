@@ -31,7 +31,7 @@ My notes on automating screenshots for the app store<!--more-->.
 - FrameIt config file [https://github.com/fastlane/examples/tree/master/MindNode/screenshots](https://github.com/fastlane/examples/tree/master/MindNode/screenshots)
 - Official doc for Fastlane-Snapshot: [https://docs.fastlane.tools/actions/snapshot/](https://docs.fastlane.tools/actions/snapshot/)
 - Precheck official docs: [https://docs.fastlane.tools/actions/precheck/](https://docs.fastlane.tools/actions/precheck/)
-- Using XCode-UI-testing:
 - Great overview of all the Fastlane tools: [https://www.raywenderlich.com/233168-fastlane-tutorial-getting-started](https://www.raywenderlich.com/233168-fastlane-tutorial-getting-started)
 - StatusMagic: [https://medium.com/@juli1quere/a-perfect-status-bar-on-screenshots-with-fastlane-84a94a350b2a](https://medium.com/@juli1quere/a-perfect-status-bar-on-screenshots-with-fastlane-84a94a350b2a)
 - Shots is a sketch plugin that helps frame iPhone screens. [https://github.com/jtholloran/shots](https://github.com/jtholloran/shots)
+- CLI and CI screenshots etc: https://rderik.com/blog/understanding-xcuitest-screenshots-and-how-to-access-them/

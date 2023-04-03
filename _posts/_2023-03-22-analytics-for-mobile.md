@@ -12,8 +12,9 @@ My notes on analytics for mobile apps<!--more-->
 
 ### Resources:
 - ✨: https://www.owox.com/blog/articles/guide-to-mobile-app-analytics/
-- ga4 for mobile: https://uxcam.com/blog/google-analytics-mobile-apps/
+- GA4 for mobile: https://uxcam.com/blog/google-analytics-mobile-apps/
 - ✨ analytics concept: https://www.netguru.com/blog/analytics-in-mobile-app
 
 ### Gotchas:
 - Firebase analytics sdk uses GA4 under the hood
+- GA3 will be turned off july 2023

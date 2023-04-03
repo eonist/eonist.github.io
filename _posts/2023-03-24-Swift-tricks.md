@@ -82,6 +82,8 @@ printTest2(print("Hello"))
 ```
 
 ### 113: Using where in guards
+- Using where is the same as using comma, but can be more human readable.
+- Also a reminder to use where in other places. like for-loops. Which is easy to forget etc
 ```swift
 currentRequest?.getValue { [weak self] result in
   guard let user = result.okValue where result.errorValue == nil else {
@@ -89,7 +91,6 @@ currentRequest?.getValue { [weak self] result in
     self?.isPerformingSignUp = false
     return
   }
-
   self?.finishSignUp(user)
 }
 ```

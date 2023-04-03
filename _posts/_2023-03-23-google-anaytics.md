@@ -59,3 +59,6 @@ Example: A user explores five different pages on your website in a session.
 
 ### Resources
 - Adding exceptions to GA https://stackoverflow.com/questions/21718481/report-for-exceptions-from-google-analytics-analytics-js-exception-tracking
+
+### Gotchas:
+- Limits of GA4: https://support.google.com/analytics/answer/9267744?hl=en&ref_topic=9756175
