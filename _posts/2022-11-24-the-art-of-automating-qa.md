@@ -55,18 +55,18 @@ My notes on automating quality assurance <!--more-->
 - Add complex mock data to avoid future customer complaints. Customers do things you never thought of. And will often vote 1 star on the app-store if their need isn't met.
 - Increase performance by testing extreme cases
 - Increase customer satisfaction by testing for edge cases that hit the 1%. Human QA only every cover 80-90% use cases.
-- Why would your software run safly on 1000s of different system configs if they cant run automated Tests
+- Why would your software run safely on 1000s of different system configs if they cant run automated Tests
 - Your developer has peak knowledge just when the software enters MVB or MVP. This peak knowledge is essential when writing automated qa efficiently with high utility
-- When you dont have any users and customers everything is jolly. You can cahnge anything. Once you onboard users you have to deal with regression, customer data, appstore reviews, support, api-changes suddenly take weeks not hours.
-- People dont really want to be your guinni-pig. When people test your beta their interested to see what all the fuss is about. their not interested in reporting if a button doesnt work. So make sure things work, then show them the fuss.
-- Less security treats, less gdpr vunerabilities
+- When you don't have any users and customers everything is jolly. You can change anything. Once you onboard users you have to deal with regression, customer data, appstore reviews, support, api-changes suddenly take weeks not hours.
+- People don't really want to be your guinea pig. When people test your beta their interested to see what all the fuss is about. their not interested in reporting if a button doesnt work. So make sure things work, then show them the fuss.
+- Less security treats, less GDPR vulnerabilities
 - Having an automation mindset is a valuable transferable skill in this day and age
 - user-story-tests ensure things keep working when iOS is updated for the user. We can test iOS beta version ahead of time before they are installed on users devices etc
 - security and stability is highly sought after by todays customers A crash can mean users loose data which can mean their lives get complicated, and by extension we are responsible.
-- Simply put: Time spent setting up and maintaining Automated-tests far outweight the hassle of manually testing each miniscule thing and getting stuck in a rejection loop with apple app store review board.
+- Simply put: Time spent setting up and maintaining Automated-tests far outweigh the hassle of manually testing each miniscule thing and getting stuck in a rejection loop with apple app store review board.
 - Constantly running tests can also warn you if an external API goes down, giving you time to fix it before most of your users notice it.
-- App-store reviewers that act as gatekeepers for the apple appstore do not care about your app. These gate-keepers have one mission and that is to make your app fail. And they know how to find that edge case nobody will ever stumble upon in real life. As such the best strategy is is to have systems in place to weed out these edge cases. Because you will need to pass these gatekeeprs for every update you ever make. And each gatekeeper will have different strategies to trip you up.
-- Iterating becomes a lot easier if you can verify that each iteration doesnt break the system.
+- App-store reviewers that act as gatekeepers for the apple app-store do not care about your app. These gate-keepers have one mission and that is to make your app fail. And they know how to find that edge case nobody will ever stumble upon in real life. As such the best strategy is is to have systems in place to weed out these edge cases. Because you will need to pass these gatekeeprs for every update you ever make. And each gatekeeper will have different strategies to trip you up.
+- Iterating becomes a lot easier if you can verify that each iteration doesn't break the system.
 
 ### How to write a test-plan:
 - Define user stories. Here are some examples for a music app:
@@ -122,6 +122,7 @@ login() // login user
 - Your unit testing posts
 - https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan.md
 - https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan-autofill.md
+- Monitoring service for API’s (https://updown.io
 
 ### To summarize:
 - 🦾 Automating QA > Manual QA

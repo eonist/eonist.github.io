@@ -9,7 +9,7 @@ My go to Product launch checkList<!--more-->.
 5. Front-page thumbnail: 600 x 600px or bigger. (max 3mb) A looping Gif-anim is popular. (Link to file or file)
 6. Video of product (youtube link to file or file) Pictures of product (landscape) (link or file)
 7. Make sure you have a personal account at PH so I can add you as maker. You get comment rights with Maker status, and 3 invites that also has comment rights.
-8. Make a comment on your PH product site asap after launch. Pitch your product. Be brief.
+8. Make a comment on your PH product site asap after launch. Pitch your product. Be brief. Ask for feedback.
 9. What time do you want to launch? (It's smart not to be the first but starting early is good) Ideally: 12am-02am PST
 
 ### Notes;
@@ -21,3 +21,15 @@ Tell people that your on product hunt the day of the launch. newsletter, faceboo
 [Medium article about launching best practices](https://medium.com/startup-grind/how-we-got-1000-upvotes-on-product-hunt-by-curating-a-checklist-from-50-successful-launches-6b77ce29b444#.qq7wygl5l)
 
 Google: "how to succeed on producthunt"
+
+### Asset sizes:
+- Icon: 240x240 (3mb) png,jpg,gif not autoplay, anim on hover, first frame is key
+- Images: Recommended: 1270x760 (optional: 400x400, 1500x500)
+- Video: Public youtube. Hock, Problem/Challange, showcase, call to action
+
+### Gotchas:
+- Teaser site can exist for maximum of 30days
+
+### Resources:
+- producthunt gotchas: https://help.producthunt.com/en/collections/31079-posting
+- MOre gotchas: https://www.switchboard.app/blog/product-hunt-best-practices

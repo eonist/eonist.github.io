@@ -59,5 +59,8 @@ You could add shell commands that resizes the images for you, in the applescript
 ### Resources:
 - For iOS11 icons you can use this online converter: [https://makeappicon.com](https://makeappicon.com)
 - There is a sketch plugin that makes xCode icons [https://github.com/nathco/Export-More](https://github.com/nathco/Export-More)
-- related: https://github.com/raphaelhanneken/iconizer
-- related: https://github.com/kuyawa/AppIcons
+- Related: https://github.com/raphaelhanneken/iconizer
+- Related: https://github.com/kuyawa/AppIcons
+- ⭐ Export pngs of all sizes with sketch and apples own template: https://medium.com/kennethlng/how-to-use-apples-app-icon-sketch-template-for-xcode-2a4458c75ac1
+- ⭐ Apples .sketch templates for macOS and iOS can be downloaded here (a bit tricky to setup the first time, also the mac template has perfect margins): https://developer.apple.com/design/resources/
+- ⭐ Instead of dragging each icon you can use a filled out .json: https://medium.com/sketch-app-sources/painless-icon-generation-for-ios-apps-with-sketch-and-xcode-part-2-1c33527bcd73

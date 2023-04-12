@@ -1,5 +1,20 @@
 Some of my favourite swift tricks<!--more-->
 
+### 120. Struct vs Class
+- If it’s basically a bag of data, use a struct
+- If it has a lifecycle, use a class
+
+### 119. Switch on tuples:
+Great for testing groups of cases
+```swift
+let state = (a: true, b: false, c: "123")
+switch state {
+case (true, _, _): print("a is true")
+case (_, _, "123"): print("c has 123 text")
+case (_, _, _): print("Did not find a match")
+}
+```
+
 ### 118: Golden path:
 When coding with conditionals, the left-hand margin of the code should be the "golden" or "happy" path. That is, don't nest if statements. Multiple return statements are OK. The guard statement is built for this.
 
