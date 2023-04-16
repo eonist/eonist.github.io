@@ -25,11 +25,12 @@ Google: "how to succeed on producthunt"
 ### Asset sizes:
 - Icon: 240x240 (3mb) png,jpg,gif not autoplay, anim on hover, first frame is key
 - Images: Recommended: 1270x760 (optional: 400x400, 1500x500)
-- Video: Public youtube. Hock, Problem/Challange, showcase, call to action
+- Video: Public youtube. Hock, Problem/Challenge, showcase, call to action
 
 ### Gotchas:
 - Teaser site can exist for maximum of 30days
 
 ### Resources:
 - producthunt gotchas: https://help.producthunt.com/en/collections/31079-posting
-- MOre gotchas: https://www.switchboard.app/blog/product-hunt-best-practices
+- More gotchas: https://www.switchboard.app/blog/product-hunt-best-practices
+- Launch tips for 2023: https://gist.githubusercontent.com/eonist/80fd7ba657ad2b39cb9686177c1596ba/raw/70c8ea6432efb71ccb8ab3502c17e2157044083f/product%2520hunt%25202023

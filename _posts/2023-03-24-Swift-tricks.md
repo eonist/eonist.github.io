@@ -1,5 +1,12 @@
 Some of my favourite swift tricks<!--more-->
 
+## Random range:
+```swift
+Int.random(in: 8...44) // random int between 8 and 44
+(8..<44).randomElement() ?? 8 // random int between 8 and 44
+String(Int.random(in: (1000..<9999))) // 4 digit code like 4413, 9999 etc
+```
+
 ### 120. Struct vs Class
 - If it’s basically a bag of data, use a struct
 - If it has a lifecycle, use a class

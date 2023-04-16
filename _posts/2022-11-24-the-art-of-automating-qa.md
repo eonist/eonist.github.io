@@ -5,7 +5,7 @@ My notes on automating quality assurance <!--more-->
 <img width="480" height="261" alt="Gif of ghost in a shell typing on keyboard" src="https://media.giphy.com/media/9CffOPMLx0Hf2/giphy.gif">
 
 > Build something elegant with high utility that is easy to maintain
-
+ 
 **Pros:**
 - More development velocity because bugs can be caught instantly
 - You can run these tests on demand on multiple devices
@@ -123,6 +123,8 @@ login() // login user
 - https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan.md
 - https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan-autofill.md
 - Monitoring service for API’s (https://updown.io
+- Definition of CT: Continuous testing is the process of executing automated tests as part of the software delivery pipeline to obtain immediate feedback on the business risks associated with a software release candidate. https://en.wikipedia.org/wiki/Continuous_testing
+
 
 ### To summarize:
 - 🦾 Automating QA > Manual QA
