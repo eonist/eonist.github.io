@@ -29,6 +29,7 @@ Google: "how to succeed on producthunt"
 
 ### Gotchas:
 - Teaser site can exist for maximum of 30days
+- Start community discussion 1 day before launch regarding the launch. Start discusssion while the launch is going on, these are published on the front if the discussions get upvotes etc. 
 
 ### Resources:
 - producthunt gotchas: https://help.producthunt.com/en/collections/31079-posting

@@ -1,5 +1,11 @@
 Some of my favourite swift tricks<!--more-->
 
+## Add a comment to infoplist
+Because infoplist is complicated, and there is a lot of knowlege attached to choices of which key/val that are stored in infoplist
+```yml
+<!-- A Boolean value indicating whether the app may open the original document from a file provider, rather than a copy of the document.  -->
+```
+
 ## Random range:
 ```swift
 Int.random(in: 8...44) // random int between 8 and 44

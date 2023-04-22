@@ -1,8 +1,8 @@
 My checklist when making a programmatic iOS app<!--more-->
 
-1. Pick storyboard when you init the iOS project (not swiftUI)
+1. Pick `storyboard` when you init the iOS project (not swiftUI)
 2. Clean up the `AppDelegate.swift` class and add a Window variable:
-3. Delete `Main storyboard file base name` in the info.plist (since xCode 11 also remove scenedelegate)
+3. Delete `Main storyboard file base name` in the `info.plist` (since xCode 11 also remove scenedelegate)
 4. Now you can delete ViewController.swift `and` Main.storyboard (since xCode 11 also remove scenedelegate)
 5. Add MainVC and MainView
 6. `CMD + R` Run the app, if the background is orange it works
@@ -51,7 +51,7 @@ class View: UIView {
 ```
 
 ### Info.plist xml boilerplate:
-Example of info.plist for iOS 
+Example of info.plist for iOS
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
