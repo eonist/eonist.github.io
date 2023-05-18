@@ -1,12 +1,125 @@
 Some of my favourite swift tricks<!--more-->
 
-## Add a comment to infoplist
-Because infoplist is complicated, and there is a lot of knowlege attached to choices of which key/val that are stored in infoplist
+### 128. Using packages to test things quick
+**Problem:**    
+- Playground is nice but hit and miss sometimes
+- Online swift compilers are iffy, and debug log is gnarly  
+- Swift code in the terminal is awesome, but terminal isnt grat for typing code
+
+**Solution:**  
+1. Create a ScratchPad swift package
+2. Drag it into xcode
+3. Use unit-test to run xode
+
+### 127. Change string with a range:
+
+```swift
+let input = "Hello, world"
+let range = NSMakeRange(4, 8)
+// To make that into a Swift Range instance you just need this single line of code:
+let swiftRange = Range(range, in: input)
+print(swiftRange.lowerBounds) // 0
+print(swiftRange.upperBounds) // 10
+input.replaceSubstring(range, "****")
+print(input) // he****ld
+```
+
+### 126. Comparing two arrays where the item has a custom equality method
+```swift
+struct Item {
+	let id: String
+	let date: Int
+}
+extension Item {
+    func isEqual(other: Item) -> Bool {
+		return self.id == other.id
+	}
+}
+typealias Items = [Item]
+
+extension Array where Element == Item {
+ 	func isEqual(others: Items) -> Bool {
+	    let intersection = self.filter { item in others.contains { $0.isEqual(other: item) } }
+       return intersection.count == others.count && intersection.count == self.count // its important to assert count on both arrays
+	}
+}
+let x: Items = [
+	.init(id: "a", date: 0),
+	.init(id: "b", date: 1),
+	.init(id: "c", date: 2)
+]
+let y: Items = [
+	.init(id: "a", date: 0),
+	.init(id: "b", date: 1),
+	.init(id: "c", date: 2)
+]
+let z: Items = [
+	.init(id: "a", date: 7),
+	.init(id: "d", date: 5),
+	.init(id: "f", date: 2)
+]
+print(x.isEqual(others: y)) // true
+print(x.isEqual(others: z)) // false
+print(y.isEqual(others: z)) // false
+```
+
+### 125. Overriding super type method
+Subclassing works even tho the Util method only knows about the base type
+```swift
+class A {
+	func merge(item: A) {
+		insert()
+	}
+	func insert() {
+		Swift.print("A.insert")
+	}
+}
+class B: A {
+	override func insert() {
+		Swift.print("B.insert")
+        super.insert()
+	}
+}
+class Util {
+	static func merge(item: A) {
+		item.merge(item: item)
+	}
+}
+let item: A = B()
+Util.merge(item: item)
+// prints B.insert then A.insert
+```
+
+### 124. Assert that an array intersects another
+
+```swift
+let a = [3, 4]
+let b = [2, 1, 3]
+let intersection = a.filter { item in b.contains { $0 == item } }
+print(intersection.count == a.count) // false -> its missing 4
+```
+
+## 123. Find the first VC in a VC hierarchy
+Put this in a UIVC Extension. Usage: `let topAlertController: UIAlertController? = topMostVC?.firstMatch()`
+```swift
+/**
+ * Traverses the entire VC hierarchy downwards and returns the first match
+ * - Parameter type: Class type to match
+ */
+public func firstMatch<T: UIViewController>(type: T.Type? = nil) -> T? {
+  self.children.first {
+     $0.firstMatch(type: type) != nil
+  } as? T
+}
+```
+
+## 122. Add a comment to infoplist
+Because infoplist is complicated, and there is a lot of knowledge attached to choices of which key/val that are stored in infoplist
 ```yml
 <!-- A Boolean value indicating whether the app may open the original document from a file provider, rather than a copy of the document.  -->
 ```
 
-## Random range:
+## 121. Random range:
 ```swift
 Int.random(in: 8...44) // random int between 8 and 44
 (8..<44).randomElement() ?? 8 // random int between 8 and 44
@@ -846,6 +959,7 @@ find . -name ".build"
 
 ### 66. Check equality between Arrays
 This works when order of the array doesn't matter
+⚠️️ this might not work 😅
 ```swift
 func isEqual(a: [String], b: [String]) -> Bool {
    guard a.count == b.count else { return false } // Check if count is the same
@@ -855,6 +969,8 @@ func isEqual(a: [String], b: [String]) -> Bool {
       }
    }
 }
+print(isEqual(a: ["1","2","3"], b: ["1","2","4"])) // false
+print(isEqual(a: ["1","2","3"], b: ["1","2","3"])) // true
 ```
 
 ### 65: Operate on an array of class types

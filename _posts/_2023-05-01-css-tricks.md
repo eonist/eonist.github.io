@@ -1,0 +1,31 @@
+My favourite css tricks<!--more-->
+### 3. Flex order:
+Change the order of items in a flex column or row:
+
+```
+.container {
+	display: flex;
+	flex-direction: row;
+}
+#a {
+	order: 2;
+}
+#b {
+	order: 1;
+}
+#c {
+	order: 3;
+}
+```
+### 2. More precise control of div styling:
+
+```
+box-sizing: border-box;
+```
+
+### 1. Make DIV fit content:
+Ref: https://stackoverflow.com/questions/450903/how-can-i-make-a-div-not-larger-than-its-contents
+```
+width: fit-content;
+height: fit-content;
+```

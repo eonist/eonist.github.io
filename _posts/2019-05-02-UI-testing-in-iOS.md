@@ -70,7 +70,7 @@ app.textFields.element
 app.textViews.element
 app.webViews.element
 ```
-### IOS vs IPADOS
+### iOS vs iPadOS
 you have 2 test cases:
 
 ```swift
@@ -83,6 +83,18 @@ func testSnapshotPad() {
     // Capture screenshots for iPad
 }
 ```
+
+### Dealing with system alerts:
+```swift
+// https://stackoverflow.com/a/46951214/5389500
+let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+
+let allowBtn = springboard.buttons["Allow"]
+if allowBtn.waitForExistence(timeout: 10) {
+    allowBtn.tap()
+}
+```
+
 ## Pro's:
 - Great way to make Unit-tests that matters. Ensuring QA on every release.
 - QA teams can do more high-level tasks, when low level QA tasks are automated.

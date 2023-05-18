@@ -1,0 +1,3 @@
+<!--more-->
+
+Don't try to recruit early adopters. It's fake validation. Instead ask other makers of some pedigree what they think. Here you will find more critical feedback. They will tell you the truth. Then with the feedback improve your bet. Then make the bet and launch a pilot. Pilot != MVP. Think of the pilot as what gets Hollywood interested to finance the whole season. Show the pilot to potential customers. See if they think the pilot is good enough to start watching the rest of the season. This is the Hollywood validation process. I just came up with that now 😂 But more or less what I do atm. 
