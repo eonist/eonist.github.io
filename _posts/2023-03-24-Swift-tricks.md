@@ -1,5 +1,20 @@
 Some of my favourite swift tricks<!--more-->
 
+### 129. Data conversion
+Data extension for conversion
+```swift
+extension Data {
+  // Unarchive data into an object and return as type `Any`.
+  public func convert() -> Any? {
+     return NSKeyedUnarchiver.unarchiveObject(with: self)
+  }
+  // Converts an object into Data using NSKeyedArchiver
+  public static func toData(object: Any) -> Data {
+     return NSKeyedArchiver.archivedData(withRootObject: object)
+  }
+}
+```
+
 ### 128. Using packages to test things quick
 **Problem:**    
 - Playground is nice but hit and miss sometimes
