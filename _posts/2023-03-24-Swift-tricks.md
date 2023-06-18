@@ -1,5 +1,114 @@
 Some of my favourite swift tricks<!--more-->
 
+### 140. URL components
+Dictionary of the URL's query parameters
+```swift
+extension URL {
+    var queryParameters: [String: String]? {
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false) else { return nil }
+        guard let queryItems = components.queryItems else { return nil }
+        var items: [String: String] = [:]
+        for queryItem in queryItems {
+            items[queryItem.name] = queryItem.value
+        }
+        return items
+    }
+}
+```
+
+### 139. Numeric sum
+Sum Function for Numeric Collection
+
+```swift
+extension Collection where Element: Numeric {
+    func sum() -> Element {
+        return self.reduce(0, +)
+    }
+}
+[3, 4, 6].sum() // 13
+[3.4, 6.2, 7.3].sum() // 16.9
+```
+
+### 138. Remove dups:
+
+```swift
+public extension Array where Element: Hashable {
+    public mutating func removeDups() {
+        self = unified()
+    }
+}
+public extension Collection where Element: Hashable {
+    public func unified() -> [Element] {
+        return reduce(into: []) {
+            if !$0.contains($1) {
+                $0.append($1)
+            }
+        }
+    }
+}
+var array = [1, 2, 3, 3, 2, 1, 4]
+array.removeDups() // [1, 2, 3, 4]
+```
+
+### 137. Quality of service:
+Apps and operations compete to use finite resources: memory, network interfaces, CPU, and so on. In order to remain responsive and efficient, the system needs to prioritize tasks and make intelligent decisions about when to execute them.
+
+A quality of service (QoS) class allows you to categorize work to be performed by NSOperation, NSOperationQueue, NSThread objects, dispatch queues, and pthreads (POSIX threads). By assigning a QoS to work, you indicate its importance, and the system prioritizes it and schedules it accordingly.
+```swift
+// Work is virtually instantaneous.
+DispatchQoS.userInteractive
+// Work is nearly instantaneous, such as a few seconds or less.
+DispatchQoS.userInitiated
+// Work takes a few seconds.
+DispatchQoS.default
+// Work takes a few seconds to a few minutes.
+DispatchQoS.utility
+// Work takes significant time, such as minutes or hours.
+DispatchQoS.background
+```
+
+### 136. One to many observer pattern:
+The Observer design pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically. The Observer pattern is essentially a publish-and-subscribe model in which the subject and its observers are loosely coupled. Communication can take place between the observing and observed objects without either needing to know much about the other. Cocoa implements the observer pattern in two ways: Notifications and Key-Value Observing (KVO).
+```swift
+// Observer Pattern
+protocol Observer {
+    var id : Int { get } // property to get an id
+    func update<ObservableValue>(with newValue: ObservableValue)
+}
+protocol Observable {
+    associatedtype ObservableValue
+    var value : ObservableValue { get set }
+    var observers : [Observer] { get set }
+    func addObserver(observer: Observer)
+    func removeObserver(observer: Observer)
+    func notifyAllObservers<ObservableValue>(with newValue: ObservableValue)
+}
+```
+
+### 135. Mutating structs with a function call
+If you need to modify the properties of your structure or enumeration within a particular method, you can opt in to mutating behavior for that method.
+```swift
+struct Point {
+    var x = 0.0, y = 0.0
+    mutating func moveBy(x deltaX: Double, y deltaY: Double) {
+        x += deltaX
+        y += deltaY
+    }
+}
+var somePoint = Point(x: 1.0, y: 1.0)
+somePoint.moveBy(x: 2.0, y: 3.0)
+print("The point is now at (\(somePoint.x), \(somePoint.y))")
+// Prints "The point is now at (3.0, 4.0)"
+```
+
+### 134. count where
+The new count(where:) method:
+
+```swift
+let scores = [100, 80, 85]
+let passCount = scores.count { $0 < 90 }
+```
+
 ### 133. Class and instance name
 
 ```swift
