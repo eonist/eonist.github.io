@@ -6,7 +6,7 @@ My notes on source code topology<!--more-->
    - src
       - common (code that is common across modules, style, models, data, consts)
       - util (static utilitity methods)
-         - extensions (spesific math, general network stuff etc)
+         - extensions (specific math, general network stuff etc)
       - manager (Singleton navigation, state of the app)
          - Config.swift (toggle debug/release)
          - Nav.swift (enum based app navigation)
@@ -50,4 +50,4 @@ Code-projects are like this:
 Imagine your a restaurant and your making spaghetti bolognese for your guests. After the evening has passed, and the guest has gone home, you clean the restaurant for the next guests the day after. Now most coding projects make spaghetti for their guests to. But they never have time to cleanup. So everyday they just make more spaghetti in the same old pans and with the same old knifes. After a while the kitchen starts to be really messy, and crust starts to form everywhere. Until one day. Everything is so messy your basically just a spaghetti blob.
 
 ### Code hierarchy vs flat-pools:
-Imagine if wikipedia was just 1 page with millions of links. It would be impossible to read. Many coders write their apps like this. Having all their code in Avery few files in very few folders. Folders with 50+ files, files with 1000lines of code. Its unreadable, unmanageable, imposing le to maintain. Instead try to create hierarchies of code. Like how wikipedia is structured. There is structure in the hierarchy, there is no structure in pools of random files.
+Imagine if wikipedia was just 1 page with millions of links. It would be impossible to read. Many coders write their apps like this. Having all their code in Avery few files in very few folders. Folders with 50+ files, files with 1000lines of code. Its unreadable, unmanageable, impossible to maintain. Instead try to create hierarchies of code. Like how wikipedia is structured. There is structure in the hierarchy, there is no structure in pools of random files.

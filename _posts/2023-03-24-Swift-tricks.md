@@ -1,5 +1,57 @@
 Some of my favourite swift tricks<!--more-->
 
+### 133. Class and instance name
+
+```swift
+String(describing: UIView.self) // "UIView"
+String(describing: type(of: UILabel()))  // "UILabel"
+
+```
+
+### 132. Multiline string
+```swift
+"""
+The red fox walked down the
+street. It was not jumping the fence.
+"""
+```
+
+### 131. Implicit and explicit getters
+```swift
+struct A {
+   let data: Data
+   var cellData: Data { data } // Wrong 🚫 (because it looks like its a variable)
+}
+struct A {
+   let data: Data
+   var getCellData: Data { data } // Correct ✅ (clearly indicates that it is a getter)
+}
+```
+
+### 130. Clamping a value:
+We can also do: `Swift.max(minVal, Swift.min(maxVal, val))`
+```swift
+/**
+ * Clamp
+ * ## Examples:
+ * CGFloat.clamp(val: 44, min: 33, max: 38) // 38
+ * - Parameters:
+ *   - val: target value
+ *   - min: no less
+ *   - max: no more
+ * - Returns: clamped value
+ */
+internal static func clamp(val: CGFloat, min: CGFloat, max: CGFloat) -> CGFloat {
+   if val <= min { // Under
+      return min
+   } else if val >= max { // Over
+      return max
+   } else { // Between
+      return val
+   }
+}
+```
+
 ### 129. Data conversion
 Data extension for conversion
 ```swift
@@ -1258,6 +1310,7 @@ while i < 4 {
 ### 45: Mark methods as deprecated and get warning:
 - Document API changes with @available keyword.
 - Great way to rename code without breaking backward compatibility, but at the same time motivating users to use the new api name, just make a typealias with the bellow code above it
+- There is also `@available(*, deprecated)` if something doesn't have a replacement API call etc
 ```swift
 @available(*, deprecated, renamed: "newMethodName") // You can also point to new class : "UIAlertController.createAlert"
 func foo() {
