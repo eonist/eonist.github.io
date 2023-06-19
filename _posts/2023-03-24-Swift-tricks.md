@@ -1,5 +1,212 @@
 Some of my favourite swift tricks<!--more-->
 
+### 152.  Safe way to return element at specified index
+
+You can extend collections to return the element at the specified index if it is within bounds, otherwise nil.
+
+```swift
+extension Collection {
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
+
+let cars = ["Lexus", "Ford", "Volvo", "Toyota", "Opel"]
+let selectedCar1 = cars[safe: 3] // Toyota
+let selectedCar2 = cars[safe: 6] // not crash, but nil
+```
+
+### 151. Tips for writing error messages
+
+1. Say what happened and why
+2. Suggest a next step
+3. Find the right tone (If it’s a stressful or serious issue, then a silly tone would be inappropriate)
+
+### 150. Split array by chunks of given size:
+
+Great extension to split array by chunks of given size
+
+```swift
+
+extension Array {
+    func chunk(_ chunkSize: Int) -> [[Element]] {
+        return stride(from: 0, to: self.count, by: chunkSize).map({ (startIndex) -> [Element] in
+            let endIndex = (startIndex.advanced(by: chunkSize) > self.count) ? self.count-startIndex : chunkSize
+            return Array(self[startIndex..<startIndex.advanced(by: endIndex)])
+        })
+    }
+}
+```
+
+### 149. Lightweight way to add content changing animation to UIView
+
+
+Just invoke 🧙‍♂️ fadeTransition(_ duration: CFTimeInterval) by your view before you will apply a change.
+
+```swift
+
+extension UIView {
+    func fadeTransition(_ duration: CFTimeInterval) {
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.type = kCATransitionFade
+        animation.duration = duration
+        layer.add(animation, forKey: kCATransitionFade)
+    }
+}
+
+```
+Example:
+```swift
+
+label.fadeTransition(1)
+label.text = "Updated test content with animation"
+
+```
+
+### 148. Remove dups
+Clear way to return the unique list of objects based on a given key. It has the advantage of not requiring the Hashable and being able to return an unique list based on any field or combination.
+
+```swift
+extension Array {
+    func unique<T:Hashable>(map: ((Element) -> (T)))  -> [Element] {
+        var set: Set<T> = []
+        var arrayOrdered: [Element] = []
+        for value in self {
+            if !set.contains(map(value)) {
+                set.insert(map(value))
+                arrayOrdered.append(value)
+            }   
+        }
+        return arrayOrdered
+    }
+}
+```
+
+### 147. Dispatch group
+Let’s say you’ve got several long running tasks to perform. After all of them have finished, you’d like to run some further logic. You could run each task in a sequential fashion, but that isn’t so efficient - you’d really like the former tasks to run concurrently. DispatchGroup enables you to do exactly this.
+```swift
+
+let dispatchGroup = DispatchGroup()
+
+for i in 1...5 {
+    dispatchGroup.enter()
+    Alamofire.request(url, parameters: params).responseJSON { response in
+        //work with response
+        dispatchGroup.leave()
+    }
+}
+
+dispatchGroup.notify(queue: .main) {
+    print("All requests complete")
+}
+```
+In the above, all long running functions will perform concurrently, followed by the print statement, which will execute on the main thread.
+
+Each call to enter() must be matched later on with a call to leave(), after which the group will call the closure provided to notify().
+
+DispatchGroup has a few other tricks:
+
+Instead of notify(), we can call wait(). This blocks the current thread until the group’s tasks have completed.
+A further option is wait(timeout:). This blocks the current thread, but after the timeout specified, continues anyway. To create a timeout object of type DispatchTime, the syntax .now() + 1 will create a timeout one second from now.
+wait(timeout:) returns an enum that can be used to determine whether the group completed, or timed out.
+
+### 146. Asynchronous work in Playground.
+Tell the playground it should continue running forever, otherwise it will terminate before the asynchronous work has time to hppen.
+
+```swift
+PlaygroundPage.current.needsIndefiniteExecution = true
+```
+
+### 145. Delegate naming:
+your method names will should use `will`, `did`, and `should`
+
+### 144. Protocol naming:
+
+Protocols: Naming
+
+If we are talking about naming the protocol itself:
+
+Protocols that describe what something is should read as nouns (e.g. Collection).
+Protocols that describe a capability should be named using the suffixes able, ible, or ing (e.g. Equatable, ProgressReporting).
+
+### 143. Optional protocol methos:
+
+```swift
+// If you implement a protocol in Swift you must implement all its requirements. Optional methods are not allowed.
+protocol CarDelegate {
+    func engineDidStart()
+    func carShouldStartMoving() -> Bool
+    func carDidStartMoving()
+    func engineWillStop()
+    func engineDidStop()
+}
+// But there are a few tricks how to make some methods to be optionals:
+// You can split them in two protocols, and adopt only needed one.
+protocol CarMovingStatusDelegate {
+    func carShouldStartMoving() -> Bool
+    func carDidStartMoving()
+}
+protocol CarEngineStatusDelegate {
+    func engineDidStart()
+    func engineWillStop()
+    func engineDidStop()
+}
+```
+
+### 142. Result type without value to provide
+
+```swift
+enum Result<T> {
+    case success(result: T)
+    case failure(error: Error)
+}
+func login(with credentials: Credentials, handler: @escaping (_ result: Result<User>) -> Void) {
+    // Two possible options:
+    handler(Result.success(result: user))
+    handler(Result.failure(error: UserError.notFound))
+}
+// login(with:) operation has user value to provide and default Result type fits perfectly here. But let’s imagine that your operation hasn’t got value to provide or you don’t care about it. Default Result type makes you to provide the result value any way.
+// To fix this inconvenience you need to add extension and instantiate a generic with an associated value of type Void.
+func login(with credentials: Credentials, handler: @escaping (_ result: Result<Void>) -> Void)
+extension Result where T == Void {
+    static var success: Result {
+        return .success(result: ())
+    }
+}
+// Now we can change our func login(with:) a bit, to ignore result success value if we don’t care about it.
+func login(with credentials: Credentials, handler: @escaping (_ result: Result<Void>) -> Void) {
+    // Two possible options:
+    handler(Result.success)
+    handler(Result.failure(error: UserError.notFound))
+}
+```
+
+### 141. XCTUWrap
+In Xcode 11 new assertion function has been added for use in Swift tests. XCTUnwrap asserts that an Optional variable’s value is not nil, returning the unwrapped value of expression for subsequent use in the test. It protects you from dealing with conditional chaining for the rest of the test. Also it removes the need to use XCTAssertNotNil(_:_:file:line:) with either unwrapping the value. It’s common to unwrap optional before checking it for a particular value so that’s really where XCTUnwrap() will come into its own.
+
+```swift
+
+struct Note {
+    var id: Int
+    var title: String
+    var body: String
+}
+class NotesViewModel {
+    static func all() -> [Note] {
+        return [
+            Note(id: 0, title: "first_note_title", body: "first_note_body"),
+            Note(id: 1, title: "second_note_title", body: "second_note_body"),
+        ]
+    }
+}
+func testGetFirstNote() throws {
+    let notes = NotesViewModel.all()
+    let firstNote =  try XCTUnwrap(notes.first)
+    XCTAssertEqual(firstNote.title, "first_note_title")
+}
+```
+
 ### 140. URL components
 Dictionary of the URL's query parameters
 ```swift
