@@ -1,5 +1,181 @@
 Some of my favourite swift tricks<!--more-->
 
+### Collection over array:
+- If you know you’re going to be working with other collection types, and you don’t want to incur the cost of allocating an array
+- Usually, Array is a good currency type, but if you’re writing a parser or some other code where you expect to be handed an ArraySlice or something like that, you could do it the way you posted.
+- This also allows for things like display(users:) to work with data types like Set, for example.
+- In general it just allows display(users:) to be much more flexible.  I wouldn't say that it's something that you should always write "by default" instead of [User]/Array<User>, but if you find yourself creating display(users: [User]) and another version display(users: Set<User>) and another version display(users: ArraySlice<User>) (and so on), then just using some Collection<User> makes this much more flexible and reduces a lot of code.
+- It can be useful for making functions more flexible, but also be careful with it, because certain assumptions are no longer valid:
+- Here you just want to iterate over a collection, fine But if you want to display users, that collection should be sorted. Array is, Set isn't. It won't give an error at compile time, and it'll run fine, but your UI will be inconsistent (tests might fail?)
+- Certainly. Hence the “don’t just default to the style just because.” Use it with purpose.
+
+```swift
+struct User {
+    let firstName: String
+}
+func display(users: some Collection<User>) {
+    for user in users {
+        print(user)
+    }
+}
+```
+
+### 166: shorthand if-let syntax
+
+```swift
+var userName: String?
+if let userName {
+    // `userName` is non-optional here
+}
+```
+### 165: large number separators
+
+```swift
+let bigNumber = 123_456_789
+```
+
+### 164. KeyPaths as closure
+```swift
+extension Int {
+    var isEven: Bool { self.isMultiple(of: 2) }
+}
+let numbers = [1, 2, 3, 4, 5]
+let evens = numbers.filter(\.isEven)
+```
+
+### 163. Use dump call to get more info
+```swift
+class Person {
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+
+    var name: String
+    var age: Int
+}
+
+let me = Person(name: "Vincent", age: 31)
+
+dump(me)
+```
+
+### 162. Where condition in array iterating:
+```swift
+let numbers = [1, 2, 3, 4, 5]
+for number in numbers where number.isMultiple(of: 2) {
+    print(number)
+}
+```
+
+### 161. Better actions for UIButtons
+```swift
+// ioS14+
+var label: UILabel
+var button: UIButton
+
+var counter = 0 {
+     didSet {
+         label.text = "Counter: \(counter)"
+     }
+ }
+ override func viewDidLoad() {
+     super.viewDidLoad()
+     button.addAction(UIAction { [weak self] _ in
+         self?.counter += 1
+     }, for: .touchUpInside)
+ }
+```
+
+### 160. Using result to handle async calls:
+
+```swift
+func fetchData(_ completion: @escaping (Result<Data, Error>) -> Void) {
+    /* ... */
+}
+fetchData { result in
+    switch result {
+    case .success(let data):
+        // use the data
+    case .failure(let error):
+        // handle the error
+    }
+}
+```
+
+### 159. some isntead of generic
+```swift
+func handle(value: some Identifiable) {
+    /* ... */
+}
+```
+### 158. switch on tuples
+
+```swift
+switch (boolean1: boolean1, boolean2: boolean2, boolean3: boolean3) {
+case (boolean1: true, _, boolean3: false):
+    functionA()
+case (_, boolean2: false, boolean3: true):
+    functionB()
+case (boolean1: true, boolean2: false, boolean3: false):
+    functionC()
+default:
+    break
+}
+```
+
+### 157. string or empty
+
+```swift
+extension Optional where Wrapped == String {
+    var orEmpty: String {
+        self ?? ""
+    }
+}
+
+let optionalString = Bool.random() ? "Hello, world!" : nil
+
+print(optionalString.orEmpty)
+```
+
+### 156. string is nil or empty
+```swift
+extension Optional where Wrapped == String {
+    var isNilOrEmpty: Bool {
+        self == nil || self == ""
+    }
+}
+func handles(optionalString: String?) {
+    if optionalString.isNilOrEmpty == false {
+        // use `optionalString`
+    }
+}
+```
+
+### 155. Json string:
+```swift
+let json = #"{"name":"Vincent"}"#
+```
+
+### 154. Optional extension
+```swift
+extension String? {
+    var orEmpty: String {
+        self ?? ""
+    }
+}
+```
+### 153. Lazy let
+```swift
+class ViewController: UIViewController {
+    private(set) lazy var subview: UIView = {
+        let view = UIView()
+        // configure `view`
+        return view
+    }()
+}
+```
+
 ### 152.  Safe way to return element at specified index
 
 You can extend collections to return the element at the specified index if it is within bounds, otherwise nil.
