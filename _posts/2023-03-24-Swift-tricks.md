@@ -1,6 +1,16 @@
 Some of my favourite swift tricks<!--more-->
 
-### Collection over array:
+### 168: let closure
+Sometimes you want to store a method in a variable
+```swift
+typealias Message = (_ oldPSW: String, _ newPSW: String) -> String
+let message: Message = { oldPSW, newPSW in
+   "Change from old password: \(oldPSW) to new: \(newPSW)"
+}
+print(message("abc", "123")) // "Change from old password: abc to new: 123"
+```
+
+### 167: Collection over array:
 - If you know you’re going to be working with other collection types, and you don’t want to incur the cost of allocating an array
 - Usually, Array is a good currency type, but if you’re writing a parser or some other code where you expect to be handed an ArraySlice or something like that, you could do it the way you posted.
 - This also allows for things like display(users:) to work with data types like Set, for example.
