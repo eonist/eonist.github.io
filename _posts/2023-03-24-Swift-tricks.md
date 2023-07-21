@@ -1,5 +1,55 @@
 Some of my favourite swift tricks<!--more-->
 
+### 180. Create instances based on dynamic class types
+```swift
+let isSecure: Bool = false // or true
+var baseType: NSTextField.Type {
+   self.isSecure ? NSSecureTextField.self : NSTextField.self
+}
+let tf: NSTextField = self.baseType.init(frame: .zero) // Creates secure or normal textfield
+```
+
+### 170. Find parent view control
+```swift
+public var parentViewController: NSViewController? {
+   sequence(first: self, next: \.nextResponder).compactMap({ $0 as? NSViewController }).first
+}
+```
+
+### 169. Find where to insert something
+```swift
+extension Collection {
+   /**
+    * - Fixme: ⚠️️ add doc
+    * - Remark: Slower than binary search
+    * ## Examples:
+    * let arr = ["a", "g", "r"]
+    * let idx = arr.insertionIndex(of: "r", using: <)
+    * rowData.insert("m", at: idx) // ["a", "g", "m", "r"]
+    */
+   func insertionIndex(of element: Self.Iterator.Element, using areInIncreasingOrder: (Self.Iterator.Element, Self.Iterator.Element) -> Bool) -> Index {
+      firstIndex { !areInIncreasingOrder($0, element) } ?? endIndex
+   }
+}
+/**
+ * Binary Search
+ */
+extension RandomAccessCollection where Element: Comparable {
+   func insertionIdx(of value: Element) -> Index {
+      var slice: SubSequence = self[...]
+      while !slice.isEmpty {
+         let middle = slice.index(slice.startIndex, offsetBy: slice.count / 2)
+         if value < slice[middle] {
+            slice = slice[..<middle]
+         } else {
+            slice = slice[index(after: middle)...]
+         }
+      }
+      return slice.startIndex
+   }
+}
+```
+
 ### 168: let closure
 Sometimes you want to store a method in a variable
 ```swift
