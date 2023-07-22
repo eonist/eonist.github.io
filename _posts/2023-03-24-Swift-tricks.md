@@ -1,5 +1,38 @@
 Some of my favourite swift tricks<!--more-->
 
+## 182. Weak wrapper:
+let weakArr = ["a", "b", 2].wrapped
+weakArr // Weak("a"), Weak("b"), Weak(2)
+weakArr.unWrapped // a,b,2
+```swift
+public class Weak<T: AnyObject> {
+    public weak var value: T?
+    public init(_ value: T) {
+        self.value = value
+    }
+}
+typealias WeakArray = [Weak]
+extension WeakArray where T == AnyObject{
+   var wrapped: [Weak<T>] {
+      map { Weak($0) }
+   }
+   var unWrapped: [T] {
+      compactMap { $0.value }
+   }
+}
+```
+
+### 181. Clamped range:
+
+```swift
+public extension Comparable {
+    func clamped(to limits: ClosedRange<Self>) -> Self {
+        return min(max(self, limits.lowerBound), limits.upperBound)
+    }
+}
+print(25.clamped(to: 0...20)) // 20
+```
+
 ### 180. Create instances based on dynamic class types
 ```swift
 let isSecure: Bool = false // or true
