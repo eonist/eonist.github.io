@@ -1,6 +1,62 @@
 Some of my favourite swift tricks<!--more-->
 
-## 182. Weak wrapper:
+### Avoiding boilerplate code required init
+```swift
+open class BaseView: UIView {
+   /**
+    * Initiate
+    */
+   override public init(frame: CGRect = .zero) {
+      super.init(frame: frame)
+   }
+   /**
+    * Boilerplate
+    */
+   @available(*, unavailable) // This line avoids the requirement in subsequent subclasses etc
+   public required init?(coder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+   }
+}
+```
+### 185. Selected or all selected
+
+```swift
+extension UITextInput {
+    var selectedOrFullTextRange: UITextRange {
+        return selectedTextRange
+            ?? textRange(
+                from: self.beginningOfDocument,
+                to: self.endOfDocument)
+            ?? UITextRange()
+    }
+}
+```
+
+### 184. Current scene
+```swift
+extension UIApplication {
+   var currentScene: UIWindowScene? {
+      connectedScenes
+         .first { $0.activationState == .foregroundActive}
+      as? UIWindowScene
+   }
+}
+```
+
+### 183. Openable URL
+`"https://google.com".isOpenableURL // true`
+```swift
+extension String {
+    var isOpenableURL: Bool {
+        guard let url = URL(string: self) else { return false }
+        guard url.scheme != nil else { return false }
+        guard UIApplication.shared.canOpenURL(url) else { return false }
+        return true
+    }
+}
+```
+
+### 182. Weak wrapper:
 let weakArr = ["a", "b", 2].wrapped
 weakArr // Weak("a"), Weak("b"), Weak(2)
 weakArr.unWrapped // a,b,2

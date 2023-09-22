@@ -1,71 +1,66 @@
 My notes on automating quality assurance <!--more-->
 
-⚠️️ This post is currently WIP (pre-released for early feedback)⚠️️
-
 <img width="480" height="261" alt="Gif of ghost in a shell typing on keyboard" src="https://media.giphy.com/media/9CffOPMLx0Hf2/giphy.gif">
 
 > Build something elegant with high utility that is easy to maintain
- 
+
 **Pros:**
-- More development velocity because bugs can be caught instantly
-- You can run these tests on demand on multiple devices
-- It scales when you expand your offering. catches thing humans miss
-- Covers more ground than humans. Test OS updates. Device sizes. Device configs.
-- More ethical than using humans to do repetitive and mundane tasks for low pay
-- Promotes a strong validation culture. Validating feature benefit vs the maintenance complexity it potentially adds
-- Engineers love getting immediate feedback from code. Automated QA test either fail or succeed, and return detailed info why things failed
-- It forces you to be realistic about what you can maintain with the resources at your disposal
-- Forces business to define a testing plan
-- It's fun to make robots that work for you around the clock for free
-- Automated tests are always available (Remote testing-teams cost $$$ and take time to return failure info, and the info is many times hard to reproduce, flakey)
-- You can run automated tests in random order with random mock data with random setup configs. On a scale and in way less time that no amount of humans could ever cover.
+- Automated testing provides faster development velocity by catching bugs instantly.
+- Tests can be run on demand on multiple devices, making it easier to scale and catch issues that humans might miss.
+- Automated testing covers more ground than humans, including testing OS updates, device sizes, and device configurations.
+- Automated testing is more ethical than using humans to do repetitive and mundane tasks for low pay.
+- Automated testing promotes a strong validation culture by validating feature benefits versus the maintenance complexity they potentially add.
+- Engineers love getting immediate feedback from code, and automated QA tests either fail or succeed and return detailed information on why things failed.
+- Automated testing forces you to be realistic about what you can maintain with the resources at your disposal.
+- Automated testing forces businesses to define a testing plan.
+- Creating robots that work for you around the clock for free is fun.
+- Automated tests are always available, unlike remote testing teams which can be expensive and take time to return failure information that is often hard to reproduce.
+- Automated tests can be run in random order with random mock data and setup configurations, covering more ground in less time than any amount of humans could ever cover.
 
 **Cons:**
-- Initial setup is takes time and effort
-- Requires high-level coding skills to deploy
-- Requires access to your codebase (unless you use something like waldo)
-- Can be expensive at first, and then gradually cheaper
+- Setting up automation can be time-consuming and require significant effort.
+- Deploying automation typically requires advanced coding skills.
+- Automation often requires access to your codebase, unless you use a tool like Waldo.
+- The initial cost of implementing automation can be high, but it can become more cost-effective over time.
 
 ### Options
 - Apples mobile QA testing suite called XCUITest
 - Web technologies such as selenium and playright
-- Sass services such as: https://waldo.com/
-- XCUITest saas: https://saucelabs.com/
+- Sass services such as: [https://waldo.com/](https://waldo.com/)
+- XCUITest saas: [https://saucelabs.com/](https://saucelabs.com/)
 
-<img width="480" height="271" alt="Mad man actor vaction mode" src="https://media.giphy.com/media/3oEdv9duTLhWoNhcGs/giphy.gif">
+<img width="480" height="271" alt="Mad man actor vacation mode" src="https://media.giphy.com/media/3oEdv9duTLhWoNhcGs/giphy.gif">
 
 ### Concept
-- An automated "QA playlist"
-- Run it in the cloud (commit, pr, time interval)
-- Multiple devices, OS, Device-types, Accessibility-configs, Regression
-- Instant feedback for all changes and updates
-- Get a printscreen emailed to your mailbox when a test fail
+- An automated "QA playlist" can help streamline your testing process.
+- Running your tests in the cloud can provide greater scalability and accessibility.
+- Testing on multiple devices, operating systems, and accessibility configurations can help ensure your app works for all users.
+- Instant feedback for all changes and updates can help catch bugs early in the development process.
+- Receiving a screenshot via email when a test fails can help you quickly identify and fix issues.
 
 <img width="480" height="270" alt="Whack a mole" src="https://media.giphy.com/media/aWNByu8u6sati/giphy.gif">
 
 ### Rational
-- Better, faster, stronger
-- Gives developers ammunition when arguing against increasing complexity
-- Forces business to be mindful about complexity vs available resources
-- Peace of mind for devs and business, look ma, no hands
-- Better product -> Happy customers -> more revenue
-- Software doesn't exist in a vacuum. APIs change rapidly.
-- And we rely on moving forward adding features and improving. To be able to do that efficiently we need an infrastructure that lets us validate that out latest updates works as good as the last one.
-- Automated QA can be refined and improved when devs are less utilised
-- Add complex mock data to avoid future customer complaints. Customers do things you never thought of. And will often vote 1 star on the app-store if their need isn't met.
-- Increase performance by testing extreme cases
-- Increase customer satisfaction by testing for edge cases that hit the 1%. Human QA only every cover 80-90% use cases.
-- Why would your software run safely on 1000s of different system configs if they cant run automated Tests
-- Your developer has peak knowledge just when the software enters MVB or MVP. This peak knowledge is essential when writing automated qa efficiently with high utility
-- When you don't have any users and customers everything is jolly. You can change anything. Once you onboard users you have to deal with regression, customer data, appstore reviews, support, api-changes suddenly take weeks not hours.
-- People don't really want to be your guinea pig. When people test your beta their interested to see what all the fuss is about. their not interested in reporting if a button doesnt work. So make sure things work, then show them the fuss.
-- Less security treats, less GDPR vulnerabilities
-- Having an automation mindset is a valuable transferable skill in this day and age
-- user-story-tests ensure things keep working when iOS is updated for the user. We can test iOS beta version ahead of time before they are installed on users devices etc
-- security and stability is highly sought after by todays customers A crash can mean users loose data which can mean their lives get complicated, and by extension we are responsible.
-- Simply put: Time spent setting up and maintaining Automated-tests far outweigh the hassle of manually testing each miniscule thing and getting stuck in a rejection loop with apple app store review board.
-- Constantly running tests can also warn you if an external API goes down, giving you time to fix it before most of your users notice it.
-- App-store reviewers that act as gatekeepers for the apple app-store do not care about your app. These gate-keepers have one mission and that is to make your app fail. And they know how to find that edge case nobody will ever stumble upon in real life. As such the best strategy is is to have systems in place to weed out these edge cases. Because you will need to pass these gatekeeprs for every update you ever make. And each gatekeeper will have different strategies to trip you up.
+- Automated QA can help developers create better, faster, and stronger software.
+- Automated QA can provide developers with ammunition when arguing against increasing complexity.
+- Automated QA can force businesses to be mindful about complexity versus available resources.
+- Automated QA can provide peace of mind for developers and businesses.
+- Automated QA can help ensure that software works with changing APIs.
+- Automated QA can be refined and improved when developers are less utilized.
+- Adding complex mock data can help avoid future customer complaints.
+- Testing extreme cases can help increase performance.
+- Testing for edge cases can help increase customer satisfaction.
+- Automated tests can help ensure that software runs safely on thousands of different system configurations.
+- Developers have peak knowledge just when the software enters MVB or MVP, making this peak knowledge essential when writing automated QA efficiently with high utility.
+- Regression, customer data, app store reviews, support, and API changes can suddenly take weeks instead of hours once users are onboarded.
+- People don't want to be guinea pigs when testing beta software, so it's important to make sure things work before showing them the software.
+- Automated QA can help reduce security threats and GDPR vulnerabilities.
+- Having an automation mindset is a valuable transferable skill in today's job market.
+- User story tests can help ensure that things keep working when iOS is updated for the user.
+- Security and stability are highly sought after by today's customers, as a crash can mean users lose data and their lives get complicated.
+- Time spent setting up and maintaining automated tests far outweighs the hassle of manually testing each minuscule thing and getting stuck in a rejection loop with the Apple App Store review board.
+- Constantly running tests can warn you if an external API goes down, giving you time to fix it before most of your users notice it.
+- App Store reviewers act as gatekeepers for the Apple App Store and may not care about your app, so having systems in place to weed out edge cases can help you pass their reviews.
 - Iterating becomes a lot easier if you can verify that each iteration doesn't break the system.
 
 ### How to write a test-plan:
@@ -116,36 +111,35 @@ login() // login user
 ### Resources
 - My personal go to testing library: [https://github.com/eonist/TestRunner](https://github.com/eonist/TestRunner)
 - UITesting blog post
-- Raywenderlich
+- [Raywenderlich.com](Raywenderlich.com)
 - Maker book chapter on Automating
 - Github book about collaboration the CI chapter
 - Your unit testing posts
-- https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan.md
-- https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan-autofill.md
-- Monitoring service for API’s (https://updown.io
+- [https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan.md](https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan.md)
+- [https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan-autofill.md](https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan-autofill.md)
+- Monitoring service for API’s [https://updown.io](https://updown.io)
 - Definition of CT: Continuous testing is the process of executing automated tests as part of the software delivery pipeline to obtain immediate feedback on the business risks associated with a software release candidate. https://en.wikipedia.org/wiki/Continuous_testing
 
 
-### To summarize:
-- 🦾 Automating QA > Manual QA
-- 🆓 QA automation != expensive
-- 🏝 QA automation is great for your work / life balance
-- ♻️ Design, Code, Test. Repeat
-- ☁️ Run your Automated QA in the cloud all day every day.
-- 🔌 Connect your QA automation to slack, email and github
-- 🌅 Build QA automations from the start
-- 📈 QA Automation is extremely scalable
-- 😸 Automation infrastructure is fun
+### To summarise:
+- 🦾 Automating QA can be more effective than manual QA, catching bugs faster and more consistently.
+- 🆓 QA automation doesn't have to be expensive, as there are many affordable tools and services available.
+- 🏝 QA automation can help improve work/life balance by reducing the need for manual testing and allowing developers to focus on other tasks.
+- ♻️ Design, code, test, repeat: the essential cycle for creating high-quality software.
+- ☁️ Running automated QA in the cloud provides greater scalability and accessibility.
+- 🔌 Connecting QA automation to communication tools like Slack, email, and GitHub streamlines the testing process.
+- 🌅 Building QA automations from the start ensures that software is thoroughly tested from the beginning.
+- 📈 QA automation is highly scalable and can be adapted to meet the needs of any project.
+- 😸 Setting up automation infrastructure can be a fun and rewarding experience for developers.
 
 <img width="480" height="460" alt="img" src="https://media.giphy.com/media/nmM68Wdn0Ngc0/giphy.gif?raw=true">
 
 ### Todo:
-- Write about Cloud integration with github actions
-- Add links
-- Clean up text
-- Add article index for increased readability
-- Write about the future of QA automation with machine learning and AI
-- Write insight regarding why adding complexity outside of your product is better than adding complexity inside your product
-- Automated QA tests compound returns for every iteration, instead of iterations slowly corrupting your product
-- Add some emphasize on how not automating repetative tasks is not sustainable when you optimize for growth of your product offering
-- Write about training QA robot models
+- Discuss the benefits of integrating cloud services with GitHub Actions for streamlined development.
+- Include relevant links to provide readers with additional resources and context.
+- Edit and refine the text for improved readability and engagement.
+- Add an article index to help readers navigate the content more easily.
+- Explore the future of QA automation with machine learning and AI, and how it can improve testing accuracy and efficiency.
+- Explain why adding complexity outside of your product is often a better strategy than adding complexity inside your product.
+- Emphasize the importance of automating repetitive tasks for sustainable growth of your product offering.
+- Discuss the potential benefits and challenges of training QA robot models for automated testing.

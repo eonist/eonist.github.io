@@ -1,7 +1,7 @@
-My notes on how to present on google meet / hangout<!--more-->
+My notes on how to present on google meet <!--more-->
 
 ### Problem
-1. You want to present a presentation over google hangouts
+1. You want to present a presentation over google meet
 2. And you want to be able to place the macbook anywhere in the room
 3. because you want the macbook to see you and your team-mates
 4. The problem is then how do you flick through the slides, your macbook is not within reach

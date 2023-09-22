@@ -204,3 +204,42 @@ func test(result: Result<CVImageBuffer, Error>) {
    //read imageBuffer
 }
 ```
+
+### result with out a value
+
+```swift
+#55 Result type without value to provide
+
+Result type usage is really popular nowadays.
+
+enum Result<T> {
+    case success(result: T)
+    case failure(error: Error)
+}
+
+func login(with credentials: Credentials, handler: @escaping (_ result: Result<User>) -> Void) {
+    // Two possible options:
+    handler(Result.success(result: user))
+    handler(Result.failure(error: UserError.notFound))
+}
+ login(with:) operation has user value to provide and default Result type fits perfectly here. But let’s imagine that your operation hasn’t got value to provide or you don’t care about it. Default Result type makes you to provide the result value any way.
+
+
+
+To fix this inconvenience you need to add extension and instantiate a generic with an associated value of type Void.
+
+func login(with credentials: Credentials, handler: @escaping (_ result: Result<Void>) -> Void)
+
+extension Result where T == Void {
+    static var success: Result {
+        return .success(result: ())
+    }
+}
+Now we can change our func login(with:) a bit, to ignore result success value if we don’t care about it.
+
+func login(with credentials: Credentials, handler: @escaping (_ result: Result<Void>) -> Void) {
+    // Two possible options:
+    handler(Result.success)
+    handler(Result.failure(error: UserError.notFound))
+}
+```
