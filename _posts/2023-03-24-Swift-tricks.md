@@ -23,11 +23,11 @@ open class BaseView: UIView {
 ```swift
 extension UITextInput {
     var selectedOrFullTextRange: UITextRange {
-        return selectedTextRange
-            ?? textRange(
+        return selectedTextRange // Return the selected text range if it exists
+            ?? textRange( // If the selected text range does not exist, try to get the text range from the beginning of the document to the end of the document
                 from: self.beginningOfDocument,
                 to: self.endOfDocument)
-            ?? UITextRange()
+            ?? UITextRange() // If the text range cannot be obtained, return an empty `UITextRange`
     }
 }
 ```
@@ -35,11 +35,11 @@ extension UITextInput {
 ### 184. Current scene
 ```swift
 extension UIApplication {
-   var currentScene: UIWindowScene? {
-      connectedScenes
-         .first { $0.activationState == .foregroundActive}
-      as? UIWindowScene
-   }
+    var cur rentScene: UIWindowScene? {
+        connectedScenes // Get all the connected scenes
+            .first { $0.activationState == .foregroundActive } // Find the first scene whose activation state is `.foregroundActive`
+        as? UIWindowScene // Cast the scene to `UIWindowScene`
+    }
 }
 ```
 
@@ -48,10 +48,10 @@ extension UIApplication {
 ```swift
 extension String {
     var isOpenableURL: Bool {
-        guard let url = URL(string: self) else { return false }
-        guard url.scheme != nil else { return false }
-        guard UIApplication.shared.canOpenURL(url) else { return false }
-        return true
+        guard let url = URL(string: self) else { return false } // Try to create a URL object from the string, return false if it fails
+        guard url.scheme != nil else { return false } // Check if the URL has a scheme, return false if it does not have a scheme
+        guard UIApplication.shared.canOpenURL(url) else { return false } // Check if the URL can be opened by the shared application, return false if it cannot be opened
+        return true // Return true if the URL can be opened
     }
 }
 ```
@@ -125,16 +125,16 @@ extension Collection {
  */
 extension RandomAccessCollection where Element: Comparable {
    func insertionIdx(of value: Element) -> Index {
-      var slice: SubSequence = self[...]
-      while !slice.isEmpty {
-         let middle = slice.index(slice.startIndex, offsetBy: slice.count / 2)
-         if value < slice[middle] {
-            slice = slice[..<middle]
-         } else {
-            slice = slice[index(after: middle)...]
-         }
-      }
-      return slice.startIndex
+    var slice: SubSequence = self[...] // Initialize a variable `slice` with a subsequence of the string
+    while !slice.isEmpty { // Loop while the slice is not empty
+        let middle = slice.index(slice.startIndex, offsetBy: slice.count / 2) // Get the middle index of the slice
+        if value < slice[middle] { // Check if the value is less than the middle element of the slice
+            slice = slice[..<middle] // If the value is less than the middle element, update the slice to the left half of the slice
+        } else {
+            slice = slice[index(after: middle)...] // If the value is greater than or equal to the middle element, update the slice to the right half of the slice
+        }
+    }
+    return slice.startIndex // Return the start index of the slice
    }
 }
 ```
@@ -372,11 +372,11 @@ Just invoke 🧙‍♂️ fadeTransition(_ duration: CFTimeInterval) by your vie
 
 extension UIView {
     func fadeTransition(_ duration: CFTimeInterval) {
-        let animation = CATransition()
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        animation.type = kCATransitionFade
-        animation.duration = duration
-        layer.add(animation, forKey: kCATransitionFade)
+        let animation = CATransition() // Create a new `CATransition` object
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut) // Set the timing function of the animation to ease in and ease out
+        animation.type = kCATransitionFade // Set the type of the animation to fade
+        animation.duration = duration // Set the duration of the animation to the specified duration
+        layer.add(animation, forKey: kCATransitionFade) // Add the animation to the layer with the specified key
     }
 }
 
@@ -395,15 +395,15 @@ Clear way to return the unique list of objects based on a given key. It has the 
 ```swift
 extension Array {
     func unique<T:Hashable>(map: ((Element) -> (T)))  -> [Element] {
-        var set: Set<T> = []
-        var arrayOrdered: [Element] = []
-        for value in self {
-            if !set.contains(map(value)) {
-                set.insert(map(value))
-                arrayOrdered.append(value)
+        var set: Set<T> = [] // Initialize an empty set of type `T`
+        var arrayOrdered: [Element] = [] // Initialize an empty array of type `Element`
+        for value in self { // Loop through each value in the sequence
+            if !set.contains(map(value)) { // Check if the set does not contain the mapped value of the current value
+                set.insert(map(value)) // If the set does not contain the mapped value, insert the mapped value into the set
+                arrayOrdered.append(value) // Append the current value to the ordered array
             }   
         }
-        return arrayOrdered
+        return arrayOrdered // Return the ordered array
     }
 }
 ```
@@ -537,13 +537,13 @@ Dictionary of the URL's query parameters
 ```swift
 extension URL {
     var queryParameters: [String: String]? {
-        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false) else { return nil }
-        guard let queryItems = components.queryItems else { return nil }
-        var items: [String: String] = [:]
-        for queryItem in queryItems {
-            items[queryItem.name] = queryItem.value
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false) else { return nil } // Try to create a URL components object from the URL string, return nil if it fails
+        guard let queryItems = components.queryItems else { return nil } // Get the query items from the URL components, return nil if there are no query items
+        var items: [String: String] = [:] // Initialize an empty dictionary of type `[String: String]`
+        for queryItem in queryItems { // Loop through each query item
+            items[queryItem.name] = queryItem.value // Add the query item name and value to the dictionary
         }
-        return items
+        return items // Return the dictionary of query parameters
     }
 }
 ```
@@ -571,12 +571,12 @@ public extension Array where Element: Hashable {
 }
 public extension Collection where Element: Hashable {
     public func unified() -> [Element] {
-        return reduce(into: []) {
-            if !$0.contains($1) {
-                $0.append($1)
+            return reduce(into: []) { // Reduce the sequence to an array, initialized with an empty array
+                if !$0.contains($1) { // Check if the array does not contain the current element
+                    $0.append($1) // If the array does not contain the current element, append the current element to the array
+                }
             }
         }
-    }
 }
 var array = [1, 2, 3, 3, 2, 1, 4]
 array.removeDups() // [1, 2, 3, 4]
@@ -608,12 +608,12 @@ protocol Observer {
     func update<ObservableValue>(with newValue: ObservableValue)
 }
 protocol Observable {
-    associatedtype ObservableValue
-    var value : ObservableValue { get set }
-    var observers : [Observer] { get set }
-    func addObserver(observer: Observer)
-    func removeObserver(observer: Observer)
-    func notifyAllObservers<ObservableValue>(with newValue: ObservableValue)
+    associatedtype ObservableValue // Declare an associated type `ObservableValue`
+        var value : ObservableValue { get set } // Declare a variable `value` of type `ObservableValue`
+        var observers : [Observer] { get set } // Declare a variable `observers` of type `[Observer]`
+        func addObserver(observer: Observer) // Declare a method `addObserver` that takes an `Observer` object as a parameter
+        func removeObserver(observer: Observer) // Declare a method `removeObserver` that takes an `Observer` object as a parameter
+        func notifyAllObservers<ObservableValue>(with newValue: ObservableValue) // Declare a generic method `notifyAllObservers` that takes a new value of type `ObservableValue` as a parameter and notifies all observers
 }
 ```
 
@@ -935,12 +935,12 @@ printTest2(print("Hello"))
 - Also a reminder to use where in other places. like for-loops. Which is easy to forget etc
 ```swift
 currentRequest?.getValue { [weak self] result in
-  guard let user = result.okValue where result.errorValue == nil else {
-    self?.showRequestError(result.errorValue)
-    self?.isPerformingSignUp = false
-    return
-  }
-  self?.finishSignUp(user)
+guard let user = result.okValue where result.errorValue == nil else { // Check if the `okValue` of the result is not nil and the `errorValue` of the result is nil
+    self?.showRequestError(result.errorValue) // If the `okValue` is nil or the `errorValue` is not nil, show the request error
+    self?.isPerformingSignUp = false // Set the `isPerformingSignUp` flag to false
+    return // Return from the method
+}
+self?.finishSignUp(user) // If the `okValue` is not nil and the `errorValue` is nil, finish the sign up process with the user object
 }
 ```
 
@@ -949,24 +949,24 @@ currentRequest?.getValue { [weak self] result in
 ```swift
 @propertyWrapper
  struct UserDefault<T: Codable> {
-     let key: String
-     let defaultValue: T
+    let key: String // Declare a constant `key` of type `String`
+    let defaultValue: T // Declare a constant `defaultValue` of type `T`
      init(_ key: String, defaultValue: T) {
-         self.key = key
-         self.defaultValue = defaultValue
+        self.key = key // Set the `key` property to the specified key
+        self.defaultValue = defaultValue // Set the `defaultValue` property to the specified default value
      }
      var wrappedValue: T {
-         get {
-             if let data = UserDefaults.standard.object(forKey: key) as? Data,
-                 let user = try? JSONDecoder().decode(T.self, from: data) {
-                 return user
-             }
-             return  defaultValue
-         } set {
-             if let encoded = try? JSONEncoder().encode(newValue) {
-                 UserDefaults.standard.set(encoded, forKey: key)
-             }
-         }
+        get {
+            if let data = UserDefaults.standard.object(forKey: key) as? Data, // Try to get the data from the user defaults for the specified key
+                let user = try? JSONDecoder().decode(T.self, from: data) { // Try to decode the data as an object of type `T`
+                return user // If the decoding succeeds, return the decoded object
+            }
+            return  defaultValue // If the decoding fails or the data does not exist, return the default value
+        } set {
+            if let encoded = try? JSONEncoder().encode(newValue) { // Try to encode the new value as JSON data
+                UserDefaults.standard.set(encoded, forKey: key) // Set the encoded data in the user defaults for the specified key
+            }
+        }
      }
  }
 enum GlobalSettings {
@@ -1127,8 +1127,8 @@ Service.onRemoteEvent = { data in
 Setting the protocol type to CBManager directly wont compile. But using T with a type will
 ```swift
 protocol StateUpdatable {
-   associatedtype T: CBManager
-   var manager: T { get }
+    associatedtype T: CBManager // Declare an associated type `T` that must conform to `CBManager`
+    var manager: T { get } // Declare a variable `manager` of type `T`
 }
 class Central: StateUpdatable {
    var manager: CBCentralManager = ... // CBCentralManager extends CBManager
@@ -1152,8 +1152,8 @@ extension NSView {
     * - Note: window.mouseLocationOutsideOfEventStream can also work as relativeToWin point
     */
    var mousePoint: CGPoint {
-      let relativeToWin = self.window?.convertPoint(fromScreen: NSEvent.mouseLocation) ?? .zero
-      return self.convert(relativeToWin, from: nil)
+    let relativeToWin = self.window?.convertPoint(fromScreen: NSEvent.mouseLocation) ?? .zero // Try to convert the mouse location from the screen coordinate system to the window coordinate system, or use `.zero` if the window is nil
+    return self.convert(relativeToWin, from: nil) // Convert the point from the window coordinate system to the view's coordinate system and return it
    }
 }
 ```
@@ -1221,8 +1221,8 @@ extension Array {
     * uuids.removeFirst(closure: { $0 == uuid })
     */
    @discardableResult fileprivate mutating func removeFirst(closure: (Element) -> Bool) -> Element? {
-      guard let i: Int = self.firstIndex (where: { closure($0) }) else { return nil }
-      return self.remove(at: i)
+    guard let i: Int = self.firstIndex (where: { closure($0) }) else { return nil } // Try to get the index of the first element in the array that satisfies the closure, return nil if it does not exist
+    return self.remove(at: i) // Remove the element at the specified index and return it
    }
 }
 ```
@@ -1238,18 +1238,18 @@ extension Array {
  */
 static func checkNetwork(completionHandler: @escaping (_ internet: Bool) -> Void) {
    DispatchQueue.main.async {
-      let url: URL = .init(string: "https://www.apple.com/")!
-      let request: URLRequest = .init(url: url)
-      let task = URLSession.shared.dataTask(with: request) {data, response, error in
-         if error != nil {
-            Swift.print("Error:  \(String(describing: error))")
-            completionHandler(false)
-         } else if let httpResponse = response as? HTTPURLResponse {
-            if httpResponse.statusCode == 200 { completionHandler(true) }
-            else { print("Status-code: \(httpResponse.statusCode)") }
-         }
-      }
-      task.resume()
+    let url: URL = .init(string: "https://www.apple.com/")! // Create a URL object from the specified string
+    let request: URLRequest = .init(url: url) // Create a URL request object from the URL object
+    let task = URLSession.shared.dataTask(with: request) {data, response, error in // Create a data task with the URL request
+        if error != nil { // Check if there is an error
+            Swift.print("Error:  \(String(describing: error))") // If there is an error, print the error message
+            completionHandler(false) // Call the completion handler with a `false` value
+        } else if let httpResponse = response as? HTTPURLResponse { // If there is no error, check if the response is an HTTP URL response
+            if httpResponse.statusCode == 200 { completionHandler(true) } // If the status code is 200, call the completion handler with a `true` value
+            else { print("Status-code: \(httpResponse.statusCode)") } // If the status code is not 200, print the status code
+        }
+    }
+    task.resume() // Start the data task
    }
 }
 ```
@@ -1370,11 +1370,11 @@ print("Thread.isMainThread: \(Thread.isMainThread)") // true / false
 Weak self can be used in methods, not just closures
 ```swift
 func myInstanceMethod() {
-    weak var _self = self
-    func nestedFunction(result : Bool) {
-        _self?.anotherInstanceMethod()
-    }
-    functionExpectingClosure(nestedFunction)
+    weak var _self = self // Declare a weak reference to `self`
+        func nestedFunction(result : Bool) { // Declare a function `nestedFunction` that takes a boolean parameter `result`
+            _self?.anotherInstanceMethod() // Call the `anotherInstanceMethod` method on the weak reference to `self`
+        }
+        functionExpectingClosure(nestedFunction) // Call the `functionExpectingClosure` function with the `nestedFunction` closure as a parameter
 }
 ```
 
@@ -1413,13 +1413,13 @@ fileprivate extension Equatable {
     * AnyHashable.equate(bool, bool) // true
     */
    static func equate(_ any0: Any?, _ any1: Any?) -> Bool {
-      if any0 == nil && any1 == nil { return true }
-      guard
-         let equatable0 = any0 as? Self,
-         let equatable1 = any1 as? Self
-      else { return false }
+    if any0 == nil && any1 == nil { return true } // Check if both `any0` and `any1` are nil, return true if they are
+    guard
+        let equatable0 = any0 as? Self, // Try to cast `any0` to `Self`
+        let equatable1 = any1 as? Self // Try to cast `any1` to `Self`
+    else { return false } // If either cast fails, return false
 
-      return equatable0 == equatable1
+    return equatable0 == equatable1 // Return the result of the equality comparison between `equatable0` and `equatable1`
    }
 }
 ```
@@ -1442,14 +1442,14 @@ extension Result {
 }
 ```
 ```swift
-enum DataReceivedError: Error { case offline, denied }
-typealias OnDataReceived = (Result<String, DataReceivedError>) -> Void
-var onDataReceived: OnDataReceived = { result in
-   guard value = try? result.get() else { print("Err: \(result.error?.localizedDescription)") }
-   print("content: \(value)")
+enum DataReceivedError: Error { case offline, denied } // Declare an enumeration `DataReceivedError` that conforms to `Error` and has two cases: `offline` and `denied`
+typealias OnDataReceived = (Result<String, DataReceivedError>) -> Void // Declare a type alias `OnDataReceived` for a closure that takes a `Result` object with a `String` value and a `DataReceivedError` error as parameters and returns `Void`
+var onDataReceived: OnDataReceived = { result in // Declare a variable `onDataReceived` of type `OnDataReceived` and assign a closure that takes a `Result` object with a `String` value and a `DataReceivedError` error as a parameter
+    guard value = try? result.get() else { print("Err: \(result.error?.localizedDescription)") } // Try to get the value from the `Result` object, print the error message if it fails
+    print("content: \(value)") // Print the value if it succeeds
 }
-onDataReceived(.success("some content"), nil) // success
-onDataReceived(.failure(.offline)) // failure
+onDataReceived(.success("some content"), nil) // Call the `onDataReceived` closure with a `success` case and a `nil` error value
+onDataReceived(.failure(.offline)) // Call the `onDataReceived` closure with a `failure` case and an `offline` error value
 ```
 
 ## 81. Handy UIAlertController shortcuts:
@@ -1457,28 +1457,33 @@ Simplifies calling UIAllertController
 ```swift
 // Extension:
 extension UIAlertController {
+    // Create a static function `alertOnError` that takes an error object and an optional closure as parameters and returns a UIAlertController object with an error title and message, and an OK button action that calls the closure if it is not nil
     static func alertOnError(_ error: Swift.Error, handler: ((UIAlertAction?) -> Void)? = nil) -> UIAlertController {
-        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: handler))
-        return alert
-    }
+            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: handler))
+            return alert
+        }
+
+    // Create a static function `alertOnErrorWithMessage` that takes a message string and an optional closure as parameters and returns a UIAlertController object with an error title and the specified message, and an OK button action that calls the closure if it is not nil
     static func alertOnErrorWithMessage(_ message: String, handler: ((UIAlertAction?) -> Void)? = nil) -> UIAlertController {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:handler))
-        return alert
-    }
+            let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:handler))
+            return alert
+        }
+
+    // Create a static function `alertWithMessage` that takes a message string and an optional closure as parameters and returns a UIAlertController object with an alert title and the specified message, and an OK button action that calls the closure if it is not nil
     static func alertWithMessage(_ message: String, handler: ((UIAlertAction?) -> Void)? = nil) -> UIAlertController {
-        let alert = UIAlertController(title: "Alert", message:message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:handler))
-        return alert
-    }
+            let alert = UIAlertController(title: "Alert", message:message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:handler))
+            return alert
+        }
 }
 // Usage:
-let err = NSError(domain: "err", code: 0)
-let closure = { (_ action: UIAlertAction?) in print(action) }
-UIAlertController.alertOnError(err, closure).present()
-UIAlertController.alertOnErrorWithMessage("Uh oh", closure).present()
-UIAlertController.alertWithMessage("Open the bay doors?", closure).present()
+let err = NSError(domain: "err", code: 0) // Create an NSError object with the specified domain and code
+let closure = { (_ action: UIAlertAction?) in print(action) } // Declare a closure that takes an optional UIAlertAction object as a parameter and prints it
+UIAlertController.alertOnError(err, closure).present() // Call the `alertOnError` static function on the UIAlertController class with the `err` object and the `closure` closure as parameters, and present the resulting UIAlertController object
+UIAlertController.alertOnErrorWithMessage("Uh oh", closure).present() // Call the `alertOnErrorWithMessage` static function on the UIAlertController class with the `"Uh oh"` message string and the `closure` closure as parameters, and present the resulting UIAlertController object
+UIAlertController.alertWithMessage("Open the bay doors?", closure).present() // Call the `alertWithMessage` static function on the UIAlertController class with the `"Open the bay doors?"` message string and the `closure` closure as parameters, and present the resulting UIAlertController object
 ```
 
 ## 80. Overriding computed variable in an extension
@@ -1548,15 +1553,20 @@ try ? someFunc(toggle: false) // nil
 ## 74. Array and Identifiable:
 ```Swift
 public extension Array where Element: Identifiable {
+    // Declare a function `find` that takes an ID parameter and returns the first element in the array that has a matching ID, or nil if no element is found
     func find(_ id: Element.ID) -> Element? {
-        self.first { $0.id == id }
-    }
+            self.first { $0.id == id }
+        }
+
+    // Declare a function `findIndex` that takes an ID parameter and returns the index of the first element in the array that has a matching ID, or nil if no element is found
     func findIndex(_ id: Element.ID) -> Int? {
-        self.firstIndex { $0.id == id }
-    }
+            self.firstIndex { $0.id == id }
+        }
+
+    // Declare a mutating function `remove` that takes an ID parameter and removes all elements from the array that have a matching ID
     mutating func remove(_ id: Element.ID) {
-        self.removeAll { $0.id == id }
-    }
+            self.removeAll { $0.id == id }
+        }
 }
 ```
 
@@ -1582,18 +1592,21 @@ switch val {
 ## 72. Struct and dictionary conversion:
 ```swift
 extension Encodable {
-   public var dict: [String: Any]? {
-      guard let data = try? JSONEncoder().encode(self) else { return nil }
-      return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
-   }
-   public init(dict: [String: Any]) throws {
-      self = try JSONDecoder().decode(Self.self, from: JSONSerialization.data(withJSONObject: dict))
-   }
+// Declare a computed property `dict` that returns a dictionary representation of the object, or nil if the object cannot be encoded as JSON data or deserialized as a dictionary
+public var dict: [String: Any]? {
+        guard let data = try? JSONEncoder().encode(self) else { return nil } // Try to encode the object as JSON data, return nil if it fails
+        return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] } // Try to deserialize the JSON data as a dictionary, return nil if it fails
+    }
+
+// Declare an initializer `init` that takes a dictionary parameter and throws an error if the object cannot be decoded from the dictionary
+public init(dict: [String: Any]) throws {
+        self = try JSONDecoder().decode(Self.self, from: JSONSerialization.data(withJSONObject: dict)) // Try to decode the object from the dictionary, throw an error if it fails
+    }
 }
-struct Job: Codable { let number: Int, name: String, client: String }
-let job: Job = .init(number: 1234, name: "Awards Ceremony", client: "ACME Productions")
-let dict: [String: Any] = job.dict ?? [:]
-let clone = try? Job(dict: dict)
+struct Job: Codable { let number: Int, name: String, client: String } // Declare a struct `Job` that conforms to `Codable` and has three properties: `number`, `name`, and `client`
+let job: Job = .init(number: 1234, name: "Awards Ceremony", client: "ACME Productions") // Create a `Job` object with the specified properties
+let dict: [String: Any] = job.dict ?? [:] // Convert the `Job` object to a dictionary, or an empty dictionary if the conversion fails
+let clone = try? Job(dict: dict) // Try to create a new `Job` object from the dictionary, or nil if the creation fails
 print("\(job == clone ? "✅" : "🚫")") // ✅
 ```
 
@@ -1619,22 +1632,22 @@ func test(){
 * - Returns: Dictionary with key value
 */
 static func dict<T>(instance: T) -> [String: Any] {
-   let mirror = Mirror(reflecting: instance)
-   let keysWithValues = mirror.children.compactMap { (label: String?, value: Any) -> (String, Any)? in
-      guard let label = label else { return nil }
-      return (label, value)
-   }
-   return Dictionary(uniqueKeysWithValues: keysWithValues)
+let mirror = Mirror(reflecting: instance) // Create a mirror object for the specified instance
+let keysWithValues = mirror.children.compactMap { (label: String?, value: Any) -> (String, Any)? in // Get the children of the mirror object, filter out any children with a nil label, and return a tuple of the label and value for each child
+        guard let label = label else { return nil } // If the label is nil, return nil
+        return (label, value) // Otherwise, return a tuple of the label and value
+    }
+return Dictionary(uniqueKeysWithValues: keysWithValues) // Create a dictionary from the array of tuples, using the labels as keys and the values as values
 }
 ```
 
 ### 69. Loop through struct / class properties:
 ```swift
 extension Encodable {
-    var dictionary: [String: Any]? {
-        guard let data = try? JSONEncoder().encode(self) else { return nil }
-        return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
-    }
+    var dictionary: [String: Any]? { // Declare a computed property `dictionary` that returns a dictionary representation of the object, or nil if the object cannot be encoded as JSON data or deserialized as a dictionary
+            guard let data = try? JSONEncoder().encode(self) else { return nil } // Try to encode the object as JSON data, return nil if it fails
+            return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] } // Try to deserialize the JSON data as a dictionary, return nil if it fails
+        }
 }
 struct Test: Encodable {
     let title: String = "this is title"
@@ -1739,16 +1752,17 @@ extension Collection {
 ### 62: Remove duplicates from the array, preserving the items order
 ```swift
 extension Array where Element: Hashable {
+    // Declare a function `filterDuplicates` that returns an array of unique elements from the original array, preserving their order
     func filterDuplicates() -> Array<Element> {
-        var set = Set<Element>()
-        var filteredArray = Array<Element>()
-        for item in self {
-            if set.insert(item).inserted {
-                filteredArray.append(item)
+            var set = Set<Element>() // Create an empty set to store unique elements
+            var filteredArray = Array<Element>() // Create an empty array to store the filtered elements
+            for item in self { // Iterate over each element in the original array
+                if set.insert(item).inserted { // Try to insert the element into the set, and append it to the filtered array if it is unique
+                    filteredArray.append(item)
+                }
             }
+            return filteredArray // Return the filtered array
         }
-        return filteredArray
-    }
 }
 ```
 
@@ -1801,14 +1815,14 @@ func testPerformance<T>(_ context: String = "", _ startTime:Date = Date(), _ clo
  * fit(size: CGSize(width: 200, height: 200), ratio: 0.5) // CGSize(100, 200)
  */
 static func fit(_ size: CGSize, ratio: CGFloat) -> CGSize{
-    let w: CGFloat = size.width
-    let h: CGFloat = size.height
-    if (w / h) > ratio { // w is wider than ratio allows
-        return CGSize(height: h * ratio, height: h)
-    } else if (w / h) < ratio { // h is taller than ratio allows
-        return CGSize(width: w, height: w * ratio)
+    let w: CGFloat = size.width // Get the width of the size
+    let h: CGFloat = size.height // Get the height of the size
+    if (w / h) > ratio { // Check if the width is wider than the ratio allows
+        return CGSize(height: h * ratio, height: h) // If so, return a new size with the height scaled to match the ratio and the original height
+    } else if (w / h) < ratio { // Check if the height is taller than the ratio allows
+        return CGSize(width: w, height: w * ratio) // If so, return a new size with the width scaled to match the ratio and the original width
     } else {
-        return CGSize(width: w, height: h)
+        return CGSize(width: w, height: h) // Otherwise, return the original size
     }
 }
 ```
@@ -1888,7 +1902,8 @@ extension String {
     * print(test.capFirst()) // "The rain in Spain"
     */
    var capFirst: String {
-      prefix(1).capitalized + dropFirst()
+    prefix(1).capitalized // Get the first character of the string and capitalize it
+    + dropFirst() // Drop the first character of the string and return the rest
    }
 }
 ```
@@ -1920,14 +1935,14 @@ extension Apperance {
       self = Apperance(rawValue: type)!
    }
    var inDarkMode: Bool {
-      let currentStyle = Apperance()
-      if case .Dark = currentStyle {
-         return true
-      } else if case .Light = currentStyle {
-         return false
-      } else {
-         fatalError("Not supported")
-      }
+    let currentStyle = Apperance() // Create an instance of the `Apperance` class and assign it to the `currentStyle` constant
+    if case .Dark = currentStyle { // Check if the `currentStyle` is `.Dark`
+        return true // If so, return `true`
+    } else if case .Light = currentStyle { // Check if the `currentStyle` is `.Light`
+        return false // If so, return `false`
+    } else { // If the `currentStyle` is neither `.Dark` nor `.Light`
+        fatalError("Not supported") // Raise a fatal error with the specified message
+    }
    }
 }
 ```
@@ -1975,11 +1990,11 @@ func foo() {
  * timeElapsed { sleep(2.2) } // 2.20000
  */
 func timeElapsed(_ closure: () -> Void) -> Double {
-    let start = DispatchTime.now()
-    closure()
-    let end = DispatchTime.now()
-    let diff = end.uptimeNanoseconds - start.uptimeNanoseconds
-    return Double(diff) / 1_000_000_000
+    let start = DispatchTime.now() // Get the current time
+    closure() // Call the closure
+    let end = DispatchTime.now() // Get the current time again
+    let diff = end.uptimeNanoseconds - start.uptimeNanoseconds // Calculate the difference between the two times in nanoseconds
+    return Double(diff) / 1_000_000_000 // Convert the difference to seconds and return it
 }
 ```
 
@@ -1992,14 +2007,14 @@ For more complex scenarios see: [https://github.com/eonist/parallelloops](https:
  * processData { Swift.print("✅") } // Output: start, 1, 2, 0, 3, ✅
  */
 func processData(onComplete: @escaping () -> Void) {
-   Swift.print("start")
-   DispatchQueue.global().async {
-      DispatchQueue.concurrentPerform(iterations: 4) { index in
-         Swift.print("\(index)")
-         sleep((1..<3).randomElement()!) // Wait for n secs
-      }
-      onComplete()
-   }
+    Swift.print("start") // Print "start"
+    DispatchQueue.global().async { // Dispatch a task asynchronously to a global queue
+            DispatchQueue.concurrentPerform(iterations: 4) { index in // Perform a task concurrently for the specified number of iterations
+                Swift.print("\(index)") // Print the index
+                sleep((1..<3).randomElement()!) // Wait for a random number of seconds between 1 and 3
+            }
+            onComplete() // Call the completion handler
+        }
 }
 ```
 
@@ -2029,32 +2044,35 @@ There is also terminal which can test swift code by typing swift and hitting ent
 let width = 4
 let height = 4
 // nested loop
-for y in (0..<height) {
-   for x in (0..<width) {
-      let index: Int = y * width + x
-      print("index: \(index)")
-   }
+for y in (0..<height) { // Iterate over each row of the grid
+    for x in (0..<width) { // Iterate over each column of the grid
+        let index: Int = y * width + x // Calculate the index of the current cell
+        print("index: \(index)") // Print the index of the current cell
+    }
 }
 // flattening:
-var x = 0
-var y = 0
-while x < width && y < height {
-   let index: Int = y * width + x
-   print("i: \(index)")
-   x += 1
-   if x == width { y += 1; x = 0 }
+var x = 0 // Initialize the x-coordinate to 0
+var y = 0 // Initialize the y-coordinate to 0
+while x < width && y < height { // Loop while the x-coordinate is less than the width and the y-coordinate is less than the height
+    let index: Int = y * width + x // Calculate the index of the current cell
+    print("i: \(index)") // Print the index of the current cell
+    x += 1 // Increment the x-coordinate
+    if x == width { y += 1; x = 0 } // If the x-coordinate is equal to the width, increment the y-coordinate and reset the x-coordinate to 0
 }
 ```
 
 ## 39. Accounting for iPhoneX notch
 ```swift
+// Override the `viewDidAppear` method to adjust the view's frame to fit the screen's bounds, taking into account the safe area insets
 override func viewDidAppear(_ animated: Bool) {
-     super.viewDidAppear(animated)
-     view.frame = UIScreen.main.bounds.inset(by: view.safeAreaInsets)
+    super.viewDidAppear(animated)
+    view.frame = UIScreen.main.bounds.inset(by: view.safeAreaInsets)
 }
+
+// Override the `viewDidLoad` method to set the view to a custom `View` instance with a zero frame
 override func viewDidLoad() {
-     super.viewDidLoad()
-     self.view = View(frame: .zero)
+    super.viewDidLoad()
+    self.view = View(frame: .zero)
 }
 ```
 
@@ -2078,24 +2096,25 @@ import UIKit
  * Color.Text.header // white
  * Color.UI.Background.secondary // lightGray
  */
+// Define a nested `Color` struct with nested `Text` and `UI` structs, each containing static properties for various colors
 struct Color {
-   struct Text {
-      static let header: UIColor = .white
-      static let button: UIColor = .systemBlue
-      static let description: UIColor = .lightGray
-      static let paragraph: UIColor = .gray
-      static let title: UIColor = .white
-   }
-   struct UI {
-      struct Foreground {
-         static let primary: UIColor = .darkGray
-         static let secondary: UIColor = .gray
-      }
-      struct Background {
-         static let primary: UIColor = .gray
-         static let secondary: UIColor = .lightGray
-      }
-   }
+    struct Text {
+        static let header: UIColor = .white // The color for header text
+        static let button: UIColor = .systemBlue // The color for button text
+        static let description: UIColor = .lightGray // The color for description text
+        static let paragraph: UIColor = .gray // The color for paragraph text
+        static let title: UIColor = .white // The color for title text
+    }
+    struct UI {
+        struct Foreground {
+            static let primary: UIColor = .darkGray // The primary foreground color
+            static let secondary: UIColor = .gray // The secondary foreground color
+        }
+        struct Background {
+            static let primary: UIColor = .gray // The primary background color
+            static let secondary: UIColor = .lightGray // The secondary background color
+        }
+    }
 }
 ```
 
@@ -2161,18 +2180,18 @@ func functionThree(completion: @escaping COMPLETION) {
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { completion() }
 }
 DispatchQueue.global().async {
-    let dispatchGroup = DispatchGroup()
-    dispatchGroup.enter()
-    functionOne { dispatchGroup.leave() }
-    dispatchGroup.wait() //Add reasonable timeout
-    dispatchGroup.enter()
-    functionTwo { dispatchGroup.leave() }
-    dispatchGroup.wait()
-    dispatchGroup.enter()
-    functionThree { dispatchGroup.leave() }
-    dispatchGroup.wait()
-    dispatchGroup.notify(queue: .main) {
-        Swift.print("all done") // All tasks are completed
+    let dispatchGroup = DispatchGroup() // Create a new dispatch group
+    dispatchGroup.enter() // Enter the dispatch group
+    functionOne { dispatchGroup.leave() } // Call `functionOne` and leave the dispatch group when it completes
+    dispatchGroup.wait() // Wait for `functionOne` to complete, with a reasonable timeout
+    dispatchGroup.enter() // Enter the dispatch group again
+    functionTwo { dispatchGroup.leave() } // Call `functionTwo` and leave the dispatch group when it completes
+    dispatchGroup.wait() // Wait for `functionTwo` to complete, with a reasonable timeout
+    dispatchGroup.enter() // Enter the dispatch group again
+    functionThree { dispatchGroup.leave() } // Call `functionThree` and leave the dispatch group when it completes
+    dispatchGroup.wait() // Wait for `functionThree` to complete, with a reasonable timeout
+    dispatchGroup.notify(queue: .main) { // Notify the main queue when all tasks are completed
+        Swift.print("all done") // Print "all done"
     }
 } // this will print: 1, 2, 3, all done
 ```
@@ -2222,10 +2241,10 @@ sleep((1..<7).randomElement() ?? 1)
 func recursiveFlatmap<T>() -> [T] {
     var results = [T]()
     for element in self {
-        if let sublist = element as? [Self.Iterator.Element] { // Array
-            results += sublist.recursiveFlatmap()
-        } else if let element = element as? T { // Item
-            results.append(element)
+        if let sublist = element as? [Self.Iterator.Element] { // Check if the element is an array
+            results += sublist.recursiveFlatmap() // If so, recursively call `recursiveFlatmap` on the sublist and append the results to the `results` array
+        } else if let element = element as? T { // Otherwise, check if the element is of type `T`
+            results.append(element) // If so, append the element to the `results` array
         }
     }
     return results
@@ -2315,9 +2334,9 @@ func add(a: Int, b: Int) -> Int {
 ## 21. Store reuse identifiers in a cell extension
 There is also a small library that simplifies the registry and reuse syntax: [https://github.com/eonist/ReusableCell](https://github.com/eonist/ReusableCell)
 ```swift
-class SomeTableViewCell: UITableViewCell{}
+class SomeTableViewCell: UITableViewCell {} // Define a `SomeTableViewCell` class that inherits from `UITableViewCell`
 extension SomeTableViewCell {
-   static let cellReuseIdentifier: String = "\(SomeTableViewCell.self)"
+    static let cellReuseIdentifier: String = "\(SomeTableViewCell.self)" // Define a static property `cellReuseIdentifier` that returns the class name as a string
 }
 ```
 
@@ -2334,13 +2353,13 @@ let users: [User] = [
    User(accounts: [Account(subscriptions: [Subscription(type: "d"), Subscription(type: "e"), Subscription(type: "f")])])
 ]
 // Not preferred:
-let result1 = users.map { user in
-   return user.accounts.map { account in
-      return account.subscriptions.map { subscription in
-         return subscription.type
-      }
-   }
-}.flatMap{ $0 }.flatMap { $0 }
+let result1 = users.map { user in // Map over each user in the `users` array
+    return user.accounts.map { account in // Map over each account in the user's `accounts` array
+        return account.subscriptions.map { subscription in // Map over each subscription in the account's `subscriptions` array
+            return subscription.type // Return the subscription type
+        }
+    }
+}.flatMap{ $0 }.flatMap { $0 } // Flatten the nested arrays into a single array of subscription types
 Swift.print("result1:  \(result1)")//["a", "b", "c", "d", "e", "f"]
 // Preferred
 let result2 = users.flatMap { $0.accounts }.flatMap { $0.subscriptions }.flatMap{ $0.type }
@@ -2418,11 +2437,11 @@ public func sleep(sec: Double){
 // Pausing in a loop:
 
 let array = [1, 2, 3]
-DispatchQueue.global(qos: .background).async {
-    array.forEach { i in
-        sleep(1)
-        DispatchQueue.main.async {
-            Swift.print("i: \(i)") // increments every second and prints: 1,2,3
+DispatchQueue.global(qos: .background).async { // Dispatch a task asynchronously to a global queue with a background quality of service
+    array.forEach { i in // Iterate over each element in the `array`
+        sleep(1) // Sleep for 1 second
+        DispatchQueue.main.async { // Dispatch a task asynchronously to the main queue
+            Swift.print("i: \(i)") // Print the current element of the `array`
         }
     }
 }
@@ -2544,16 +2563,16 @@ enum Result<Value> {
 }
 
 func start(_ completionHandler: @escaping (Result<Any>) -> Void) -> FBSDKGraphRequestConnection{
-    return start() { (_, response, error) in
-        switch (response, error) {
-        case (.some(let result), .none):
-            completionHandler(Result(value: result))
+    return start() { (_, response, error) in // Call the `start` method with a completion handler that takes a tuple of optional `URLResponse`, optional `Error`, and no return value
+        switch (response, error) { // Use a tuple pattern matching to check the response and error
+        case (.some(let result), .none): // If the response is not `nil` and the error is `nil`
+            completionHandler(Result(value: result)) // Call the completion handler with a `Result` instance containing the response
 
-        case (.none, .some(let error)):
-            completionHandler(Result(error: error))
+        case (.none, .some(let error)): // If the response is `nil` and the error is not `nil`
+            completionHandler(Result(error: error)) // Call the completion handler with a `Result` instance containing the error
 
-        case (.none, .none), (.some, .some):
-            preconditionFailure("Unexpected State")
+        case (.none, .none), (.some, .some): // If both the response and error are `nil` or both are not `nil`
+            preconditionFailure("Unexpected State") // Raise a runtime error
         }
     }
 }
@@ -2686,13 +2705,13 @@ let btn = createButton(action: "buttonTouched:") // 👈 The : character is impo
 
 ```swift
 let closure = { (text: String, bgColor: UIColor, y: CGFloat, action: String) in
-   let btn: UIButton = .init(type: .system)
-   btn.backgroundColor = bgColor
-   btn.setTitle(text, for: .normal)
-   btn.titleLabel?.font =  .systemFont(ofSize: 12)
-   btn.frame = .init(x:00, y:y, width:100, height:50)
-   btn.addTarget(self, action: Selector(action), for: .touchUpInside)
-   self.addSubview(btn)
+    let btn: UIButton = .init(type: .system) // Create a new `UIButton` instance with the system type
+    btn.backgroundColor = bgColor // Set the background color of the button to `bgColor`
+    btn.setTitle(text, for: .normal) // Set the title of the button to `text` for the normal state
+    btn.titleLabel?.font =  .systemFont(ofSize: 12) // Set the font of the button's title label to a system font with size 12
+    btn.frame = .init(x:00, y:y, width:100, height:50) // Set the frame of the button to a new `CGRect` instance with the specified values
+    btn.addTarget(self, action: Selector(action), for: .touchUpInside) // Add a target-action pair for the `.touchUpInside` control event
+    self.addSubview(btn) // Add the button as a subview of the current view
 }
 // btn1
 closure(
