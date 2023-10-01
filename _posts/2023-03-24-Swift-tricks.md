@@ -1350,8 +1350,15 @@ public static func sharedInstance(isTestMode: Bool = false) -> SomeClass {
 
 ## 90. Handy way to generate uuid's
 In terminal we can do: `uuidgen` output: `1745B9C9-A369-4FD7-1EDF-B3AE2C268047`
+
 ```swift
 let uuid = UUID().uuidString // 2C432AEC-14A9-4F83-9ABB-60C6A7D948E7
+```
+
+Or of a custom length with: (Change 4 to get longer strings)
+
+```bash
+cat /dev/urandom | LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 4; echo
 ```
 
 ## 89. Manipulating values in a Dictionary
