@@ -1,4 +1,4 @@
-<!--more-->
+My notes on communication style<!--more-->
 
 ## Finding inspiration
 Magazines, insta, google, map out illustrators that know this style.
@@ -16,7 +16,7 @@ Optimistic, future oriented, can do attitude, champions of democracy, enabler fo
 ## Core values:
 - Autonomy (Freedom of speech, freedom of privacy, freedom of humanity)
 - Disruptive (Changing the status quo)
-- Thoughtful 
+- Thoughtful
 - Trustworthy
 
 ## Core beliefs

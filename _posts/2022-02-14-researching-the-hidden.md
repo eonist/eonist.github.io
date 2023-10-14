@@ -1,3 +1,5 @@
+My notes on research saturation <!--more-->
+
 ### Researching the hidden (The art of figuring out whats relevant)
 
 1. Define your question. usually the question can be formulated in one sentence. But to solve it there is a huge hierarchy of pieces that make up the final answer. Take `E=MC2` for instance. The answer is elegant. But under it there are many nodes of theories. Try to figure out what the bounds of the final answer will be. To avoid getting sucked into something that is totally out of scope and way to resource/time consuming.
@@ -36,4 +38,4 @@ https://www.amazon.com/Research-Chicago-Writing-Editing-Publishing/dp/0226065669
 4. The best researchers in the world are the ones that can enter a field they have little to zero pre-knowledge about and still find solutions. We live in a world where the best investigators often out preform field experts simply by being very adept at finding and piecing together solutions.
 
 ### Warning:
-Don't do this kind of intense research everyday. Or you wont be able to see the forest for the trees. You lose your mind and probably get less intelligent over time. If you race-drive a car too much it will deteriorate. But if you need to escape the police now and then, then go hit the turbo button. Do it once in a while. Then go back to regular problem solving. Where you solve mini problems until you've solved enough of them that it makes up a big solution. 
+Don't do this kind of intense research everyday. Or you wont be able to see the forest for the trees. You lose your mind and probably get less intelligent over time. If you race-drive a car too much it will deteriorate. But if you need to escape the police now and then, then go hit the turbo button. Do it once in a while. Then go back to regular problem solving. Where you solve mini problems until you've solved enough of them that it makes up a big solution.

@@ -1,6 +1,6 @@
 Some of my favourite swift tricks<!--more-->
 
-### Avoiding boilerplate code required init
+### 186. Avoiding boilerplate code required init
 ```swift
 open class BaseView: UIView {
    /**
