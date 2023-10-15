@@ -1,4 +1,4 @@
-Autolayout and nstextview / uitextview
+My notes on Autolayout and nstextview / uitextview <!--more-->
 
 
 
