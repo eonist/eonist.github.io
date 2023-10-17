@@ -1,9 +1,9 @@
-Notes on Jekyll pagination<!--more-->
+
+These are my notes on implementing pagination in Jekyll, including tips on enabling pagination, using the `jekyll-paginate` gem, and available resources.<!--more-->
 
 - To find your Ruby version, run `ruby -v`.
-- Pagination pages through every post in the `posts` variable unless a post has `hidden: true` in its front matter.
-
-To enable pagination, add the following code to your `_config.yml` file:
+- By default, pagination will display every post in the `posts` variable, unless a post has `hidden: true` in its front matter. This can be customized to display a specific number of posts per page.
+- To enable pagination, add the following code to your `_config.yml` file:
 
 ```yml
 gems: [jekyll-paginate]
@@ -14,8 +14,7 @@ paginate_path: "page:num"
 ```
 
 ### Gotchas:
-- The jekyll-paginate-v2 plugin is not supported on GitHub Pages.
-- You don't need to include `jekyll-paginate` in your Gemfile, as it's already included in the `github-pages` gem. See https://stackoverflow.com/a/56410675/5389500.
+- The `jekyll-paginate-v2` plugin is not supported on GitHub Pages, so you should use the `jekyll-paginate` gem instead. This gem is already included in the `github-pages` gem, so you don't need to include it in your Gemfile. See https://stackoverflow.com/a/56410675/5389500.
 
 ### Resources:
 - Paginator code: a tutorial on how to implement pagination in Jekyll (https://shivabhusal.github.io/jekyll-paginator/)
@@ -40,3 +39,4 @@ paginator.previous_page_path: the path to the previous page, or nil if no previo
 paginator.next_page: the number of the next page, or nil if no subsequent page exists
 paginator.next_page_path: the path to the next page, or nil if no subsequent page exists
 ```
+
