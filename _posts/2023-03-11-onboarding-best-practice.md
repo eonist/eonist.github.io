@@ -5,11 +5,11 @@ My notes on onboarding<!--more-->
 - Educate users about the app's major functions.
 - Collect information needed to create personalized content and experiences.
 
-Here are some tips for creating an effective onboarding experience:
+To create an effective onboarding experience, consider the following tips:
 
-- Use as few words as possible. After downloading the app, users want to run it and see what's inside. If the onboarding experience is too wordy, it can be unpleasant.
-- Use about five pages and show progress. People can get bored if the onboarding is too lengthy, so it's usually a good idea to use about five pages. Additionally, use a page indicator or something similar to clearly show the onboarding progress and keep users informed.
-- Focus on effective communication. With a limited number of pages, it's critical to show the most important functions or benefits of your app. Leave trivial things out for the user's own exploration later. After the onboarding, users should have an overall intuitive impression of the app.
+- Use concise language. After downloading the app, users want to explore it and see what it offers. If the onboarding experience is too wordy, it can be overwhelming and frustrating.
+- Keep it short and sweet. People can lose interest if the onboarding process is too lengthy, so it's usually a good idea to limit it to about five pages. Additionally, use a page indicator or something similar to clearly show the onboarding progress and keep users informed.
+- Focus on the most important features. With a limited number of pages, it's critical to highlight the most important functions or benefits of your app. Leave out trivial details for the user's own exploration later. After the onboarding, users should have an overall intuitive impression of the app.
 - Allow users to skip certain customization settings. For some content-providing apps, such as reading or music streaming apps, it's beneficial to offer customized content. However, many users don't like to answer a series of questions about their own behavior. So, it's important to include a skip button that allows users to skip all these settings.
 
 ### Resources:
