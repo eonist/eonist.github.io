@@ -4,8 +4,8 @@ My notes on automating quality assurance <!--more-->
 
 > Build something elegant with high utility that is easy to maintain
 
-**Pros:**
-- Automated testing provides faster development velocity by catching bugs instantly.
+**Advantages:**
+- Automated testing catches bugs instantly, leading to faster development velocity.
 - Tests can be run on demand on multiple devices, making it easier to scale and catch issues that humans might miss.
 - Automated testing covers more ground than humans, including testing OS updates, device sizes, and device configurations.
 - Automated testing is more ethical than using humans to do repetitive and mundane tasks for low pay.
@@ -17,17 +17,17 @@ My notes on automating quality assurance <!--more-->
 - Automated tests are always available, unlike remote testing teams which can be expensive and take time to return failure information that is often hard to reproduce.
 - Automated tests can be run in random order with random mock data and setup configurations, covering more ground in less time than any amount of humans could ever cover.
 
-**Cons:**
+**Disadvantages:**
 - Setting up automation can be time-consuming and require significant effort.
 - Deploying automation typically requires advanced coding skills.
 - Automation often requires access to your codebase, unless you use a tool like Waldo.
 - The initial cost of implementing automation can be high, but it can become more cost-effective over time.
 
 ### Options
-- Apples mobile QA testing suite called XCUITest
-- Web technologies such as selenium and playright
-- Sass services such as: [https://waldo.com/](https://waldo.com/)
-- XCUITest saas: [https://saucelabs.com/](https://saucelabs.com/)
+- XCUITest, Apple's mobile QA testing suite
+- Web technologies such as Selenium and Playwright
+- SaaS services such as Waldo
+- XCUITest SaaS: Sauce Labs
 
 <img width="480" height="271" alt="Mad man actor vacation mode" src="https://media.giphy.com/media/3oEdv9duTLhWoNhcGs/giphy.gif">
 
@@ -40,7 +40,7 @@ My notes on automating quality assurance <!--more-->
 
 <img width="480" height="270" alt="Whack a mole" src="https://media.giphy.com/media/aWNByu8u6sati/giphy.gif">
 
-### Rational
+### Rationale
 - Automated QA can help developers create better, faster, and stronger software.
 - Automated QA can provide developers with ammunition when arguing against increasing complexity.
 - Automated QA can force businesses to be mindful about complexity versus available resources.
@@ -109,7 +109,7 @@ login() // login user
 ```
 
 ### Resources
-- My personal go to testing library: [https://github.com/eonist/TestRunner](https://github.com/eonist/TestRunner)
+- My personal go-to testing library: [https://github.com/eonist/TestRunner](https://github.com/eonist/TestRunner)
 - UITesting blog post
 - [Raywenderlich.com](Raywenderlich.com)
 - Maker book chapter on Automating
@@ -117,11 +117,11 @@ login() // login user
 - Your unit testing posts
 - [https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan.md](https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan.md)
 - [https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan-autofill.md](https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/test-plan-autofill.md)
-- Monitoring service for API’s [https://updown.io](https://updown.io)
-- Definition of CT: Continuous testing is the process of executing automated tests as part of the software delivery pipeline to obtain immediate feedback on the business risks associated with a software release candidate. https://en.wikipedia.org/wiki/Continuous_testing
+- Monitoring service for APIs: [https://updown.io](https://updown.io)
+- Definition of CT: Continuous testing is the process of executing automated tests as part of the software delivery pipeline to obtain immediate feedback on the business risks associated with a software release candidate. [https://en.wikipedia.org/wiki/Continuous_testing](https://en.wikipedia.org/wiki/Continuous_testing)
 
 
-### To summarise:
+### To summarize:
 - 🦾 Automating QA can be more effective than manual QA, catching bugs faster and more consistently.
 - 🆓 QA automation doesn't have to be expensive, as there are many affordable tools and services available.
 - 🏝 QA automation can help improve work/life balance by reducing the need for manual testing and allowing developers to focus on other tasks.
@@ -134,7 +134,7 @@ login() // login user
 
 <img width="480" height="460" alt="img" src="https://media.giphy.com/media/nmM68Wdn0Ngc0/giphy.gif?raw=true">
 
-### Todo:
+### To-do:
 - Discuss the benefits of integrating cloud services with GitHub Actions for streamlined development.
 - Include relevant links to provide readers with additional resources and context.
 - Edit and refine the text for improved readability and engagement.
