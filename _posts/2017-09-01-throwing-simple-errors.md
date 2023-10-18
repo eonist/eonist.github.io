@@ -1,4 +1,4 @@
-When do you write throws methods and when do you write methods that return optional. What makes you decide to go for throwing methods? I see some people on github write throwing methods all over the place and others use them less frequently. <!--more-->
+When do you write throws methods and when do you write methods that return optional. What makes you decide to go for throwing methods? I see some people on github write throwing methods everywhere and others use them less frequently. <!--more-->
 
 Here is a simple way to throw errors from your methods. You can later refactor to use enums when your code is in a more production ready state.
 
@@ -27,3 +27,5 @@ do {
     Swift.print ("Other cases: Error: \(error.localizedDescription)")/*I like all other colors*/
 }
 ```
+
+You can also simply do `throw NSError(description: "Uh oh, an error happened", code: 0)``

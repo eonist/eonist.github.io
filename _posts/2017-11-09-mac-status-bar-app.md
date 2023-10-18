@@ -13,9 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
    var statusBarItem : NSStatusItem = NSStatusItem()
    var menu: NSMenu = NSMenu()
    var menuItem : NSMenuItem = NSMenuItem()
-
    func applicationDidFinishLaunching(_ aNotification: Notification) {
-//      _ = view
+      // _ = view
       Swift.print("applicationDidFinishLaunching")
       window.close()
       //Add statusBarItem
@@ -50,5 +49,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       Swift.print("quitApp")
    }
 }
-
 ```

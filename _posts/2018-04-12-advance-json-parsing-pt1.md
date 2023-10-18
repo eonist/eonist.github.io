@@ -4,8 +4,8 @@ My notes on adding Codable support for classes such as UIColor and UIFont which 
 
 ```json
 {
-   "color":"white",
-    "font":{"name":".SFUIText","size":"16"}
+   "color": "white",
+   "font": { "name": ".SFUIText", "size": "16" }
 }
 ```
 
@@ -20,8 +20,8 @@ struct Theme:Decodable{
         case color
         case font
     }
-    let color:UIColor
-    let font:UIFont
+    let color: UIColor
+    let font: UIFont
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         color = try container.decode(key: .color, transformer: ColorTransformer())
@@ -36,10 +36,13 @@ struct Theme:Decodable{
 /**
  * The transformer that handles parsing the string value to UIColor
  * TODO: ⚠️️ Add support for 0x00FF00FF (Aka hex with alpha value)
- * EXAMPLE: "color":"white"
+ * ## EXAMPLE: "color":"white"
  */
 class ColorTransformer: DecodingContainerTransformer {
-    enum Error: Swift.Error { case cannotCreateColor(hex: String) }
+    enum Error: Swift.Error {
+        case cannotCreateColor(hex: String)
+    }
+    
     func decode(input: String) throws -> UIColor {
         guard let color = try? ColorUtils.color(input) else {
             throw Error.cannotCreateColor(hex: input)
@@ -49,12 +52,19 @@ class ColorTransformer: DecodingContainerTransformer {
 }
 /**
  * The transformer that handles parsing the dictionary (Aka fontName and fontSize) value to UIColor
- * EXAMPLE: "font":{"name":".SFUIText","size":"16"}
+ * ## EXAMPLE: "font":{"name":".SFUIText","size":"16"}
  */
 class UIFontTransformer: DecodingContainerTransformer {
-    enum Error: Swift.Error {  case cannotCreateFont(name: [String:String]) }
-    func decode(input:[String:String]) throws -> UIFont {
-        guard let name = input["name"], let fontSize = input["size"], let fontSizeAsDouble = Double(fontSize), let font = UIFont.init(name: name, size: CGFloat(fontSizeAsDouble)) else {
+    enum Error: Swift.Error {
+        case cannotCreateFont(name: [String: String])
+    }
+    
+    func decode(input: [String: String]) throws -> UIFont {
+        guard let name = input["name"],
+              let fontSize = input["size"],
+              let fontSizeAsDouble = Double(fontSize),
+              let font = UIFont(name: name, size: CGFloat(fontSizeAsDouble))
+        else {
             throw Error.cannotCreateFont(name: input)
         }
         return font
@@ -84,17 +94,20 @@ extension KeyedDecodingContainer {
         return try decodeIfPresent(Transformer.DecodingInput.self, forKey: key).map(transformer.decode)
     }
 }
-
 ```
 
 ### AppDelegate.swift
 
 ```swift
-let urlStr:String = Bundle.main.resourcePath!+"/theme.json"
-guard let data:Data = FileParser.data(urlStr) else {fatalError("wrong file path")}
-guard let theme:Theme = try? decode(data: data) else {fatalError("can't be converted json to Theme")}
-Swift.print("theme.color:  \(theme.color)")//UIExtendedSRGBColorSpace 1 1 1 1
-Swift.print("theme.font:  \(theme.font)")//<UICTFont: 0x7faef7c02850> font-family: ".SFUIText"; font-weight: normal; font-style: normal; font-size: 16.00pt
+let urlStr: String = Bundle.main.resourcePath! + "/theme.json"
+guard let data: Data = FileParser.data(urlStr) else {
+    fatalError("Wrong file path")
+}
+guard let theme: Theme = try? decode(data: data) else {
+    fatalError("Can't convert JSON to Theme")
+}
+Swift.print("Theme color: \(theme.color)") // UIExtendedSRGBColorSpace 1 1 1 1
+Swift.print("Theme font: \(theme.font)") // <UICTFont: 0x7faef7c02850> font-family: ".SFUIText"; font-weight: normal; font-style: normal; font-size: 16.00pt
 ```
 
 ### Conclusion

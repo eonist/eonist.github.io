@@ -1,4 +1,4 @@
-My notes on Decodable and Encodable in swift<!--more--> There is also Codable now
+My notes on Decodable and Encodable in swift<!--more--> ⚠️️ There is also Codable now ⚠️️
 
 ### Why Use Decodable / Encodable?
 
@@ -21,9 +21,9 @@ My notes on Decodable and Encodable in swift<!--more--> There is also Codable no
 ## Extensions:
 
 ```swift
-struct Whale: Decodable, Encodable{
-	let name:String
-	let whaleType:String
+struct Whale: Decodable, Encodable {
+	let name: String
+	let whaleType: String
 }
 let json = """
 {

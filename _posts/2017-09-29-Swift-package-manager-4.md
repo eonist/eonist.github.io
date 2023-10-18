@@ -3,11 +3,12 @@ My notes Swift Package Manager 4 <!--more--> Basically this article describes my
 ⚠️️ I recommend just using google if you are not familiar with some of the terms / names ⚠️️
 
 ### What I want:
-1. Keep as much code as possible in small modules in a module graph / hierarchy
-2. have these modules self assemble into ever bigger modules
-3. The root module is the app it self
-4. Each module must it self be easily editable within the project for syncing with github
-5. Third-party modules must be able to update them selfs via a simple `swift package update` call
+- To keep code organized and maintainable, it's recommended to break it down into small modules within a module graph or hierarchy. 
+- These modules can then be assembled into larger modules as needed, allowing for flexibility and scalability. 
+- The root module should be the app itself, with each smaller module building upon it.
+- Each module should be easily editable within the project to ensure smooth syncing with GitHub and other version control systems. 
+- Third-party modules should be able to update themselves with a simple `swift package update` call, ensuring that the project stays up-to-date with the latest versions of these modules.
+
 
 ### How to get it:
 Since SPM 4 doesn't support building to app target yet, we can't call `swift package generate-xcodeproj` more than once, without making a lot of fuzz. That means we have to use SPM as more of a 1 time setup tool and updater of third-party libs.

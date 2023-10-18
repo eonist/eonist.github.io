@@ -1,9 +1,9 @@
 My notes on the sketch app<!--more-->.
 
 ### Finding vector icons:
-- https://www.flaticon.com/free-icons/
-- https://commons.wikimedia.org/wiki/Main_Page
-- https://thenounproject.com/
+- [https://www.flaticon.com/free-icons/](https://www.flaticon.com/free-icons/)
+- [https://commons.wikimedia.org/wiki/Main_Page](https://commons.wikimedia.org/wiki/Main_Page)
+- [https://thenounproject.com/](https://thenounproject.com/)
 
 ### Sketch:
 - Sketch is 99$. And you get 1 year of updates. after that its still works but no more updates. It's a fair deal. Its perfect for logo's and GUI mockups. You can quickly create a GUI mockup with some rectangles and spiffy colors. No need to use fancy complicated iOS templates. Illustrator is IMO very good except that adobe bloats your computer with all sorts of addons.

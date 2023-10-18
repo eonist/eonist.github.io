@@ -64,3 +64,9 @@ https://stackoverflow.com/questions/57461737/how-to-integrate-swiftlint-with-an-
 swiftlint autocorrect // apply lint corrections
 swiftlint lint // shows lint errors
 ```
+
+### swift style guides:
+- Google: [https://google.github.io/swift/](https://google.github.io/swift/) (This one is good)
+- Airbnb: [https://github.com/airbnb/swift](https://github.com/airbnb/swift) 
+- SwiftLint: [https://github.com/realm/SwiftLint](https://github.com/realm/SwiftLint) 
+
