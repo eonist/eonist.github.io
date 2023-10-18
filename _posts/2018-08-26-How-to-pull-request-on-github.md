@@ -5,7 +5,7 @@ This type of pull-request is more common when you contribute to repos that you a
 
 1. Find repo you want to make a PR for
 2. Click the fork button
-3. Pick where you want to fork. your personal account or org account etc
+3. Pick where you want to fork. Your personal account or org account etc
 4. Edit your fork
 5. Hit the **New Pull Request** button on the front of the fork
 6. Go through the PR wizard

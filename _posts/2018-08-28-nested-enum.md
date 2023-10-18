@@ -14,9 +14,9 @@ enum State {
  /**
   * Set state
 	* ## Examples:
-	* setState(.normal(.idle))//🤷
-	* setState(.normal(.search))//🚀
-	* setState(.hidden)//🤦
+	* setState(.normal(.idle)) // 🤷
+	* setState(.normal(.search)) // 🚀
+	* setState(.hidden) // 🤦
   */
  func setState(_ state: State){
      switch state {
@@ -37,7 +37,7 @@ enum State {
 
 ### Description:
 - MainView has ContainerView and NavView
-- Nav.swift stores the current ViewType state in a static var
+- `Nav.swift` stores the current ViewType state in a static var
 
 ### Nav and UI-hierarchy code:
 
@@ -49,7 +49,7 @@ enum ViewType {
     enum Send{
         case clipboard(String)
         case file(String)
-        //case current//don't change state, use the one that it is right now
+        // case current // don't change state, use the one that it is right now
     }
     case send(Send)
 }
@@ -86,7 +86,7 @@ extension ContainerView {
     /**
      * Sets the subview of the container
      */
-    public func setViewState(viewType:Nav.ViewType) {
+    public func setViewState(viewType: Nav.ViewType) {
         if let curSubView = self.curSubView { curSubView.removeFromSuperview() } /*Remove it if it exists*/
         self.curSubView = {
             switch viewType {
