@@ -1,12 +1,12 @@
 My notes on adding apps to Apple app store<!--more-->
 
-⚠️️ Important: https://developer.apple.com/app-store/review/#common-app-rejections  
-⚠️️ Important: https://github.com/aashishtamsya/Appstore-Review-Guidelines  
-⚠️️ Important: https://github.com/whitef0x0/app-store-checklist  
-⚠️️ Important: https://www.raywenderlich.com/2625-introduction-to-the-testflight-sdk
+⚠️️ Important: [https://developer.apple.com/app-store/review/#common-app-rejections](https://developer.apple.com/app-store/review/#common-app-rejections)  
+⚠️️ Important: [https://github.com/aashishtamsya/Appstore-Review-Guidelines](https://github.com/aashishtamsya/Appstore-Review-Guidelines)  
+⚠️️ Important: [https://github.com/whitef0x0/app-store-checklist](https://github.com/whitef0x0/app-store-checklist)  
+⚠️️ Important: [https://www.raywenderlich.com/2625-introduction-to-the-testflight-sdk](https://www.raywenderlich.com/2625-introduction-to-the-testflight-sdk)
 
 ### Here’s how to submit your app to the Apple App Store:
-Great tutorial for submitting to the Appstore: https://medium.com/macoclock/how-to-submit-ios-app-to-app-store-c1e801ff817b
+Great tutorial for submitting to the Appstore: [https://medium.com/macoclock/how-to-submit-ios-app-to-app-store-c1e801ff817b](https://medium.com/macoclock/how-to-submit-ios-app-to-app-store-c1e801ff817b) 
 
 1. To create an iOS distribution provisioning profile and distribution certificate, follow the instructions provided by Apple's documentation.
 2. Create an App Store Connect record for your app by adding a new app.
@@ -16,7 +16,7 @@ Great tutorial for submitting to the Appstore: https://medium.com/macoclock/how-
 6. Check on the status of your app.
 
 ### Testflight
-Great tutorial for adding an app to test-flight: https://reinteractive.com/posts/344-how-to-upload-your-ios-app-to-testflight-for-distribution-beta
+Great tutorial for adding an app to test-flight: [https://reinteractive.com/posts/344-how-to-upload-your-ios-app-to-testflight-for-distribution-beta](https://reinteractive.com/posts/344-how-to-upload-your-ios-app-to-testflight-for-distribution-beta) 
 
 1. The first build of your app must be approved by TestFlight App Review (This build is automatically sent for review when you add it to a group.)
 2. To upload a beta build to App Store Connect, select the build you want to upload and click 'Add to TestFlight'. Builds remain active for 90 days after upload.
@@ -24,10 +24,10 @@ Great tutorial for adding an app to test-flight: https://reinteractive.com/posts
 4. When sharing your app with external testers, provide details on your app's Test Information page in App Store Connect.
 
 ### App review:
-- Read this: https://developer.apple.com/app-store/review/guidelines/
+- Read this: [https://developer.apple.com/app-store/review/guidelines/](https://developer.apple.com/app-store/review/guidelines/) 
 - There are two review processes. One for app store, and one for TestFlight.
 - It's not intuitive, but you have to add app builds to the app store review page to be able to initiate TestFlight app review. So you can begin testing on TestFlight before passing app store review. The TestFlight review is supposed to be less strict than app review (which can be strict, especially passing the first review).
-- https://www.revenuecat.com/blog/getting-through-app-review
+- [https://www.revenuecat.com/blog/getting-through-app-review](https://www.revenuecat.com/blog/getting-through-app-review) 
 
 ### Find message that resonates with target user:
 - Identify the core user problem or pain.
@@ -93,13 +93,12 @@ Your app's promotional text appears at the top of the description and is up to 1
 - The SKU number is used for profit record keeping. You can use the app ID, date, or version number to create a unique SKU. For example, 'NameOfAppV1_y2022m12d04'.
 - When filling out the App Store info pages, make sure to click the save button frequently. There is a lot of information to fill out, and it can take a day to complete.
 - The App Store review process can be unpredictable, and your app may be rejected for unexpected reasons. To avoid this, make sure that your app's design and user experience work as expected and are free of bugs. This will help to minimize the back-and-forth with the review team.
-- Send your app for review early and often. Review times can be found here: https://www.runway.team/appreviewtimes.
+- Send your app for review early and often. Review times can be found here: [https://www.runway.team/appreviewtimes](https://www.runway.team/appreviewtimes) .
 - If your app is rejected, provide the reviewer with succinct information about the issue and try again. If the issue cannot be resolved, you can appeal to higher-ups with your claim.
 - Reviewers are usually not responsive and may not go out of their way to understand your app. To avoid this, keep things simple and straightforward, and be persistent in your efforts to get your app approved. Also, keep in mind that reviewers may change over time and may not be familiar with previous information.
 - After a build is uploaded to App Store Connect, it may take some time before it shows up in the dashboard. This is normal and should not cause concern.
-- After a build is added to the App Store build dashboard, it will take some time before it can be added to TestFlight. The build will say 'processing' for a while, and then after a while, it will be ready for TestFlight review. For current review times, see: https://www.runway.team/appreviewtimes.
-- To create a unique SKU number, you can use the bundle ID of your app.  https://stackoverflow.com/a/8710967/5389500
-
+- After a build is added to the App Store build dashboard, it will take some time before it can be added to TestFlight. The build will say 'processing' for a while, and then after a while, it will be ready for TestFlight review. For current review times, see: [https://www.runway.team/appreviewtimes](https://www.runway.team/appreviewtimes) .
+- To create a unique SKU number, you can use the bundle ID of your app.  [https://stackoverflow.com/a/8710967/5389500](https://stackoverflow.com/a/8710967/5389500) 
 
 ### FAQ:
 - Q: Do I need to get approval to start testing beta builds?
@@ -107,25 +106,25 @@ Your app's promotional text appears at the top of the description and is up to 1
 
 ### Tips:
 - The fastest and easiest way to make screenshots is just to launch your app in the iOS simulator (for the screen size that you need), navigate to the screen you want to take a screenshot of and then hit `CMD + S` on your keyboard.
-- Use [freeprivacypolicy.com](https://www.freeprivacypolicy.com)  to generate privacy policy. Store in a html on your website or in a github gist (more info: https://developer.apple.com/app-store/review/guidelines/#privacy) (or google for “App Privacy Policy” and you’ll see a lot of samples and privacy policy generators that you can use)
+- Use [freeprivacypolicy.com](https://www.freeprivacypolicy.com)  to generate privacy policy. Store in a html on your website or in a github gist (more info: [https://developer.apple.com/app-store/review/guidelines/#privacy](https://developer.apple.com/app-store/review/guidelines/#privacy) ) (or google for “App Privacy Policy” and you’ll see a lot of samples and privacy policy generators that you can use). An option is to use GPT to create legal documents.
 
 ### Resources:
 - **Review guidelines:** [https://developer.apple.com/app-store/review/guidelines](https://developer.apple.com/app-store/review/guidelines)
 - Bezels and badges: [https://developer.apple.com/app-store/marketing/guidelines/](https://developer.apple.com/app-store/marketing/guidelines/)
 - **App store submission checklist**: [https://clearbridgemobile.com/how-to-submit-an-app-to-the-app-store/](https://clearbridgemobile.com/how-to-submit-an-app-to-the-app-store/)
-- Another checklist: https://www.thedroidsonroids.com/blog/how-to-submit-app-to-the-app-store-guide-and-checklist
-- In app purchase: https://developer.apple.com/in-app-purchase/
-- 100 promo codes: https://help.apple.com/app-store-connect/#/dev50869de4a
-- Promoted in-app purchases: https://developer.apple.com/app-store/promoting-in-app-purchases/
-- Overview off appstore functionality https://developer.apple.com/app-store-connect/api/
-- Testflight tutorial: https://reinteractive.com/posts/344-how-to-upload-your-ios-app-to-testflight-for-distribution-beta
-- Add app to appstore (a bit outdated) https://reinteractive.com/posts/344-how-to-upload-your-ios-app-to-testflight-for-distribution-beta
-- Bundle apps from different platforms in one bundle purchase https://developer.apple.com/support/universal-purchase/
-- For mockups: https://mockuphone.com/
-- ⭐ 10 step tutorial to publish an app: https://medium.com/@taraparakj75/https-bosctechlabs-com-steps-for-ios-developers-submit-app-to-app-store-e068dbb1f3ab
-- Apples official appstore submit tutorial: https://developer.apple.com/ios/submit/
-- Mac testflight walkthrough: https://developer.apple.com/videos/play/wwdc2021/10170/
+- Another checklist: [https://www.thedroidsonroids.com/blog/how-to-submit-app-to-the-app-store-guide-and-checklist](https://www.thedroidsonroids.com/blog/how-to-submit-app-to-the-app-store-guide-and-checklist)
+- In app purchase: [https://developer.apple.com/in-app-purchase/](https://developer.apple.com/in-app-purchase/)
+- 100 promo codes: [https://help.apple.com/app-store-connect/#/dev50869de4a](https://help.apple.com/app-store-connect/#/dev50869de4a)
+- Promoted in-app purchases: [https://developer.apple.com/app-store/promoting-in-app-purchases/](https://developer.apple.com/app-store/promoting-in-app-purchases/)
+- Overview off appstore functionality [https://developer.apple.com/app-store-connect/api/](https://developer.apple.com/app-store-connect/api/)
+- Testflight tutorial: [https://reinteractive.com/posts/344-how-to-upload-your-ios-app-to-testflight-for-distribution-beta](https://reinteractive.com/posts/344-how-to-upload-your-ios-app-to-testflight-for-distribution-beta)
+- Add app to appstore (a bit outdated) [https://reinteractive.com/posts/344-how-to-upload-your-ios-app-to-testflight-for-distribution-beta](https://reinteractive.com/posts/344-how-to-upload-your-ios-app-to-testflight-for-distribution-beta)
+- Bundle apps from different platforms in one bundle purchase [https://developer.apple.com/support/universal-purchase/](https://developer.apple.com/support/universal-purchase/)
+- For mockups: [https://mockuphone.com/](https://mockuphone.com/)
+- ⭐ 10 step tutorial to publish an app: [https://medium.com/@taraparakj75/https-bosctechlabs-com-steps-for-ios-developers-submit-app-to-app-store-e068dbb1f3ab](https://medium.com/@taraparakj75/https-bosctechlabs-com-steps-for-ios-developers-submit-app-to-app-store-e068dbb1f3ab)
+- Apples official appstore submit tutorial: [https://developer.apple.com/ios/submit/](https://developer.apple.com/ios/submit/)
+- Mac testflight walkthrough: [https://developer.apple.com/videos/play/wwdc2021/10170/](https://developer.apple.com/videos/play/wwdc2021/10170/)
 - ⭐ https://wwdcbysundell.com/2021/working-with-in-app-purchases-in-storekit2/
-- ⭐ paid for video 20$ ishh: https://www.udemy.com/course/storekitone/
-- ⭐⭐⭐ Simple and has all info: (paid article) https://www.kodeco.com/books/real-world-ios-by-tutorials/v1.0/chapters/14-deploying-to-the-app-store
-- ⭐⭐⭐⭐⭐ Rich content on distribution on appstore (payed) https://www.kodeco.com/books/ios-app-distribution-best-practices (use 12ft to unlock)
+- ⭐ paid for video 20$ ishh: [https://www.udemy.com/course/storekitone/](https://www.udemy.com/course/storekitone/)
+- ⭐⭐⭐ Simple and has all info: (paid article) [https://www.kodeco.com/books/real-world-ios-by-tutorials/v1.0/chapters/14-deploying-to-the-app-store](https://www.kodeco.com/books/real-world-ios-by-tutorials/v1.0/chapters/14-deploying-to-the-app-store)
+- ⭐⭐⭐⭐⭐ Rich content on distribution on appstore (payed) [https://www.kodeco.com/books/ios-app-distribution-best-practices](https://www.kodeco.com/books/ios-app-distribution-best-practices) (use 12ft to unlock)
