@@ -18,11 +18,10 @@ Great tutorial for submitting to the Appstore: https://medium.com/macoclock/how-
 ### Testflight
 Great tutorial for adding an app to test-flight: https://reinteractive.com/posts/344-how-to-upload-your-ios-app-to-testflight-for-distribution-beta
 
-1. The **first build** of your app must be approved by TestFlight App Review (This build is automatically sent for review when you add it to a group.)
-2. Upload a beta build to appstore connect (Builds remain active for **90 days after upload**)
-3. Internal testers (100 org memebers)
-4. External testers (10k people) email addresses or by enabling and sharing a public link ( go to your app’s TestFlight page, click an existing group, and click Enable Public Link.)
-5. When sharing your app with external testers, you’ll need to let them know what to test and any other important information relevant to testing. Provide these details on your app’s Test Information page in App Store Connect.
+1. The first build of your app must be approved by TestFlight App Review (This build is automatically sent for review when you add it to a group.)
+2. To upload a beta build to App Store Connect, select the build you want to upload and click 'Add to TestFlight'. Builds remain active for 90 days after upload.
+3. Internal testers (100 org members) and external testers (10k people) can be invited via email or by enabling and sharing a public link. To enable a public link, go to your app's TestFlight page, click an existing group, and click 'Enable Public Link'.
+4. When sharing your app with external testers, provide details on your app's Test Information page in App Store Connect.
 
 ### App review:
 - Read this: https://developer.apple.com/app-store/review/guidelines/
