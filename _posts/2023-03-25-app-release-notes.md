@@ -1,22 +1,24 @@
 My notes on release notes<!--more-->
 
-> application release notes are technical documents that accompany software products in beta stages or software products that have been enhanced or repaired.
+>  Application release notes are technical documents that accompany software products in beta stages or software products that have been enhanced or repaired. They provide a summary of the changes made to the software since the previous release.
 
 ### Purpouse:
--  It acts as a knowledge base of what has changed since the previous release
+The purpose of release notes is to act as a knowledge base of what has changed since the previous release. This helps users understand what new features or bug fixes they can expect in the latest version of the software.
 
 ### Do's
-- Use plain language
-- Keep them short
-- Group them logically
-- Include relevant links
-- Don't be too technical
-- Add a bigger micro copy for major releases
+
+When writing release notes, it's important to follow these guidelines:
+
+- Use plain language that is easy to understand.
+- Keep the release notes short and to the point.
+- Group the changes made in the release logically.
+- Include relevant links to any documentation or resources that users might need to understand the changes made in the release.
+- For major releases, it's a good idea to include a bigger micro copy that provides more detail about the changes made in the release. This could include screenshots, videos, or other visual aids to help users understand the new features or changes.
 
 ### Minimum release notes:
  - bug fixed, performance improvement
  - Bug fixes and enhancements
-
+ 
 ### Example:
 ```
 Release Version 1.2 (June 27, 2011)
@@ -47,13 +49,13 @@ Fixed
 
 ```
 ### Resources:
-- https://amoeboids.com/blog/release-notes-templates-guide/
-- https://slite.com/learn/release-notes
-- https://www.indeed.com/career-advice/career-development/release-notes-template
-- Advance release notes: https://amoeboids.com/blog/50-release-notes-examples-to-inspire-you/
-- Gd: https://www.releasepad.io/the-complete-guide-on-how-to-write-perfect-release-notes-in-2022/
-- Release notes as a service: https://www.releasepad.io/
-- Nice release note structure: https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/release-notes.md
+- [https://amoeboids.com/blog/release-notes-templates-guide/](https://amoeboids.com/blog/release-notes-templates-guide/)
+- [https://slite.com/learn/release-notes](https://slite.com/learn/release-notes)
+- [https://www.indeed.com/career-advice/career-development/release-notes-template](https://www.indeed.com/career-advice/career-development/release-notes-template)
+- [Advance release notes: https://amoeboids.com/blog/50-release-notes-examples-to-inspire-you/](https://amoeboids.com/blog/50-release-notes-examples-to-inspire-you/)
+- [Gd: https://www.releasepad.io/the-complete-guide-on-how-to-write-perfect-release-notes-in-2022/](https://www.releasepad.io/the-complete-guide-on-how-to-write-perfect-release-notes-in-2022/)
+- [Release notes as a service: https://www.releasepad.io/](https://www.releasepad.io/)
+- [Nice release note structure: https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/release-notes.md](https://github.com/mozilla-lockwise/lockwise-ios/blob/master/docs/release-notes.md)
 
 ### Where to post release notes:
 - Email
@@ -63,14 +65,17 @@ Fixed
 - App Store/Google Play Store
 
 ### How Do You Write Release Notes for Iphone Apps?
-When writing app release notes for an iPhone app, there are certain important factors to consider. First, you need to make sure the notes are concise and clear. Release notes should be easy to read, so use simple language and break up text with headings or bullets points if possible. It’s also helpful to list changes in numeric order, starting with the largest change first and then breaking down into smaller changes.
-
-You also want to include information on how users can update their apps. Make sure it’s easy for users to understand how they can update the app by walking them through each step of the process. You should also provide links or screenshots of where users can find this information in their settings or App Store page. Finally, it’s important that you provide a link for people who need help with updating the app or have other questions about the new release.
+- When writing release notes for an iPhone app, it's important to consider certain factors to ensure they are effective. First and foremost, release notes should be concise and clear.
+- To make release notes easy to read, use simple language and break up text with headings or bullet points if possible. It's also helpful to list changes in numeric order, starting with the largest change first and then breaking down into smaller changes.
+- It's important to provide clear instructions on how users can update their apps. Walk them through each step of the process and provide links or screenshots of where users can find this information in their settings or App Store page.
+- In addition to providing instructions on how to update the app, it's important to include information on what changes have been made in the new release. This helps users understand what new features or bug fixes they can expect in the latest version of the app.
+- Finally, it's important to provide a link for users who need help with updating the app or have other questions about the new release. This could include a link to a support forum or a contact form for customer support.
 
 ### How Do You Write Release Notes for Android Apps?
-When writing release notes for Android apps, it’s important to provide concise and clear information. Release notes should include details about the changes made in each version, such as bug fixes, new features or improvements. Additionally, any important steps users need to take after updating should also be included. Depending on the purpose of the release notes, other information such as security patches may also be included.
 
-When writing release notes for Android apps, it is recommended to use a consistent format throughout different versions. This makes the notes easier to read and helps users quickly find the relevant information they’re looking for. In addition to including details about changes made in each version, screenshots and videos can also help demonstrate what has changed in a more visual way and make it easier for users to understand how features work. Finally, it’s important to update existing release notes rather than creating new ones for every new version so that all relevant info is stored in one place and easy to locate by customers.
+- When writing release notes for Android apps, it’s important to provide concise and clear information. Release notes should include details about the changes made in each version, such as bug fixes, new features, or improvements. Additionally, any important steps users need to take after updating should also be included. Depending on the purpose of the release notes, other information such as security patches may also be included.
+- To make release notes easier to read, it is recommended to use a consistent format throughout different versions. This makes the notes easier to read and helps users quickly find the relevant information they’re looking for. In addition to including details about changes made in each version, screenshots and videos can also help demonstrate what has changed in a more visual way and make it easier for users to understand how features work.
+- Finally, it’s important to update existing release notes rather than creating new ones for every new version. This ensures that all relevant information is stored in one place and easy to locate by customers.
 
 ### Tempalte:
 ```
