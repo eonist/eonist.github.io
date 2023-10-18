@@ -1,4 +1,4 @@
-My workflow when converting markdown to pdf<!--more-->.
+My workflow when converting markdown to pdf<!--more-->. ⚠️️ You can also find extensions that does this for VSCode now ⚠️️
 
 ### How it works:
 1. Write markdown in Atom, save as `text.md`
@@ -10,3 +10,4 @@ My workflow when converting markdown to pdf<!--more-->.
 
 ### References: 
 - Markdown githb syntax: [https://guides.github.com/features/mastering-markdown/](https://guides.github.com/features/mastering-markdown/) 
+

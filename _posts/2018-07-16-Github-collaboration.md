@@ -72,7 +72,7 @@ Being a core developer on a big project is so much more than hammering out featu
 # **Automation**
 
 ### Continuous quality 👌
-Bellow is a list of noticeable swift projects on github, sorted by code quality. As you can see popularity and big tech names doesn't always translate to great code quality. On the contrary, passion projects by indie developers such as [SindreSorhus](https://github.com/SindreSorhus) and  [3lvis](https://github.com/3lvis/)  can often yield the highest code quality.
+Bellow is a list of noticeable swift projects on github, sorted by code quality. As you can see popularity and big tech names doesn't always translate to great code quality. On the contrary, passion projects by indie developers such as [SindreSorhus](https://github.com/SindreSorhus) and  [3lvis](https://github.com/3lvis/) can often yield the highest code quality.
 
 Author | Project | LOC | Grade | [GPA](https://hub.codebeat.co/docs/gpa-explained) | Stars | [CodeCov](https://codecov.io/)
 :--- | :--- | :--- | :--- | :--- | :--- | :---
@@ -157,7 +157,6 @@ Managing the product development on github is crucial because it highlights what
 
 ### Premise of the developer 📝
 If your going to run a software company it's wise to run it on the premise of the developers that are building it and the platform where it’s being built. Managers love google suite, but developers usually don’t. Developers also usually has less down time to spare than managers and support staff. Developers usually operate at 100% cognition where as managers often has a lot of down time between meetings and organizational work.
-
 
 ### Simplifying complexity 🗜
 Keeping documentation where the projects are built. Instead of putting documents on google, api instructions on slack , UX pdfs on a google drive, and issues in basecamp. One should rather collect it in the place where the digital product is being built. Github caters to all the needs described above. Documents can be collaboratively written in the wiki section, complete with commit history etc. You can even update wikis from the comfort of your favorit text editors as the entire wiki section is a .git repo in it self. Issues should be documented and discussed in the issue section. Design assets can be version controlled in it's own repo through [kaktus](https://kactus.io/)  instead of in emails / dropbox. The great thing about collaborating on github is that no resolution is lost, all efforts are version controlled. It's also the industry standard when it comes to building software so everyone (should) know it as if it was the back of their hand. Learning Markdown is also vital. Learning markdown takes a few minutes and is a lot of fun to master ;)
