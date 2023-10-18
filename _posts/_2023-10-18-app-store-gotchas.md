@@ -87,18 +87,19 @@ Your app's promotional text appears at the top of the description and is up to 1
 - To choose the right category, think about the primary function of your app and the problem it solves for users. Consider the features and functionality of your app, and choose the category that best describes its main purpose. If your app has multiple functions, choose the category that best represents the primary function.
 
 #### Gotchas:
-- `Bundle-ID` – here you can select from the app identifiers that are registered in the Developer Account (this value is unique for every app on the App Store). If the app build is ready, make sure you choose the same ID that was used in the Xcode during app archiving.
-- ⚠️️ Important ⚠️️ When you create a new build, **you have to increment the build nr in general - build nr**
-- You can specify the app price for a specific time period. It is useful if you want to make your app cheaper at the beginning to encourage users to download it
-- sku nr: for profit record keeping. you can use `app-id`, or date or version. `NameOfAppV1` y2022m12d04
-- Click save button a lot when filling out apples app store info pages (it's a lot to fill out can take a day to finish 😅)
-- Apple app review is a bit random, you might get rejected for wrong reasons etc. So make sure you have all the obvious things in check. Like the design and UX works as expected **with-out bugs etc**. or else the review will be a lot of back and forth
-- Send apps for review early and often review times can be found here: https://www.runway.team/appreviewtimes
-- If rejected, send succinct info to reviewer. and try again. if it doesn't resolve. appeal to higher ups with your claim etc.
-- Reviewers Are usually not responsive and wont go out of their way to understand. So make things simple and keep trying. Also reviewers might change. So dont expect them to know anything regarding previous information.
-- It may take a little time after a build is uploaded to app connect, before it shows up in the app connect dashboard.
-- After the build is added to the app store build dashboard. it will take some time before it can be added to TestFlight. It will say processing for a while. And then after a while it will be ready for testflight review. For current time see: https://www.runway.team/appreviewtimes
-- Sku nr: use bundle id: https://stackoverflow.com/a/8710967/5389500
+- In the 'Bundle-ID' field, you can select from the app identifiers that are registered in the Developer Account. This value is unique for every app on the App Store. If the app build is ready, make sure you choose the same ID that was used in Xcode during app archiving.
+- When you create a new build, it's important to increment the build number. This helps to differentiate between different versions of your app and ensures that users are always using the latest version. You can increment the build number in the general settings of your project.
+- You can specify the app price for a specific time period. This is useful if you want to make your app cheaper at the beginning to encourage users to download it.
+- The SKU number is used for profit record keeping. You can use the app ID, date, or version number to create a unique SKU. For example, 'NameOfAppV1_y2022m12d04'.
+- When filling out the App Store info pages, make sure to click the save button frequently. There is a lot of information to fill out, and it can take a day to complete.
+- The App Store review process can be unpredictable, and your app may be rejected for unexpected reasons. To avoid this, make sure that your app's design and user experience work as expected and are free of bugs. This will help to minimize the back-and-forth with the review team.
+- Send your app for review early and often. Review times can be found here: https://www.runway.team/appreviewtimes.
+- If your app is rejected, provide the reviewer with succinct information about the issue and try again. If the issue cannot be resolved, you can appeal to higher-ups with your claim.
+- Reviewers are usually not responsive and may not go out of their way to understand your app. To avoid this, keep things simple and straightforward, and be persistent in your efforts to get your app approved. Also, keep in mind that reviewers may change over time and may not be familiar with previous information.
+- After a build is uploaded to App Store Connect, it may take some time before it shows up in the dashboard. This is normal and should not cause concern.
+- After a build is added to the App Store build dashboard, it will take some time before it can be added to TestFlight. The build will say 'processing' for a while, and then after a while, it will be ready for TestFlight review. For current review times, see: https://www.runway.team/appreviewtimes.
+- To create a unique SKU number, you can use the bundle ID of your app.  https://stackoverflow.com/a/8710967/5389500
+
 
 ### FAQ:
 - Q: Do I need to get approval to start testing beta builds?
