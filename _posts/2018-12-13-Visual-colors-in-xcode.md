@@ -1,4 +1,4 @@
-My notes on cisual color sin xcode <!--more-->
+My notes on visual colors in xcode <!--more-->
 
 ### Visual-colors-in-xcode
 

@@ -101,4 +101,4 @@ Example of info.plist for iOS
 ```
 
 ### References:
-- https://ioscoachfrank.com/remove-main-storyboard.html
+- [https://ioscoachfrank.com/remove-main-storyboard.html](https://ioscoachfrank.com/remove-main-storyboard.html) 

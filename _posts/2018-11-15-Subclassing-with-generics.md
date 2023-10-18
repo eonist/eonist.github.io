@@ -33,14 +33,14 @@ struct BottomCardData: CellDataKind {
 
 ```swift
 class TopCard:Card<TopCardData> {
-   lazy var dateLabel:UILabel = createDateLabel()
-   lazy var contentLable:UITextView = createContentLabel()
+   lazy var dateLabel: UILabel = createDateLabel()
+   lazy var contentLable: UITextView = createContentLabel()
    /**
     * When you set the data different UI's are updated
     */
    override var data: TopCardData? {
       didSet {
-         guard let data:TopCardData = data else {fatalError("data not available")}
+         guard let data: TopCardData = data else { fatalError("data not available") }
          titleLabel.text = data.title
          contentLable.text = data.content
       }
@@ -51,8 +51,8 @@ class TopCard:Card<TopCardData> {
 **Usage**
 
 ```swift
-let card:TopCard = .init())
-card.data = TopCardData(title:"Some title",content:"Some content goes here")
+let card: TopCard = .init())
+card.data = TopCardData(title: "Some title", content: "Some content goes here")
 ```
 
 
