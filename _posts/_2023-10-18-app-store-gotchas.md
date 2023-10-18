@@ -8,12 +8,12 @@ My notes on adding apps to Apple app store<!--more-->
 ### Here’s how to submit your app to the Apple App Store:
 Great tutorial for submitting to the Appstore: https://medium.com/macoclock/how-to-submit-ios-app-to-app-store-c1e801ff817b
 
-1. Create an iOS distribution provisioning profile and distribution certificate ⚠️️ how?
-2. Create an App Store Connect record for your app (Add new app)
-3. Archive and upload your app using Xcode (Select Generic iOS Device from the list of simulators) then `product -> archive` click distribute app to upload
-4. Configure your app’s metadata and further details in its App Store Connect record
-5. Submit your app for review
-6. Check on the status of your app
+1. To create an iOS distribution provisioning profile and distribution certificate, follow the instructions provided by Apple's documentation.
+2. Create an App Store Connect record for your app by adding a new app.
+3. To archive and upload your app using Xcode, select 'Generic iOS Device' from the list of simulators, then click 'Product' -> 'Archive'. Finally, click 'Distribute App' to upload your app.
+4. Configure your app's metadata and further details in its App Store Connect record.
+5. Submit your app for review.
+6. Check on the status of your app.
 
 ### Testflight
 Great tutorial for adding an app to test-flight: https://reinteractive.com/posts/344-how-to-upload-your-ios-app-to-testflight-for-distribution-beta
