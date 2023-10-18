@@ -1,22 +1,24 @@
 My notes on testflight<!--more-->
 
 ### Why does TestFlight expire?
-This is a general limitation when using TestFlight. Apple probably wants to prevent that TestFlight can be used to distribute Apps to users outside of the App Store, so they enforce a strict expiry policy. The App runs for 90 days and will then stop working
+TestFlight has a general limitation where apps expire after 90 days. This is likely due to Apple's desire to prevent the distribution of apps outside of the App Store.
 
 ### The easiest way for a tester to get access to the app is to:
-1. Install TestFlight from the App Store.
-2. Open their email on the device and look for the app invite email.
-3. Tap on the highlighted TestFlight word in their email and TestFlight should open, giving the tester the option to install your app.
+To access the app, testers can follow these steps: 
+1. Install TestFlight from the App Store, 
+2. Open the app invite email on their device, and 
+3. Tap on the highlighted TestFlight word in the email to open TestFlight and install the app.
 
 ### Limits:
-- TestFlight allows you to share your application with up to 10,000 users that can be invited with their email or a public link.
+TestFlight allows you to share your application with up to 10,000 users who can be invited via email or a public link.
 
 ### Setup:
-1. Archive your app
-2. Submit your build to App Store Connect
-3. Add internal and external testers
-4. Start beta testing
-5. Receive feedback and crash reports
+To set up beta testing with TestFlight, follow these steps: 
+1. Archive your app, 
+2. Submit your build to App Store Connect 
+3. Add internal and external testers (External == publicly available) 
+4. Start beta testing, and 
+5. Receive feedback and crash reports.
 
 ### Archiving Your App
 - Open your project in Xcode. In the target editor, under Signing & Capabilities, make sure you have a Bundle Identifier and that your Team and Signing Certificate are set. If you’re not using an app of your own, you will have to change the bundle ID to something unique.
