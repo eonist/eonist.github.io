@@ -25,16 +25,16 @@ Great tutorial for adding an app to test-flight: https://reinteractive.com/posts
 
 ### App review:
 - Read this: https://developer.apple.com/app-store/review/guidelines/
-- There are two review processes. One for app store, and one for test-flight.
-- ⚠️️ Important: ⚠️️ It's not intuitive, but you have to add app builds the app store review page to be able to initiate test-flight app review. So you can begin testing on test-flight before passing app-store review. The test-flight review is suppose to be less strict than app review (which can be strict, especially passing the first review).
+- There are two review processes. One for app store, and one for TestFlight.
+- It's not intuitive, but you have to add app builds to the app store review page to be able to initiate TestFlight app review. So you can begin testing on TestFlight before passing app store review. The TestFlight review is supposed to be less strict than app review (which can be strict, especially passing the first review).
 - https://www.revenuecat.com/blog/getting-through-app-review
 
 ### Find message that resonates with target user:
-- Identify core user problem / pain
-- Present innovative solution that solves the problem
+- Identify the core user problem or pain.
+- Present an innovative solution that solves the problem.
 
 ### Organic search
-Keywords, metadata, app-name, description
+- Keywords, metadata, app name, and description.
 
 #### Title (App name)
 Your app’s name plays a critical role in how users discover it on the App Store. Choose a simple, memorable name that is easy to spell and hints at what your app does. Be distinctive. Avoid names that use generic terms or are too similar to existing app names. An app name can be up to **30 characters long**.
@@ -46,17 +46,19 @@ Your app’s name plays a critical role in how users discover it on the App Stor
 - A subtitle can be up to 30 characters long and appears below your app’s name throughout the App Store.
 
 #### Description
-- Provide an engaging description that highlights the features and functionality of your app. The ideal description is a concise, informative paragraph followed by a short list of main features. Let potential users know what makes your app unique and why they’ll love it. Communicate in the tone of your brand, and use terminology your target audience will appreciate and understand. The first sentence of your description is the most important — this is what users can read without having to tap to read more. Every word counts, so focus on your app’s unique features.
-- If you choose to mention an accolade, we recommend putting it at the end of your description or as part of your promotional text. Don’t add unnecessary keywords to your description in an attempt to improve search results. Also avoid including specific prices in your app description. Pricing is already shown on the product page, and references within the description may not be accurate in all regions.
-- **You can update your app’s description** when you submit a new version of your app. If you want to share important updates more frequently, consider using your promotional text instead.
-- **Focus the bulk of your energy on the first three lines of your description**  to immediately grab your reader’s attention. Given the ever-growing number of apps in the marketplace, customers are sure to have a few — if not several — alternatives to consider when evaluating yours. Make their decision easy by immediately communicating what it does and why they should use it.
+- Craft an engaging description that highlights the features and functionality of your app. The ideal description is a concise, informative paragraph followed by a short list of main features. Let potential users know what makes your app unique and why they'll love it. Communicate in the tone of your brand, and use terminology your target audience will appreciate and understand.
+- The first sentence of your description is the most important, as it's what users can read without having to tap to read more. Every word counts, so focus on your app's unique features.
+- If you choose to mention an accolade, we recommend putting it at the end of your description or as part of your promotional text. Don't add unnecessary keywords to your description in an attempt to improve search results. Also, avoid including specific prices in your app description, as pricing is already shown on the product page and references within the description may not be accurate in all regions.
+- You can update your app's description when you submit a new version of your app. If you want to share important updates more frequently, consider using your promotional text instead.
+- Focus the bulk of your energy on the first three lines of your description to immediately grab your reader's attention. Given the ever-growing number of apps in the marketplace, customers are sure to have a few — if not several — alternatives to consider when evaluating yours. Make their decision easy by immediately communicating what it does and why they should use it.
+
 
 ### Promotional text
-Your app’s promotional text appears at the top of the description and is up to 170 characters long. You can update promotional text at **any time** without having to submit a new version of your app. Consider using this to share the latest news about your app, such as limited-time sales or upcoming features.
+Your app's promotional text appears at the top of the description and is up to 170 characters long. You can update promotional text at any time without having to submit a new version of your app. Consider using this to share the latest news about your app, such as limited-time sales or upcoming features.
 
 #### Screenshots
-- Use images captured from your app’s UI to visually communicate your app’s user experience. You can feature up to 10 screenshots on your App Store and Mac App Store product pages. Depending on the orientation of your screenshots, the first one to three images will appear in search results when no app preview is available, so make sure these highlight the essence of your app. Focus each subsequent screenshot on a main benefit or feature so that you fully convey your app’s value. If your app supports Dark Mode, consider including at least one screenshot that showcases what the experience looks like for users.
-- [App Store Connect Help](https://help.apple.com/app-store-connect/#/devd274dd925)
+- Use screenshots captured from your app's UI to visually communicate your app's user experience. You can feature up to 10 screenshots on your App Store and Mac App Store product pages. Depending on the orientation of your screenshots, the first one to three images will appear in search results when no app preview is available. Make sure these highlight the essence of your app. Focus each subsequent screenshot on a main benefit or feature so that you fully convey your app's value. If your app supports Dark Mode, consider including at least one screenshot that showcases what the experience looks like for users.
+- For more information on uploading screenshots, see the [App Store Connect Help](https://help.apple.com/app-store-connect/#/devd274dd925).
 - You have to upload 2 sizes of screenshots. launch simulator for **iPhone6 and iPhoneX** and click screenshot button to grab some shots
  1. For **6.5 inches iPhones** (1242 x 2688px or 1284 x 2778px)
  2. For **iPhone 5.5" Display** the trick is to take a shot and then resize in preview to 1242 x 2208 (the extra pixel must be removed to the height)
@@ -76,6 +78,7 @@ Your app’s promotional text appears at the top of the description and is up to
 - Competing app names
 - Irrelevant, inappropriate, offensive, or objectionable terms
 - In addition, keep in mind that promotional text doesn’t affect your app’s search ranking so it should not be used to display keywords.
+
 
 #### What’s New
 - When you update your app, you can use What’s New to communicate changes to users. This text appears on your product page and on the Updates tab.
