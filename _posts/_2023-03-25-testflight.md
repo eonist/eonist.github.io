@@ -21,17 +21,19 @@ To set up beta testing with TestFlight, follow these steps:
 5. Receive feedback and crash reports.
 
 ### Archiving Your App
-- Open your project in Xcode. In the target editor, under Signing & Capabilities, make sure you have a Bundle Identifier and that your Team and Signing Certificate are set. If you’re not using an app of your own, you will have to change the bundle ID to something unique.
-- Now, build and archive the app. This is a way of compiling the app and exporting it in a package that gets uploaded to the App Store. First, choose Generic iOS Device in the scheme chooser. Then, create an archive using the `Product ▸ Archive menu`.
-- If everything is OK with the build, Xcode will open the Organizer with your app in the Archives tab. Click Distribute App.
-- Next, you’ll choose your distribution method. Select App Store Connect, as this is how you distribute when using TestFlight and when publishing on the app store. Click Next.
-- Now, select the destination. Leave Upload selected and click Next. The Export option is for saving the signed archive and uploading it later using a different tool.
-- Xcode will prepare to submit your app; this includes checking your App Store credentials. App Store will show a prompt with distribution options, and Xcode will select all the checkboxes by default. Leave them like this and click Next.
-- The two options shown above are:
- 1. Include bitcode for iOS content: This allows the App Store to recompile and optimize your code for new devices later. It’s rare you’ll need to disable this.
- 2. Upload your app’s symbols to receive symbolicated reports from Apple: This uploads debug symbols along with the app so that you get symbolicated crash reports. This is helpful when doing TestFlight testing.
-- The next screen asks for distribution signing options. You can choose automatic signing or manually select your distribution certificate and provisioning profile. Letting Xcode manage your signing makes life easier most of the time. But if you’re managing the signing yourself, select the second option along with the relevant certificates. When you’re ready, click Next.
-- Note: You must already have an App Store distribution certificate. Otherwise, this prompts you to create one. If prompted, export the signing certificate and store it in a safe place.
+`⚠️️ By using xCode cloud, you dont have to archive anymore, it does it for you, but could still be useful making things work. Before setting up xCode cloud. ⚠️️`
+
+To distribute your app using TestFlight, follow these steps:
+
+- Open your project in Xcode and navigate to the target editor. Under Signing & Capabilities, ensure that you have a Bundle Identifier and that your Team and Signing Certificate are set correctly. If you're not using your own app, you will need to change the bundle ID to something unique.
+- To compile and export your app, select Generic iOS Device in the scheme chooser and create an archive using the `Product ▸ Archive` menu.
+- If the build is successful, Xcode will open the Organizer with your app in the Archives tab. Click Distribute App to proceed.
+- When prompted to choose your distribution method, select App Store Connect, as this is how you distribute your app when using TestFlight or publishing on the App Store.
+- Select Upload as the destination and click Next. The Export option is for saving the signed archive and uploading it later using a different tool.
+- Xcode will prepare to submit your app, which includes checking your App Store credentials. App Store will show a prompt with distribution options, and Xcode will select all the checkboxes by default. Leave them selected and click Next.
+- The two options shown above are: 1) Include bitcode for iOS content, which allows the App Store to recompile and optimize your code for new devices later, and 2) Upload your app's symbols to receive symbolicated reports from Apple, which uploads debug symbols along with the app so that you get symbolicated crash reports. This is helpful when doing TestFlight testing.
+- On the next screen, you can choose automatic signing or manually select your distribution certificate and provisioning profile. Letting Xcode manage your signing makes life easier most of the time. However, if you're managing the signing yourself, select the second option and choose the relevant certificates. When you're ready, click Next.
+- Note that you must already have an App Store distribution certificate. If you don't have one, Xcode will prompt you to create one. If prompted, export the signing certificate and store it in a safe place.
 
 ### Submit your build to App Store Connect
 - Uploading the Archive to the App Store
