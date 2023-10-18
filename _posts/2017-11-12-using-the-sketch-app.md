@@ -14,10 +14,10 @@ The workflow: help -> export -> svg/pdf/png
 
 ### Gif animation:
 - Quicktime for screen recording
-- Drop2Gif to convert quicktime to .gif (It's open-source)
+- Drop2Gif to convert quicktime to .gif (It's open-source) (or Gifski)
 
 ### Writing whitepapers:
-- Atom has markdown render and can save that markdown to .html Then use safari to save pdf from the html.
+- Atom has markdown render and can save that markdown to .html Then use safari to save pdf from the html. (VSCode now)
 
 ### Tips:
 - `Find and replace color`: Select a shape with a color and replace that color globally.

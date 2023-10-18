@@ -5,7 +5,7 @@ I **Don't** try to work hard or work as much as I can , I rather try to Enter Fl
 > Mini breaks helps to retain the flow highs. ☝️
 
 I do not believe in systems to keep you in check, all systems are prisons. I rather believe that I need to be open to all input, wims i get through the day. Keep your door open to the world or you will work on sightly the wrong thing. <-link
-I have two rules: Wear Noice cancelling headphones.🎧  
+I have two rules: Wear Noise cancelling headphones.🎧  
 > And **Don't waste your flow time** on things that don't require flow. ☝️
 
 ### A random day:

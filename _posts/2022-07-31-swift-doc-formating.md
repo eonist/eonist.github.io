@@ -1,5 +1,12 @@
-My notes on method commenting in swift<!--more-->. Commenting is vital when creating complex systems. So much resolution about how the method came to be and it's artefacts and gotchas are lost if there is no documentation in the code. I usually include massive amounts of comments in the code because when I later revisit the code a year later, my initial thinking has disappeared and I need something to accelerate my reasoning to get back into the code. I also leave references to where parts of the solution was found, like stackoverflow links or other github projects, or github-issues where the solution was discussed. To give credit where credit is due. Personally I use a commenting style that is closer to java-doc as a lot of people know it and it feels universal. It even renders to apples dialog boxes like bellow:
+My notes on method commenting in swift<!--more-->. 
 
+Commenting is vital when creating complex systems. Without documentation in the code, much of the resolution about how the method came to be and its artifacts and gotchas can be lost.
+
+Personally, I include massive amounts of comments in the code because when I revisit the code a year later, my initial thinking has disappeared and I need something to accelerate my reasoning to get back into the code.
+
+I also leave references to where parts of the solution were found, such as Stack Overflow links or other GitHub projects, or GitHub issues where the solution was discussed. This gives credit where credit is due.
+
+I use a commenting style that is closer to JavaDoc, as it is widely known and feels universal. It even renders to Apple's dialog boxes like the one below:
 ```swift
  /**
   * A method that returns awesome colors
@@ -170,13 +177,14 @@ The keywords available in the swift commenting syntax
 
 ### In closing (Comment or not to comment)
 **Not to comment:**
-- some developers claim that if the code is well written then there is no need to comment the code
-- some developers claim that documentation is never updated so it becomes outdated etc
+- Some developers claim that if the code is well written then there is no need to comment the code
+- Some developers claim that documentation is never updated so it becomes outdated etc
 
 **To comment:**
-- Applications used to be simple primitive scripts that was easy to reason about. Today apps are increasing in complexity and some are even becoming platforms and are no longer easy to reason about. Therefor we need context in the slice we are currently working in, as it's  close to impossible to understand the whole structure at any one point.
-- If you go in as a swat team to fix a one-off bug. If there is contextual comments. It will save you a lot of time when trying to reason about implications.
-- Having contextual comments also avoids  deprecating your dev skills. As you decrease them if you spend your day's wandering clueless through wades of code. As oppose to spending your time creating things the proper way, nurturing things, instead of fixing someone elses rush job.
-- The main point about contextual-code-comments is that we developers have a finite amount of brain bandwidth available each day. Most efficiently spent on solving problems, not trying to understand intent. We developers write so much code in lots of different places that we quickly lose our bearings. As such we need clues in the code to derive context blazing fast and just get going. surfing on top of the wave, not under it.
-- When you have code-base that is thoroughly commented, you can use external services to auto generate searchable Help documents. Similar to apples own help documents.
-- Write a documentation comment for every declaration. Insights gained by writing documentation can have a profound impact on your design, so don’t put it off.
+- Applications used to be simple primitive scripts that were easy to reason about. However, today's apps are increasing in complexity and some are even becoming platforms, making them no longer easy to reason about. Therefore, we need context in the slice we are currently working in, as it's close to impossible to understand the whole structure at any one point.
+- If you go in as a 'swat team' to fix a one-off bug, having contextual comments can save you a lot of time when trying to reason about implications.
+- Having contextual comments also avoids deprecating your development skills. If you spend your days wandering clueless through wades of code, you decrease your skills. Instead, spend your time creating things the proper way and nurturing them, rather than fixing someone else's rush job.
+- The main point about contextual code comments is that developers have a finite amount of brain bandwidth available each day, which is most efficiently spent on solving problems rather than trying to understand intent. We write so much code in lots of different places that we quickly lose our bearings. As such, we need clues in the code to derive context blazing fast and just get going, surfing on top of the wave instead of under it.
+- When you have a codebase that is thoroughly commented, you can use external services to auto-generate searchable help documents, similar to Apple's own help documents.
+- It's important to write a documentation comment for every declaration. Insights gained by writing documentation can have a profound impact on your design, so don’t put it off.
+- Comments are also non-destructive, meaning they don't change how apps behave. This means you can safely improve them without breaking anything. It's also a nice way to get back into code. Go over the comments and improve them to bring your neural network up to speed and solve things more easily.

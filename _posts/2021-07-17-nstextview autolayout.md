@@ -1,8 +1,6 @@
 My notes on Autolayout and nstextview / uitextview <!--more-->
 
-
-
-### The key to make text view height follow it's content is by NOT SET HEIGHT CONSTRAINT and DISABLE THE SCROLL.
+The key to make text view height follow it's content is by NOT SET HEIGHT CONSTRAINT and DISABLE THE SCROLL.
 
 ```swift
 theTextView.isScrollEnabled = false
@@ -288,6 +286,15 @@ theTextView.isScrollEnabled = false
 theTextView.text = "some text"
 theTextView.sizeToFit()
 ```
+
 ### Resources:
 - dealing with keyboard coming into play: https://pinkstone.co.uk/how-to-resize-a-uitextview-dynamically-with-auto-layout/
 - https://lapcatsoftware.com/articles/autoresizing-uitextview.html
+
+
+### Todo: 
+- write about intrinsicContentSize
+- and fittingsize
+- and .contentSize.height
+- and $0.sizeToFit()
+- and let textWidth: CGFloat = text.size(withAttributes: [.font: Font.title]).width + 12 // calcs width here
