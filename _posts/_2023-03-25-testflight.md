@@ -36,26 +36,24 @@ To distribute your app using TestFlight, follow these steps:
 - Note that you must already have an App Store distribution certificate. If you don't have one, Xcode will prompt you to create one. If prompted, export the signing certificate and store it in a safe place.
 
 ### Submit your build to App Store Connect
-- Uploading the Archive to the App Store
-Once Xcode finishes doing some of its magic, it presents a summary page for the app you’re about to submit. Click Upload.
-- Note: If you get a “[n]o suitable application records were found” error, this means one of two things: Either you didn’t first create a new app in App Store Connect, or the bundle identifiers do not match. Make sure you’ve agreed to all the terms and signed all the contracts within App Store Connect.
-- Your app will start uploading to App Store Connect. Xcode displays various messages as it compiles, verifies and signs your app.
-- You can now smile and click Done. :] That’s all the work required from Xcode. Your beta build is now available on App Store Connect, which is where you’ll do the rest of the work to set up TestFlight.
+After Xcode finishes processing your app archive, it presents a summary page for the app you're about to submit. Click Upload to proceed.
+
+- If you receive a '[n]o suitable application records were found' error, this means one of two things: either you didn't create a new app in App Store Connect first, or the bundle identifiers do not match. Make sure you've agreed to all the terms and signed all the contracts within App Store Connect before proceeding.
+- Your app will begin uploading to App Store Connect. Xcode displays various messages as it compiles, verifies, and signs your app.
+- Once the upload is complete, you can click Done. This completes the work required from Xcode. Your beta build is now available on App Store Connect, where you'll do the rest of the work to set up TestFlight.
+
 
 ### Adding External Testers
-- First, click Test Information from the menu on the left and fill in the necessary information. This includes:
- 1. Beta App Description
- 2. Feedback Email
- 3. Contact Information
-- Providing this information is necessary when submitting a build for external testing. Once completed, click Save.
-- Now, click Add External Testers from the menu on the left. App Store Connect asks you to create a new testing group. It’s up to you how you choose to manage your groups. You can have one group for all your testers, different groups for different types of testers or different groups for different apps. For this tutorial, you’ll create one group called Top-Testers.
-- **Inviting by Link**: Instead of adding external testers by email, you can create a public link that allows anyone to install the app. This is useful when you don’t know your testing group ahead of time, such as with a public beta test. Under Public Link, click Enable Public Link.
-- Note: If you don’t yet have a build enabled for this group, you can add one under the Builds tab above. If the build is not yet reviewed, it will prompt you to submit it for review and you’ll have to wait for approval.
-- App Store Connect double-checks that you’re sure you want to proceed. You’ll then get a TestFlight link you can share any way you’d like. This link works exactly the same way the invitation email does: The tester will have to open it on the target device. The page will prompt the user to install the TestFlight app if they don’t already have it, and then it will allow them to install your app through TestFlight.
-- In one sense, the link is more convenient than the invitation email. But be careful when sharing it! Testers invited through the link count against your 10,000-tester limit, but you can set your own limit to reduce the number of people who can get the app through the link. This is in case you don’t want to give away 10,000 free copies of your app.
+- To submit a build for external testing, you need to provide some information in the Test Information section. This includes the 1. Beta App Description, 2. Feedback Email, and 3. Contact Information. Once you've filled in the necessary information, click Save.
+- Next, you'll need to add external testers to your testing group. App Store Connect allows you to create multiple testing groups, depending on your needs. For this tutorial, we'll create a group called Top-Testers.
+- Instead of adding external testers by email, you can create a public link that allows anyone to install the app. This is useful when you don’t know your testing group ahead of time, such as with a public beta test. To enable the public link, click Enable Public Link under Public Link.
+- Note that you'll need to have a build enabled for this group before you can proceed. If the build is not yet reviewed, you'll need to submit it for review and wait for approval.
+- App Store Connect will prompt you to confirm that you want to proceed. Once you confirm, you'll receive a TestFlight link that you can share with your testers. The link works the same way as the invitation email: the tester will need to open it on their device, install the TestFlight app if they don't already have it, and then install your app through TestFlight.
+- Be aware that testers invited through the link count against your 10,000-tester limit. However, you can set your own limit to reduce the number of people who can access the app through the link. This is useful if you don't want to give away too many free copies of your app.
+
 
 ### Gotchas:
-- Testflight apps don't have separate/own sandbox. It'll be treated as regular update (like from one version to another, both from App Store) so all your data will persist. Check out this thread http://stackoverflow.com/questions/32655508/will-testflight-prerelease-beta-app-version-update-existing-app-store-version-o
+- Testflight apps don't have separate/own sandbox. It'll be treated as regular update (like from one version to another, both from App Store) so all your data will persist. Check out this thread [http://stackoverflow.com/questions/32655508/will-testflight-prerelease-beta-app-version-update-existing-app-store-version-o](http://stackoverflow.com/questions/32655508/will-testflight-prerelease-beta-app-version-update-existing-app-store-version-o) 
 - The beta app has exactly the same bundle identifier with the one on the App Store.
 - User data (CoreData, Keychain, UserDefault) is pulled based on the **bundle id** of an app. The **bundle id** of an app installed from XCode, TestFlight, or the AppStore may be the same;
 - When replacing a testflight app with a release app. There might be a warning saying data will be lost. `You already have this app installed. Do you want to replace the current app version the test version you may lose the app's data` The data wont be lost tho. (this needs confirmation)
@@ -65,5 +63,7 @@ Once Xcode finishes doing some of its magic, it presents a summary page for the 
 - You can only create public beta-test links if you have **at least one build approved** by Beta App Review.
 - If you’re worried that your beta build might get a lot of attention, you can cap the number of testers that can sign up using the public link by clicking Set limit. Once you have enough beta testers, you can also disable a public link altogether by clicking Disable Link.
 - ⭐️ when you upload a build to TestFlight it can first be in TestFlight and then go live in the AppStore
+
 ### Resources:
-- See how long app-store reviews take live: https://www.runway.team/appreviewtimes (also server build times etc)
+- See how long app-store reviews take live: [https://www.runway.team/appreviewtimes](https://www.runway.team/appreviewtimes)  (also server build times etc)
+
