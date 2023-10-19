@@ -1,6 +1,6 @@
 My notes on performance in swift<!--more-->When dealing with swift objects in general, we sometimes forget about memory issues or safety, because Swift is handling it for us. But it comes with a cost or performance.
 
-once your done with the array, remember to dealocate it
+Once your done with the array, remember to dealocate it
 
 Often, the optimizer can eliminate bounds checks within an array algorithm, but when that fails, invoking the same algorithm on the buffer pointer passed into your closure lets you trade safety for speed.
 

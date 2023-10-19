@@ -34,7 +34,7 @@ In order to keep the future workforce engaged you need to empower individuals to
 
 ## Convergent vs divergent problem solving
 - Most test for only convergent problem-solving (Multiple choice questions requiring convergent thinking)
-- You should test for divergent problem-solving, because half the time, this were the real value lies
+- You should test for divergent problem-solving, because half the time, this is where the real value lies
 - The convergent thinkers are too focused with selecting the best answer that they fail to appropriately evaluate minority opinion and could end up dismissing accurate solutions.
 
 ## Dynamic scaling up and down to changing requirements

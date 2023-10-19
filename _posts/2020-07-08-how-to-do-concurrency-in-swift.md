@@ -8,7 +8,7 @@ My notes on distributing tasks to multiple cpu cores<!--more-->.
 - `concurrentPerform` is a great way to enjoy concurrency in a for loop in such a way that you won't exhaust GCD worker threads.
 - The tasks performed within the concurrentPerform should in them self be threadsafe, meaning they should be serial. Creating/reading a QR-Image is likely a parallel process
 
-## Find num of available cores and threads
+## Find number of available cores and threads
 ```swift
 let processInfo = ProcessInfo()
 print(processInfo.activeProcessorCount) // prints 8 for 4-core macbook (playground) probably  provides the number of logical cores, not the number of physical cores
@@ -21,7 +21,7 @@ print("Current thread \(Thread.current)")
 
 Get additional thread info [https://stackoverflow.com/a/42645509/5389500](https://stackoverflow.com/a/42645509/5389500)
 
-## Execute optimal num of tasks depending on cpu core count:
+## Execute optimal nuber of tasks depending on cpu core count:
 ```swift
 let numOfCores: Int = ProcessInfo().activeProcessorCount
 DispatchQueue.concurrentPerform(iterations: numOfCores) { (i: Int) in

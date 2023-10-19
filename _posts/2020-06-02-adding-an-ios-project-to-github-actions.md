@@ -33,7 +33,7 @@ jobs:
 ![CI](https://github.com/eonist/RichContextMenu/workflows/CI/badge.svg)
 
 ### Running ios UITest:
-```swift
+```yml
 name: iOS starter workflow
 
 on:

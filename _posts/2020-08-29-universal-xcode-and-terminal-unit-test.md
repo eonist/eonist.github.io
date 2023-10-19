@@ -7,3 +7,8 @@ My notes on making unit tests that works in xCode and terminal<!--more-->
 4. Move the test folder into `Tests/` folder and drag it into xcode (in copy bundle resources remove the info.plist)
 5. In the xCode unit-test-target set the info.plist filepath to `Tests/NameOfProjectTests/info.plist`
 6. In the package.swift make sure the testTarget name matches the Test target name
+
+### Examples:
+These can be unit tested from xcode and terminal:
+- [https://github.com/sentryco/UpgradeAlert](https://github.com/sentryco/UpgradeAlert) 
+- [https://github.com/sentryco/Telemetry](https://github.com/sentryco/Telemetry) 

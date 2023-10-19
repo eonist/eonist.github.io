@@ -17,10 +17,17 @@ You can enable a timer right within Xcode’s UI. This timer is not visible by d
 
 After you have enabled the timer, you will see the time it takes to compile your app in the build status bar in Xcode.
 
-👉 Remember to clean your proj to show this build time 👈
+👉 Remember to clean your xcode project to show this build time 👈
 
 ### Build time details
 `Product → Perform Action → Build with Timing Summary option.`
+
+## Terminal:
+Performance regarding swift package manager tests
+
+To test with optimization levels turned on: `swift test -Xswiftc -O` and type --help for other flags to use
+- Ref: [https://stackoverflow.com/questions/39775937/how-to-build-optimized-version-of-swift-package-using-the-swift-package-manager](https://stackoverflow.com/questions/39775937/how-to-build-optimized-version-of-swift-package-using-the-swift-package-manager)
+
 
 ### other:
 - add dealloc checker lib: [https://github.com/fastred/DeallocationChecker](https://github.com/fastred/DeallocationChecker)
