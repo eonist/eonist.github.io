@@ -1,6 +1,8 @@
-My notes on Autolayout and nstextview / uitextview <!--more-->
+My notes on Autolayout and NSTextView / UITextview <!--more-->
 
-The key to make text view height follow it's content is by NOT SET HEIGHT CONSTRAINT and DISABLE THE SCROLL.
+⚠️️ This article is still WIP ⚠️️ 
+
+The key to make text view height follow it's content is by `NOT SET HEIGHT CONSTRAINT` and `DISABLE THE SCROLL`.
 
 ```swift
 theTextView.isScrollEnabled = false
@@ -52,11 +54,11 @@ set up all your constraints except the height one AND
 set textView's scrollEnabled property to NO
 The last part is what does the trick.
 
-Your text view will size automatically depending on its text value.
+Your text view will size automatically depending on it's text value.
 
 
 
-myTextView.textContainer.heightTracksTextView = true
+`myTextView.textContainer.heightTracksTextView = true`
 Which allows scroll to be enabled
 
 
@@ -201,7 +203,7 @@ class AutoExpandingTextView: UITextView {
 }
 ```
 
-Do not give a static height to UIView or to UITextView.
+Do not give a static height to UIView or to UITextView
 
 ```swift
 func textviewHeight() {

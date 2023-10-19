@@ -69,4 +69,3 @@ swiftlint lint // shows lint errors
 - Google: [https://google.github.io/swift/](https://google.github.io/swift/) (This one is good)
 - Airbnb: [https://github.com/airbnb/swift](https://github.com/airbnb/swift) 
 - SwiftLint: [https://github.com/realm/SwiftLint](https://github.com/realm/SwiftLint) 
-

@@ -1,22 +1,17 @@
 My notes on prototyping applications in swift<!--more-->
 
 ### Introduction:
-- Creating a modern app is hard. You have to implement DarkMode, and support many different sizes and many different versions of iOS. It quickly gets out of hand.
-- It's even harder to modernize legacy apps with a lot of spagethi code all over the place
-- So regardless if you making or upgrading an app it's smart to begin from the start, and build a prototype in code, that you later can add more complex code on top. You also get the benefit of having everything fresh in mind so you can use this intimate but ephemeral knowledge and move quickly when implementing the more complex functionality on top.
+- Creating a modern iOS app can be a daunting task. You need to implement features like Dark Mode and support multiple screen sizes and iOS versions, as well as multiple languages. It's easy for things to quickly get out of hand.
+- Modernizing legacy apps with spaghetti code can be even more challenging.
+- That's why it's smart to start with a prototype in code, whether you're building a new app or upgrading an existing one. By starting from scratch, you can build a solid foundation and add more complex code on top later. You'll also have everything fresh in your mind, allowing you to move quickly when implementing more complex functionality.
 
 ### Problem:
-- App projects seems daunting
-- So many requirements
-- So high expectations
-- So little time and resources to use
+- Building a complex iOS app can seem daunting, with many requirements and high expectations, but limited time and resources.
 
 ### Solution:
-- Build a mock app. With fake data and fake graphics
-- Focus on how the app works, not understanding and implementing complex API's
-- Focus on getting the spacing and interactions right
-- Since mock-data is always simpler to code, the codebase remain easy to experiment with
-- Once your happy with how the app feels, Start adding more complex logic and Api's and cover side effects
-- Begin with the simplest elements you can make. Squares with color and lay these out for the important views, then slowly add text and UI elements, then start refining the interactions etc
-- Begin with new drawing sticks and a blank canvas is always more motivating
-- ✨ Another approach ✨ is to make small modules of the app first. Nurture them to fruition individually before you load them into the mothership. If each part is awesome, then the sum will also be awesome. if you start with the sum. Its hard to stay motivated looking at all the not so awesome parts. 
+- Start by building a mock app with fake data and graphics, focusing on how the app works rather than complex APIs.
+- Focus on getting the spacing and interactions right, starting with the simplest elements like squares with color and gradually adding text and UI elements.
+- Once you're happy with how the app feels, start adding more complex logic and APIs, covering side effects as you go.
+- Another approach is to build small modules of the app first, nurturing them to fruition individually before integrating them into the main app. This way, you can ensure that each part is awesome before combining them into a sum that is also awesome.
+- Starting with a blank canvas and new drawing sticks can be more motivating than trying to work with an existing codebase.
+- By taking these steps, you can build a solid foundation for your app and gradually add more complex functionality, making the process less daunting and more manageable.

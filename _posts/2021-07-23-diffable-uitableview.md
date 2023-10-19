@@ -1,15 +1,15 @@
 Diffable table<!--more-->
 
 ### Research
-- Manual section + uitable + diffable source: https://blog.mallow-tech.com/2021/01/diffable-datasource-in-tableview-and-collection-view-in-ios/
-- UITableViewDiffableDataSource: https://developer.apple.com/documentation/uikit/uitableviewdiffabledatasource
-- Manual section + UITable + diffable source (with github code): https://alfianlosari.medium.com/using-diffable-data-source-ios-13-api-in-uitableview-47343c2332be
-- diffable table Example https://wwdcbysundell.com/2019/diffable-data-sources-first-look/
-- Diffable data source (a lot of good detailed info):  https://www.donnywals.com/modern-table-views-with-diffable-data-sources/
-- Diffable data source + section https://stackoverflow.com/questions/63981508/uitableview-diffable-data-source
-- For macOS: NSTableViewDiffableDataSource https://developer.apple.com/documentation/appkit/nstableviewdiffabledatasource
-- For macOS NSCollectionView: https://developer.apple.com/documentation/appkit/nscollectionviewdiffabledatasource
-- Search with diffable: ✨ https://dev.to/ahmed_komsan12/getting-started-with-diffable-data-source-2581
+- Manual section + uitable + diffable source: [https://blog.mallow-tech.com/2021/01/diffable-datasource-in-tableview-and-collection-view-in-ios/](https://blog.mallow-tech.com/2021/01/diffable-datasource-in-tableview-and-collection-view-in-ios/)
+- UITableViewDiffableDataSource: [https://developer.apple.com/documentation/uikit/uitableviewdiffabledatasource](https://developer.apple.com/documentation/uikit/uitableviewdiffabledatasource)
+- Manual section + UITable + diffable source (with github code): [https://alfianlosari.medium.com/using-diffable-data-source-ios-13-api-in-uitableview-47343c2332be](https://alfianlosari.medium.com/using-diffable-data-source-ios-13-api-in-uitableview-47343c2332be)
+- diffable table Example: [https://wwdcbysundell.com/2019/diffable-data-sources-first-look/](https://wwdcbysundell.com/2019/diffable-data-sources-first-look/)
+- Diffable data source (a lot of good detailed info): [https://www.donnywals.com/modern-table-views-with-diffable-data-sources/](https://www.donnywals.com/modern-table-views-with-diffable-data-sources/)
+- Diffable data source + section: [https://stackoverflow.com/questions/63981508/uitableview-diffable-data-source](https://stackoverflow.com/questions/63981508/uitableview-diffable-data-source)
+- For macOS: NSTableViewDiffableDataSource: [https://developer.apple.com/documentation/appkit/nstableviewdiffabledatasource](https://developer.apple.com/documentation/appkit/nstableviewdiffabledatasource)
+- For macOS NSCollectionView: [https://developer.apple.com/documentation/appkit/nscollectionviewdiffabledatasource](https://developer.apple.com/documentation/appkit/nscollectionviewdiffabledatasource)
+- Search with diffable: ✨ [https://dev.to/ahmed_komsan12/getting-started-with-diffable-data-source-2581](https://dev.to/ahmed_komsan12/getting-started-with-diffable-data-source-2581)
 
 ### Keep your identifiers simple and to the point
 When you choose your identifiers for your diffable data source and snapshot, try to make sure they only include data that will be rendered or influences the rendering. When I was stuck with reloading my cells, I was using NSManaged object subclasses to drive my data source. This seems to work well enough because everything was there. Items were added, removed and reordered. However, for some reason, my data source never seemed to pick up changes to the properties of my managed objects. I eventually got around this by providing a struct that contained the data I wanted to render rather than the entire managed object. A nice way I've found to define these structs is as extensions on the models themselves:

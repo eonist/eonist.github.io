@@ -4,6 +4,7 @@ My notes on queuing things with NSOperationQueue in swift<!--more-->
 
 ### Use NsOperationQueue when:
 NSOperation can be scheduled with a set of dependencies at a particular queue priority and quality of service. Unlike a block scheduled on a GCD queue, an NSOperation can be cancelled and have its operational state queried. And by subclassing, NSOperation can associate the result of its work on itself for future reference.
+
 - Network requests
 - Image resizing
 - Text processing
@@ -34,7 +35,7 @@ NSOperation can be scheduled with a set of dependencies at a particular queue pr
 - They are testable, making your code robust ᕦ(ò_óˇ)ᕤ
 
 ### Notes:
-- What is NsOperationQueue in Swift? A queue that regulates the execution of operations.
+- What is NSOperationQueue in Swift? A queue that regulates the execution of operations.
 - NSOperation represents a single unit of work. It’s an abstract class that offers a useful, thread-safe structure for modeling state, priority, dependencies, and management.
 - Examples of tasks that lend themselves well to NSOperation include network requests, image resizing, text processing, or any other repeatable, structured, long-running task that produces associated state or data.
 - GCD is ideal for in-line asynchronous processing, NSOperation provides a more comprehensive, object-oriented model of computation for encapsulating all of the data around structured, repeatable tasks in an application.
@@ -80,10 +81,10 @@ NSOperationQueue.mainQueue().addOperation(operation)
 
 ### NSOperationQueue:
 - If the operations in a queue have a similar priority, they are executed by the FIFO principle. (first in, first out)
-- Example in how to make NSOperationQueue async with subclassing: https://stackoverflow.com/a/24943851/5389500 (swift version lower on the page)
+- Example in how to make NSOperationQueue async with subclassing: [https://stackoverflow.com/a/24943851/5389500](https://stackoverflow.com/a/24943851/5389500)  (swift version lower on the page)
 - Wait until the prior one finishes: With an NSOperationQueue, you achieve that simply by setting **maxConcurrentOperationCount** to 1.
 - Serialize operations on a given context. That happens naturally if you use a single thread, but NSOperationQueue also serializes its operations if you set **maxConcurrentOperationCount** to 1
-- Link: https://developer.apple.com/documentation/foundation/nsoperationqueue
+- Link: [https://developer.apple.com/documentation/foundation/nsoperationqueue](https://developer.apple.com/documentation/foundation/nsoperationqueue) 
 - If the operation does not fully respond to the application’s needs, an NSOperation subclass can be created to add the missing functionality.
 - Use Operation because you’re dealing with a table view and, for performance and power consumption reasons, **you need the ability to cancel an operation for a specific image** if the user has scrolled that image off the screen. Even if the operations are on a background thread, if there are dozens of them waiting on the queue, **performance will still suffer.**
 
@@ -532,5 +533,5 @@ NSOperation *operation3 = [[NetworkOperation alloc] initWithRequest:request3 com
 ```
 
 ### Todo:
-- Figure out how to add timeout to NSOperation
-- Figure out how NSOperation is started, can it be added to while it runs etc? Answer: it begins when you add something to the queue i thin
+- Figure out how to add timeout to `NSOperation`
+- Figure out how `NSOperation` is started, can it be added to while it runs etc? Answer: it begins when you add something to the queue i thin

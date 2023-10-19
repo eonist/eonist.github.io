@@ -1,13 +1,13 @@
 My notes on creating a custom tab bar in swift<!--more-->
 
 ### Resources:
-- Custom TabBar and navigatorBar: https://github.com/BartSimpsons/BartRootTaabbarViewController and tutorial: https://programmer.help/blogs/swift-special-custom-uitabbar-uitabbarcontroller-and-uinavigation-controller.html
-- View embedder code: https://stackoverflow.com/a/47764799/5389500
-- Embedding view controllers within view controllers: ✨ https://stackoverflow.com/a/44333386/5389500
-- Simple Embedding vc inside vc: https://stackoverflow.com/q/56837437/5389500
-- Apples docs on custom View controller setups: https://developer.apple.com/documentation/uikit/view_controllers/creating_a_custom_container_view_controller
-- Managing state with ViewController hierarchies: https://www.swiftbysundell.com/articles/custom-container-view-controllers-in-swift/
-- Great break down of UIViewController hierarchy: https://cocoacasts.com/managing-view-controllers-with-container-view-controllers/
+- Custom TabBar and navigatorBar: [https://github.com/BartSimpsons/BartRootTaabbarViewController](https://github.com/BartSimpsons/BartRootTaabbarViewController) and tutorial: [https://programmer.help/blogs/swift-special-custom-uitabbar-uitabbarcontroller-and-uinavigation-controller.html](https://programmer.help/blogs/swift-special-custom-uitabbar-uitabbarcontroller-and-uinavigation-controller.html) 
+- View embedder code: [https://stackoverflow.com/a/47764799/5389500](https://stackoverflow.com/a/47764799/5389500) 
+- Embedding view controllers within view controllers: ✨ [https://stackoverflow.com/a/44333386/5389500](https://stackoverflow.com/a/44333386/5389500) 
+- Simple Embedding vc inside vc:  [https://stackoverflow.com/q/56837437/5389500](https://stackoverflow.com/q/56837437/5389500) 
+- Apples docs on custom View controller setups: [https://developer.apple.com/documentation/uikit/view_controllers/creating_a_custom_container_view_controller](https://developer.apple.com/documentation/uikit/view_controllers/creating_a_custom_container_view_controller)
+- Managing state with ViewController hierarchies: [https://www.swiftbysundell.com/articles/custom-container-view-controllers-in-swift/](https://www.swiftbysundell.com/articles/custom-container-view-controllers-in-swift/)
+- Great break down of UIViewController hierarchy: [https://cocoacasts.com/managing-view-controllers-with-container-view-controllers/](https://cocoacasts.com/managing-view-controllers-with-container-view-controllers/)
 
 ### Gotchas:
 - Establishing a container-child relationship between view controllers prevents UIKit from interfering with your interface unintentionally. UIKit normally routes information to each of your app’s view controllers independently. When a container-child relationship exists, UIKit routes many requests through the container view controller first, giving it a chance to alter the behavior for any child view controllers. For example, a container view controller may override the traits of its children, forcing them to adopt a specific appearance or behavior.

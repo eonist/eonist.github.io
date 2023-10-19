@@ -11,5 +11,3 @@ Refactor, refine, rebuild. With the feedback, you got from your customers. Add t
 
 ## Conclusion
 Pretty simple really, yet I dare say that 90% of tech-establishments around the world skip the coding slow phase, just because the tech department usually has no influence or know-how when it comes to project management. But as problem solvers, this is a problem that can be solved, or it can at least be your competitive edge. Happy coding. Fast and slow.
-
-> A rushed victory is assured failure

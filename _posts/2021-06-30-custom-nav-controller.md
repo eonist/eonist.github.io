@@ -18,8 +18,8 @@ My notes on customizing the native UINavigationController<!--more-->
 - ⚠️️ You can strip down native uinavigationcontroller and just use its transitioning and vc array code. ⚠️️  THen roll your own navbar etc
 
 ### Resources:
-- Apple docs: https://developer.apple.com/documentation/uikit/uinavigationcontroller
-- really nice swipe transition possibly without darkened bug etc: https://ordinarycoding.com/articles/simple-custom-uinavigationcontroller-transitions/
+- Apple docs: [https://developer.apple.com/documentation/uikit/uinavigationcontroller](https://developer.apple.com/documentation/uikit/uinavigationcontroller)
+- really nice swipe transition possibly without darkened bug etc: [https://ordinarycoding.com/articles/simple-custom-uinavigationcontroller-transitions/](https://ordinarycoding.com/articles/simple-custom-uinavigationcontroller-transitions/)
 
 ### NavController scope:
 ```swift

@@ -1,6 +1,5 @@
 My notes on JTBD vs Personas<!--more-->
 
-
 ### Jobs to be done vs personas:
 - [https://www.nngroup.com/articles/personas-jobs-be-done/](https://www.nngroup.com/articles/personas-jobs-be-done/)
 - [https://careerfoundry.com/en/blog/ux-design/personas-vs-jtbd/](https://careerfoundry.com/en/blog/ux-design/personas-vs-jtbd/)

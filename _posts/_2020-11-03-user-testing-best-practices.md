@@ -8,10 +8,10 @@ Even just writing a user-test-survey, can make you aware of key insights into ho
 - Use the insight in marketing and branding
 
 ## Different ways to test
-- High-level: ease of use, how does it make you feel
-- Low-level: Steps or tasks to complete (login, add product to cart, etc)
-- Field-testing: sit with the user, let the user use the product in front of you
-- Remote-testing (can be through survey, or remote phone-call)
+- **High-level**: ease of use, how does it make you feel
+- **Low-level**: Steps or tasks to complete (login, add product to cart, etc)
+- **Field-testing**: sit with the user, let the user use the product in front of you
+- **Remote-testing**: (can be through survey, or remote phone-call)
 
 ## Making a testing plan
 - Introduce the product, introduce the user

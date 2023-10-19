@@ -19,14 +19,6 @@ let settingsURL = Bundle.module.url(forResource: "settings", withExtension: "pli
 ### Gotchas:
 - You can set folder paths and file paths as resources
 
-### Resources
-- General SPM assets: https://developer.apple.com/documentation/swift_packages/bundling_resources_with_a_swift_package
-- Localizing spm assets: https://developer.apple.com/documentation/swift_packages/localizing_package_resources
-- Binary distro: https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages
-- Local spm modules: https://developer.apple.com/documentation/swift_packages/developing_a_swift_package_in_tandem_with_an_app
-- Bundle.module for mac: https://developer.apple.com/forums/thread/650158
-- Unit testing with SPM resources: https://stackoverflow.com/a/61263653/5389500
-
 ### Update for spm 5.6+:
 
 - `Resources/Assets.bundle`
@@ -52,6 +44,7 @@ let package = Package(
     ]
 )
 ```
+
 SPM file:
 ```swift
 import Foundation
@@ -72,3 +65,11 @@ let fileContent = FileParser.content(filePath: filePath1)
 Swift.print("fileContent:  \(String(describing: fileContent))")
 let filePath2 = assetBundlePath + "/docs/" + "testing.txt" // Access subfolders
 ```
+
+### Resources
+- General SPM assets: [https://developer.apple.com/documentation/swift_packages/bundling_resources_with_a_swift_package](https://developer.apple.com/documentation/swift_packages/bundling_resources_with_a_swift_package)
+- Localizing spm assets: [https://developer.apple.com/documentation/swift_packages/localizing_package_resources](https://developer.apple.com/documentation/swift_packages/localizing_package_resources)
+- Binary distro: [https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages](https://developer.apple.com/documentation/swift_packages/distributing_binary_frameworks_as_swift_packages)
+- Local spm modules: [https://developer.apple.com/documentation/swift_packages/developing_a_swift_package_in_tandem_with_an_app](https://developer.apple.com/documentation/swift_packages/developing_a_swift_package_in_tandem_with_an_app)
+- Bundle.module for mac: [https://developer.apple.com/forums/thread/650158](https://developer.apple.com/forums/thread/650158)
+- Unit testing with SPM resources: [https://stackoverflow.com/a/61263653/5389500](https://stackoverflow.com/a/61263653/5389500)
