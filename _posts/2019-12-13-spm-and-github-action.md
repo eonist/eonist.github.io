@@ -24,9 +24,9 @@ My notes on using swift package manager and Github actions together<!--more--> â
 ![Swift](https://github.com/eonist/Spatial/workflows/Swift/badge.svg)
 
 ## Gotchas:
-- TestTarget must have unique name if you use them as dependencies of other repos. Or else swift wont know which is correct ðŸ¤·, So name the TestTarget YourProjectName_OSName_Tests (drop the underscores)
+- TestTarget must have unique name if you use them as dependencies of other repos. Or else swift won't know which is correct, So name the TestTarget YourProjectName_OSName_Tests (drop the underscores)
 - "Swift test" in terminal builds for macOS
-- Having two .yml files in a project can be a problem. As can running parallel tests or projects commandline be. Im not sure github spins up new server for each .yml file etc. If it does it might not be a problem.  
+- Having two `.yml` files in a project can be a problem. As can running parallel tests or projects commandline be. Im not sure github spins up new server for each .yml file etc. If it does it might not be a problem.  
 
 ## Example:
 ```swift

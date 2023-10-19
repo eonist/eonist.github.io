@@ -43,7 +43,7 @@ DispatchQueue.global().async {
 ```
 
 ### Limiting concurrent tasks:
-As we already know, unlimited work might lead to a deadlock. Here is how we can apply dispatch semaphore to limit a queue to 3 concurrent tasks:
+As we already know, unlimited work might lead to a deadlock. Here is how we can apply dispatch semaphore to limit a queue to 3 concurrent tasks.
 
 ```swift
 let concurrentTasks = 3
@@ -119,7 +119,7 @@ do {
 ```
 
 ### Resources:
-- https://www.fivestars.blog/articles/semaphores/
+- [https://www.fivestars.blog/articles/semaphores/](https://www.fivestars.blog/articles/semaphores/) 
 
 ### Todo:
-- Make a wrapper for making methods that are async sync. this seems harder than it sounds. Seems impossible.
+- Make a wrapper for making methods that are async / sync. This seems harder than it sounds. Seems impossible actually.

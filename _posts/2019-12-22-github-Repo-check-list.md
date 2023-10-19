@@ -8,12 +8,13 @@ My check-list when creating a Swift module / framework / project<!--more-->
 - Add [Unit test](http://eon.codes/blog/2018/10/11/unit-test/) (Optional)
 - Check if tests pass locally: `terminal: swift test` or builds `terminal: swift build`
 - Add CI tests: [GitHub Actions](http://eon.codes/blog/2019/12/13/spm-and-github-action/)
-- Add a cronjob schedule for the CITest via crontab.guru
+- Add a cronjob schedule for the CITest via [crontab.guru](crontab.guru) 
 - Add instructions on how to use the framework and CI badges in the repo
 - Add [CodeBeat](https://www.CodeBeat.co) code healthy badge to the repo
 
 ### Schedule cron builds on github:
 The nice thing with cron jobs is if you have nested dependencies, the build badges higher up will start to go red if the sub-modules they relay on start to break down.
+
 ```yaml
 on:
   push:
@@ -42,3 +43,8 @@ And after this list you can start adding things you want the project to be.
 - Add Github-Actions
 - Edit ReadMe.md
 ```
+
+### Reach goals:
+- Add Automated code-reviews based on AI
+- Add automated UITests
+- Add code coverage services like codacy codeclimate etc

@@ -1,5 +1,7 @@
 My notes on using bundle assets with SPM<!--more-->
 
+⚠️️ With the release of swift 5.0 There are more modern ways of adding resources to projects now ⚠️️ 
+
 ### ResourceHelper:
 By importing [ResourceHelper](https://github.com/eonist/ResourceHelper/) you can access resources in xCode unitTests as well as SPM Terminal/Github-actions unit-tests  
 

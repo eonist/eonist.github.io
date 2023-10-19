@@ -1,7 +1,7 @@
 My notes on Parallel Execution <!--more-->
 
 ### concurrentPerform
-Grand Central Dispatch implements an efficient parallel for-loop. It must be called on a specific queue not to accidentally block the main one:
+`Grand Central Dispatch` implements an efficient parallel for-loop. It must be called on a specific queue not to accidentally block the main one:
 
 ```swift
 DispatchQueue.global().async {
