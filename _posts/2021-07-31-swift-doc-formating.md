@@ -1,12 +1,9 @@
 My notes on method commenting in swift<!--more-->. 
 
-Commenting is vital when creating complex systems. Without documentation in the code, much of the resolution about how the method came to be and its artifacts and gotchas can be lost.
-
-Personally, I include massive amounts of comments in the code because when I revisit the code a year later, my initial thinking has disappeared and I need something to accelerate my reasoning to get back into the code.
-
-I also leave references to where parts of the solution were found, such as Stack Overflow links or other GitHub projects, or GitHub issues where the solution was discussed. This gives credit where credit is due.
-
-I use a commenting style that is closer to JavaDoc, as it is widely known and feels universal. It even renders to Apple's dialog boxes like the one below:
+- Commenting is vital when creating complex systems. Without documentation in the code, much of the resolution about how the method came to be and its artifacts and gotchas can be lost.
+- Personally, I include massive amounts of comments in the code because when I revisit the code a year later, my initial thinking has disappeared and I need something to accelerate my reasoning to get back into the code.
+- I also leave references to where parts of the solution were found, such as Stack Overflow links or other GitHub projects, or GitHub issues where the solution was discussed. This gives credit where credit is due.
+- I use a commenting style that is closer to JavaDoc, as it is widely known and feels universal. It even renders to Apple's dialog boxes like the one below:
 ```swift
  /**
   * A method that returns awesome colors

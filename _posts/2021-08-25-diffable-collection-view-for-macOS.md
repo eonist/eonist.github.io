@@ -1,46 +1,35 @@
-Notes on NSDiffableSource + NSCollectionview<!--more-->
+Notes on `NSDiffableSource` + `NSCollectionview`<!--more-->
 
 ### Pretext:
-- NSTableView has diffable source but doesn't have sections and we need sections for indexed headers
-- NSCollectionView has section and diffable source so we use NSCollection
+- `NSTableView` has diffable source but doesn't have sections and we need sections for indexed headers
+- `NSCollectionView` has section and diffable source so we use `NSCollection`
 - We could setup our own sections in NSTable, but it might not work with showing hiding on demand, features we need
 
 ### Things to think about:
-- NSCollectionView doesn't have recycling of cells? or? It does have register tho, so should work (it does recycle since el capitan)
-- Using NSTable with custom code for the sections might be easy enough after all
-- NSCollectionView is more complex than NSTable
-- NSCollectionView seems to have issues resizing with of its subviews
+- `NSCollectionView` doesn't have recycling of cells? or? It does have registration?, so should work (it does recycle since el capitan)
+- Using `NSTable` with custom code for the sections might be easy enough after all
+- `NSCollectionView` is more complex than `NSTable`
+- `NSCollectionView` seems to have issues resizing with of its subviews
 - Ability to highlight items
-- NSCollectionView has strange way of handling section headers, and issues with removing section headers, updating them etc
-
-### Task to make SectionList
-- Setup NSCollectionView with single column ✅
-- Add Custom cells ✅
-- Add section structure (multi-dim-array) ✅
-- Add Section Headers ✅
-- Add NSDiffableSource with some test cases, remove, add, etc 👈👈 🚫 (unable to update section headers)
-- Add a-z section headers ✅
-- Hide sectionHeaders if section has no rows ✅
-- Hide scrollbars (see table project)
-- Remake the project from scratch
+- `NSCollectionView` has strange way of handling section headers, and issues with removing section headers, updating them etc
 
 ### Gotchas:
-- NSCollectionViewGridLayout is single sectioned layout. By Apple documentation, this means the layout can hold only one section. Change it to NSCollectionViewFlowLayout to get more than one sections.
-- Quote from Apple Engineer "If you have mutable or complex data objects, you should not use them as item identifiers directly but rather just use your objects' identifiers with diffable data source and then fetch the correct object from your data store when configuring the cell by referencing the identifier.""
+- `NSCollectionViewGridLayout` is single sectioned layout. By Apple documentation, this means the layout can hold only one section. Change it to `NSCollectionViewFlowLayout` to get more than one sections.
+- Quote from Apple Engineer `"If you have mutable or complex data objects, you should not use them as item identifiers directly but rather just use your objects' identifiers with diffable data source and then fetch the correct object from your data store when configuring the cell by referencing the identifier."`
 
 ### Resources:
-- For macOS: NSTableViewDiffableDataSource https://developer.apple.com/documentation/appkit/nstableviewdiffabledatasource
-- For macOS NSCollectionView: https://developer.apple.com/documentation/appkit/nscollectionviewdiffabledatasource
-- MacOS doesn't have section in NSTable, but NSCollectionView does: https://developer.apple.com/documentation/appkit/nscollectionview
-- Or roll your own cell section in macOS. here is one approach: https://blog.krzyzanowskim.com/2015/05/29/lets-talk-about-sections-for-nstableview/
-- Seems to support section headers for macOS: https://github.com/krzyzanowskim/NSTableView-Sections
-- NSCollectionview tutorial for macos: https://www.raywenderlich.com/783-nscollectionview-tutorial
-- NSCollectionview tutorial: https://www.raywenderlich.com/1047-advanced-collection-views-in-os-x-tutorial
-- NIce: https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/implementing_modern_collection_views
-- Nice 2: https://developer.apple.com/documentation/uikit/uiimage/building_high-performance_lists_and_collection_views
+- For macOS: `NSTableViewDiffableDataSource`: [https://developer.apple.com/documentation/appkit/nstableviewdiffabledatasource](https://developer.apple.com/documentation/appkit/nstableviewdiffabledatasource)
+- For macOS `NSCollectionView`: [https://developer.apple.com/documentation/appkit/nscollectionviewdiffabledatasource](https://developer.apple.com/documentation/appkit/nscollectionviewdiffabledatasource)
+- macOS doesn't have section in `NSTable`, but `NSCollectionView` does: [https://developer.apple.com/documentation/appkit/nscollectionview](https://developer.apple.com/documentation/appkit/nscollectionview)
+- Or roll your own cell section in macOS. Here is one approach: [https://blog.krzyzanowskim.com/2015/05/29/lets-talk-about-sections-for-nstableview/](https://blog.krzyzanowskim.com/2015/05/29/lets-talk-about-sections-for-nstableview/)
+- Seems to support section headers for macOS: [https://github.com/krzyzanowskim/NSTableView-Sections](https://github.com/krzyzanowskim/NSTableView-Sections)
+- `NSCollectionView` tutorial for macOS: [https://www.raywenderlich.com/783-nscollectionview-tutorial](https://www.raywenderlich.com/783-nscollectionview-tutorial)
+- Advanced `NSCollectionView` tutorial: [https://www.raywenderlich.com/1047-advanced-collection-views-in-os-x-tutorial](https://www.raywenderlich.com/1047-advanced-collection-views-in-os-x-tutorial)
+- Nice: [https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/implementing_modern_collection_views](https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/implementing_modern_collection_views)
+- Nice 2: [https://developer.apple.com/documentation/uikit/uiimage/building_high-performance_lists_and_collection_views](https://developer.apple.com/documentation/uikit/uiimage/building_high-performance_lists_and_collection_views)
 
 ### Example:
-A bit messy, but has the important parts to get started
+
 ```swift
 import Cocoa
 import With
@@ -194,10 +183,11 @@ typealias DiffableDataSource = NSCollectionViewDiffableDataSource<SectionItem<He
 typealias DiffableSnapshot = NSDiffableDataSourceSnapshot<SectionItem<Header, [Film]>, Film>
 
 ```
-### Other tidbits:
-- Potential solution: https://github.com/nemecek-filip/CompositionalDiffablePlayground.ios
-- And: https://nemecek.be/blog/62/how-to-refresh-headerfooter-with-diffable-data-source
-- Interesting discussion  https://developer.apple.com/forums/thread/126742
-- Good https://www.raywenderlich.com/8241072-ios-tutorial-collection-view-and-diffable-data-source
-- Try this project:  https://jamesrochabrun.medium.com/uicollectionviewdiffabledatasource-and-decodable-step-by-step-6b727dd2485
-- And https://github.com/jamesrochabrun/UICollectionViewDiffableDataSource
+
+### Other links:
+- Potential solution: [https://github.com/nemecek-filip/CompositionalDiffablePlayground.ios](https://github.com/nemecek-filip/CompositionalDiffablePlayground.ios)
+- And: [https://nemecek.be/blog/62/how-to-refresh-headerfooter-with-diffable-data-source](https://nemecek.be/blog/62/how-to-refresh-headerfooter-with-diffable-data-source)
+- Interesting discussion: [https://developer.apple.com/forums/thread/126742](https://developer.apple.com/forums/thread/126742)
+- Good tutorial: [https://www.raywenderlich.com/8241072-ios-tutorial-collection-view-and-diffable-data-source](https://www.raywenderlich.com/8241072-ios-tutorial-collection-view-and-diffable-data-source)
+- Try this project: [https://jamesrochabrun.medium.com/uicollectionviewdiffabledatasource-and-decodable-step-by-step-6b727dd2485](https://jamesrochabrun.medium.com/uicollectionviewdiffabledatasource-and-decodable-step-by-step-6b727dd2485)
+- And: [https://github.com/jamesrochabrun/UICollectionViewDiffableDataSource](https://github.com/jamesrochabrun/UICollectionViewDiffableDataSource)

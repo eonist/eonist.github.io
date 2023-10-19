@@ -1,8 +1,3 @@
-GitHub Copilot: Sure, here is the updated text with improved language:
-
-From the file: 2023-03-23-google-analytics.md
-
-```markdown
 My notes on Google Analytics <!--more-->
 
 ### Setup:
@@ -68,7 +63,3 @@ Example: A user explores five different pages on your website in a session.
 
 ### Gotchas:
 - Limits of Google Analytics 4: https://support.google.com/analytics/answer/9267744?hl=en&ref_topic=9756175
-
-``` 
-
-I hope this helps!

@@ -2,6 +2,11 @@ My notes on building a product website<!--more-->
 
 For me it's hard to use something existing and trying to customize it. When something has matured, it's hard to wrangle it to be something else. Unless the changes are miniscule. They often are not. Building something from scratch is sort of simpler, because you can always start with simple bricks and a state that is pristine and has no legacy and things to worry about. But what do you start with?
 
+The thing about making websites is that you have to pick between simple or easy.
+
+- The **easy** approach is to use low-code alternatives wix, webflow, wordpress etc. But as they are easy to manage content they are not simple to change after the fact. And are hard to make custom and iterate on later. One size fits all etc.
+- The **simple** approach is to use a low-level CMS like Jekyll. And then manually write HTML + CSS that match the required design. This is simple to change and iterate on, but not easy to setup the first time. More analysis and thought needs to be made upfront. As pivoting away from the initial architecture might require starting from scratch etc.
+
 ### The process
 - 🎨 Start by drawing in a notebook, to get a feel for what to build
 - 🖥 Then start designing each page in sketch for macOS (Desktop and optionally mobile)
@@ -49,15 +54,117 @@ Sketch out the design in a notebook, one for desktop, and one for mobile. And us
 5. click enforce https
 
 
+### Adding javascript
+
+[https://www.javatpoint.com/how-to-call-javascript-function-in-html](https://www.javatpoint.com/how-to-call-javascript-function-in-html) 
+
+### Examples:
+
+```html
+<!-- simple alert example -->
+<html>
+	<head>
+	<script type = "text/javascript">
+		function myfunction() {
+			alert("how are you");
+		}
+	</script>
+	</head>
+	<body>
+		<p>Click the following button to see the function in action</p>
+		<input type = "button" onclick = "myfunction()" value = "Display">
+	</body>
+</html>
+```
+
+```html
+<!-- changing element -->
+<script type = "text/javascript">
+	function replaceText(textVar) {
+		document.getElementById('special_text').innerText = textVar // "test"
+	}
+</script>
+<input type = "button" onclick = "replaceText('testing')" value = "Display">
+```
+
+```html
+<!-- call js from a link:  -->
+<a href="javascript:replaceText('testing')">Button</a>
+```
+
+```html
+<!-- Importing -->
+<head>  
+	<script type = "text/javascript" src="function.js"></script>  
+</head>  
+```
+
+```js
+// looping
+const arr = [3, 5, 7];
+arr.foo = 'hello';
+for (let i in arr) {
+   console.log(i); // logs "0", "1", "2", "foo"
+}
+for (let i of arr) {
+   console.log(i); // logs 3, 5, 7
+}
+for (let i = 0; i < targets.length; i++) {
+  const target = targets[i];
+}
+```
+
+```js
+// event listener
+element.addEventListener("click", myFunction);
+
+function myFunction() {
+  alert ("Hello World!");
+}
+```
+
+```js
+// get parent of element
+console.log("this.parentElement: " + this.parentElement);
+```
+
+```js
+window.onload = function () {
+	// we have to wait for window to load before attaching eventlistners etc
+}
+```
+
+```js
+// prototype 
+Element.prototype.hide = function() {
+    this.style.display = 'none';
+}
+Element.prototype.show = function() {
+    this.style.display = '';
+}
+// After this you can use the methods with the usual element identifiers like in these examples:
+
+document.getElementByTagName('div')[3].hide();
+document.getElementById('thing').show();
+// or:
+
+<img src="removeME.png" onclick="this.hide()">
+```
+
 ### To recap:
 
 To begin with it can be ideal to create a website/website.md doc and pseudo code in fenced code block. Just to get the basics out first.
 
 1. Start with the fundamentals. **Simple divs**. **Simple colors**. Figure out the basic layout alignments and **page structure**. Just create **pseudo code** at first to just figure out the scope. Then comment out everything but the basics, and slowly convert the pseudo code to production code. We do this because HTML and CSS is such a messy language, and you often times get stuck if you start coding production code from the beginning. Basics of css: `#id` is more unique elements and `.class` common reusable elements (CSS, HTML)
-2. Add Simple text and dummy images (CSS, HTML)
+2. Add Simple text and dummy images (CSS, HTML) Make the **index.html** and **style.css** to match the design, start simple, write a lot of comments in the code with gotchas, tweak in more advance styling as you move forward. You can align layout with flex styling, use google to find alignment solutions as you go. Html and css is not that hard, it's almost the same as using indesign or pages. You just have to manually write the values, instead of using **dails** and **knobs** and **buttons**
 3. Start adding links and sub-sites (CSS, HTML)
 4. Start moving html code and css into a backend system, jekyll wordpress etc
 5. Once the site works for desktop. It's now time to retro-fit it for mobile.
+6. Jekyll can be used as static CMS, blog, subpages etc
+7. Get feedback as you go, and iterate on the feedback
+
+
+
 
 ### Gotchas:
 - Use safari as the preview of the index.html

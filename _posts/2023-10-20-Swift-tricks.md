@@ -1,5 +1,16 @@
 Some of my favourite swift tricks<!--more-->
 
+### 189. accessing Plist
+
+```swift
+if let path = NSBundle.mainBundle().pathForResource("Config", ofType: "plist") {
+  if let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject> {
+    // use swift dictionary as normal
+  }
+}
+```
+
+
 ### 188. Different ways to create random numbers
 
 See also: https://nemecek.be/blog/89/randomness-in-swift-comprehensive-overview

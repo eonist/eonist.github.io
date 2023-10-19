@@ -1,19 +1,19 @@
 My notes on using local SPM packages<!--more-->
 
-### PRO:
+### Pro:
 - Instant updates / faster builds (iterate faster) ✨
 - Keep modules in packages (encapsulation of code) ✨
 - Less remote downloads and network congestion and waiting times ✨
 - Keep a tree of packages and make them relative to each other
-- Keep many cross platform projects in the root folder. and reuse code in the hirarchy
+- Keep many cross platform projects in the root folder. And reuse code in the hirarchy
 - You can still have spm tests in sub deps (and probably github actions if you wire it correctly)
 - Updates to asset files in packages
-- Repos dont share code with each other explicitly (isolation) packages as well
+- Repos don't share code with each other explicitly (isolation) packages as well
 
-### CON:
+### Con:
 - Must be version controlled in the main proj
-- bigger main git repo 👈
-- relative paths can be a bit of chore to manage over time
+- Bigger main git repo 👈
+- Relative paths can be a bit of chore to manage over time
 - More internal dependencies means less opportunity to easily add github actions CI tests and flags to deps
 - Over time, sub xcode projects needs to have their files readded etc
 - XCode renaming of instances sometimes gets to eager
@@ -52,5 +52,6 @@ My notes on using local SPM packages<!--more-->
 - https://developer.apple.com/documentation/swift_packages/organizing_your_code_with_local_packages
 - https://developer.apple.com/documentation/swift_packages/developing_a_swift_package_in_tandem_with_an_app
 
-### Todo:
-- Figure out how to use xCode swift package with local relative path. (the one we use for remote packages) (seems like this is not possible)
+
+### Using submodules to mix remote and local packages
+It's also possible to do a hybrid local/remote system by using submodules in the main project. This way xcode doesnt have to download and build projects again and again. You can update the submodule repos, and even work in them and make changes. 
