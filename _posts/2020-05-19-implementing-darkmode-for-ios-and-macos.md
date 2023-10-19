@@ -5,10 +5,13 @@ Notes made while researching various ways to do darkmode in iOS<!--more-->, in t
 import UIKit
 
 public extension UIColor {
-    /// Creates a color object that generates its color data dynamically using the specified colors. For early SDKs creates light color.
-    /// - Parameters:
-    ///   - light: The color for light mode.
-    ///   - dark: The color for dark mode.
+    /**
+     * Creates a color object that generates its color data dynamically using the specified colors. For early SDKs creates light color.
+     *
+     * - Parameters:
+     *   - light: The color for light mode.
+     *   - dark: The color for dark mode.
+     */
     convenience init(light: UIColor, dark: UIColor) {
         if #available(iOS 13.0, tvOS 13.0, *) {
             self.init { traitCollection in
@@ -74,7 +77,7 @@ else{
 }
 ```
 
-### Changing tint on image assets:
+### Changing the tint on image assets:
 ```swift
 let imageIcon   = UIImage()
 let iconImgView = UIImageView()
@@ -263,7 +266,7 @@ struct MyColors {
 }
 ```
 
-### MACOS:
+### For macOS:
 
 ```swift
 import AppKit
@@ -457,8 +460,8 @@ public class MixedKeyboardAppearance: MixedResource<UIKeyboardAppearance> {
 }
 ```
 
-#Second tip: Adding a key in info.plist
-Simply you can add a new key UIUserInterfaceStyle in your app info.plist and set its value to Light or Dark. this will override the app default style to the value you provide.
+# Second tip: Adding a key in info.plist
+Simply you can add a new key `UIUserInterfaceStyle` in your app info.plist and set its value to Light or Dark. this will override the app default style to the value you provide.
 You don't have to add overrideUserInterfaceStyle = .light this line in every viewController, just one line in info.plist that’s it.
 
 ### Resources:

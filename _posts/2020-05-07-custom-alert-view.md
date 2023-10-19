@@ -33,4 +33,4 @@ And
 - https://github.com/pmusolino/PMAlertController  
 - https://github.com/vikmeup/SCLAlertView-Swift  
 - https://williamboles.me/finding-hope-with-custom-alerts/ 
-- For mac and iOS: https://github.com/sentryco/UpgradeAlert
+- For macOS and iOS: https://github.com/sentryco/UpgradeAlert
