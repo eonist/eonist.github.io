@@ -12,3 +12,7 @@ Scrolling is bad for the brain -> "cheetah-theory" -> BRAINS ARE GREATE WITH spa
 ### Scrolling
 Scrolling long pages of code is bad for your brain. The human brain has strong spatial recognition and if things are compartmentalised into separate "rooms" then the brain will use less bandwidth.
 https://www.natashatherobot.com/using-swift-extensions/
+
+### Resources
+- More on using extension to organize code: https://google.github.io/swift/
+- Natasha the robot also has a book that has a chapter or two with organizing code with extensions

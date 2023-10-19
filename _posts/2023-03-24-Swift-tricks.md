@@ -1,5 +1,32 @@
 Some of my favourite swift tricks<!--more-->
 
+### 187. Useful string modifiers and parsers:
+```swift
+// Beginning of a string
+let index = str.index(str.startIndex, offsetBy: 5)
+let mySubstring = str[..<index] // Hello
+
+// Prefix:
+let index = str.index(str.startIndex, offsetBy: 5)
+let mySubstring = str.prefix(upTo: index) // Hello
+let mySubstring = str.prefix(5) // Hello
+
+// End of a string subscripts:
+let index = str.index(str.endIndex, offsetBy: -10)
+let mySubstring = str[index...] // playground
+
+// Suffix:
+let index = str.index(str.endIndex, offsetBy: -10)
+let mySubstring = str.suffix(from: index) // playground
+let mySubstring = str.suffix(10) // playground
+
+//Range in a string
+let start: String.Index = str.index(str.startIndex, offsetBy: 7)
+let end: String.Index = str.index(str.endIndex, offsetBy: -6)
+let range: Range<String.Index> = start..<end
+let mySubstring = str[range]  // play
+```
+
 ### 186. Avoiding boilerplate code required init
 ```swift
 open class BaseView: UIView {

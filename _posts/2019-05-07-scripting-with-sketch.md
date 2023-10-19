@@ -1,7 +1,7 @@
 My notes on scripting with sketch<!--more-->.
 
 ### Steps:
-Plugins > Custom Plugin option (ctrl + shift + K). In the Custom Plugin sheet give your plugin a name and hit Save. Sketch will generate all the necessary files and folder structure for you. The plugin will now reside in: `~/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins`
+`Plugins > Custom Plugin` option (ctrl + shift + K). In the Custom Plugin sheet give your plugin a name and hit Save. Sketch will generate all the necessary files and folder structure for you. The plugin will now reside in: `~/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins`
 
 ### Example:
 ```javascript
@@ -39,15 +39,15 @@ if (selectedCount == 0) {
 ```
 ### Tips:
 
-- You can use the log() function to write to the System Console (MacOS) to see output. This is where you will also see exceptions. Just be sure to search for the process: `Sketch` in the search bar to filter out other applications, and also your own log keyword, to get only plugin specific log outputs.
+- You can use the `log()` function to write to the System Console (MacOS) to see output. This is where you will also see exceptions. Just be sure to search for the process: `Sketch` in the search bar to filter out other applications, and also your own log keyword, to get only plugin specific log outputs.
 - Force sketch to reload script under development: Terminal: `defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool YES`
 - Add an alias to the sketchplugin in the sketch/plugin folder. This way you can use git and have all the package code around the plugin / while testing it in sketch
-- Use the NSAlert to debug the script (faster than looking searching consol)
+- Use the `NSAlert` to debug the script (faster than looking searching consol)
 
 ### Making the plugin:
 
 1. Add Manifest.json and Main.js to a folder called Sketch
-2. Add the sketch folder into a new folder named: MyPlugin.sketchplugin. Place this in here: `~/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins/`
+2. Add the sketch folder into a new folder named: `MyPlugin.sketchplugin`. Place this in here: `~/Library/Application\ Support/com.bohemiancoding.sketch3/Plugins/`
 3. Fire up sketch and see your plugin in the plugin menu
 4. Start splitting up your code into modules. And then import them by `@import 'common.js'` Then you are able to organise the code better.
 

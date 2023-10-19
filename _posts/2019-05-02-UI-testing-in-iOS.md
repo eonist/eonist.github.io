@@ -4,8 +4,8 @@ My notes on UI-testing in Xcode <!--more-->
 1. Add UITesting to your XCode project when you setup the XCode project
 2. `XCUIApplication().launch()`
 3. `app.otherElements.children(matching: .button).element.tap()`
-4. Set your cursor inside a test method and click the red record button in the right corner of xcode,
-5. click around the app to generate programatic UI-method calls
+4. Set your cursor inside a test method and click the red record button in the right corner of xcode
+5. Click around the app to generate programatic UI-method calls
 6. Create a check: `XCTAssertEqual(app.tables.cells.count, 56, "There should be 56 words matching 'test'")` etc
 
 ## Accessibility
@@ -25,24 +25,37 @@ override func setUp() {
     app.launch()
 }
 ```
-Then in your app, you can know if there is a launch argument with NSUserDefaults:
+
+Then in your app, you can know if there is a launch argument with `NSUserDefaults`:
+
 ```swift
 let specialFeature: Bool = UserDefaults.standard.bool(forKey: "SPECIAL_FEATURE")
 ```
+
 ## Gotchas:
 - Internal methods will run automatically in the test. Make them private to run them from setup. (sometimes static is also needed)
 - Prefer using: `waitForExistence(timeout:)` over a regular `exists` check
-- Prefer using `firstMatch` over `element`
-- Open the `Accessibility Inspector.app` in macOS as a way of identifying accessibility ids. 👌
-- for iOS there is the:  `iOS Simulator's Accessibility Inspector` 👌
+- Prefer using `firstMatch` over `element`  in iOS UI testing because it returns the first matching element, making it more specific and targeted. This can improve the reliability and speed of your tests and help avoid issues with ambiguous or non-unique elements.
+- ⭐ Open the `Accessibility Inspector.app` in macOS as a way of identifying accessibility ids. 👌
+- ⭐ for iOS there is the:  `iOS Simulator's Accessibility Inspector` 👌
 - To access elements by accessibility ids: set/override: `accessibilityLabel` with an id and set/override the `isAccessibilityElement` with true
 - ⚠️️ For some strange reason sometimes only `accessibilityIdentifier` works and you have to set the `isAccessibilityElement` setting or overide works
 - Find accessibility elements by: `element.label == "someLabel"` if you are using accessibilityIdentifier or `element.identifier == "someId"` if you are using accessibilityLabel
 - Use `XCUIElementQuery.debugDescription` to debug a query (Accessibility Hierarchy)
-- ⚠️️ IMPORTANT ⚠️️ Containers can have accessibilityIdentifier but they should have accessibility turned off. Logic is that we don't interact with containers, but we do need to access testing via accessibility hierarchy. setting isAccessibilityElement to true on a container will cause problems with UITesting. Setting it on leaf elements such as buttons etc is fine.
+- ⚠️️ IMPORTANT ⚠️️ Containers can have `accessibilityIdentifier` but they should have accessibility turned off. Logic is that we don't interact with containers, but we do need to access testing via accessibility hierarchy. Setting `isAccessibilityElement` to true on a container will cause problems with UITesting. Setting it on leaf elements such as buttons etc is fine.
 - Parsing a queries is much faster than parsing element
 - ️⚠️ IMPORTANT ⚠️️ Don´t try to store references to elements outside the scope where you use it, as you interact with the UI hierarchy, it will change, and it must be traversed again
 - Keep animations enabled. As things can be different if you don't have animations. A suggestion is to set the view speed to 2x or 4x
+- You can set the speed of animations in UI testing by using the launchArguments property of the XCUIApplication class. Specifically, you can set the --animations argument to a value between 0 and 1 to adjust the speed of animations. A value of 0 disables animations, while a value of 1 runs animations at normal speed. Here's an example of how you can set the animation speed to 2x:
+
+```swift
+// In this example, the animation speed is set to 0.5. 
+// which runs animations at 2x speed. 
+// You can adjust the value as needed to achieve the desired animation speed.
+let app = XCUIApplication()
+app.launchArguments += ["--animations", "0.5"]
+app.launch()
+```
 
 ## Terminology:
 - **XCUIApplication:** This class responsible for launching, terminating apps. ⚠️️ Not a singleton. ⚠️️
@@ -70,6 +83,7 @@ app.textFields.element
 app.textViews.element
 app.webViews.element
 ```
+
 ### iOS vs iPadOS
 you have 2 test cases:
 
@@ -96,11 +110,11 @@ if allowBtn.waitForExistence(timeout: 10) {
 ```
 
 ## Pro's:
-- Great way to make Unit-tests that matters. Ensuring QA on every release.
+- Great way to make tests that matters. Ensuring QA on every release.
 - QA teams can do more high-level tasks, when low level QA tasks are automated.
 
 ## Con's
-- Careful to not go overboard by testing everything, as that will make the app harder to develop on later
+- Careful to not go overboard by testing everything, as that will make the app harder to develop on later.
 
 ## Resources:
 - A basic run-through of UI-testing: [https://medium.com/exploring-ios/an-introduction-to-ui-testing-on-ios-697526fa0fa9](https://medium.com/exploring-ios/an-introduction-to-ui-testing-on-ios-697526fa0fa9)
@@ -111,4 +125,6 @@ if allowBtn.waitForExistence(timeout: 10) {
 - video tut: [https://www.raywenderlich.com/3619-207-xcode-ui-testing](https://www.raywenderlich.com/3619-207-xcode-ui-testing)  
 - video 2: [https://www.raywenderlich.com/3573-beginning-ios-unit-and-ui-testing/lessons/5](https://www.raywenderlich.com/3573-beginning-ios-unit-and-ui-testing/lessons/5)
 - Working with webview and facebook: [https://hackernoon.com/running-uitests-with-facebook-login-in-ios-4ac998940c42](https://hackernoon.com/running-uitests-with-facebook-login-in-ios-4ac998940c42)
-- another great cheat-sheet: https://masilotti.com/ui-testing-cheat-sheet/
+- Another great cheat-sheet: [https://masilotti.com/ui-testing-cheat-sheet/](https://masilotti.com/ui-testing-cheat-sheet/) 
+- [https://github.com/eonist/UITestSugar](https://github.com/eonist/UITestSugar)  
+- [https://github.com/eonist/TestRunner](https://github.com/eonist/TestRunner) 

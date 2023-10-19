@@ -1,4 +1,7 @@
 My notes on setting up a UI-testing-framework<!--more-->
+
+⚠️️ This is now outdated ⚠️️ See the bottom section regarding doing this with SPM. ⚠️️ 
+
 > This is for carthage, but can easily be done with SPM
 
 ## 100% Carthage .framework support

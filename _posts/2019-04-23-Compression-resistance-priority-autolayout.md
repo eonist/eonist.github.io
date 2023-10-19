@@ -35,7 +35,8 @@ majorWidth.priority = NSLayoutConstraint.Priority(rawValue: 1000)
 ```
 
 ### Intrinsic Content Size
-- Pretty self-explanatory, but views with variable content are aware of how big their content is and describe their content's size through this property. Some obvious examples of views that have intrinsic content sizes are UIImageViews, UILabels, UIButtons.
+- Pretty self-explanatory, but views with variable content are aware of how big their content is and describe their content's size through this property. Some obvious examples of views that have intrinsic content sizes are `UIImageViews`, `UILabels`, `UIButtons`.
+
 ```swift
 let horizontalHugging = view.widthAnchor.constraint(lessThanOrEqualToConstant: view.intrinsicContentSize.width)
 horizontalHugging.priority = view.contentHuggingPriority(for: .horizontal)
@@ -43,6 +44,7 @@ horizontalHugging.priority = view.contentHuggingPriority(for: .horizontal)
 let horizontalCompression = view.widthAnchor.constraint(greaterThanOrEqualToConstant: view.intrinsicContentSize.width)
 horizontalCompression.priority = view.contentCompressionResistancePriority(for: .horizontal)
 ```
+
 ### Content Hugging Priority
 - The higher this priority is, the more a view resists growing larger than its intrinsic content size.
 - Content Compression Resistance Priority - The higher this priority is, the more a view resists shrinking smaller than its intrinsic content size.
@@ -57,31 +59,28 @@ textView.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
 ```
 
 ### Gotchas:
-- If NSWindow is stuck or cannot be resized set the width constraint of subview to `w.priority = NSLayoutConstraint.Priority(rawValue: 499)`
-- there are two different methods, one can be set to a view, the other can be set to a constraint
+- If `NSWindow` is stuck or cannot be resized set the width constraint of subview to `w.priority = NSLayoutConstraint.Priority(rawValue: 499)`
+- There are two different methods, one can be set to a view, the other can be set to a constraint
 - Consider using priority with min max default rather than hugging and comppression. priority is simpler to reason about
 
  ```swift
  @available(OSX 10.7, *)
-    open func contentHuggingPriority(for orientation: NSLayoutConstraint.Orientation) -> NSLayoutConstraint.Priority
+open func contentHuggingPriority(for orientation: NSLayoutConstraint.Orientation) -> NSLayoutConstraint.Priority
 
-    @available(OSX 10.7, *)
-    open func setContentHuggingPriority(_ priority: NSLayoutConstraint.Priority, for orientation: NSLayoutConstraint.Orientation)
+@available(OSX 10.7, *)
+open func setContentHuggingPriority(_ priority: NSLayoutConstraint.Priority, for orientation: NSLayoutConstraint.Orientation)
 
+@available(OSX 10.7, *)
+open func contentCompressionResistancePriority(for orientation: NSLayoutConstraint.Orientation) -> NSLayoutConstraint.Priority
 
-    @available(OSX 10.7, *)
-    open func contentCompressionResistancePriority(for orientation: NSLayoutConstraint.Orientation) -> NSLayoutConstraint.Priority
-
-    @available(OSX 10.7, *)
-    open func setContentCompressionResistancePriority(_ priority: NSLayoutConstraint.Priority, for orientation: NSLayoutConstraint.Orientation)
-
-
+@available(OSX 10.7, *)
+open func setContentCompressionResistancePriority(_ priority: NSLayoutConstraint.Priority, for orientation: NSLayoutConstraint.Orientation)
 ```
 
 ### Resources:
 - [https://developer.apple.com/documentation/uikit/uiview/1622485-setcontenthuggingpriority](https://developer.apple.com/documentation/uikit/uiview/1622485-setcontenthuggingpriority)  
 - [https://medium.com/@dineshk1389/content-hugging-and-compression-resistance-in-ios-35a0e8f19118](https://medium.com/@dineshk1389/content-hugging-and-compression-resistance-in-ios-35a0e8f19118)
 - Great example for two labels: [https://useyourloaf.com/blog/easier-swift-layout-priorities/](https://useyourloaf.com/blog/easier-swift-layout-priorities/)
-- Compression explained: https://abhimuralidharan.medium.com/ios-content-hugging-and-content-compression-resistance-priorities-476fb5828ef
-- Visual example hugging vs compression: https://gist.github.com/ftp27/c53e423bfc34e6baf22eee574a546f59
-- Overview of constants: https://stackoverflow.com/questions/36924093/what-are-the-default-auto-layout-content-hugging-and-content-compression-resista
+- [Compression explained](https://abhimuralidharan.medium.com/ios-content-hugging-and-content-compression-resistance-priorities-476fb5828ef)
+- [Visual example hugging vs compression](https://gist.github.com/ftp27/c53e423bfc34e6baf22eee574a546f59)
+- [Overview of constants](https://stackoverflow.com/questions/36924093/what-are-the-default-auto-layout-content-hugging-and-content-compression-resista)

@@ -1,10 +1,10 @@
-My notes on parsing a data hierarchy.<!--more-->Code for finding an illusive element in a UI-structure
+My notes on parsing a data hierarchy when UITesting.<!--more-->Code for finding an illusive element in a UI-structure
 
 ```swift
 let dimensionalArray: [Any] = [["a"], [["b", "c"], ["d", "e", "f"]], "g", "h"]
-//print(dimensionalArray[0])
-//print(dimensionalArray[1])
-//print(((dimensionalArray[1] as! Array<Any>)[1]as! Array<Any>)[1] )
+// print(dimensionalArray[0])
+// print(dimensionalArray[1])
+// print(((dimensionalArray[1] as! Array<Any>)[1]as! Array<Any>)[1] )
 func element(root: [Any], index: [Int]) -> Any? {
    let children = root
    if index.count == 0 { return root }/*returns the root*/
