@@ -1,6 +1,6 @@
 My notes on automating screenshots for the app store<!--more-->.
 
-⚠️️ This is now outdated, we can use XCodes built in screenshot gallary + a simple snippet that can be found here: [https://github.com/eonist/UITestSugar#take-screenshot](https://github.com/eonist/UITestSugar#take-screenshot)  ⚠️️
+⚠️️ This is now outdated, we can use XCodes built in screenshot gallary + a simple snippet that can be found here: [https://github.com/eonist/UITestSugar#take-screenshot](https://github.com/eonist/UITestSugar#take-screenshot) ⚠️️
 
 > The quality of an app’s screenshot is fundamental in the decision of buying / downloading on the AppStore.
 

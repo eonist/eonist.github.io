@@ -10,3 +10,6 @@ A way to visualise project dependencies in markdown<!--more-->
      ├── slider           # Vertical / Horizontal slider
      └── spinner          # Value changer
 ```
+
+### Todo
+- Move this into the markdown research .md

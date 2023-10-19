@@ -2,7 +2,7 @@ My notes on the Swift Result type<!--more-->
 
 ### Simple Result:
 - Result is great with callbacks
-- Result is not great for returning methods, use throw instead, with light `do { try } catch {error}` code
+- Result is not great for returning values, use throw instead
 
 ### Simple Result
 ```swift
@@ -14,7 +14,7 @@ func getSomething(onComplete: Complete) {
 }
 
 getSomething { result in
-   guard let img = try? result.get() else { print("error")}
+   guard let img = try? result.get() else { print("error") }
    _ = img
 }
 ```
@@ -31,7 +31,7 @@ getSomething { result in
     case .failure(let error):
        print(error.localizedDescription)
     }
-    // Alternativly:
+    // Alternative:
     let anotherResult = Result { try testSomething(flag: true) } // It works 🎉
     if case .success(let count) = anotherResult {
        print("\(count) unread messages.")
@@ -177,7 +177,6 @@ There is also: mapError() and flatMapError(), they transform the error value rat
 
 ### Simple result:
 
-
 ```swift
 func divide(_ x: Int, by y: Int) -> Result<Int, DivisionError> {
     guard y != 0 else {
@@ -205,12 +204,12 @@ func test(result: Result<CVImageBuffer, Error>) {
 }
 ```
 
-### result with out a value
+### Result with out a value
 
 ```swift
-#55 Result type without value to provide
+// Result type without value to provide
 
-Result type usage is really popular nowadays.
+// Result type usage is really popular nowadays.
 
 enum Result<T> {
     case success(result: T)
@@ -222,24 +221,30 @@ func login(with credentials: Credentials, handler: @escaping (_ result: Result<U
     handler(Result.success(result: user))
     handler(Result.failure(error: UserError.notFound))
 }
- login(with:) operation has user value to provide and default Result type fits perfectly here. But let’s imagine that your operation hasn’t got value to provide or you don’t care about it. Default Result type makes you to provide the result value any way.
+```
 
-
+login(with:) operation has user value to provide and default Result type fits perfectly here. But let’s imagine that your operation hasn’t got value to provide or you don’t care about it. Default Result type makes you to provide the result value any way.
 
 To fix this inconvenience you need to add extension and instantiate a generic with an associated value of type Void.
 
-func login(with credentials: Credentials, handler: @escaping (_ result: Result<Void>) -> Void)
+`func login(with credentials: Credentials, handler: @escaping (_ result: Result<Void>) -> Void)`
 
+```swift
 extension Result where T == Void {
     static var success: Result {
         return .success(result: ())
     }
 }
+```
 Now we can change our func login(with:) a bit, to ignore result success value if we don’t care about it.
 
+```swift
 func login(with credentials: Credentials, handler: @escaping (_ result: Result<Void>) -> Void) {
     // Two possible options:
     handler(Result.success)
     handler(Result.failure(error: UserError.notFound))
 }
 ```
+
+### Resources:
+- [https://github.com/eonist/ResultSugar](https://github.com/eonist/ResultSugar) 
