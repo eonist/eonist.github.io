@@ -127,7 +127,6 @@ jobs:
 
 
 ### Gotcha:
-
 You can also build from commandline to test before testing in CI:
 `xcodebuild clean build -workspace MyApp.xcworkspace -scheme MyAppMac`
 

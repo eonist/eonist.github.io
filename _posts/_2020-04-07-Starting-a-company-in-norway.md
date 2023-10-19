@@ -1,6 +1,5 @@
 My notes on starting a business in Norway<!--more--> (WIP)
 
-
 ## Table of content:
 - [1. Prerequisites](#Prerequisites)
 - [2. Reregistering](#Reregistering)
@@ -65,4 +64,4 @@ to come
 **A:** No, but you should, to save time. anual cost 10k nok   
 
 **Q:** Are you personally responsible for losses?    
-**A:** Not with a AS. If you start a ENK. The you are. so Start a AS   
+**A:** Not with a AS. If you start a ENK. Then you are. so Start a AS   

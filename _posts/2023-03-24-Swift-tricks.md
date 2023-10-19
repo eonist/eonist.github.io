@@ -1,5 +1,16 @@
 Some of my favourite swift tricks<!--more-->
 
+### 188. Different ways to create random numbers
+
+See also: https://nemecek.be/blog/89/randomness-in-swift-comprehensive-overview
+
+```swift
+let randomBool = Bool.random()
+let randomInt = Int.random(in: 1...6) // dice roll
+let randomFloat = Float.random(in: 0...1)
+let randomDouble = Double.random(in: 1..<100)
+```
+
 ### 187. Useful string modifiers and parsers:
 ```swift
 // Beginning of a string

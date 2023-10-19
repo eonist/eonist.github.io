@@ -7,7 +7,7 @@ My notes on how to make a responsive landing page. <!--more-->
 
 ## Iterate forward
 - Start by defining your **content in text**. (Use atom and markdown to structure things)
-- Then start with index.html and style.css and reset.css (Code in Atom.io and preview in safari)
+- Then start with `index.html` and `style.css` and `reset.css` (Code in Atom.io and preview in safari)
 - Begin to align dummy **color boxes** to how your end result will be (logos, menues, content etc)
 - Add headers and footers and content elements. Import other css files for each module etc. Composability is key
 - Slowly add text and menues and images

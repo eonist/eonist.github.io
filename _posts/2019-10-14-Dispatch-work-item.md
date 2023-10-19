@@ -177,7 +177,7 @@ dg.notify(queue: DispatchQueue.global()) {
 ### Example (use isCanceled flag to interrupt processing)
 
 ```swift
-//create the dispatch work item
+// create the dispatch work item
 var dwi2:DispatchWorkItem?
 dwi2 = DispatchWorkItem {
     for i in 1...5 {
@@ -189,10 +189,10 @@ dwi2 = DispatchWorkItem {
         print("DispatchWorkItem 2: \(i)")
     }
 }
-//submit the work item to the default global queue
+// submit the work item to the default global queue
 DispatchQueue.global().async(execute: dwi2!)
 
-//cancelling the task after 3 seconds
+// cancelling the task after 3 seconds
 DispatchQueue.global().async{
     sleep(3)
     dwi2?.cancel()

@@ -24,3 +24,13 @@ And
 	return blurView
 }
 ```
+
+### Links:
+- Ref: https://stackoverflow.com/a/47925120/5389500
+- Related: https://github.com/pmusolino/PMAlertController
+- Related: https://github.com/vikmeup/SCLAlertView-Swift
+- Related: https://williamboles.me/finding-hope-with-custom-alerts/
+- https://github.com/pmusolino/PMAlertController  
+- https://github.com/vikmeup/SCLAlertView-Swift  
+- https://williamboles.me/finding-hope-with-custom-alerts/ 
+- For mac and iOS: https://github.com/sentryco/UpgradeAlert
