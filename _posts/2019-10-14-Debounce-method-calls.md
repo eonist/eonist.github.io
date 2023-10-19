@@ -19,7 +19,7 @@ extension SliderCell {
 }
 extension SliderCell {
    /**
-    *
+    * Update
     */
    @objc private func update(with sender: UISlider) {
       // Do stuff here
@@ -48,7 +48,7 @@ extension TopBar: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
     }
-	  /**
+	/**
      * On text change began
      */
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -57,7 +57,7 @@ extension TopBar: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return true
     }
-	  /**
+	/**
      * Dismisses the keyboard
      */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -124,7 +124,7 @@ extension TableView {
 
 ### Resources:
 - Debouncing can also be done with DispatchWorkItem: [https://www.swiftbysundell.com/articles/a-deep-dive-into-grand-central-dispatch-in-swift/](https://www.swiftbysundell.com/articles/a-deep-dive-into-grand-central-dispatch-in-swift/)  and [https://blog.natanrolnik.me/dispatch-work-item](https://blog.natanrolnik.me/dispatch-work-item)
-- debouncer: https://github.com/onmyway133/blog/issues/376 and https://twitter.com/_inside/status/984827954432798723/photo/1
+- Debouncer: https://github.com/onmyway133/blog/issues/376 and DispatchWorkItem: https://twitter.com/_inside/status/984827954432798723/photo/1
 
 
 ### Notification throttler:
@@ -199,6 +199,31 @@ class Dispatcher {
         items.keys.forEach {
             items[$0]?.cancel()
             items[$0] = nil
+        }
+    }
+}
+```
+
+
+## Throttler
+```swift
+protocol Throttable {
+    func perform(with delay: TimeInterval,
+                 in queue: DispatchQueue,
+                 block completion: @escaping () -> Void) -> () -> Void
+}
+
+extension Throttable {
+    func perform(with delay: TimeInterval,
+                 in queue: DispatchQueue = DispatchQueue.main,
+                 block completion: @escaping () -> Void) -> () -> Void {
+
+        var workItem: DispatchWorkItem?
+
+        return {
+            workItem?.cancel()
+            workItem = DispatchWorkItem(block: completion)
+            queue.asyncAfter(deadline: .now() + delay, execute: workItem!)
         }
     }
 }

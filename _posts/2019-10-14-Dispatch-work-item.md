@@ -4,9 +4,10 @@ My notes on DispatchWorkItem<!--more-->
 
 ### Main benefits:
 - Ability to cancel many tasks in the queue
-- Simpler than NsOperationQueue
+- Simpler than `NSOperationQueue`
 - Can be built for Search trotting functionality for instance
 - Has ability to wait until work is done (similar to semaphore)
+
 ## Basic example:
 ```swift
 let workItem = DispatchWorkItem {
@@ -53,6 +54,7 @@ if item.isCancelled { // KVO CALLBACK
 - This can be used to perform two or more tasks in a serial manner, where the first task has to be finished before executing the next one.
 - An example use case would be fetching data for a table view on a background thread and notifying the main thread that the data is ready to use
 - The perform() method on DispatchWorkItem will start the execution of the work item synchronously on the current thread.
+
 ```swift
 class Controller {
 	func getSomethingFromServer() {
@@ -89,7 +91,7 @@ DispatchQueue.global().async(execute: dwi3)
 ```
 
 ### Example: (wait causes a task to be synchronous)
-wait() causes the caller to wait synchronously until the dispatch work item finishes executing. Let’s see it in action.
+`wait()` causes the caller to wait synchronously until the dispatch work item finishes executing. Let’s see it in action.
 
 ```swift
 class Controller {
