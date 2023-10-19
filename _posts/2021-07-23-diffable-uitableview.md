@@ -39,24 +39,21 @@ fileprivate typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<ViewCont
 When using this approach, you'd replace the MyModel item identifier with MyModel.Diffable, and when you create your snapshot, you must convert all MyModel instances to MyModel.Diffable. Since the initializer for the MyModel.Diffable object takes an instance of MyModel this is fairly straightforward:
 
 ### Hide in-activce sections:
-- https://stackoverflow.com/questions/28947139/how-to-hide-uitableviewsections-in-swift
-- https://stackoverflow.com/questions/6489731/hide-or-remove-section-from-uitableview
-- https://medium.com/@novall/how-to-cleanly-hide-a-uitableview-section-4e11d43741e3
+- [https://stackoverflow.com/questions/28947139/how-to-hide-uitableviewsections-in-swift](https://stackoverflow.com/questions/28947139/how-to-hide-uitableviewsections-in-swift)
+- [https://stackoverflow.com/questions/6489731/hide-or-remove-section-from-uitableview](https://stackoverflow.com/questions/6489731/hide-or-remove-section-from-uitableview)
+- [https://medium.com/@novall/how-to-cleanly-hide-a-uitableview-section-4e11d43741e3](https://medium.com/@novall/how-to-cleanly-hide-a-uitableview-section-4e11d43741e3)
 
 ## Other links:
-- Discussion regarding animation issues: https://stackoverflow.com/questions/58475481/how-to-get-a-diffable-snapshot-from-an-nsfetchresultscontroller-in-ios-13
+- Discussion regarding animation issues: [https://stackoverflow.com/questions/58475481/how-to-get-a-diffable-snapshot-from-an-nsfetchresultscontroller-in-ios-13](https://stackoverflow.com/questions/58475481/how-to-get-a-diffable-snapshot-from-an-nsfetchresultscontroller-in-ios-13)
 
 ### Gotchas:
 - instead of storing data in an array, use a currentSnapshot variable as the one source of truth
 
 ### Resources
-- Consider using type safe identifiers in model: https://www.swiftbysundell.com/articles/type-safe-identifiers-in-swift/
-- Wrapper around row: https://stackoverflow.com/a/59790173/5389500
-- Diffable data source utils: https://github.com/ivanvorobei/SPDiffable
-
-### Thoughts:
-- What about making the all `a-z` sections upfront. And then only showing the sections that has items. that way you dont have to generate the sections on the fly ✅
+- Consider using type safe identifiers in model: [https://www.swiftbysundell.com/articles/type-safe-identifiers-in-swift/](https://www.swiftbysundell.com/articles/type-safe-identifiers-in-swift/)
+- Wrapper around row: [https://stackoverflow.com/a/59790173/5389500](https://stackoverflow.com/a/59790173/5389500)
+- Diffable data source utils: [https://github.com/ivanvorobei/SPDiffable](https://github.com/ivanvorobei/SPDiffable)
 
 ### Todo:
-- Go through this: has a lot of diffable examples and demos: https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/implementing_modern_collection_views
-- And this: https://developer.apple.com/documentation/uikit/uiimage/building_high-performance_lists_and_collection_views
+- Go through this: has a lot of diffable examples and demos: [https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/implementing_modern_collection_views](https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/implementing_modern_collection_views)
+- And this: [https://developer.apple.com/documentation/uikit/uiimage/building_high-performance_lists_and_collection_views](https://developer.apple.com/documentation/uikit/uiimage/building_high-performance_lists_and_collection_views)
