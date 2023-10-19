@@ -7,7 +7,6 @@ My notes on static methods<!--more-->
 - Pure functions, such as `Character.toUpperCase(char)`, are good candidates for static methods.
 - Using fewer instanced methods and variables can improve code quality.
 - Modifying the value of an object from within a method is a side effect that can cause issues for other programmers on the team or even for yourself in the future.
-- Static methods can be useful in microservices.
 
 ## Gotchas:
 - Avoid using impure static methods that have side effects; any side effect calls should be swappable for testing. It's okay to create impure static methods, but it's a dangerous idea since it's less obvious how to factor those method dependencies out for swappability.
