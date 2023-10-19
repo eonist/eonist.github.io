@@ -1,6 +1,6 @@
 Some of my favourite swift tricks<!--more-->
 
-### 189. accessing Plist
+### 189. accessing Plist directly
 
 ```swift
 if let path = NSBundle.mainBundle().pathForResource("Config", ofType: "plist") {
@@ -9,7 +9,6 @@ if let path = NSBundle.mainBundle().pathForResource("Config", ofType: "plist") {
   }
 }
 ```
-
 
 ### 188. Different ways to create random numbers
 

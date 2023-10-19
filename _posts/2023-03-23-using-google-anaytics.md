@@ -58,8 +58,24 @@ Example: A user downloads your eBook.
 Pages/Screens Per Session Goals: A goal that is met when a user visits a preset number of pages on your site.
 Example: A user explores five different pages on your website in a session.
 
+### Uscases for analytics for mobile apps
+- Understand the number of users in your app, their characteristics, and where they come from.
+- Measure what actions your users are taking.
+- Visualize user navigation paths.
+- Slice and dice your data to understand different user groups' behavior
+
+### Information
+- Events: What is happening in your app, such as user actions, system events, or errors.
+- User properties: Attributes you define to describe segments of your user base, such as language preference or geographic location.
+
 ### Resources:
-- Adding exceptions to Google Analytics: https://stackoverflow.com/questions/21718481/report-for-exceptions-from-google-analytics-analytics-js-exception-tracking
+- Adding exceptions to Google Analytics: [https://stackoverflow.com/questions/21718481/report-for-exceptions-from-google-analytics-analytics-js-exception-tracking](https://stackoverflow.com/questions/21718481/report-for-exceptions-from-google-analytics-analytics-js-exception-tracking)
+- ✨: [https://www.owox.com/blog/articles/guide-to-mobile-app-analytics/](https://www.owox.com/blog/articles/guide-to-mobile-app-analytics/)
+- GA4 for mobile: [https://uxcam.com/blog/google-analytics-mobile-apps/](https://uxcam.com/blog/google-analytics-mobile-apps/)
+- ✨ Analytics concept: [https://www.netguru.com/blog/analytics-in-mobile-app](https://www.netguru.com/blog/analytics-in-mobile-app)
+- [https://github.com/sentryco/Telemetry/](https://github.com/sentryco/Telemetry/)
 
 ### Gotchas:
-- Limits of Google Analytics 4: https://support.google.com/analytics/answer/9267744?hl=en&ref_topic=9756175
+- Firebase analytics sdk uses GA4 under the hood
+- GA3 will be turned off july 2023
+- Limits of Google Analytics 4: [https://support.google.com/analytics/answer/9267744?hl=en&ref_topic=9756175](https://support.google.com/analytics/answer/9267744?hl=en&ref_topic=9756175)
