@@ -1,7 +1,7 @@
 As a programmer I sort and collect a lot of research, my problem has always been were do I store all this research?<!--more-->  I already had Jekyll in mind, but it always seemed so daunting to get into. The workflow I came up with enables you to do a couple of things:
 
 1.	[Publish articles online](#1-store-articles-online)
-2. [100% free and secure](#2-100-free-and-secure) 
+2.  [100% free and secure](#2-100-free-and-secure) 
 3.	[Research paper attributes](#3-research-style-attributes)
 4.	[Collaboration with colleagues and the world](#4-collaboration-with-colleagues-and-the-world)
 5.	[Automated uploading/downloading](#5-automated-uploading-downloading)

@@ -26,7 +26,7 @@ It is recommended that you instead spend your time looking for areas where there
 Remember that usually there will be periods of calm and stability punctuated with massive change (for better or for worse) concentrated from a small number of black swans. Those black swans are the ones to look out for, and the ones you least expect.
 
 ### Benefit of having an empty mind
-with mindmap's you have to mentally soak up everything at once, leaving less bandwidth for analysis. with structured based research you can dive into singular snapshot and ignore the rest. Or jump back up a few levels to derive context.
+With mindmap's you have to mentally soak up everything at once, leaving less bandwidth for analysis. with structured based research you can dive into singular snapshot and ignore the rest. Or jump back up a few levels to derive context.
 
 ### Black Swan
  – An extremely rare and unpredictable event which offers great opportunities to those few who spot it and who take a small, calculated gamble.

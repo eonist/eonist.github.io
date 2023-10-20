@@ -18,8 +18,6 @@ The idea being that you can reset your mac from a fresh build in a matter of 30 
 ### In closing:
 My resent revelation is a culmination of a few things. Trying to do a fresh install of Mac High Sierra. And all the research it took to figure out where all the apps stored their tidbits and settings. It took 2 days. And also The 2017 Nobel price of economics. About how people value things way more than their actually worth. This is not that relevant for generation "AirBnB". We don't own any possessions so it's yesterdays news. But we do struggle with all the files, all the internet apps, all the projects we don't have time for etc, all the information leakage. So it's the same thing. Just different generations. Also people like levels.io which strives to have less than 50 things while being a Digital Nomad in Asia. Should mention Sindre Sorhus as well. And also contemplating the idea of not living forever.
 
-
 **Food for thought:** If you do a digital reset, then you can do a analog rest. The former is much harder IMO. because mentally we think we have unlimited bandwidth in the digital realm.  
-
 
 **This post was originally written in 2017, but never released for some reason**
