@@ -1,6 +1,121 @@
 Some of my favourite swift tricks<!--more-->
 
-### 189. accessing Plist directly
+### 194. Finding Elements of Specific Type in Swift
+
+```swift
+extension Array {
+    func whereType<T> () -> [T] {
+        compactMap { $0 as? T } // The function "compactMap(" in Swift is incredibly useful. It maps each element of an array to another optional type and returns the value if it exists (is not null).
+    }
+}
+func testIt() {
+    let array = [1, 2, "3", 4.0, 5] as [Any]
+    let ints: [Int] = array.whereType? // You now have the ability to filter elements in an array based on their specific types.
+    print(ints) // prints [1, 2, 5]
+}
+```
+
+### 193. Sum of Any Numeric Types in Swift
+In Swift, all numeric values, including "Int", "Float", "Double", and "CGFloat", conform to the "Numeric" protocol. By applying a generic constraint to your array extension, you can make methods available for all numeric types in your array.
+```swift
+extension Array where Element: Numeric){
+    sum () -> Self. Element {
+        reduce (0, +) //By employing the "reduce" function and the "+" operator, you can efficiently compute the sum of all elements in the array. Isn't that neat?
+    }
+}
+// Observe how the "sum" function's return value matches the type of the array's elements!
+func testit( {
+    let sumOfDoubles = [1.1, 4,4, 8.8]. sum ()
+    print (sum0fDoubles) // 14.3
+    let sumOfInts = [1, 4, 8]. sum() *
+    print(sumOfInts) // 13.0
+    let sumOfFloats: Float = [1.1, 4,4, 8.81. sum ()
+    print (sumOfFloats) // 14.3
+}
+```
+
+### 192. Async getters in Swift 5.5+
+
+```swift
+struct LazyImageFromFile {
+    enum Errors: Error {
+     case invalidFilePath
+    }
+    let filePathOnDisk: URL
+    init(filePathOnDisk: URL) throws { // In the constructor of our struct, we accept a file URL. If the URL does not point to a valid file, an error will be thrown.
+        guard filePathOnDisk.isFileURL else {
+        throw Errors.invalidFilePath
+        self.filePathOnDisk = filePathOnDisk
+     }
+}
+var data: Data {
+    get async throws { // Introduced in Swift 5.5, you can now establish a getter as an asynchronous getter. This implies that the receiver will need to use "await", similar to JavaScript or Flutter, to obtain its underlying value.
+        try Data( contents0f: self. filePathOnDisk,
+        options: .mappedIfSafe)
+    }
+}
+func testIt () async throws { // In the function where we are testing our structure, we designate it as an asynchronous function. This allows us to use the "await" keyword when calling our data's asynchronous getter.
+    guard let fileUrl = Bundle.main.url( forResource: "myimage"
+        withExtension: "jpg") else {
+            return
+    }
+    let lazyImage = try LazyImageFromFile(filePathOnDisk: fileUrl)
+    let contents = try await lazyImage.data // Finally, we will access the getter from our struct using the "try await" syntax, as the getter is marked as asynchronous and can potentially throw an error.
+    print (contents)
+}
+```
+
+### 191. Actors in Swift 5.5+:
+
+```swift
+actor Stack<T> { // The keyword "actor" introduced in Swift 5.5+ facilitates the creation of isolates. These isolates, managed by the actor, ensure thread-safety at a fundamental level within the actor by maintaining it's isolated data types.
+    private var _items = [T] ()
+    init items: [T] = [1) {
+    self._items = items
+    @discardableResult
+    func push (_ value: T) async -> T {
+        await _items.append(value) // Despite the "append(" function of Array in Swift not being an asynchronous function, by prefixing it with 'await' within this asynchronous function, we indicate that we are establishing a lock on our "_items" private variable.
+        return value
+    }
+    func pop () async -> T {
+        let popped = await _items.removeLast() // Likewise, when we are deleting an item from the end of our stack, we use 'await' on the result. Even though 'removeLast(' is not an asynchronous function, this approach establishes a lock on '_items' until 'removeLast' has completed its operation.
+        return popped
+    }
+    var items: [T] { 
+        get async { //Additionally, we provide a read-only access to our items using an asynchronous getter, a feature introduced in Swift 5.5+.
+            _items
+        }
+    }
+}
+func testIt() async {
+    let stack1 = Stack<Int> ( [1, 2, 31)
+    let stack2 = Stack<Int> ( [4, 5, 6])
+    await stack2.push (await stack1.push(10))
+    await stack2.push(await stack1.pop())
+    let stack1Count = await stack1.items. count
+    let stack2Count = await stack2.items. count
+    assert (stack1Count == 3)
+    assert (stack2Count == 5)
+}
+```
+
+### 190. Lazy Local Variables in Swift 5.5+
+Beginning with Swift 5.5, it's possible to declare lazy local variables that are only evaluated upon their first use, similar to how lazy variables function at the class or struct level.
+
+```swift
+func incremented (_ value: Int) -> Int {
+    value + 1 
+}
+func testIt() {
+    var value = 1
+    lazy var inc = incremented (value)
+    value += 1
+    print (inc) // 3
+}
+// Here, we initialize 'value' to 1. The 'incremented' function, which takes 'value' as an argument, won't be invoked until 'value +=1' is executed. This is because 'value' is first used in the print statement.
+```
+
+### 189. Accessing Plist directly
 
 ```swift
 if let path = NSBundle.mainBundle().pathForResource("Config", ofType: "plist") {
