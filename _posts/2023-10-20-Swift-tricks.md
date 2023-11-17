@@ -1,5 +1,19 @@
 Some of my favourite swift tricks<!--more-->
 
+### 196. Multi cursor in xCode:
+- Draw multiple lines: alt + drag
+- Select multiple cursor positions: ctrl + cmd
+
+### 195. Check if a string is an email
+
+```swift
+// "kenmueller0@gmail.com".isValidEmail // true
+extension String {
+    var isValidEmail: Bool {
+        NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").evaluate(with: self)
+    }
+}
+```
 ### 194. Finding Elements of Specific Type in Swift
 
 ```swift
