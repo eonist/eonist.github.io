@@ -1,5 +1,43 @@
 Some of my favourite swift tricks<!--more-->
 
+### 198. How to use optional binding in swit
+This involves "rebinding" (⚠️️ There might be a weay to make this generic ⚠️️)
+```swift
+import SwiftUI
+
+extension Binding where Value == Date? {
+    func flatten(defaultValue: Date) -> Binding<Date> {
+        Binding<Date>( // We "rebin"d" here
+            get: { wrappedValue ?? defaultValue },
+            set: {  wrappedValue = $0 }
+        )
+    }
+}
+
+DatePicker(
+    "",
+    selection: $date.flatten(defaultValue: Date()), // Use the optional value, if it's nil use the default
+    displayedComponents: .hourAndMinute
+)
+.datePickerStyle(WheelDatePickerStyle())
+```
+
+### 197. Singleton variable for SwiftUI view
+SwiftUI views cant be singletons. But we can tie a global variable to a view. This example shows how we can control showing a sheet from anywhere. If the view is available.
+```swift
+var prefrencesSheetHandler = PrefsSheetHandler() // must be in global scope
+/**
+ * - Note: Solution found here: https://stackoverflow.com/questions/70870750/swiftui-modify-state-var-from-remote-closure
+ * ## Examples:
+ * prefsSheetHandler.isShowingSheet = true // <-- add anywhere
+ * $prefsSheetHandler.isShowingSheet // add to sheet isPresneting variable
+ * @ObservedObject var prefsSheetHandler: PrefsSheetHandler = prefrencesSheetHandler // add in the view scope
+ */
+class PrefsSheetHandler: ObservableObject {
+   @Published var isShowingSheet = false
+}
+```
+
 ### 196. Multi cursor in xCode:
 - Draw multiple lines: alt + drag
 - Select multiple cursor positions: ctrl + cmd
