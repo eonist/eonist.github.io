@@ -1,10 +1,11 @@
 Notes on list in swiftui<!--more--> 
 
 ### ForEach
-ref: https://stackoverflow.com/a/64262793/5389500
-and with index: https://stackoverflow.com/a/61149111/5389500
+- A sort of IndexedForEach
+- ref: https://stackoverflow.com/a/64262793/5389500
+ and with index: https://stackoverflow.com/a/61149111/5389500
 ```swift
-struct EnumeratedForEach<ItemType, ContentView: View>: View {
+struct EnumeratedForEach<ItemType, ContentView: View>: View { 
     let data: [ItemType]
     let content: (Int, ItemType) -> ContentView
 
@@ -19,7 +20,7 @@ struct EnumeratedForEach<ItemType, ContentView: View>: View {
         }
     }
 }
-Now you can use it like this:
+// Now you can use it like this:
 
 EnumeratedForEach(items) { idx, item in
     ...

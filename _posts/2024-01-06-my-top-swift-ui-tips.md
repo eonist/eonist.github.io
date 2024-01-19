@@ -1,3 +1,11 @@
+### 2. IndexedForEach
+Sometimes you need index in a for each
+```swift
+ForEach(Array(zip(data.indices, data)), id: \.0) { idx, item in
+    content(idx, item)
+}
+```
+
 ### 1. selectable List
 
 ## Selectable list
