@@ -15,3 +15,8 @@ Notes on in app purchase <!--more-->
 - https://developer.apple.com/design/human-interface-guidelines/in-app-purchase/overview/auto-renewable-subscriptions/
 - https://developer.apple.com/documentation/storekit/skpaymentqueue/3566726-presentcoderedemptionsheet
 - Workflow for configuring in-app purchases: https://help.apple.com/app-store-connect/#/devb57be10e7
+- manage subscriptions in swiftUI: https://sarunw.com/posts/manage-in-app-subscription-in-swiftui/
+- swiftui https://swiftwithmajid.com/2023/08/29/mastering-storekit2-swiftui-view-modifiers/
+- and https://swiftwithmajid.com/2023/08/23/mastering-storekit2-subscriptionstoreview-in-swiftui/
+- and https://swiftwithmajid.com/2023/08/01/mastering-storekit2/
+- and https://swiftwithmajid.com/2023/08/08/mastering-storekit2-productview-in-swiftui/
