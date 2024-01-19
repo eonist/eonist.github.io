@@ -1,5 +1,134 @@
 Some of my favourite swift tricks<!--more-->
 
+## 203. Convert OrderedDictionary to Dictionary:
+```swift
+import OrderedCollections // get this from apples SPM repo on github
+
+let x: OrderedDictionary = [
+  "200": "OK",
+  "403": "Access forbidden",
+  "404": "File not found",
+  "500": "Internal server error",
+]
+
+extension OrderedDictionary where Key: Hashable, Value: Any {
+   var dictionary: [Key: Value] {
+      self.reduce(into: [Key: Value]()) { (result, element) in
+         result[element.key] = element.value
+      }
+   }
+}
+x.dictionary // outputs regular dictionary
+```
+
+### 202. Get a dictoary from a class or struct instance: 
+```swift
+func asDictionary(target: Any) -> [String: Any] {
+   let mirror = Mirror(reflecting: target)
+   let dict: [String: Any] = Dictionary(uniqueKeysWithValues: mirror.children.lazy.map({ (label: String?, value: Any) -> (String, Any)? in
+      guard let label = label else { return nil }
+      return (label, value)
+   }).compactMap { $0 })
+   return dict
+}
+```
+usage: 
+```swift
+let p1 = Person(name: "Ryan", position: 2, good : true, car:"Ford")
+print(p1.asDictionary) // outputs dictionary
+```
+### 201. Generic typealias:
+Generic typealias can be used to simplify param types etc
+
+```swift
+typealias Parser<A> = (String) -> [(A, String)]
+```
+Usage: 
+```swift
+func parse<A>(stringToParse: String, parser: Parser) 
+```
+
+### 200. AnyComparable
+
+In Swift 5.9, you can write a method using parameter packs. Here I implemented the sorting using the built-in KeyPathComparator:
+
+```swift
+
+extension Array {
+    mutating func sort<each T: Comparable>(by keyPaths: repeat (KeyPath<Element, each T>, SortOrder)) {
+        var comparators: [KeyPathComparator<Element>] = []
+        func addComparator<Key: Comparable>(_ keyPathOrder: (KeyPath<Element, Key>, SortOrder)) {
+            comparators.append(KeyPathComparator(keyPathOrder.0, order: keyPathOrder.1))
+        }
+        // here I am technically creating a tuple, with its elements all being addComparator calls
+        // this could be written more readably when we can iterate over a parameter pack with a for loop
+        (repeat addComparator(each keyPaths))
+        sort(using: comparators)
+    }
+}
+```
+
+Example Usage:
+
+```swift
+// order by length of string ascendingly, then by the string itself descendingly
+someStrings.sort(by: (\.count, .forward), (\.self, .reverse))
+
+```
+ With that, you can write your sort method signature as:
+
+```swift
+mutating func sort(by criteria: (path: KeyPath<Element, AnyComparable>, order:OrderType)...) {
+    ...
+}
+```
+
+To make it easier for us to pass key paths with the type AnyComparable in, we can make an extension:
+
+```swift
+extension Comparable {
+    // this name might be too long, but I'm sure you can come up with a better name
+    var anyComparable: AnyComparable {
+        .init(self)
+    }
+}
+```
+
+Now we can do:
+```swift
+
+someArray.sort(by: (\.key1.anyComparable, .asc), (\.key2.anyComparable, .asc))
+```
+
+### 199. Extension for Array where Element is Optional  
+This might be a bit complex, but it's possible to create an AnyOptional protocol. This protocol would require an associated type (Wrapped) and a computed property to return the optional type. If the index is valid, the element is returned unwrapped; if not, nil is returned.
+
+```swift
+protocol AnyOptional {
+    associatedtype Wrapped
+    var optional: Optional<Wrapped> { get }
+}
+
+extension Optional: AnyOptional {
+    var optional: Optional<Wrapped> { self }
+}
+extension Collection {
+    subscript(safe index: Index) -> Element? {
+        indices.contains(index) ? self[index] : nil
+    }
+}
+extension Collection  {
+    subscript(safe index: Index) -> Element.Wrapped? where Element: AnyOptional {
+        indices.contains(index) ? self[index].optional ?? nil : nil
+    }
+}
+var myArray: [String?] = ["2", "banana", nil, "31"]
+var myStringArray: [String] = ["2", "3"]
+
+let item = myArray[safe: 1] // item is String?
+let strItem = myStringArray[safe: 99] // strItem is String?
+```
+
 ### 198. How to use optional binding in swit
 This involves "rebinding" (⚠️️ There might be a weay to make this generic ⚠️️)
 ```swift
@@ -215,7 +344,7 @@ let range: Range<String.Index> = start..<end
 let mySubstring = str[range]  // play
 ```
 
-### 186. Avoiding boilerplate code required init
+### 186. Avoiding boilerplate code "required init"
 ```swift
 open class BaseView: UIView {
    /**
@@ -398,7 +527,7 @@ if let userName {
 let bigNumber = 123_456_789
 ```
 
-### 164. KeyPaths as closure
+### 164. KeyPaths in closures
 ```swift
 extension Int {
     var isEven: Bool { self.isMultiple(of: 2) }
@@ -1812,6 +1941,7 @@ switch val {
 
 
 ## 72. Struct and dictionary conversion:
+
 ```swift
 extension Encodable {
 // Declare a computed property `dict` that returns a dictionary representation of the object, or nil if the object cannot be encoded as JSON data or deserialized as a dictionary
@@ -1864,6 +1994,7 @@ return Dictionary(uniqueKeysWithValues: keysWithValues) // Create a dictionary f
 ```
 
 ### 69. Loop through struct / class properties:
+> This can also be done with mirroring
 ```swift
 extension Encodable {
     var dictionary: [String: Any]? { // Declare a computed property `dictionary` that returns a dictionary representation of the object, or nil if the object cannot be encoded as JSON data or deserialized as a dictionary
