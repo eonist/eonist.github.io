@@ -1,0 +1,194 @@
+My notes on navigation link for swift ui (NavigationStack)<!--more-->
+
+### NavigationLink:
+
+NavigationLink can take a binding of a boolean value **isActive** . This boolean value represents the showing state of a view.
+
+- If the value is true, the view is pushed to a navigation stack.
+- If the value is false, the view is popped or dismissed.
+
+### NavigationStack:
+In iOS 16, Apple did a big revamp on the navigation view architecture. They deprecated the NavigationView and replaced it with the NavigationStack.
+
+https://sarunw.com/posts/how-to-pop-view-from-navigation-stack-in-swiftui/
+
+
+- To push a new view to a navigation view, we add a new item to the path array.
+- To pop a view, we remove an item from the path array.
+-  We also pass the $path to the DetailView via ` @Binding var path: [Color]` since we want the destination view to be able to pop itself. `path.removeLast()`
+- to pop to root: use path = []
+
+ 
+
+**Primary**
+- his shows how to use path 
+- another exaple of path using Color: https://sarunw.com/posts/how-to-pop-view-from-navigation-stack-in-swiftui/
+```swift
+struct ContentView: View {
+    @State private var path: [Int] = []
+    var body: some View {
+        NavigationStack(path: $path) {
+            Button("Start") {
+                path.append(1)
+            }
+            .navigationDestination(for: Int.self) { int in
+                DetailView(path: $path, count: int)
+            }
+            .navigationTitle("Home")
+        }
+    }
+}
+```
+**Detail**
+```swift
+struct DetailView: View {
+    // 5
+    @Binding var path: [Int]
+    let count: Int
+    var body: some View {
+        Button("Go deeper") {
+            path.append(count + 1) // this navigates to a new vc, it trigers the parent view destination
+        }
+        .navigationBarTitle(count.description)
+        .toolbar {
+            ToolbarItem(placement: .bottomBar) {
+                Button("Pop to Root") {
+                    path = []
+                }
+            }
+        }
+    }
+}
+```
+
+Example with one level deep nav stack: 
+
+```swift
+struct DetailView: View {
+    // 1
+    @Binding var isShowing: Bool
+
+    
+    var body: some View {
+        Button("Dismiss") {
+            // 2
+            isShowing = false
+
+        }
+        .navigationTitle("Detail Title")
+        
+    }
+}
+``` 
+
+```swift
+struct ContentView: View {
+    @State private var isShowingDetail = false
+    
+    var body: some View {
+        NavigationView { // I think NavigationView has been deprecated in favour of Navigation stack
+            NavigationLink("Detail", isActive: $isShowingDetail) {
+                // 1
+                DetailView(isShowing: $isShowingDetail)
+
+            }
+            .navigationTitle("Home")
+        }
+    }
+}
+``` 
+
+### multiple Navigation Destination View:
+
+Implementing Multiple Navigation Destination Views
+Often, you might need to display different destination views. For instance, if you want to display various integers, you would need to use a NavigationLink with a value that is an integer. This should be combined with a navigation destination view modifier that uses the same type. Here, I demonstrate how to display the destination text of a navigation link:
+
+```swift
+struct ContentView: View {
+    var body: some View {
+        NavigationStack {
+            List {
+                NavigationLink("Go to detail A", value: "Show AAAA")
+                NavigationLink("Go to B", value: "Show BBB")
+                NavigationLink("Go to number 1", value: 1)
+            }
+            .navigationDestination(for: String.self) { textValue in
+                DetailView(text: textValue)
+            }
+            .navigationDestination(for: Int.self) { numberValue in
+                Text("Detail with \(numberValue)")
+            }
+            .navigationTitle("Root view")
+        }
+    }
+}
+```
+
+
+In the preceding example, you'll notice that I've utilized two navigation destination view modifiers. You might be curious as to how SwiftUI navigation determines which destination to invoke for each link. The answer lies in type mapping. When a link button with an integer type is tapped, the destination with an integer type is activated. Similarly, if a link button with a string type is tapped, the destination with a string type is used.
+
+### Programmatic Navigation Outside of Views
+
+All navigation must be configured within the SwiftUI view for navigation to be possible. We can trigger that navigation from other places using the steps outlined above, but what if our navigation is prompted from outside of the view hierarchy? This can be the case for Deep Linking, responding to an asynchronous event, or any number of other reasons (use your imagination). Unfortunately, there isn’t a good answer for this, but in the interest of scholarly pursuit, let’s see what we can do! Below is a potential workaround for this issue. We’ll start with our NavigationCoordinator which stores our content before we perform navigation.
+
+**Navigation coordinator**
+
+```swift
+class NavigationCoordinator: ObservableObject {
+    /// 1 This stores the content that we want to navigate to.
+    fileprivate var screen: AnyView = AnyView(EmptyView())
+    ///2 Our binding variable for determining when we want to navigate.
+    @Published fileprivate var shouldNavigate: Bool = false
+    ///3 A helper method that handles the wrapping of our content and kicks off navigation automatically when assigned.
+    func show<V: View>(_ view: V) {
+        let wrapped = AnyView(view)
+        screen = wrapped
+        shouldNavigate = true
+    }
+}
+```
+
+**NavigationWrapper**
+> In iOS 16, Apple did a big revamp on a navigation view architecture. They deprecated the NavigationView and replaced it with the NavigationStack.
+
+```swift
+struct NavigationWrapper<Content>: View where Content: View {
+    /// 1 This is where we store our coordinator information for subsequent use during navigation.
+    @EnvironmentObject var coordinator: NavigationCoordinator
+    /// 2 This is where we store the content that will be displayed on the view we’re navigating from. This is essentially your view body.
+    private let content: Content
+    
+    public init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+    var body: some View {
+        // We encompass our content within a NavigationView, otherwise our NavigationLink will not function.
+        NavigationView { // The NavigationView is used to wrap the content of your views, setting them up for subsequent navigation. 
+            /// 3 Here we check to see if the coordinator should navigate. This will be checked whenever the environment object is updated and will trigger navigation when things have been set properly.
+            if coordinator.shouldNavigate {
+                NavigationLink(
+                    destination: coordinator.screen,
+                    isActive: $coordinator.shouldNavigate,
+                    label: {
+                        content
+                    })
+            } else {
+                content
+            }
+        }
+        /// 4 Once we have successfully navigated away from this view, we want to set shouldNavigate to false to prevent the next view in the hierarchy from attempting navigation as well on load.
+        .onDisappear(perform: {
+            coordinator.shouldNavigate = false
+        })
+    }
+}
+```
+
+### Resources:
+- Some programatic hack tips (NavigationSplitView): https://bignerdranch.com/blog/the-different-forms-of-navigation-in-swiftui/
+- Pop nav stack: https://sarunw.com/posts/how-to-pop-view-from-navigation-stack-in-swiftui/
+- A hack that lets you bind a bool to a navlink without poping the stack: https://www.avanderlee.com/swiftui/navigationlink-programmatically-binding/
+- Serialise navlink state has xcode proj: https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-programmatic-navigation-in-swiftui
+- Passing enviroment variable via navlink: https://stackoverflow.com/a/61711792/5389500
+- Deeplinking with Navigationstack: https://www.appcoda.com/navigationstack/
+- Has some custom Routing that is interesting: https://swiftwithmajid.com/2022/06/15/mastering-navigationstack-in-swiftui-navigator-pattern/
