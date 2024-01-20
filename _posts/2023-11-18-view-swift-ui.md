@@ -79,7 +79,7 @@ Menu {
 
 ### Text
 
-Combine text views
+> Combine text views
 You can create new text views out of several small ones using +, which is an easy way of creating more advanced formatting. For example, this creates three text views in different colors and combines them together:
 
 ```swift
@@ -148,22 +148,26 @@ If none of the built-in containers fit your needs, you can create custom contain
 
 ```swift
 
-protocol ContainerViewKind: View {
-   associatedtype Content
-   init(content: @escaping () -> Content)
+// Define a protocol for a generic view container
+protocol ViewBoxType: View {
+    associatedtype ViewContent
+    init(viewContent: @escaping () -> ViewContent)
 }
 
-extension ContainerViewKind {
-   init(@ViewBuilder _ content: @escaping () -> Content) {
-       self.init(content: content)
-   }
+// Extend the protocol to initialize with a ViewBuilder
+extension ViewBoxType {
+    init(@ViewBuilder _ viewContent: @escaping () -> ViewContent) {
+         self.init(viewContent: viewContent)
+    }
 }
-struct ContainerView<Content: View>: ContainerViewKind { // you can also just use :View here
-   var content: () -> Content
-   
-   var body: some View {
-      content()
-   }
+
+// Define a struct that conforms to the protocol
+struct ViewBox<ViewContent: View>: ViewBoxType { // you can also just use :View here
+    var viewContent: () -> ViewContent
+    
+    var body: some View {
+        viewContent()
+    }
 }
 
 ```

@@ -12,17 +12,15 @@ In iOS 16, Apple did a big revamp on the navigation view architecture. They depr
 
 https://sarunw.com/posts/how-to-pop-view-from-navigation-stack-in-swiftui/
 
-
 - To push a new view to a navigation view, we add a new item to the path array.
 - To pop a view, we remove an item from the path array.
--  We also pass the $path to the DetailView via ` @Binding var path: [Color]` since we want the destination view to be able to pop itself. `path.removeLast()`
-- to pop to root: use path = []
-
- 
+- We also pass the $path to the DetailView via ` @Binding var path: [Color]` since we want the destination view to be able to pop itself. `path.removeLast()`
+- To pop to root: use path = []
 
 **Primary**
 - his shows how to use path 
 - another exaple of path using Color: https://sarunw.com/posts/how-to-pop-view-from-navigation-stack-in-swiftui/
+
 ```swift
 struct ContentView: View {
     @State private var path: [Int] = []
@@ -39,6 +37,7 @@ struct ContentView: View {
     }
 }
 ```
+
 **Detail**
 ```swift
 struct DetailView: View {
@@ -65,18 +64,12 @@ Example with one level deep nav stack:
 
 ```swift
 struct DetailView: View {
-    // 1
     @Binding var isShowing: Bool
-
-    
     var body: some View {
         Button("Dismiss") {
-            // 2
             isShowing = false
-
         }
-        .navigationTitle("Detail Title")
-        
+        .navigationTitle("Detail Title") 
     }
 }
 ``` 
@@ -98,27 +91,27 @@ struct ContentView: View {
 }
 ``` 
 
-### multiple Navigation Destination View:
+### Multiple Navigation Destination View:
 
 Implementing Multiple Navigation Destination Views
 Often, you might need to display different destination views. For instance, if you want to display various integers, you would need to use a NavigationLink with a value that is an integer. This should be combined with a navigation destination view modifier that uses the same type. Here, I demonstrate how to display the destination text of a navigation link:
 
 ```swift
-struct ContentView: View {
+struct MainView: View {
     var body: some View {
         NavigationStack {
             List {
-                NavigationLink("Go to detail A", value: "Show AAAA")
-                NavigationLink("Go to B", value: "Show BBB")
-                NavigationLink("Go to number 1", value: 1)
+                NavigationLink("Proceed to detail X", value: "Display XXXX")
+                NavigationLink("Proceed to Y", value: "Display YYY")
+                NavigationLink("Proceed to number 2", value: 2)
             }
-            .navigationDestination(for: String.self) { textValue in
-                DetailView(text: textValue)
+            .navigationDestination(for: String.self) { stringValue in
+                DetailView(text: stringValue)
             }
-            .navigationDestination(for: Int.self) { numberValue in
-                Text("Detail with \(numberValue)")
+            .navigationDestination(for: Int.self) { numericValue in
+                Text("Detail with \(numericValue)")
             }
-            .navigationTitle("Root view")
+            .navigationTitle("Base view")
         }
     }
 }
@@ -134,16 +127,16 @@ All navigation must be configured within the SwiftUI view for navigation to be p
 **Navigation coordinator**
 
 ```swift
-class NavigationCoordinator: ObservableObject {
-    /// 1 This stores the content that we want to navigate to.
-    fileprivate var screen: AnyView = AnyView(EmptyView())
-    ///2 Our binding variable for determining when we want to navigate.
-    @Published fileprivate var shouldNavigate: Bool = false
-    ///3 A helper method that handles the wrapping of our content and kicks off navigation automatically when assigned.
-    func show<V: View>(_ view: V) {
-        let wrapped = AnyView(view)
-        screen = wrapped
-        shouldNavigate = true
+class NavigationManager: ObservableObject {
+    /// 1 This holds the view that we want to display.
+    fileprivate var targetView: AnyView = AnyView(EmptyView())
+    ///2 Our binding variable for deciding when to navigate.
+    @Published fileprivate var navigateNow: Bool = false
+    ///3 A helper function that wraps our view and initiates navigation when assigned.
+    func display<V: View>(_ view: V) {
+        let wrappedView = AnyView(view)
+        targetView = wrappedView
+        navigateNow = true
     }
 }
 ```
@@ -152,33 +145,33 @@ class NavigationCoordinator: ObservableObject {
 > In iOS 16, Apple did a big revamp on a navigation view architecture. They deprecated the NavigationView and replaced it with the NavigationStack.
 
 ```swift
-struct NavigationWrapper<Content>: View where Content: View {
-    /// 1 This is where we store our coordinator information for subsequent use during navigation.
-    @EnvironmentObject var coordinator: NavigationCoordinator
+struct NavigationContainer<DisplayedView>: View where DisplayedView: View {
+    /// 1 This is where we store our manager information for subsequent use during navigation.
+    @EnvironmentObject var manager: NavigationManager
     /// 2 This is where we store the content that will be displayed on the view we’re navigating from. This is essentially your view body.
-    private let content: Content
+    private let viewContent: DisplayedView
     
-    public init(@ViewBuilder content: () -> Content) {
-        self.content = content()
+    public init(@ViewBuilder viewContent: () -> DisplayedView) {
+        self.viewContent = viewContent()
     }
     var body: some View {
-        // We encompass our content within a NavigationView, otherwise our NavigationLink will not function.
+        // We encompass our viewContent within a NavigationView, otherwise our NavigationLink will not function.
         NavigationView { // The NavigationView is used to wrap the content of your views, setting them up for subsequent navigation. 
-            /// 3 Here we check to see if the coordinator should navigate. This will be checked whenever the environment object is updated and will trigger navigation when things have been set properly.
-            if coordinator.shouldNavigate {
+            /// 3 Here we check to see if the manager should navigate. This will be checked whenever the environment object is updated and will trigger navigation when things have been set properly.
+            if manager.navigateNow {
                 NavigationLink(
-                    destination: coordinator.screen,
-                    isActive: $coordinator.shouldNavigate,
+                    destination: manager.targetView,
+                    isActive: $manager.navigateNow,
                     label: {
-                        content
+                        viewContent
                     })
             } else {
-                content
+                viewContent
             }
         }
-        /// 4 Once we have successfully navigated away from this view, we want to set shouldNavigate to false to prevent the next view in the hierarchy from attempting navigation as well on load.
+        /// 4 Once we have successfully navigated away from this view, we want to set navigateNow to false to prevent the next view in the hierarchy from attempting navigation as well on load.
         .onDisappear(perform: {
-            coordinator.shouldNavigate = false
+            manager.navigateNow = false
         })
     }
 }

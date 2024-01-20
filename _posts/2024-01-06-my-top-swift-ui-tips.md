@@ -1,3 +1,22 @@
+### 4. Inject dismiss
+- Useful if you embed NavStack in a fullScreen cover or similar 
+- This can also be achived with the binding that fullScreenCover passes
+- Going back via binding or dismiss has slightly different animation behaviours
+```swift
+struct Main: View {
+    @Environment(\.dismiss) var dismiss
+    var dismissHock: Environment<DismissAction> { // A hack to get _dimiss in an extension
+        _dismiss
+    }
+    ... // Some navigation code
+    Content(dismiss: dismissHock) // <- this passes the Main dismiss so that we can dismiss at that level
+}
+struct Content: View {
+    @Environment(\.dismiss) var dismissHock // use this to dismiss at main level
+    @Environment(\.dismiss) var dismiss // use this to dismiss at content level
+}
+```
+
 ### 3. Convenient padding extension 
 You can create an extension that sets separate vertical and horizontal padding values for a view. This can be done by defining a new function that accepts both vertical and horizontal padding values.
 ```swift
