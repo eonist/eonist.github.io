@@ -1,3 +1,18 @@
+### 3. Convenient padding extension 
+You can create an extension that sets separate vertical and horizontal padding values for a view. This can be done by defining a new function that accepts both vertical and horizontal padding values.
+```swift
+extension View {
+    func padding(vertical: CGFloat, horizontal: CGFloat) -> some View {
+        self.padding(.vertical, vertical)
+            .padding(.horizontal, horizontal)
+    }
+}
+// Now you can use this new function to set separate vertical and horizontal padding values:
+
+Text("Hello, SwiftUI!")
+    .padding(vertical: 10, horizontal: 20)
+```
+
 ### 2. IndexedForEach
 Sometimes you need index in a for each
 ```swift

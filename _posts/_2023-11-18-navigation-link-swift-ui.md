@@ -184,6 +184,9 @@ struct NavigationWrapper<Content>: View where Content: View {
 }
 ```
 
+### Gotchas:
+- Switching views with a binding and dismiss() has slightly different transition animations
+
 ### Resources:
 - Some programatic hack tips (NavigationSplitView): https://bignerdranch.com/blog/the-different-forms-of-navigation-in-swiftui/
 - Pop nav stack: https://sarunw.com/posts/how-to-pop-view-from-navigation-stack-in-swiftui/

@@ -1,5 +1,6 @@
-My notes on navigationbar for swift ui<!--more-->
+My notes on navigationbar for swift-ui<!--more-->
 
+### Basic:
 ```swift
 struct ContentView: View {
     var body: some View {
@@ -19,7 +20,7 @@ struct ContentView: View {
     }
 }
 ```
-
+### With toolbar
 ```swift
 struct ContentView: View {
     var body: some View {
@@ -37,7 +38,7 @@ struct ContentView: View {
     }
 }
 ```
-
+### Using ToolbarItemGroup
 ```swift
 struct ContentView: View {
     var body: some View {
@@ -87,7 +88,7 @@ NavigationStack {
         }
 }
 ```
-
+### Multiple toolbaritem's
 ```swift
 struct ContentView: View {
     var body: some View {
@@ -110,7 +111,7 @@ struct ContentView: View {
     }
 }
 ```
-
+### Combining toolbaritem and toolbaritemgroup:
 ```swift
 struct ContentView: View {
     var body: some View {
@@ -158,7 +159,7 @@ struct ContentView: View {
 ```
 
 ### Add + icon as a button:
-
+This can be added to the toolbar for instance:
 ```swift
 Button {
     print ("Add Item") // Perform an action 

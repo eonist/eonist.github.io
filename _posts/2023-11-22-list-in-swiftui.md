@@ -1,19 +1,18 @@
-Notes on list in swiftui<!--more--> 
+Notes on list in SwiftUI<!--more-->
 
 ### ForEach
-- A sort of IndexedForEach
-- ref: https://stackoverflow.com/a/64262793/5389500
- and with index: https://stackoverflow.com/a/61149111/5389500
+- A sort of "IndexedForEach" that works similarly to how a ViewModifier works, but for multiple items
+- Ref: https://stackoverflow.com/a/64262793/5389500
+- And with index: https://stackoverflow.com/a/61149111/5389500
+
 ```swift
 struct EnumeratedForEach<ItemType, ContentView: View>: View { 
     let data: [ItemType]
     let content: (Int, ItemType) -> ContentView
-
     init(_ data: [ItemType], @ViewBuilder content: @escaping (Int, ItemType) -> ContentView) {
         self.data = data
         self.content = content
     }
-
     var body: some View {
         ForEach(Array(zip(data.indices, data)), id: \.0) { idx, item in
             content(idx, item)
@@ -21,13 +20,10 @@ struct EnumeratedForEach<ItemType, ContentView: View>: View {
     }
 }
 // Now you can use it like this:
-
 EnumeratedForEach(items) { idx, item in
     ...
 }
 ```
-
-
 
 ### Creating table: 
 If you come from UIKit, you will appreciate how easy it is to create tables in SwiftUI. Gone are the days of cell prototypes, data sources, and delegates.
@@ -37,106 +33,104 @@ Now, all you need to do is create a List view, pass it an array with your data a
 
 
 ```swift
-struct MoviesView: View {
-	var body: some View {
-		List(TestData.movies, id: \.title) { movie in
-			Row(movie: movie)
-		}
-	}
-}
-
-
-struct MoviesView_Previews: PreviewProvider {
-    static var previews: some View {
-        MoviesView()
+struct FilmListView: View {
+    var body: some View {
+        List(TestData.films, id: \.title) { film in
+            FilmRow(film: film)
+        }
     }
 }
-struct Row: View {
-	let movie: Movie
-	
-	var body: some View {
-		HStack(spacing: 24.0) {
-			Image(movie.poster)
-				.resizable()
-				.frame(width: 70.0, height: 110.0)
-				.shadow(color: .gray, radius: 10.0, x: 4.0, y: 4.0)
-			VStack(alignment: .leading, spacing: 4.0) {
-				Text(movie.title)
-					.font(.headline)
-				Text(movie.director)
-					.font(.subheadline)
-				Group {
-					Text(movie.genre)
-					Text(movie.runtime)
-				}
-				.font(.caption)
-				.foregroundColor(.secondary)
-			}
-			Spacer()
-		}
-	}
+
+struct FilmListView_Previews: PreviewProvider {
+    static var previews: some View {
+        FilmListView()
+    }
 }
 
-struct Row_Previews: PreviewProvider {
-	static var previews: some View {
-		Row(movie: TestData.movies[0])
-			.padding()
-			.previewLayout(.sizeThatFits)
-	}
+struct FilmRow: View {
+    let film: Film
+    
+    var body: some View {
+        HStack(spacing: 24.0) {
+            Image(film.poster)
+                .resizable()
+                .frame(width: 70.0, height: 110.0)
+                .shadow(color: .gray, radius: 10.0, x: 4.0, y: 4.0)
+            VStack(alignment: .leading, spacing: 4.0) {
+                Text(film.title)
+                    .font(.headline)
+                Text(film.director)
+                    .font(.subheadline)
+                Group {
+                    Text(film.genre)
+                    Text(film.runtime)
+                }
+                .font(.caption)
+                .foregroundColor(.secondary)
+            }
+            Spacer()
+        }
+    }
+}
+
+struct FilmRow_Previews: PreviewProvider {
+    static var previews: some View {
+        FilmRow(film: TestData.films[0])
+            .padding()
+            .previewLayout(.sizeThatFits)
+    }
 }
 ```
 
-## adding delete and move:
-
+## Adding delete and move:
 
 ```swift
-struct MoviesView: View {
-	@State var movies: [Movie] = TestData.movies
-	
-	var body: some View {
-		List {
-			EditButton()
-			ForEach (movies, id: \.title) { movie in
-				Row(movie: movie)
-			}
-			.onMove { (source, destination) in
-				self.movies.move(fromOffsets: source, toOffset: destination)
-			}
-			.onDelete { offsets in
-				self.movies.remove(atOffsets: offsets)
-			}
-		}
-	}
+struct FilmsView: View {
+    @State var films: [Film] = TestData.films
+    
+    var body: some View {
+        List {
+            EditButton()
+            ForEach (films, id: \.title) { film in
+                FilmRow(film: film)
+            }
+            .onMove { (source, destination) in
+                self.films.move(fromOffsets: source, toOffset: destination)
+            }
+            .onDelete { offsets in
+                self.films.remove(atOffsets: offsets)
+            }
+        }
+    }
 }
 ```
 
 First of all, any mutable data in a SwiftUI app needs to be stored in @State and @ObservedObject properties. You can get my free guide on architecting SwiftUI apps with MVC and MVVM to know when to use each.
 
-
 In SwiftUI, we affect the appearance of views by changing the parameters of initializers and view modifiers.
 
 Whenever a view in SwiftUI needs to update data that resides somewhere else, we use a binding. A binding is a reference that reaches data stored elsewhere, which, in SwiftUI, is called the single source of truth.
 
-`@Binding var movie: Movie` // we pass movie in the init
+`@Binding var film: Film` // we pass movie in the init
 
 ```swift
-Button(action: { self.movie.isFavorite.toggle() }) {
-					Heart(isFilled: movie.isFavorite)
-						.font(.title)
-				}
+Button(action: { self.film.isLiked.toggle() }) {
+    LikeIcon(isFilled: film.isLiked)
+        .font(.title)
+}
 ```
 
 and 
 
 ```swift
-static let movie = TestData.movies[0]
-DetailsView(movie: .constant(movie))
-			Group {
-				SideInfo(movie: .constant(movie))
-				BottomInfo(movie: movie)
-			}
-// Notice that a $ sign precedes the movie parameter for the SideInfo view. This is a SwiftUI operator you use to connect bindings to data.
-SideInfo(movie: $movie)
+static let film = TestData.films[0]
+DetailsView(film: .constant(film))
+            Group {
+                SideDetails(film: .constant(film))
+                BottomDetails(film: film)
+            }
+// Notice that a $ sign precedes the film parameter for the SideDetails view. This is a SwiftUI operator you use to connect bindings to data.
+SideDetails(film: $film)
 ```
 
 You can connect bindings to @State and @ObservedObject properties, or other bindings, like in this case. These chains of bindings allow us to pass changes up the view hierarchy until we reach the single source of truth. To know more
@@ -153,32 +147,32 @@ the .sheet modifier presents a full-screen view.
 ```json
 [
 	{
-		"Title":"Alita: Battle Angel",
-		"Year":"2019",
-		"Runtime":"122 min",
-		"Genre":"Action, Adventure, Sci-Fi, Thriller",
-		"Director":"Robert Rodriguez",
-		"Actors":"Rosa Salazar, Christoph Waltz, Jennifer Connelly, Mahershala Ali",
-		"Plot":"A deactivated cyborg is revived, but cannot remember anything of her past life and goes on a quest to find out who she is.",
-		"Country":"USA",
-		"Awards":"8 wins & 25 nominations.",
-		"Poster":"Alita"
+        "FilmName":"Alita: Battle Angel",
+        "ReleaseYear":"2019",
+        "Duration":"122 min",
+        "Category":"Action, Adventure, Sci-Fi, Thriller",
+        "Filmmaker":"Robert Rodriguez",
+        "Performers":"Rosa Salazar, Christoph Waltz, Jennifer Connelly, Mahershala Ali",
+        "Storyline":"A deactivated cyborg is revived, but cannot remember anything of her past life and goes on a quest to find out who she is.",
+        "Origin":"USA",
+        "Accolades":"8 wins & 25 nominations.",
+        "CoverImage":"Alita"
 	}
 ]
 ```
 
 ```swift
-struct Movie: Decodable {
-    let title: String
-    let year: String
-    let runtime: String
-    let genre: String
-    let director: String
-    let actors: String
-    let plot: String
-    let country: String
-    let awards: String
-    let poster: String
+struct Film: Decodable {
+    let name: String
+    let releaseYear: String
+    let duration: String
+    let category: String
+    let filmmaker: String
+    let performers: String
+    let storyline: String
+    let origin: String
+    let accolades: String
+    let coverImage: String
 }
 ```
 
@@ -236,9 +230,9 @@ struct ContentView_Previews: PreviewProvider {
 
 ## Selectable list
 
-selectable list: https://sarunw.com/posts/swiftui-list-selection/ (List doesn't support rendering and scrolling in a horizontal axis)
+- selectable list: https://sarunw.com/posts/swiftui-list-selection/ (List doesn't support rendering and scrolling in a horizontal axis)
 
-SwiftuI's built in List selection functionality doesn't allow for much customization. Here is a way to do it manually:
+- SwiftUI's built in List selection functionality doesn't allow for much customization. Here is a way to do it manually:
 
 1. Create a state that is an optional int
 2. Create a list where id is the int. `List(Array(items.indecies), id: \.self)`
@@ -287,21 +281,21 @@ Menu {
     }
 } label: {
     HStack {
-    Image(optionalSystemName: leadingImageName)?
-        .iconStyle(size: 18, padding: 0)
-    Text(title)
-        .rowTextStyle()
-    Spacer()
-    Text(self.options[0])
-        .rowTextStyle()
-    Image(systemName: imageName)
-        .iconStyle(size: 16, padding: 0)
+        Image(optionalSystemName: leadingImageName)? // left
+            .iconStyle(size: 18, padding: 0)
+        Text(title)
+            .rowTextStyle()
+        Spacer()
+        Text(self.options[0]) // right
+            .rowTextStyle()
+        Image(systemName: imageName)
+            .iconStyle(size: 16, padding: 0)
     }
 }
 ```
 
 ### Gotchas
-- If all else fails, there is always ccessing uikit from swiftui https://github.com/siteline/swiftui-introspect
+- If all else fails, there is always accessing uikit from swiftui https://github.com/siteline/swiftui-introspect
 
 ### Resources:
 - dynamic list: https://sarunw.com/posts/swiftui-dynamic-list/
