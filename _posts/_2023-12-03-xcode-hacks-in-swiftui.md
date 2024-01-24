@@ -1,5 +1,4 @@
-<!--more-->
-
+Xcode hacks in swiftUI<!--more-->
 
 
 ### No device

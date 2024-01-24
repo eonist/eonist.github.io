@@ -37,7 +37,7 @@ Index:
 - [Transformable Types](#transformable-types)
 - [Todo](#todo)
 
-- the power of SwiftData lies in its ability to streamline and simplify the complex task of data management, so you can focus more on building unique functionalities for your app.
+- The power of SwiftData lies in it's ability to streamline and simplify the complex task of data management, so you can focus more on building unique functionalities for your app.
 - Not only does this type specify the Swift model but it also specifies the schema of the underlying Core Data store. This is execellent and makes data persistence much simpler.
 - Apple's suggested way of using SwiftData in SwiftUI is using the @Query property wrapper and passing a ModelContext to the view using the modelContext environment value.
 - SwiftData will automatically create a Schema from your model file. Your model will also have PersistentModel conformance: `protocol PersistentModel : AnyObject, Observable, Hashable, Identifiable`
