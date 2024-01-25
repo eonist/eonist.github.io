@@ -1,3 +1,26 @@
+### 5. Inject colorscheme in preview
+Instead of writing the UI component twice to test dark / light mode. We can pass scheme in a closure as shown bellow:
+```swift
+// Preview
+#Preview {
+   let closure: (_ colorScheme: ColorScheme) -> some View = { colorScheme in
+      AccessoryRow(title: "Hello world", leadingImageName: "heart")
+         .padding(16)
+         .background(Color(light: .white, dark: .black).opacity(1))
+         .environment(\.colorScheme, colorScheme)
+   }
+   return ZStack {
+      Rectangle()
+         .fill(Color.secondaryBackground)
+         .ignoresSafeArea(.all)
+      VStack(spacing: 0) {
+         closure(.dark)
+         closure(.light)
+      }
+   }
+}
+```
+
 ### 4. Inject dismiss
 - Useful if you embed NavStack in a fullScreen cover or similar 
 - This can also be achived with the binding that fullScreenCover passes
