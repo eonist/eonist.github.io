@@ -1,3 +1,46 @@
+### 6. Debug dark and light mode simultaniously:
+Dark mode and light mode of any UI component, vertically stacked, ready for preview ✨
+```swift
+import SwiftUI
+/**
+ * Used to preview light-mode and dark-mode simultaniously
+ */
+struct PreviewContainer<Content: View>: View {
+   typealias ClosureType = (_ colorScheme: ColorScheme) -> Content
+   let closure: ClosureType
+   // init
+   init(@ViewBuilder closure: @escaping ClosureType) {
+      self.closure = closure
+   }
+   // body
+   @ViewBuilder
+   var body: some View {
+      ZStack {
+         Rectangle()
+            .fill(Color.secondaryBackground)
+            .ignoresSafeArea(.all)
+         VStack(spacing: 0) {
+            closure(.dark)
+            closure(.light)
+         }
+      }
+   }
+}
+// preview
+#Preview {
+   PreviewContainer.init { colorScheme in
+      Button.init(action: {
+         Swift.print("on action")
+      }, label: {
+         Text( "Hello world")
+      })
+         .padding(16)
+         .background(Color(light: .white, dark: .black).opacity(1))
+         .environment(\.colorScheme, colorScheme)
+   }
+}
+```
+
 ### 5. Inject colorscheme in preview
 Instead of writing the UI component twice to test dark / light mode. We can pass scheme in a closure as shown bellow:
 ```swift

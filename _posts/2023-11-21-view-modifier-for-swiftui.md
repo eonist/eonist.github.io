@@ -1,6 +1,5 @@
 Notes on view modifiers in swiftUI<!--more-->
 
-
 ### Viewmodifer: 
 ViewModifier is a modifier that you apply to a view or another view modifier, producing a different version of the original value.
 
@@ -47,41 +46,56 @@ ModifiedContent(content: Text("Giant"), modifier: BiggerModifier())
 ### View modifier:
 ref: https://sarunw.com/posts/swiftui-viewmodifier/
 ```swift
-// protocol is: func body(content: Self.Content) -> Self.Body
-struct BiggerModifier: ViewModifier {
-	func body(content: Content) -> some View {
-		return content.scaleEffect(2)
-	}
+// The protocol is: func body(content: Self.Content) -> Self.Body
+struct LargerModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        // Scale the content by a factor of 3
+        return content.scaleEffect(3)
+    }
 }
-Text("Giant").modifier(BiggerModifier())
-//or
-ModifiedContent(content: Text("Giant"), modifier: BiggerModifier())
-// chaining:
+// Apply the modifier to a text view
+Text("Huge").modifier(LargerModifier())
+// Alternatively, use ModifiedContent to apply the modifier
+ModifiedContent(content: Text("Huge"), modifier: LargerModifier())
+// Chain the modifier using an extension on View
 extension View {
-	func bigger() -> some View {
-		self.modifier(BiggerModifier())
-	}
+    func larger() -> some View {
+        // Apply the LargerModifier
+        self.modifier(LargerModifier())
+    }
 }
-Text("Giant").bigger()
+// Use the chained modifier on a text view
+Text("Huge").larger()
 ```
 
 Complex modifier example:
 ```swift
-struct NSFW: ViewModifier {
+// Define a view modifier for content that is not suitable for children
+struct NotForKids: ViewModifier {
+  // Define the body of the view modifier
   func body(content: Content) -> some View {
+    // Create a ZStack with the content and an overlay
     ZStack(alignment: .center, content: {
+        // Give the content a layout priority of 1, blur it, and clip it
         content.layoutPriority(1)
             .blur(radius: 30).clipped()
+        // Create a VStack with an image and a text view
         VStack {
-            Image(systemName: "eye.slash.fill").foregroundColor(.white)
-            Text("NSFW").font(.caption).bold().foregroundColor(.white)
+            // Display an image of a slash
+            Image(systemName: "slash.circle.fill").foregroundColor(.white)
+            // Display a text view with the text "Not for kids"
+            Text("Not for kids").font(.caption).bold().foregroundColor(.white)
         }
     })
   }
 }
+
+// Extend Image to include a function to apply the NotForKids modifier
 extension Image {
-    func nsfw() -> some View {
-        self.modifier(NSFW())
+    // Define a function to apply the NotForKids modifier
+    func notForKids() -> some View {
+        // Apply the NotForKids modifier
+        self.modifier(NotForKids())
     }
 }
 ```
@@ -89,24 +103,37 @@ extension Image {
 Adding state and animation:
 
 ```swift
-struct NSFW: ViewModifier {
-    @State var isHide: Bool = true
+// Define a view modifier for content that is not suitable for children
+struct NotForKids: ViewModifier {
+    // Define a state variable for whether the content is hidden
+    @State var isHidden: Bool = true
     
+    // Define the body of the view modifier
     func body(content: Content) -> some View {
+        // Create a ZStack with the content and an overlay
         ZStack(alignment: .center, content: {            
-            if isHide {
+            // If the content is hidden, blur it and display a warning
+            if isHidden {
+                // Give the content a layout priority of 1, blur it, and clip it
                 content.layoutPriority(1)
                     .blur(radius: 30).clipped()
+                // Create a VStack with an image and a text view
                 VStack {
-                    Image(systemName: "eye.slash.fill").foregroundColor(.white)
-                    Text("NSFW").font(.caption).bold().foregroundColor(.white)
+                    // Display an image of a slash
+                    Image(systemName: "slash.circle.fill").foregroundColor(.white)
+                    // Display a text view with the text "Not for kids"
+                    Text("Not for kids").font(.caption).bold().foregroundColor(.white)
                 }
             } else {
+                // If the content is not hidden, display it
                 content
             }
-        }).onTapGesture {
+        })
+        // Add a tap gesture recognizer to toggle the hidden state
+        .onTapGesture {
+            // Toggle the hidden state with animation
             withAnimation { 
-                self.isHide = !self.isHide
+                self.isHidden = !self.isHidden
             }            
         }
     }
@@ -119,21 +146,28 @@ If you find yourself regularly repeating the same set of view modifiers – for 
 For example, this creates a new PrimaryLabel modifier that adds padding, a black background, white text, a large font, and some corner rounding:
 
 ```swift
-struct PrimaryLabel: ViewModifier {
+// Define a view modifier for a main title
+struct MainTitle: ViewModifier {
+    // Define the body of the view modifier
     func body(content: Content) -> some View {
+        // Modify the content with padding, a background color, a foreground color, a font, and a corner radius
         content
             .padding()
-            .background(.black)
-            .foregroundStyle(.white)
+            .background(Color.black)
+            .foregroundColor(Color.white)
             .font(.largeTitle)
             .cornerRadius(10)
     }
 }
-// You can now attach that to any view using .modifier(PrimaryLabel()), like this:
-struct ContentView: View {
+
+// You can now attach that to any view using .modifier(MainTitle()), like this:
+// Define a view for the main content
+struct MainContentView: View {
+    // Define the body of the view
     var body: some View {
-        Text("Hello World")
-            .modifier(PrimaryLabel())
+        // Create a text view with the text "Hello World" and apply the MainTitle modifier
+        Text("Hello, World!")
+            .modifier(MainTitle())
     }
 }
 ```
