@@ -76,11 +76,11 @@ If you apply a button style to a container view, all the buttons in the containe
  
  SwiftUI got five button styles as follows.
 
-- automatic
-- borderless
-- plain
-- bordered
-- borderedProminent
+- Automatic
+- Borderless
+- Plain
+- Bordered
+- BorderedProminent
 
 
 ```swift
@@ -101,6 +101,7 @@ Button("Bordered Prominent Button") {
     .font(.title)
 
 ```
+
 ### Custom style for the button:
 ```swift
 Button {
@@ -160,7 +161,7 @@ Caveat
 
 The important thing you need to know when creating a custom button is a clickable area is the size of a button content.
 
-In this case, it is Text("Button Label").padding(). So, the clickable area is as wide as the text and padding.
+In this case, it is `Text("Button Label").padding()`. So, the clickable area is as wide as the text and padding.
 
 If you move the .padding() modifier outside the button label, your clickable area will be as small as the text.
 
@@ -241,12 +242,12 @@ VStack {
 
 You can change the size of a SwiftUI Button by using controlSize(_:).
 
-There are four sizes to choose from
+There are four sizes to choose from:
 
-mini
-small
-regular (This is default size)
-large
+- mini
+- small
+- regular (This is default size)
+- large
 
 
 ```swift
@@ -257,7 +258,7 @@ Button("Large Button") {
 .controlSize(.large)
 ```
 
-## change size manually:
+## Change size manually:
 
 How to change a button size manually
 
@@ -309,12 +310,12 @@ We can use a Link view to open a URL in Safari.
 
 Link view is similar to a button, but instead of providing an action, we provide a destination URL that we want to open.
 
-The example below creates a link to my Twitter profile https://twitter.com/sarunw.
+The example below creates a link to my Twitter profile https://twitter.com/fifa.
 ```swift
 
 struct ContentView: View {
     var body: some View {
-        Link("Twitter", destination: URL(string: "https://twitter.com/sarunw")!)
+        Link("Twitter", destination: URL(string: "https://twitter.com/fifa")!)
 
     }
 }
@@ -323,7 +324,7 @@ customize the link look and feel:
 ```swift
 struct ContentView: View {
     var body: some View {
-        Link("Twitter", destination: URL(string: "https://twitter.com/sarunw")!)
+        Link("Twitter", destination: URL(string: "https://twitter.com/fifa")!)
             .font(.largeTitle)
             .foregroundColor(.pink)
 
@@ -334,7 +335,7 @@ struct ContentView: View {
 adding an icon and underline:
 
 ```swift
-Link(destination: URL(string: "https://twitter.com/sarunw")!) {
+Link(destination: URL(string: "https://twitter.com/fifa")!) {
     Label("Twitter", systemImage: "link")
         .font(.largeTitle)
         .foregroundColor(.pink)
@@ -348,8 +349,8 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                Link("Website", destination: URL(string: "https://sarunw.com")!)
-                Link("Twitter", destination: URL(string: "https://twitter.com/sarunw")!)
+                Link("Website", destination: URL(string: "https://fifa.com")!)
+                Link("Twitter", destination: URL(string: "https://twitter.com/fifa")!)
             }
             .foregroundColor(.black)
             .navigationTitle("About")

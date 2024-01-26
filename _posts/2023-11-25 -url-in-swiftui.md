@@ -1,6 +1,5 @@
 Notes on url in swiftui<!--more-->
 
-
 ### Open URL with openURL environment value
 
 Another way to open a URL is by using the openURL environment value.
@@ -11,14 +10,12 @@ Here is an example where I manually open a URL using openURL when the button is 
 ```swift
 
 struct ContentView: View {
-    // 1
     @Environment(\.openURL) private var openURL
 
-    
     var body: some View {
         Button("Open Website") {
             // 2
-            openURL(URL(string: "https://sarunw.com")!)
+            openURL(URL(string: "https://google.com")!)
 
         }
     }
@@ -41,7 +38,7 @@ struct ContentView: View {
     
     var body: some View {
         Button("Open Website") {
-            openURL(URL(string: "sarunw://invalid-url-scheme")!) { canOpen in
+            openURL(URL(string: "appName://invalid-url-scheme")!) { canOpen in
                 print("Can open \(canOpen)")
 
             }
@@ -66,7 +63,7 @@ We can opt out of the default behavior by providing a custom handler.
 
 You can do that by setting a new OpenURLAction via environment(_:_:) modifier.
 
-In this example, I am looking for a URL with a sarunw:// scheme and open https://sarunw.com instead.
+In this example, I am looking for a URL with a google:// scheme and open https://google.com instead.
 ```swift
 
 struct ExampleApp: App {
@@ -75,9 +72,9 @@ struct ExampleApp: App {
             ContentView()
                 .environment(\.openURL, OpenURLAction(handler: { url in
                     // 1
-                    if url.scheme == "sarunw" {
+                    if url.scheme == "google" {
 
-                        return .systemAction(URL(string: "https://sarunw.com")!)
+                        return .systemAction(URL(string: "https://google.com")!)
                     }
                     // 2
                     return .systemAction
@@ -87,7 +84,7 @@ struct ExampleApp: App {
     }
 }
 ```
-1 If the open URL has a "sarunw" scheme, I return .systemAction(URL(string: "https://sarunw.com")!) which asks the system to open "https://sarunw.com" URL instead.
+1 If the open URL has a "sarunw" scheme, I return .systemAction(URL(string: "https://google.com")!) which asks the system to open "https://google.com" URL instead.
 2 For other URLs, I rely on the default behavior by returning .systemAction.
 
 With this new URL handler, the same code we used in the previous example is now working.
@@ -99,7 +96,7 @@ struct ContentView: View {
     
     var body: some View {
         Button("Open Website") {
-            openURL(URL(string: "sarunw://invalid-url-scheme")!) { canOpen in
+            openURL(URL(string: "google://invalid-url-scheme")!) { canOpen in
                 print("Can open \(canOpen)")
             }
         }
@@ -107,7 +104,7 @@ struct ContentView: View {
 }
 ```
 
-sarunw://invalid-url-scheme is now handled by our custom handle, which opens the https://sarunw.com URL instead when tapped.
+google://invalid-url-scheme is now handled by our custom handle, which opens the https://google.com URL instead when tapped.
 
 And since the URL can now be opened, the openURL completion handler now returns true.
 

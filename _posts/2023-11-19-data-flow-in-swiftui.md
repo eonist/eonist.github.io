@@ -1,6 +1,6 @@
 My notes on data-flow in swiftui<!--more-->
 
-The key difference between @StateObject and **@ObservedObject** is that **@StateObject** is designed to be used within a single view, while **@ObservedObject** is meant to share the same object instance across multiple views.
+The key difference between `@StateObject` and **@ObservedObject** is that **@StateObject** is designed to be used within a single view, while **@ObservedObject** is meant to share the same object instance across multiple views.
 
 ### @State and @Binding 
 - A binding is a (2-way) connection between a piece of data and some UI
@@ -84,9 +84,9 @@ struct ContentView: View {
 
 
 ### EnvironmentObject:
-The @EnvironmentObject property wrapper allows you to share data across multiple views in a SwiftUI hierarchy. It eliminates the need for manual passing of data through view hierarchies and provides a global approach to data sharing. It allows you to inject an object at the top level of the view hierarchy and access it from any view below that level.
+The `@EnvironmentObject` property wrapper allows you to share data across multiple views in a SwiftUI hierarchy. It eliminates the need for manual passing of data through view hierarchies and provides a global approach to data sharing. It allows you to inject an object at the top level of the view hierarchy and access it from any view below that level.
 
-SwiftUI gives us both @Environment and @EnvironmentObject property wrappers, but they are subtly different: whereas @EnvironmentObject allows us to inject arbitrary values into the environment, @Environment is specifically there to work with SwiftUI’s own pre-defined keys.
+SwiftUI gives us both `@Environment` and `@EnvironmentObject` property wrappers, but they are subtly different: whereas @EnvironmentObject allows us to inject arbitrary values into the environment, @Environment is specifically there to work with SwiftUI’s own pre-defined keys.
 
 For example, @Environment is great for reading out things like a Core Data managed object context, whether the device is in dark mode or light mode, what size class your view is being rendered with, and more – fixed properties that come from the system. In code, it looks like this:
 
@@ -154,66 +154,66 @@ struct CustomView: View {
 
 ```swift
 @main
-struct MyApp: App {
-    // Create an instance of ProfileData, which will be used throughout the app.
-    let profileData = ProfileData()
+struct MyApplication: App {
+    // Create an instance of UserData, which will be used throughout the app.
+    let userData = UserData()
 
     var body: some Scene {
         WindowGroup {
-            // Set the environmentObject for ParentView, making the profileData instance available to all its child views.
-            ParentView()
-                .environmentObject(profileData)
+            // Set the environmentObject for MainView, making the userData instance available to all its child views.
+            MainView()
+                .environmentObject(userData)
         }
     }
 }
 
-class ProfileData: ObservableObject {
+class UserData: ObservableObject {
     // Observable properties, changes to which will trigger view updates.
-    @Published var username: String = "Claire Mcphee"
-    @Published var age: Int = 25
+    @Published var name: String = "John Doe"
+    @Published var years: Int = 30
 
-    // Function to increment the age property.
-    func incrementAge() {
-        age += 1
+    // Function to increment the years property.
+    func addYear() {
+        years += 1
     }
 }
 
-struct ParentView: View {
-    // Access the profileData instance from the environment.
-    @EnvironmentObject var profileData: ProfileData
+struct MainView: View {
+    // Access the userData instance from the environment.
+    @EnvironmentObject var userData: UserData
 
     var body: some View {
         VStack {
-            // Display the age property from profileData.
-            Text("Count: \(profileData.age)")
-            // Button to call the incrementAge() method of profileData when tapped.
+            // Display the years property from userData.
+            Text("Years: \(userData.years)")
+            // Button to call the addYear() method of userData when tapped.
             Button {
-                profileData.incrementAge()
+                userData.addYear()
             } label: {
-                Text("Tap to update age")
+                Text("Click to add year")
                     .padding()
             }
 
-            // Display the ProfileView, which will also have access to profileData.
-            ProfileView()
+            // Display the UserView, which will also have access to userData.
+            UserView()
         }
         .font(.title)
     }
 }
 
-struct ProfileView: View {
-    // Access the profileData instance from the environment.
-    @EnvironmentObject var profileData: ProfileData
+struct UserView: View {
+    // Access the userData instance from the environment.
+    @EnvironmentObject var userData: UserData
 
     var body: some View {
         VStack {
-            // Display the age property from profileData.
-            Text("Age is: \(profileData.age)")
-            // Button to call the incrementAge() method of profileData when tapped.
+            // Display the years property from userData.
+            Text("Years: \(userData.years)")
+            // Button to call the addYear() method of userData when tapped.
             Button {
-                profileData.incrementAge()
+                userData.addYear()
             } label: {
-                Text("Increment Age")
+                Text("Add Year")
                     .padding()
             }
         }
@@ -296,26 +296,36 @@ Setting a @State variable like this will only work for the very First time. Afte
 
 
 ```swift
-struct CounterView: View {
-    @State private var count: Int
-    init(count: Int) { // This is what the compiler synthesizes behind the scene.
-    // One case that it might not yield the result you expected is when a @State variable is an optional value. self.count = count
-        _count = State(initialValue: count)
+// A view that displays a tally and a button to increment it
+struct TallyView: View {
+    // State variable to keep track of the tally
+    @State private var tally: Int
 
+    // Initializer that sets the initial tally
+    init(tally: Int) {
+        // This is what the compiler synthesizes behind the scene.
+        // One case that it might not yield the result you expected is when a @State variable is an optional value.
+        self.tally = tally
+        _tally = State(initialValue: tally)
     }
+
     var body: some View {
         VStack {
-            Text("Counter: \(count)")
+            // Display the current tally
+            Text("Tally: \(tally)")
+            // Button to increment the tally
             Button("+1") {
-                count += 1
+                tally += 1
             }
         }
     }
 }
+
 // Then we can use it like this.
-struct ContentView: View {
+struct MainView: View {
     var body: some View {
-        CounterView(count: 5)
+        // Initialize a TallyView with a starting tally of 5
+        TallyView(tally: 5)
             .font(.title)
     }
 }
@@ -324,22 +334,30 @@ struct ContentView: View {
 > StateObject is like a reactive model for a view
 ⭐ ref: https://sarunw.com/posts/manually-initialize-stateobject/
 ```swift
-// initialize @StateObject with parameters in SwiftUI
-class DashboardViewModel: ObservableObject {
-  @Published var greeting: String
-  init(name: String) {
-    greeting = "Hello, \(name)!"
-  }
+// Define a class for the user profile view model
+class UserProfileViewModel: ObservableObject {
+    // Publish the welcome message so the view updates when it changes
+    @Published var welcomeMessage: String
+    // Initialize the view model with a user name
+    init(userName: String) {
+        welcomeMessage = "Welcome, \(userName)!"
+    }
 }
-struct DashboardView: View {
-  @StateObject private var viewModel: DashboardViewModel
-  init(name: String) {
-    // A way to set init values to a model with wrappedvalue
-    _viewModel = StateObject(wrappedValue: DashboardViewModel(name: name))
-  }
-  var body: some View {
-    Text("Greeting: \(viewModel.greeting)")
-  }
+
+// Define a view for the user profile
+struct UserProfileView: View {
+    // Create a state object for the view model
+    @StateObject private var viewModel: UserProfileViewModel
+    // Initialize the view with a user name
+    init(userName: String) {
+        // Initialize the view model with the user name
+        _viewModel = StateObject(wrappedValue: UserProfileViewModel(userName: userName))
+    }
+    // Define the body of the view
+    var body: some View {
+        // Display the welcome message from the view model
+        Text("Message: \(viewModel.welcomeMessage)")
+    }
 }
 ```
 ### @Binding
@@ -348,24 +366,32 @@ struct DashboardView: View {
  
 
 ```swift
-public struct Toggle<Label>: View {
-	public init(
-		isOn: Binding<Bool>,
-		label: () -> Label
-	)
+// Define a public struct for a switch view
+public struct Switch<Label>: View {
+    // Initialize the switch with a binding to a boolean and a label
+    public init(
+        isActive: Binding<Bool>,
+        label: () -> Label
+    )
 }
 
-public struct TextField: View {
-	init(
-		_ text: Binding<String>
-	)
+// Define a public struct for a text field view
+public struct InputField: View {
+    // Initialize the text field with a binding to a string
+    init(
+        _ text: Binding<String>
+    )
 }
-// We use $ sign to get Binding from @State, this also come from a help of property wrapper.
 
-@State var bar: Bool = false
+// The $ sign is used to get a Binding from @State, thanks to the property wrapper.
+
+// Define a state variable for the switch status
+@State var switchStatus: Bool = false
    
+// Define the body of the view
 var body: some View {
-  Toggle("Toggle", isOn: $bar)     
+  // Create a switch with a label and bind it to the switchStatus variable
+  Switch("Switch", isActive: $switchStatus)     
 }
 ```
 More on bindings: https://sarunw.com/posts/binding-initialization/
@@ -376,15 +402,21 @@ More on bindings: https://sarunw.com/posts/binding-initialization/
 - Several Foundation types expose their functionality through publishers, including Timer, NotificationCenter, and URLSession. Combine also provides a built-in publisher for any property that’s compliant with Key-Value Observing.
 
 ```swift
-struct ListenerView: View {
-  @State var text: String = "Placeholder"
+// Define a struct for a view that listens for keyboard notifications
+struct KeyboardListenerView: View {
+    // Define a state variable for the text field content
+    @State var textFieldContent: String = "Initial Text"
    
-  var body: some View {
-    TextField("Listener", text: $text)
-    .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { (output) in
-      self.text = "Keyboard will show"
+    // Define the body of the view
+    var body: some View {
+        // Create a text field that updates textFieldContent
+        TextField("Keyboard Listener", text: $textFieldContent)
+        // Listen for the keyboardWillShowNotification
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { (output) in
+            // When the notification is received, update textFieldContent
+            self.textFieldContent = "Keyboard is about to appear"
+        }
     }
-  }
 }
 ```
 
@@ -397,39 +429,44 @@ EnvironmentKey
 EnvironmentValues
 
 ```swift
-private struct SensitiveKey: EnvironmentKey {
-    // 1
+// Define a private struct for a key to access a secure environment value
+private struct SecureKey: EnvironmentKey {
+    // Set the default value for the key
     static let defaultValue: Bool = false
-
 }
-// Once we declare a data type and a key to access it, we introduce this newly create key/value to EnvironmentValues using an extension. We use the key defined in the last section to get and set the value.
 
+// Extend EnvironmentValues to include the new key/value pair
 extension EnvironmentValues {
-    var isSensitive: Bool {
-        get { self[SensitiveKey.self] }
-        set { self[SensitiveKey.self] = newValue }
+    // Define a variable to get and set the secure environment value
+    var isSecure: Bool {
+        get { self[SecureKey.self] }
+        set { self[SecureKey.self] = newValue }
     }
 }
-// After creating a new key and introduce it to environmental values, we have a working environment value that you can set and access like the system-defined one.
-struct ContentView: View {
-    @Environment(\.isSensitive) var isSensitive
+
+// Define a view that uses the secure environment value
+struct MainView: View {
+    // Access the secure environment value
+    @Environment(\.isSecure) var isSecure
     
     var body: some View {
+        // Display a text view and set the secure environment value
         Text("Hello")
-            .environment(\.isSensitive, true)
+            .environment(\.isSecure, true)
     }
 }
-// You can add a dedicated modifier to make it easier for users to set the new value. To do that we create a new view modifier and wrap .environment(\.isSensitive) inside.
 
+// Extend View to include a modifier for the secure environment value
 extension View {
-    func isSensitive(_ value: Bool) -> some View {
-        environment(\.isSensitive, value)
+    // Define a function to set the secure environment value
+    func isSecure(_ value: Bool) -> some View {
+        environment(\.isSecure, value)
     }
 }
-// This gives a more concise syntax to override the environment value, just like some system-defined ones such as .font and .colorScheme.
 
+// Use the new modifier to set the secure environment value
 Text("Hello")
-    .isSensitive(true)
+    .isSecure(true)
 ``` 
 
 ### ObservableObject protocol
@@ -530,21 +567,29 @@ contentView.environment(\.colorScheme, .dark)
 ### Binding var:
 binds a var inside taskstore
 ```swift
-struct TaskView : View {
-    var taskIdentifier: String // Passed from parent view
+// Define a struct for a job view
+struct JobView : View {
+    // Define a variable for the job ID, which is passed from the parent view
+    var jobID: String 
     
-    @EnvironmentObject private var taskStore: TaskStore
+    // Define an environment object for the job store
+    @EnvironmentObject private var jobStore: JobStore
     
-    private var taskBinding : Binding<Task> {
+    // Define a binding for the job
+    private var jobBinding : Binding<Job> {
         Binding {
-            taskStore.tasks[taskIdentifier] ?? .init(identifier: "", title: "", tags: [])
+            // Get the job from the job store
+            jobStore.jobs[jobID] ?? .init(id: "", title: "", tags: [])
         } set: {
-            taskStore.tasks[taskIdentifier] = $0
+            // Set the job in the job store
+            jobStore.jobs[jobID] = $0
         }
     }
     
+    // Define the body of the view
     var body: some View {
-        TextField("Task title", text: taskBinding.title)
+        // Create a text field for the job title
+        TextField("Job title", text: jobBinding.title)
     }
 }
 ```
@@ -579,31 +624,41 @@ struct TaskView : View {
 - write about observable: https://swiftwithmajid.com/2023/10/03/mastering-observable-framework-in-swift/
 
 ```swift
-@Observable final class AuthViewModel {
-    var username = ""
-    var password = ""
+// Define a view model for user login
+@Observable final class LoginViewModel {
+    // Define variables for the user ID and PIN
+    var userID = ""
+    var userPIN = ""
     
-    var isAuthorized = false
+    // Define a variable for the login status
+    var isLoggedIn = false
     
-    func authorize() {
-        isAuthorized.toggle()
+    // Define a function to toggle the login status
+    func loginToggle() {
+        isLoggedIn.toggle()
     }
 }
 
-struct AuthView: View {
-    @Bindable var viewModel: AuthViewModel
+// Define a view for user login
+struct LoginView: View {
+    // Bind the view to the login view model
+    @Bindable var viewModel: LoginViewModel
     
+    // Define the body of the view
     var body: some View {
         VStack {
-            if !viewModel.isAuthorized {
-                TextField("username", text: $viewModel.username)
-                SecureField("password", text: $viewModel.password)
+            // If the user is not logged in, display the login fields
+            if !viewModel.isLoggedIn {
+                TextField("User ID", text: $viewModel.userID)
+                SecureField("PIN", text: $viewModel.userPIN)
                 
-                Button("authorize") {
-                    viewModel.authorize()
+                // Button to toggle the login status
+                Button("Login") {
+                    viewModel.loginToggle()
                 }
             } else {
-                Text("Hello, \(viewModel.username)")
+                // If the user is logged in, display a welcome message
+                Text("Welcome, \(viewModel.userID)")
             }
         }
     }
