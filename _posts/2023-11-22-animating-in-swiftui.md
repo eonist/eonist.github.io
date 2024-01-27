@@ -6,6 +6,7 @@ SwiftUI has two ways for us to animate changes to its view hierarchy: animation(
 
 The animation() method is used on bindings, and it asks SwiftUI to animate any changes that result in the binding’s value being modified. For example, here’s a view that has a Toggle to show or hide a label:
 
+```swift
 struct ContentView: View {
     @State private var showingWelcome = false
 
@@ -19,6 +20,7 @@ struct ContentView: View {
         }
     }
 }
+```
 When the toggle is changed, the text view below it will appear or disappear immediately, which isn’t a great experience. However, if we used animation() we could make the view slide in and out smoothly when the toggle is changed:
 
 Toggle("Toggle label", isOn: $showingWelcome.animation())
@@ -59,7 +61,6 @@ And it’s customizable in exactly the same way as animation():
 withAnimation(.spring()) {
     showingWelcome.toggle()
 }
-
 ```
 
 ### Resoures:

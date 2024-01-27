@@ -3,9 +3,10 @@ Hybrid os code in swiftUI<!--more-->
 ### Add customizations for an individual platform
 Sometimes you have one SwiftUI view that works great on both iOS and macOS, but needs just a tiny modification – perhaps a little more padding on iOS, or slightly different styling.
 
-For these times I recommend the following view extensions, which add iOS(), macOS(), tvOS(), and watchOS() methods for just this purpose:
+For these times I recommend the following view extensions, which add `iOS()`, `macOS()`, `tvOS()`, and `watchOS()` methods for just this purpose:
 
 ```swift
+// iOS
 extension View {
     func iOS<Content: View>(_ modifier: (Self) -> Content) -> some View {
         #if os(iOS)
@@ -15,7 +16,7 @@ extension View {
         #endif
     }
 }
-
+// macOS
 extension View {
     func macOS<Content: View>(_ modifier: (Self) -> Content) -> some View {
         #if os(macOS)
@@ -25,7 +26,7 @@ extension View {
         #endif
     }
 }
-
+// tvOS
 extension View {
     func tvOS<Content: View>(_ modifier: (Self) -> Content) -> some View {
         #if os(tvOS)
@@ -35,7 +36,7 @@ extension View {
         #endif
     }
 }
-
+// watchOS
 extension View {
     func watchOS<Content: View>(_ modifier: (Self) -> Content) -> some View {
         #if os(watchOS)
