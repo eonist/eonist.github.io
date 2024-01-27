@@ -1,16 +1,16 @@
+My top swiftUI tips and tricks<!--more-->
+
 ### 6. Debug dark and light mode simultaniously:
 Dark mode and light mode of any UI component, vertically stacked, ready for preview ✨
 ```swift
-import SwiftUI
 /**
  * Used to preview light-mode and dark-mode simultaniously
  */
 struct PreviewContainer<Content: View>: View {
-   typealias ClosureType = (_ colorScheme: ColorScheme) -> Content
-   let closure: ClosureType
+   let content: Content
    // init
-   init(@ViewBuilder closure: @escaping ClosureType) {
-      self.closure = closure
+   init(@ViewBuilder content: () -> Content) {
+      self.content = content()
    }
    // body
    @ViewBuilder
@@ -20,23 +20,25 @@ struct PreviewContainer<Content: View>: View {
             .fill(Color.secondaryBackground)
             .ignoresSafeArea(.all)
          VStack(spacing: 0) {
-            closure(.dark)
-            closure(.light)
+            content
+               .environment(\.colorScheme, .light)
+            content
+               .environment(\.colorScheme, .dark)
          }
       }
    }
 }
-// preview
+// Preview
 #Preview {
-   PreviewContainer.init { colorScheme in
-      Button.init(action: {
+   PreviewContainer {
+      Button(action: {
          Swift.print("on action")
       }, label: {
          Text( "Hello world")
+         Spacer()
       })
          .padding(16)
          .background(Color(light: .white, dark: .black).opacity(1))
-         .environment(\.colorScheme, colorScheme)
    }
 }
 ```
