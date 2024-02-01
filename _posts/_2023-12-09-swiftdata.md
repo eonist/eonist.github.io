@@ -117,22 +117,22 @@ struct SnippetDetailView: View {
 ```
 
 ```swift 
-@Model class Song {
-  var title: String
-  var artist: String
-  var album: String
-  var genre: String
-  var rating: Double
+@Model class Track {
+    var trackName: String
+    var performer: String
+    var record: String
+    var style: String
+    var score: Double
 }
  
-@Model class Album {
-  @Attribute(.unique) var name: String
-  var artist: String
-  var genre: String
+@Model class Record {
+    @Attribute(.unique) var title: String
+    var performer: String
+    var style: String
  
-  // The cascade relationship instructs SwiftData to delete all 
-    // songs when the album is deleted.
-  @Attribute(.cascade) var songs: [Song]? = []
+    // The cascade relationship instructs SwiftData to delete all 
+        // tracks when the record is deleted.
+    @Attribute(.cascade) var tracks: [Track]? = []
 }
 ```
 or
@@ -203,10 +203,10 @@ Note that I am setting the ´creationDate´ and ´uuid´ properties in the initi
 By default a SwiftData ModelContainer will create its underlying storage in a file called `default.store`. If you want to change this so you can use an existing Core Data SQLite file, you can point your container to that file instead:
 ```swift
 // Basic
-let container = try ModelContainer(for: [Song.self, Album.self])
+let dataContainer = try ModelContainer(for: [Track.self, Record.self])
  
 // With configuration
-let container = try ModelContainer(for: [Song.self, Album.self], 
+let dataContainer = try ModelContainer(for: [Track.self, Record.self], 
                                     configurations: ModelConfiguration(url: URL("path")))) // it seems path must be: appSupport dir and name must be "default.store"
 
 ```
@@ -227,12 +227,12 @@ import SwiftData
 import SwiftUI
  
 @main
-struct MusicApp: App {
+struct AudioApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
-        .modelContainer (for: [Song.self, Album.self]))
+        .dataContainer(for: [Track.self, Record.self]))
     }
 }
 ```
@@ -247,22 +247,22 @@ struct MusicApp: App {
 
 more advance preview setup:
 ```swift
-let previewContainer: ModelContainer = {
+let demoContainer: ModelContainer = {
     do {
-        let container = try ModelContainer(for: Snippet.self,
+        let container = try ModelContainer(for: CodeFragment.self,
                                            configurations: ModelConfiguration(isStoredInMemoryOnly: true))
         
         Task { @MainActor in // accessing context
             
             let context = container.mainContext
             
-            let snip = Snippet.example2()
+            let codeFrag = CodeFragment.example2()
 
             
-            let folder = Folder(name: "folder with favorite snippet")
-            context.insert(folder)
-            folder.snippets.append(Snippet(isFavorite: true, 
-                     title: "favorite snippet"))
+            let category = Category(name: "category with starred code fragment")
+            context.insert(category)
+            category.codeFragments.append(CodeFragment(isStarred: true, 
+                     heading: "starred code fragment"))
 
             // add test data here
         }
@@ -291,15 +291,15 @@ let previewContainer: ModelContainer = {
 ```
 
 ```swift
-// ModelContainer initialized with just Trip
-let container = try ModelContainer(for: Trip.self)
+// DataContainer initialized with just Journey
+let dataContainer = try ModelContainer(for: Journey.self)
 
 // SwiftData infers related model classes as well
-let container = try ModelContainer(
+let dataContainer = try ModelContainer(
     for: [
-        Trip.self, 
-        BucketListItem.self, 
-        LivingAccommodation.self
+        Journey.self, 
+        WishlistItem.self, 
+        Residence.self
     ]
 )
 ```
@@ -308,40 +308,40 @@ Two databases in one container:
 
 ```swift
 @main
-struct TripsApp: App {
-    let fullSchema = Schema([ // holistic container schema
-        Trip.self, 
-        BucketListItem.self,
-        LivingAccommodations.self,
-        Person.self, 
-        Address.self
+struct JourneysApp: App {
+    let completeSchema = Schema([ // comprehensive container schema
+        Journey.self, 
+        WishlistItem.self,
+        Residence.self,
+        Individual.self, 
+        Location.self
     ])
   
-    let trips = ModelConfiguration( // db1
+    let journeys = ModelConfiguration( // db1
         schema: Schema([ // schema related to  db1
-            Trip.self,
-            BucketListItem.self,
-            LivingAccommodations.self
+            Journey.self,
+            WishlistItem.self,
+            Residence.self
         ]),
-        url: URL(filePath: "/path/to/trip.store"),
-        cloudKitContainerIdentifier: "com.example.trips"
+        url: URL(filePath: "/path/to/journey.store"),
+        cloudKitContainerIdentifier: "com.example.journeys"
     )
   
-    let people = ModelConfiguration( // db2
+    let individuals = ModelConfiguration( // db2
         schema: Schema([ // schema related to  db2
-            Person.self, 
-            Address.self
+            Individual.self, 
+            Location.self
         ]),
-        url: URL(filePath: "/path/to/people.store"),
-        cloudKitContainerIdentifier: "com.example.people"
+        url: URL(filePath: "/path/to/individuals.store"),
+        cloudKitContainerIdentifier: "com.example.individuals"
     )
   
-    let container = try ModelContainer(for: fullSchema, trips, people) // multiple configs in one container
+    let dataContainer = try ModelContainer(for: completeSchema, journeys, individuals) // multiple configs in one container
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
-        .modelContainer(container)
+        .modelContainer(dataContainer)
     }
 }
 ```
@@ -396,27 +396,27 @@ import SwiftUI
 import SwiftData
 
 @main
-struct SnippetBoxApp: App {
+struct CodeFragmentBoxApp: App {
 
-    var container: ModelContainer? = {
-        let conf = ModelConfiguration(cloudKitContainerIdentifier: "iCloud.com.karinprater.snippetbox")
+    var dataContainer: ModelContainer? = {
+        let config = ModelConfiguration(cloudKitContainerIdentifier: "iCloud.com.karinprater.codeFragmentBox")
         do {
-            let container = try ModelContainer(for: Snippet.self, conf)
+            let container = try ModelContainer(for: CodeFragment.self, config)
             return container
         } catch {
-            print("errror: \(error)")
+            print("Error: \(error)")
             return nil
         }
     }()
 
     var body: some Scene {
         WindowGroup {
-            if let container = container {
-                ContentView()
-                //  .modelContainer(for: Snippet.self)
-                    .modelContainer(container)
+            if let container = dataContainer {
+                MainView()
+                //  .dataContainer(for: CodeFragment.self)
+                    .dataContainer(container)
             } else {
-                Text("Upps")
+                Text("Oops")
             }
 
         }
@@ -426,15 +426,14 @@ struct SnippetBoxApp: App {
 
 ### Context
 ```swift
- @Query var trips: [Trip] // works like an array
- @Query(sort: \.startDate, order: .reverse) var sortedTrips: [Trip] // works like an array
- @Environment(\.modelContext) var modelContext
-  ForEach(trips) { trip in
-    Button("delete") {
-        modelContext.delete(trip)
+ @Query var journeys: [Journey] // behaves like an array
+ @Query(sort: \.beginDate, order: .reverse) var orderedJourneys: [Journey] // behaves like an array
+ @Environment(\.dataContext) var dataContext
+    ForEach(journeys) { journey in
+        Button("remove") {
+                dataContext.delete(journey)
+        }
     }
-  }
-  
 ```
 
 Working with the ModelContext. The container has a main context property, which you can access like so:
@@ -509,21 +508,21 @@ var trips = try context.fetch(FetchDescriptor<Trip>())
 
 ### Predicate and FetchDescriptor:
 ```swift
-#Predicate and FetchDescriptor
-let context = self.newSwiftContext(from: Trip.self)
-let hotelNames = ["First", "Second", "Third"]
+// Predicate and FetchDescriptor
+let dataContext = self.newSwiftContext(from: Journey.self)
+let residenceNames = ["Alpha", "Beta", "Gamma"]
 
-var predicate = #Predicate<Trip> { trip in // ✨ really cool
-    trip.livingAccommodations.filter {
-        hotelNames.contains($0.placeName)
+var filterCondition = #Predicate<Journey> { journey in // ✨ really cool
+    journey.residences.filter {
+        residenceNames.contains($0.placeName)
     }.count > 0
 }
 
-var descriptor = FetchDescriptor(predicate: predicate)
-var trips = try context.fetch(descriptor)
+var fetchDescriptor = FetchDescriptor(predicate: filterCondition)
+var journeys = try dataContext.fetch(fetchDescriptor)
 
-context.enumerate(FetchDescriptor<Trip>()) { trip in
-    // Operate on trip
+dataContext.enumerate(FetchDescriptor<Journey>()) { journey in
+    // Operate on journey
 }
 ``` 
 
@@ -539,26 +538,26 @@ context.enumerate(
 Compound predicate:
 
 ```swift
-let titleExpression = PredicateExpressions.Value("Back to the Future")
-let yearExpression = PredicateExpressions.Value(1985)
+let filmTitleExpression = PredicateExpressions.Value("Back to the Future")
+let releaseYearExpression = PredicateExpressions.Value(1985)
 
-let titlePredicate = PredicateExpressions.StartsWith(
-   lhs: PredicateExpressions.KeyPath(\Movie.name),
-   rhs: titleExpression
+let filmTitlePredicate = PredicateExpressions.StartsWith(
+    lhs: PredicateExpressions.KeyPath(\Film.title),
+    rhs: filmTitleExpression
 )
 
-let yearPredicate = PredicateExpressions.Equal(
-   lhs: PredicateExpressions.KeyPath(\Movie.year),
-   rhs: yearExpression
+let releaseYearPredicate = PredicateExpressions.Equal(
+    lhs: PredicateExpressions.KeyPath(\Film.releaseYear),
+    rhs: releaseYearExpression
 )
 
-let compoundPredicate = PredicateExpressions.And(
-   lhs: titlePredicate,
-   rhs: yearPredicate
+let combinedPredicate = PredicateExpressions.And(
+    lhs: filmTitlePredicate,
+    rhs: releaseYearPredicate
 )
 
-let predicate = Predicate<Movie>({ input in
-   compoundPredicate(input)
+let finalPredicate = Predicate<Film>({ film in
+    combinedPredicate(film)
 })
 ```
 
@@ -572,21 +571,22 @@ var bucketList: [BucketListItem]? = []
 ```swift
 import Foundation
 import SwiftData
-@Model final public class Folder {
 
-    var creationDate: Date
-    var name: String
-    var uuid: UUID
+@Model final public class Category {
 
-    @Relationship(.cascade, inverse: \Snippet.folder) var snippets: [Snippet]
+    var dateCreated: Date
+    var title: String
+    var identifier: UUID
 
-    init(name: String = "",
-         snippets: [Snippet] = []) {
-        self.creationDate = Date()
-        self.uuid = UUID()
+    @Relationship(.cascade, inverse: \CodeFragment.category) var codeFragments: [CodeFragment]
 
-        self.name = name
-        self.snippets = snippets
+    init(title: String = "",
+         codeFragments: [CodeFragment] = []) {
+        self.dateCreated = Date()
+        self.identifier = UUID()
+
+        self.title = title
+        self.codeFragments = codeFragments
     }
 }
 ```

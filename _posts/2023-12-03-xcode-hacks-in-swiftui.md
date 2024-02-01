@@ -1,5 +1,11 @@
 Xcode hacks in swiftUI<!--more-->
 
+## Multi curor selection:
+
+ - Hold ⌃ – Control and ⇧ - SHIFT then ↑ or ↓ to mark multiple lines
+ - alt drag to mark multiple lines
+ - multi select: shift + ctrl + mouse press
+
 
 ### No device
 _PreviewNoDevice returns a view built from adding the previewLayout modifier and adding `padding to the input view:

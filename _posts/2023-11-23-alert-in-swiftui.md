@@ -4,6 +4,11 @@ My notes on alert for SwiftUI<!--more-->
 - Buttons are created with Alert.Button and has many presets 
 - You add callback to the buttons 
 
+### Gotcha:
+- Displaying more than one alert in a view
+- If you add multiple alert() modifiers to one view, your code might not work correctly - only one alert will function, the other won't.
+- To solve this, connect your alerts to various elements in your view hierarchy, like the button or any other view that causes the alert to show up.
+
 # Index:
 - [Basics](#basics)
 - [Simple confirm alert](#simple-confirm-alert)
