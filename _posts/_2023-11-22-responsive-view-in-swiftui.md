@@ -74,11 +74,10 @@ We have three ways to ask for subview size.
 - Spacers with min max can be used to pin layout: https://www.hackingwithswift.com/quick-start/swiftui/how-to-make-a-fixed-size-spacer
 
 ### Resources:
-- contional layout: https://swiftwithmajid.com/2022/08/16/conditional-layouts-in-swiftui/
+- Conditional layout: https://swiftwithmajid.com/2022/08/16/conditional-layouts-in-swiftui/
 - https://www.hackingwithswift.com/quick-start/swiftui/how-to-automatically-switch-between-hstack-and-vstack-based-on-size-class
 - ⭐ ViewThatFits (A responsive problem solver view) https://sarunw.com/posts/swiftui-viewthatfits/
 - https://sarunw.com/posts/swiftui-anylayout/
 - https://www.hackingwithswift.com/quick-start/swiftui/how-to-dynamically-change-between-vstack-and-hstack
 - layout priority: https://www.hackingwithswift.com/quick-start/swiftui/how-to-control-layout-priority-using-layoutpriority
 - https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-an-adaptive-layout-with-viewthatfits
-- https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-a-two-column-or-three-column-layout-with-navigationsplitview

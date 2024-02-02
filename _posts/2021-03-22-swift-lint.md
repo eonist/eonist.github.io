@@ -4,7 +4,7 @@ Notes on swift lint<!--more-->
 
 1. install swift-lint via swiftlint.pkg (give access in prefs/security): [https://github.com/realm/SwiftLint/releases](https://github.com/realm/SwiftLint/releases)   
 
-2. Add `.swiftlint.yml` to your xcode project folder
+2. Add `.swiftlint.yml` to your xcode project folder. (asjecent to the .xproj file)
   - Example of swift-lint rule set: [https://github.com/realm/SwiftLint/blob/master/.swiftlint.yml](https://github.com/realm/SwiftLint/blob/master/.swiftlint.yml)
   - Another swift-lint example from Sindre Sorhus project GifSki: [https://github.com/sindresorhus/gifski-app/blob/master/.swiftlint.yml](https://github.com/sindresorhus/gifski-app/blob/master/.swiftlint.yml)
 
@@ -21,13 +21,15 @@ else
 fi
 ```
 
-4. Build the project to see some swift-lint warnings
+4. Disable scrip sandboxing here: `Build Setting -> Build Options -> User Script Sandboxing，Set "No"` ref: https://github.com/mac-cain13/R.swift/issues/855
 
-5. Add a swift-lint badge to your github project:  
+5. Build `cmd + b` the project to see some swift-lint warnings
+
+6. Add a swift-lint badge to your github project:  
 [![SwiftLint Eonist](https://img.shields.io/badge/SwiftLint-Eonist-purple.svg)](https://github.com/eonist/Swift-lint)  
 `[![Swift-lint Eonist](https://img.shields.io/badge/swift--lint-eonist-purple.svg)](https://github.com/eonist/Swift-lint)`
 
-6. ✨ Don't forget the terminal auto correct feature Terminal: `swiftlint autocorrect` now renamed to: `swiftlint fix` in your project path. And it auto corrects the entire project ✨ ⚠️️Remember to commit before you auto correct the project. `swiftlint lint` first to assert what will be changed. Before autocorrecting it can be smart to commit current state. and go through commits and assert that everything is good. It can also be a good idea to make sure the package or xcodeproj builds and runs all tests etc
+7. ✨ Don't forget the terminal auto correct feature Terminal: `swiftlint autocorrect` now renamed to: `swiftlint fix` in your project path. And it auto corrects the entire project ✨ ⚠️️Remember to commit before you auto correct the project. `swiftlint lint` first to assert what will be changed. Before autocorrecting it can be smart to commit current state. and go through commits and assert that everything is good. It can also be a good idea to make sure the package or xcodeproj builds and runs all tests etc
 
 
 ### Notes:
