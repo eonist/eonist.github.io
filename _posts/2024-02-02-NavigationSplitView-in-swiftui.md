@@ -1,18 +1,22 @@
 My notes on multi column apps in swiftui<!--more-->
 
-From iOS 16 onwards, use NavigationSplitView to make layouts with two or three columns on iPad and Mac. You can adjust how the columns look, how wide they are, and when they are visible.
+> From iOS 16 onwards, use NavigationSplitView to make layouts with two or three columns on iPad and Mac. You can adjust how the columns look, how wide they are, and when they are visible.
+
+## Two-column
+A two-column split view has a sidebar and detail columns:
+
+```swift
+NavigationSplitView {
+  Sidebar() // Menu bar
+} detail: {
+  Detail() // Detail view for each of the menu item
+}
+```
 
 ## Three-column
 ```swift
 NavigationSplitView {
-  
-} content: {
-  
-} detail: {
-  
-}
-NavigationSplitView {
-  Sidebar()// Menu bar
+  Sidebar() // Menu bar
 } content: {
   Content() // Sub menu
 } detail: {
@@ -20,18 +24,7 @@ NavigationSplitView {
 }
 ```
 
-## Two-column
-A two-column split view has a sidebar and detail columns:
-
-```swift
-NavigationSplitView {
-  Sidebar()// Menu bar
-} detail: {
-  Detail()// Detail view for each of the menu item
-}
-```
-
-## Basic 2 column setup for ipad and 1 column for ios
+## Basic 2 column setup for iPad and 1 column for iOS
 - Drawback is that it uses navigationbar on iphone. And buttons are provided for you without much customization options. 
 - Benefit is that it works out of the box, and takes care of many things like resizing etc
 
@@ -98,7 +91,7 @@ struct WorldView: View {
 }
 ```
 
-Split View Visibility
+## Split View Visibility
 You can programmatically control the sidebar display mode by passing a binding to a NavigationSplitViewVisibility state property to the split view:
 
 ```swift
@@ -324,7 +317,73 @@ struct SizeClassView: View {
 }
 ```
 
+Another variation here: 
+- Reference: https://github.com/renaudjenny/SwiftUI-with-Size-Classes
+```swift
+struct ContentView: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+
+    var body: some View {
+        Group {
+            if verticalSizeClass == .regular && horizontalSizeClass == .compact {
+                // iPhone Portrait or iPad 1/3 split view for Multitasking for instance
+                ...
+            } else if verticalSizeClass == .compact && horizontalSizeClass == .compact {
+                // some "standard" iPhone Landscape (iPhone SE, X, XS, 7, 8, ...)
+                ...
+            } else if verticalSizeClass == .compact && horizontalSizeClass == .regular {
+                // some "bigger" iPhone Landscape (iPhone Xs Max, 6s Plus, 7 Plus, 8 Plus, ...)
+                ...
+            } else if verticalSizeClass == .regular && horizontalSizeClass == .regular {
+                // macOS or iPad without split view - no Multitasking
+                ...
+            }
+        }
+    }
+}
+```
+
+### Toggle visibility:
+There are four ways to display your app's views:
+
+- In .detailOnly, only the detail view is shown, filling the whole screen.
+- In .doubleColumn, both the content and detail views are shown.
+- In .all, the system tries to show all three views if they exist. If there's no content view, it shows only two.
+- In .automatic, the system decides the best view based on the device and its orientation.
+Remember, the columnVisibility uses a binding because it updates automatically when the user interacts with your app.
+
+In SwiftUI, the sidebar, content, and detail views are similar to the "primary", "supplementary", and "secondary" views in UIKit.
+
+```swift
+@State private var columnVisibility = NavigationSplitViewVisibility.detailOnly
+var body: some View {
+    NavigationSplitView(columnVisibility: $columnVisibility) {
+        Text("Menu")
+    } content: {
+        Text("Main Content")
+    } detail: {
+        VStack {
+            Button("Show Detail Only") {
+                columnVisibility = .detailOnly
+            }
+            Button("Show Content and Detail") {
+                columnVisibility = .doubleColumn
+            }
+            Button("Display All") {
+                columnVisibility = .all
+            }
+        }
+    }
+}
+```
+
+### Gochas:
+- Hides toggle btn `.toolbar(removing: .sidebarToggle)`
+- To avoid top inset in the content column, remember to set `.ignoresSafeArea(.all)`
+
 ### Resources:
+- setting column min, max, ideal sizes: https://www.hackingwithswift.com/quick-start/swiftui/how-to-customize-a-views-width-in-navigationsplitview
 - overview of how native split view looks on various platforms: https://github.com/russell-archer/SwiftUI-SplitViewNavDemo
 - https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/
 - https://www.hackingwithswift.com/books/ios-swiftui/working-with-two-side-by-side-views-in-swiftui
@@ -337,3 +396,6 @@ struct SizeClassView: View {
 - dragable split grid for macOS: https://github.com/krzyzanowskim/SwiftUI.SplitView
 - Draggable split view for iOS: https://github.com/avdyushin/SplitView and tutorial here: https://blog.grigory.nl/posts/building-splitview-in-swiftui/
 - https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-a-two-column-or-three-column-layout-with-navigationsplitview
+-   lots of info on navigationspøitview: https://useyourloaf.com/blog/swiftui-split-view-configuration/
+- another tutorial on navsplitview: https://www.appcoda.com/navigationsplitview-swiftui/
+- manually controlling sidebarbutton action: https://nilcoalescing.com/blog/ProgrammaticallyHideAndShowSidebarInSplitView/

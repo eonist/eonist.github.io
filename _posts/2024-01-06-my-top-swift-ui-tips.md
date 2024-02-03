@@ -1,5 +1,50 @@
 My top swiftUI tips and tricks<!--more-->
 
+In SwiftUI, you can easily make two views the same size, either in height or width. You don't need any complex tools for this, just use the frame() and fixedSize() functions.
+
+On iOS, make the maximum height or width of each view you want to size as infinite. This will make it fill all the available space. Then, apply fixedSize() to the container they are in. This tells SwiftUI that these views should only take up the space they need.
+
+So, SwiftUI will find the smallest space the views need, and let them take up that full amount. This way, the two views will always be the same size, no matter what they contain.
+
+For example, you can make two text views the same height even if they have different text lengths. Just use the frame() and fixedSize() functions, and both text views will be the same size.
+
+```swift
+HStack {
+    Text("This is a brief text.")
+        .padding()
+        .frame(maxHeight: .infinity)
+        .background(.red)
+
+    Text("This is an extremely lengthy text with a significant amount of words that will certainly span multiple lines due to its length.")
+        .padding()
+        .frame(maxHeight: .infinity)
+        .background(.green)
+}
+.fixedSize(horizontal: false, vertical: true)
+.frame(maxHeight: 200)
+```
+
+You can use the same method to make two views have the same width.
+
+```swift
+VStack {
+    Button("Sign in") { }
+        .foregroundStyle(.white)
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background(.red)
+        .clipShape(Capsule())
+
+    Button("Forgot Password") { }
+        .foregroundStyle(.white)
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background(.red)
+        .clipShape(Capsule())
+}
+.fixedSize(horizontal: true, vertical: false)
+```
+
 ### 6. Debug dark and light mode simultaniously:
 Dark mode and light mode of any UI component, vertically stacked, ready for preview ✨
 ```swift
