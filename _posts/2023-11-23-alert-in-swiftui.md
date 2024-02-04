@@ -202,7 +202,8 @@ struct MainView: View {
 - Ref: https://sarunw.com/posts/how-to-show-multiple-alerts-on-the-same-view-in-swiftui/
 - Similar but using bool to toggle alert (and simpler environment key etc): https://stackoverflow.com/a/69301872/5389500
 - a bit different environment key etc: https://stackoverflow.com/a/67568887/5389500
-- A drawback is that it wont work in preview, if the alert is inited in the App struct
+- And similar again: https://dylancfe15.medium.com/swiftui-how-noobs-and-pros-implement-alerts-bf17188113fd
+-  A drawback is that it wont work in preview, if the alert is inited in the App struct
 ```swift
 // A struct that conforms to Identifiable protocol. This use as a trigger for our alert presentation.
 struct AlertDetails: Identifiable {
@@ -395,7 +396,9 @@ struct MainView: View {
 }
 ```
 
-### Alert:
+### Resources:
 - Seems like alert also has a way to pass data into it: https://www.hackingwithswift.com/books/ios-swiftui/using-alert-and-sheet-with-optionals
 - More alert options here: https://www.kodeco.com/books/swiftui-by-tutorials/v3.0/chapters/16-sheets-alert-views
 - https://sarunw.com/posts/swiftui-dismiss-sheet/
+- Nice writeup on various modals, alerts etc https://skyspiritlabs.com/displaying-ios-alerts-using-uialertcontroller-and-swiftui/
+- A workaround for multiple alert issues (using emptyview and overlay): https://stackoverflow.com/a/72370615/5389500

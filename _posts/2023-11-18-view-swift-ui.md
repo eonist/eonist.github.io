@@ -201,6 +201,133 @@ Text("Hello, SwiftUI!")
     .border(Color.blue)
 ```
 
+### ScenePhase:
+Scene Phase is a tool in SwiftUI that lets us know what's happening with our app. It can tell us if our app is in the background, active and being used, or inactive and not being used.
+
+- Background: The app is minimized and you can't see it on the screen.
+- Active: The app is open and you're using it.
+- Inactive: The app is open but you're not using it, so it should stop doing things.
+
+To use Scene Phase, we need to add a special variable to our app or view code. This will let us check what the Scene Phase is.
+```swift
+1	import SwiftUI
+2	
+3	@main
+4	struct FoodApp: App {
+5	    @Environment(\.scenePhase) private var scenePhase
+6	
+7	    var body: some Scene {
+8	        WindowGroup {
+9	            SignInView()
+10	        }
+11	        .onChange(of: scenePhase) { phase in
+12	            switch phase {
+13	            case .background:
+14	              // Perform code when the app is in background
+15	            case .active:
+16	              // Perform code when the app becomes active
+17	            case .inactive:
+18	              // Perform code when the app becomes inactive
+19	            }
+20	        }
+21	    }
+22	}
+```
+### LifeCycle
+A View in SwiftUI has a simple life cycle:
+
+- Initialization: This is when the view is first created. You can set up initial values or run some code before the view is shown.
+- Rendering UI: This is when SwiftUI draws the view on the screen.
+- Appearing: This is when the view is fully drawn and starts to show up on the screen.
+- Disappearing: This is when the view is removed from the screen.
+```swift
+import SwiftUI
+2	
+3	struct SignInView: View {
+4	 
+5	  init() {
+6	    print("Initialization") 
+7	  }
+8	  
+9	  var body: some View {
+10	    VStack {
+11	      // views
+12	    }
+13	      .onDisappear(perform: {
+14	        print("Disappearing")
+15	      })
+16	      .onAppear(perform: {
+17	        print("Appearing")
+18	      })
+19	      .renderUI()
+20	  }
+21	}
+22	
+23	extension View {
+24	    func renderUI() -> Self {
+25	      print("Rendering UI")
+26	      
+27	      return self
+28	    }
+29	}
+
+The outputs are going to be:
+Initialization
+Rendering UI
+Appearing
+Disappearing
+```
+
+### Additional Event Handlers
+
+onReceive(_:perform:)
+To observe a Publisher , and perform actions when the data is omitted by the Publisher.
+```swift
+import SwiftUI
+2	
+3	struct TimerView: View {
+4	  
+5	  @State private var second = 0
+6	  
+7	  private let timer = Timer.TimerPublisher(interval: 1, runLoop: .main, mode: .common).autoconnect()
+8	  
+9	  var body: some View {
+10	    Text("\($second) second")
+11	      .onReceive(timer, perform: { _ in
+12	        second += 1                          
+13	      })
+14	  }
+15	} 
+```
+In this example, timer is a Publisher . Every second, the value of the timer will be published. And then the onReceive(_:perform:) will receive the value and execute the perform closure to add one to second. Finally, the drawing system will re-render TimerView with the new value of second .
+
+**onChange(of:perform:)**
+To observe a specific value, and perform actions when the value is changed.
+
+```swift
+1	import SwiftUI
+2	
+3	struct TimerView: View {
+4	  
+5	  @State private var second = 0
+6	  
+7	  private let timer = Timer.TimerPublisher(interval: 1, runLoop: .main, mode: .common).autoconnect()
+8	  
+9	  var body: some View {
+10	    Text("\($second) second")
+11	      .onReceive(timer, perform: { _ in
+12	        second += 1                          
+13	      })
+14	      .onChange(of: second) { newValue in
+15	        print("The value of second has been changed to \(newValue)")                       
+16	      }
+17	  }
+18	} 
+```
+
+In the example, every time the value of second is changed, the program will execute the print statement to print the new value on the console.
+
+
 ### Gotchas
 - Using generics instead of anyview: https://www.swiftbysundell.com/articles/avoiding-anyview-in-swiftui/
 - Swiss army knif to change views on some variable change: `.onChange(of: selection) { /* do stuff */ }` on views, connected to @State var selection: Int etc
