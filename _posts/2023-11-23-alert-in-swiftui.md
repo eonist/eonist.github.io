@@ -8,6 +8,7 @@ My notes on alert for SwiftUI<!--more-->
 - Displaying more than one alert in a view
 - If you add multiple alert() modifiers to one view, your code might not work correctly - only one alert will function, the other won't.
 - To solve this, connect your alerts to various elements in your view hierarchy, like the button or any other view that causes the alert to show up.
+- Note on sheets: If you present views as sheets, each sheet needs to implement its own alert, just like MyApp does above. If you have a NavigationView inside your sheet and present other views within this navigation view in the same sheet, the subsequent sheets can use the first sheet's alert.
 
 # Index:
 - [Basics](#basics)
@@ -174,28 +175,22 @@ struct NotificationDetails: Identifiable {
 
 struct MainView: View {
     @State private var details: NotificationDetails?
-
     var body: some View {
         VStack {
             Button("Notification 1") {
-             
                 details = NotificationDetails(
-
                     id: .first,
                     title: "Title 1",
                     message: "Message 1")
             }
             Button("Notification 2") {
-     
                 details = NotificationDetails(
-
                     id: .second,
                     title: "Title 2",
                     message: "Message 2")
             }
         }
         .alert(item: $details, content: { details in // 5
-
             Alert(title: Text(details.title),
                   message: Text(details.message))
         })
@@ -204,12 +199,24 @@ struct MainView: View {
 ```
 
 ### App wide alert controller
-Ref: https://sarunw.com/posts/how-to-show-multiple-alerts-on-the-same-view-in-swiftui/
+- Ref: https://sarunw.com/posts/how-to-show-multiple-alerts-on-the-same-view-in-swiftui/
+- Similar but using bool to toggle alert (and simpler environment key etc): https://stackoverflow.com/a/69301872/5389500
+- a bit different environment key etc: https://stackoverflow.com/a/67568887/5389500
+- A drawback is that it wont work in preview, if the alert is inited in the App struct
 ```swift
+// A struct that conforms to Identifiable protocol. This use as a trigger for our alert presentation.
+struct AlertDetails: Identifiable {
+    enum AlertType {
+        case first
+        case second
+    }
+    let id: AlertType
+    let title: String
+    let message: String
+}
 class AlertManager: ObservableObject {
- 
+    // After setting details to a non-nil value, the alert will be present with our info as a parameter of a content closure 
     @Published var details: AlertDetails?
-
 }
 @main
 struct ExampleApp: App {
@@ -218,10 +225,8 @@ struct ExampleApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environmentObject(alertManager) 
-
-                .alert(item: $alertManager.details, content: { details in  
-
+                .environmentObject(alertManager) // we attach the alertManager to a global environmentObject here
+                .alert(item: $alertManager.details, content: { details in  // item is the model
                     Alert(title: Text(details.title),
                           message: Text(details.message))
                 })
@@ -229,20 +234,17 @@ struct ExampleApp: App {
     }
 }
 struct MainView: View {
- 
-    @EnvironmentObject var alertManager: AlertManager
+    @EnvironmentObject var alertManager: AlertManager // access to the global enironment var 
     var body: some View {
         VStack {
             Button("Alert A") {
-          
-                alertManager.details = AlertDetails(
-
+                alertManager.details = AlertDetails( // trigger showing the alert
                     id: .first,
                     title: "Title A",
                     message: "Message A")
             }
             Button("Alert B") {
-                alertManager.details = AlertDetails(
+                alertManager.details = AlertDetails( // trigger showing the alert
                     id: .second,
                     title: "Title B",
                     message: "Message B")
@@ -256,7 +258,7 @@ struct SubView: View {
     var body: some View {
         VStack {
             Button("Sub Alert") {
-                alertManager.details = AlertDetails(
+                alertManager.details = AlertDetails( // trigger showing the alert
 
                     id: .first,
                     title: "Sub Title",
@@ -265,6 +267,104 @@ struct SubView: View {
         }
     }
 }
+```
+
+### Simple top level alert: 
+Here is a possible example solution to show an Alert anywhere in the App. It uses "Environment" and "ObservableObject".
+
+```swift
+// create the Alerter class that notifies the top-level and asks to display an alert
+class Alerter: ObservableObject {
+   @Published var alert: Alert? {
+      didSet { isShowingAlert = alert != nil }
+   }
+   @Published var isShowingAlert = false
+}
+// render the alert at the top-most level, for example in your @main struct or the ContentView
+                                             @main
+                                             struct MyApp: App {
+   @StateObject var alerter: Alerter = Alerter()
+   
+   var body: some Scene {
+      WindowGroup {
+         ContentView()
+            .environmentObject(alerter)
+            .alert(isPresented: $alerter.isShowingAlert) {
+               alerter.alert ?? Alert(title: Text(""))
+            }
+      }
+   }
+}
+//set the alert that should be displayed from inside a child view
+struct SomeChildView: View {
+   
+   @EnvironmentObject var alerter: Alerter
+   
+   var body: some View {
+      Button("show alert") {
+         alerter.alert = Alert(title: Text("Hello from SomeChildView!"))
+      }
+   }
+}
+```
+
+### App wide alert that uses root controller and UIKit (works in swiftui)
+
+```swift
+import SwiftUI
+/**
+ * - Note: Ref: https://makestory.medium.com/how-to-present-alert-from-anywhere-in-swiftui-754a89da3321
+ * ## Example:
+ * presentAlert(title: "Save", subTitle: "Saving is required", primaryAction: .init(title: "OK", style: .default) { _ in
+ *     print("Handler")
+ * })
+ *
+ * And
+ *
+ * Button( action:{
+ *    presentAlert(title: "Title", subTitle: "subTitle",
+ *                 primaryAction: .init(title: "Primary", style: .default, handler: {_ in
+ *       print("Handler")
+ *    }))
+ * } ) {
+ *    Text("Present Alert")
+ *    }
+ *
+ * And
+ *
+ * Button( action:{
+ *    presentAlert(title: "Title", subTitle: "subTitle",
+ *                 primaryAction: .init(title: "Primary", style: .default, handler: {_ in
+ *       print("Handler")
+ *    }),secondaryAction: .init(title: "Second", style: .cancel, handler: {_ in
+ *       print("Handler2")
+ *    }))
+ * } ) {
+ *    Text("Present Alert2")
+ *    }
+ */
+func presentAlert(title: String, subTitle: String, primaryAction: UIAlertAction, secondaryAction: UIAlertAction? = nil) {
+   DispatchQueue.main.async {
+      let alertController = UIAlertController(title: title, message: subTitle, preferredStyle: .alert)
+      alertController.addAction(primaryAction)
+      if let secondary = secondaryAction {
+         alertController.addAction(secondary)
+      }
+      rootController?.present(alertController, animated: true, completion: nil)
+   }
+}
+/**
+ * rootController
+ */
+fileprivate var rootController: UIViewController? {
+   let keyWin = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene } .flatMap { $0.windows } .first { $0.isKeyWindow }
+   var root = keyWin?.rootViewController
+   while let presentedViewController = root?.presentedViewController {
+      root = presentedViewController
+   }
+   return root
+}
+
 ```
 
 ### TextField and SecureTextField in an alert:
