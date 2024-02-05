@@ -245,10 +245,10 @@ While it might require some refactoring, using classes and ObservableObjects can
 Here are all types of Data that will trigger a SwiftUI View update.
 
 ```
-@State
-@Binding
-@ObservedObject
-@StateObject
+@State // "parent or binding"
+@Binding // "child of state"
+@StateObject // "parent of observedObject"
+@ObservedObject // "child of stateobject"
 @EnvironmentObject
 @Environment 
 @FetchRequest
@@ -619,6 +619,8 @@ struct JobView : View {
 - Redux-like state container in SwiftUI. Basics.: https://swiftwithmajid.com/2019/09/18/redux-like-state-container-in-swiftui/
 - uniflow: https://swiftwithmajid.com/2023/07/11/unidirectional-flow-in-swift/
 - nice overview: https://stackoverflow.com/a/72846821
+- https://www.hackingwithswift.com/quick-start/swiftui/whats-the-difference-between-observedobject-state-and-environmentobject
+- https://cocoacasts.com/what-is-the-difference-between-stateobject-and-observedobject
 
 ### Todo: 
 - write about observable: https://swiftwithmajid.com/2023/10/03/mastering-observable-framework-in-swift/

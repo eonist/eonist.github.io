@@ -1,5 +1,22 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 8. Using swiftUI preview on a real device:
+To preview SwiftUI views on a physical device, follow these steps:
+
+1. Connect your device to your development machine.
+2. Open a SwiftUI view in Xcode, which will display a preview of the view on the canvas.
+3. To preview the view on the connected device, toggle the "Preview On Device" button at the bottom of the canvas.
+4. It may take a few moments for the preview to show up on the device.
+5. Previewing on a device allows for a better sense of the look and feel of the user interface, shortens the feedback loop, and is faster than building and installing the application on the device.
+6. You can use preview data to test various configurations, which can save time.
+7. The preview on the device is a live preview, allowing interaction with the preview just like in the canvas.
+
+By following these steps, you can easily preview your SwiftUI views on a physical device, which can help in faster and more effective user interface development[1].
+
+More on how to use xcode preview here: [https://sarunw.com/posts/xcode-previews](https://sarunw.com/posts/xcode-previews) 
+
+### 7. Adher to another views size
+
 In SwiftUI, you can easily make two views the same size, either in height or width. You don't need any complex tools for this, just use the frame() and fixedSize() functions.
 
 On iOS, make the maximum height or width of each view you want to size as infinite. This will make it fill all the available space. Then, apply fixedSize() to the container they are in. This tells SwiftUI that these views should only take up the space they need.
