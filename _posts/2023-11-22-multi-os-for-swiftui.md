@@ -58,3 +58,13 @@ Use them like this:
 Text("Hello World")
     .iOS { $0.padding(10) }
 ```
+
+### Not os
+```swift
+#if !os(macOS)
+    .navigationBarTitleDisplayMode(.inline)
+#endif
+```
+
+### Resources: 
+- Device status: https://github.com/fatbobman/MovieHunter/blob/main/MovieHunter/Share/SwiftUI/DeviceStatus.swift
