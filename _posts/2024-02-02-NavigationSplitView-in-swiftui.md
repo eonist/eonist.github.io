@@ -399,3 +399,12 @@ var body: some View {
 -   lots of info on navigationspøitview: https://useyourloaf.com/blog/swiftui-split-view-configuration/
 - another tutorial on navsplitview: https://www.appcoda.com/navigationsplitview-swiftui/
 - manually controlling sidebarbutton action: https://nilcoalescing.com/blog/ProgrammaticallyHideAndShowSidebarInSplitView/
+- for macos: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
+- basics: https://medium.com/@alessandromanilii/swiftui-navigationsplitview-b5ba2df07bb4
+- https://stackoverflow.com/questions/77059581/disable-sidebar-of-navigationsplitview-programmatically
+- https://stackoverflow.com/questions/74140093/swiftui-how-to-change-visibility-of-details-navigationsplitview
+- https://stackoverflow.com/questions/77686123/swiftui-navigationsplitview-hide-detail-column-in-a-three-column-view
+- https://stackoverflow.com/questions/70477049/how-do-you-dismiss-the-detail-view-in-swiftui-on-an-ipad-split-view-layout
+- https://stackoverflow.com/questions/75283501/how-can-i-permanently-show-sidebar-in-a-swiftui-navigationview-or-splitnavigatio
+- https://forums.developer.apple.com/forums/thread/712004
+- https://forums.developer.apple.com/forums/thread/708721

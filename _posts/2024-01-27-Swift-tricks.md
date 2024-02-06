@@ -1,6 +1,24 @@
 Some of my favourite swift tricks<!--more-->
 
-## 203. Convert OrderedDictionary to Dictionary:
+### 204. Dynamic lookup on disctionary:
+The documentation at https://docs.swift.org/swift-book/ReferenceManual/Attributes.html says that you can use this feature to find members of a class, structure, enumeration, or protocol by their name when the program is running. To use this, the type needs to have a special function called `subscript(dynamicMemberLookup:)`.
+```swift
+@dynamicMemberLookup
+struct Employee {
+    var data = [String: String]()
+    subscript(dynamicMember member: String) -> String {
+        return data[member] ?? "Data not available"
+    }
+}
+var employee = Employee()
+employee.data["name"] = "Jane"
+print(employee.name) // Jane
+print(employee.position) // Data not available
+```
+
+Even though the Contact class doesn't have a 'name' or 'email', the program won't give an error. This is because it checks for these members when it's running, not before. If it can find 'name' or 'email', it uses those. If it can't, it just uses a default value.
+
+### 203. Convert OrderedDictionary to Dictionary:
 ```swift
 import OrderedCollections // get this from apples SPM repo on github
 
