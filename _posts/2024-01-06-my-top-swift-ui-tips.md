@@ -1,5 +1,29 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 9. if condition transform content:
+Usage:
+```swift
+Rectangle()
+   if true == Optional(true) {
+      .fill(.green)
+   } else {
+      .fill(.blue)
+   }
+```
+Extension:
+```swift
+public extension View {
+    @ViewBuilder
+    func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+        if condition {
+            transform(self)
+        } else {
+            self
+        }
+    }
+}
+```
+
 ### 8. Using swiftUI preview on a real device:
 To preview SwiftUI views on a physical device, follow these steps:
 
