@@ -1,7 +1,7 @@
 My notes on keyboard managmenet for swiftui<!--more-->
 
 ### Gotchas:
-- reset prevew simulator: `xcrun simctl --set ~/Library/Developer/Xcode/UserData/Previews/Simulator\ Devices shutdown all` ref: https://stackoverflow.com/a/67100729/5389500
+- Reset prevew simulator: `xcrun simctl --set ~/Library/Developer/Xcode/UserData/Previews/Simulator\ Devices shutdown all` ref: https://stackoverflow.com/a/67100729/5389500
 
 ### Resources
 - https://www.vadimbulavin.com/how-to-move-swiftui-view-when-keyboard-covers-text-field/

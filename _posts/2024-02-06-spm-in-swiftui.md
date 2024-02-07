@@ -27,3 +27,6 @@ import DatabaseLib
 
 DatabaseLib.testing() // testing
 ```
+
+### Gotchas
+- XCode seems a bit unstable when opening new packages. Sometimes it requires closing xcode and dragging the package onto the xcode icon again to open it isolated. 

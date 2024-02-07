@@ -306,7 +306,22 @@ A list that is meant as input: https://sarunw.com/posts/swiftui-form/
 ### Gotchas
 - If all else fails, there is always accessing uikit from swiftui https://github.com/siteline/swiftui-introspect
 
-### Resources:
+
+### List links:
+- List styles: https://sarunw.com/posts/swiftui-list-style/
+- adjusting list row seperator insets (horizontal): https://sarunw.com/posts/swiftui-list-row-separator-insets/
+- remove row seperator: https://sarunw.com/posts/swiftui-list-section-separator-visibility/
+https://developer.apple.com/documentation/swiftui/lists
+- Hide row seperator: https://sarunw.com/posts/swiftui-list-row-separator-visibility/
+- Content inset for scrollview and list: https://sarunw.com/posts/how-to-set-contentinsets-in-swiftui/
+- Content inset on the scrollview: https://sarunw.com/posts/what-is-contentinset-in-scrollable-content/
+- Cell with link: https://sarunw.com/posts/swiftui-open-url/
+- remove first row seperator: https://sarunw.com/posts/swiftui-list-remove-first-separator/
+- hidelast seperator: https://sarunw.com/posts/swiftui-list-remove-last-separator/
+- Scrollable list: https://sarunw.com/posts/how-to-use-scrollview-in-swiftui/
+- Simple list from array of items adhering to identifiable protocol: https://sarunw.com/posts/swiftui-list-from-array/
+
+### Other resources:
 - dynamic list: https://sarunw.com/posts/swiftui-dynamic-list/
 - foreach vs list: https://sarunw.com/posts/difference-between-list-foreach/
 - scrollview: https://sarunw.com/posts/how-to-use-scrollview-in-swiftui/
@@ -324,3 +339,4 @@ A list that is meant as input: https://sarunw.com/posts/swiftui-form/
 - pagination: https://github.com/crelies/AdvancedList
 - styling: https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-grouped-and-inset-grouped-lists
 - oldschool UIKit wheel picker: https://stackoverflow.com/questions/75775079/how-to-put-picker-into-context-menu-popup-in-swiftui
+
