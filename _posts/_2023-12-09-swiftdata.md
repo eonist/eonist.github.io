@@ -613,6 +613,33 @@ if let description = container.persistentStoreDescriptions.first {
 }
 ```
 
+### Version 
+To add a version to a SwiftData model, you would typically define a version number within your model definition. This version number is used to track changes to the model's schema over time. When you make changes to your model that affect its schema, such as adding or removing properties, you increment the version number.
+
+Here's an example of how you might define a version for a SwiftData model:
+
+```swift
+import SwiftData
+
+@Model(version:  1)
+class Example: Identifiable {
+    let id: UUID
+    let name: String
+    let type: String
+
+    init(id: UUID = UUID(), name: String, type: String) {
+        self.id = id
+        self.name = name
+        self.type = type
+    }
+}
+```
+In this example, the Example model has a version of 1. If you make changes to the model that require a schema update, you would increment the version number accordingly.
+
+When you run your app with a higher version number than the one stored in the user's device, SwiftData will perform a migration to update the existing data to the new schema. This process involves creating a mapping from the old schema to the new one, which defines how to transform the existing data to fit the new structure.
+
+Migrations can be complex, particularly when dealing with renaming properties or changing types. SwiftData provides mechanisms to help with this, such as the VersionedSchema which allows you to define different schemas for different versions of your model and specify how to migrate from one version to another 25.
+
 
 ### Migration:
 From:
@@ -1498,6 +1525,7 @@ Please keep in mind that saving a complex object to the database can have an imp
 - ⭐ remote server data (not icloud) with codable and swiftdata: https://betterprogramming.pub/decodable-swiftdata-a-proof-of-concept-for-building-offline-first-ios-apps-5c5434ea61b5
 - ⭐ swiftdata + codable: https://www.donnywals.com/making-your-swiftdata-models-codable/
 - On fitering with predicates: https://www.swiftyplace.com/blog/fetch-and-filter-in-swiftdata
+- Common issues with SwiftData: https://www.hackingwithswift.com/quick-start/swiftdata/common-swiftdata-errors-and-their-solutions
 
 ### Todo: 
 - add links from issue to resources

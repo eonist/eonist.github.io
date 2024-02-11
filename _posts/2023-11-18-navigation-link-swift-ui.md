@@ -188,3 +188,4 @@ struct NavigationContainer<DisplayedView>: View where DisplayedView: View {
 - Passing enviroment variable via navlink: https://stackoverflow.com/a/61711792/5389500
 - Deeplinking with Navigationstack: https://www.appcoda.com/navigationstack/
 - Has some custom Routing that is interesting: https://swiftwithmajid.com/2022/06/15/mastering-navigationstack-in-swiftui-navigator-pattern/
+- https://onmyway133.com/posts/how-to-style-navigationlink-in-macos/

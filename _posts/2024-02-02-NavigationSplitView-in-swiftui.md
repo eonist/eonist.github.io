@@ -408,3 +408,4 @@ var body: some View {
 - https://stackoverflow.com/questions/75283501/how-can-i-permanently-show-sidebar-in-a-swiftui-navigationview-or-splitnavigatio
 - https://forums.developer.apple.com/forums/thread/712004
 - https://forums.developer.apple.com/forums/thread/708721
+- https://onmyway133.com/posts/how-to-use-navigationsplitview-and-navigationstack-in-swiftui/

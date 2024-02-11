@@ -172,7 +172,9 @@ struct MainContentView: View {
 }
 ```
 
-
 ### Resources
 - conditional view modifiers: https://www.avanderlee.com/swiftui/conditional-view-modifier/
 - trxtfield style: https://www.hackingwithswift.com/forums/swiftui/code-cleanup-customizing-a-textfield/5537 and https://medium.com/@ricardomongza/create-custom-textfield-styles-in-swiftui-b484b7ba31bf and https://thehappyprogrammer.com/custom-textfield-in-swiftui
+- https://www.scelto.no/blog/replicating-swiftui-styles-for-custom-components
+- https://movingparts.io/styling-components-in-swiftui
+- https://movingparts.io/composable-styles-in-swiftui

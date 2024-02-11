@@ -1,5 +1,65 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 14. Type erasing with group:
+In SwiftUI, you can use conditions to decide which components to show. But, because of the way SwiftUI works, you have to use a Group even if it's not part of your design. This is because SwiftUI needs to know the exact type of what you're returning, and Group helps with that.
+```swift
+@State private var toggle = false
+var body: some View {
+    Group {
+        if toggle {
+            Text("It's true")
+        } else {
+            SFSymbol(.nosign)
+        }
+    }
+}
+```
+### 13. ForEachWithIndex
+We can also make this with enumerated and get index and element
+```swift
+public func ForEachWithIndex<Data: RandomAccessCollection, Content: View>(  _ data: Data, @ViewBuilder content: @escaping (Data.Index, Data.Element) -> Content
+) -> some View where Data.Element: Identifiable, Data.Element: Hashable {
+    ForEach(Array(zip(data.indices, data)), id: \.1) { index, element in
+        content(index, element)
+    }
+}
+```
+### 12. Apply closure onto view
+
+```swift
+public extension View {
+    @ViewBuilder
+    func applyIf<T: View>(_ condition: @autoclosure () -> Bool, apply: (Self) -> T) -> some View {
+        if condition() {
+            apply(self)
+        } else {
+            self
+        }
+    }
+}
+```
+### 11. Erease view type
+```swift
+public extension View {
+    func erase() -> AnyView {
+        return AnyView(self)
+    }
+}
+
+```
+### 10. Hide / visible:
+
+```swift
+public extension View {
+    @ViewBuilder
+    func hidden(_ hides: Bool) -> some View {
+        switch hides {
+        case true: self.hidden()
+        case false: self
+        }
+    }
+}
+```
 ### 9. if condition transform content:
 Usage:
 ```swift

@@ -1,4 +1,4 @@
-<!--more-->
+My notes on core data in swiftUI<!--more-->
 
 You use an **NSPersistentContainer** instance to set up the **model**, **context**, and **store-coordinator** simultaneously.
 

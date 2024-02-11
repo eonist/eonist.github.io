@@ -66,5 +66,25 @@ Text("Hello World")
 #endif
 ```
 
+## Toggle insetgroup style
+
+https://lucajonscher.medium.com/create-an-inset-grouped-list-in-swiftui-for-macos-20c0bcfaaa7
+
+
+extension View {
+    func insetGroupedStyle<V: View>(header: V) -> some View {
+        #if os(iOS)
+        // iOS
+        #else
+        // macOS
+        #endif
+    }
+}
+
 ### Resources: 
 - Device status: https://github.com/fatbobman/MovieHunter/blob/main/MovieHunter/Share/SwiftUI/DeviceStatus.swift
+- MacOS app: https://sarunw.com/posts/how-to-create-macos-app-without-storyboard/
+- https://github.com/onmyway133/awesome-swiftui
+- https://kean.blog/post/appkit-is-done
+- https://troz.net/post/2019/swiftui-for-mac-1/
+- ios app in swiftui: https://github.com/denoni/SpotifyClone

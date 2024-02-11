@@ -349,3 +349,4 @@ In the example, every time the value of second is changed, the program will exec
 - some vs any: https://medium.com/@tahabebek/any-vs-some-in-swift-10a1863b6109
 - Lots of good alignment and positioning tips: https://stackoverflow.com/questions/56487323/make-a-vstack-fill-the-width-of-the-screen-in-swiftui
 - overlays and backgrounds: https://www.swiftbysundell.com/articles/backgrounds-and-overlays-in-swiftui/
+- Placeholder in swiftui: https://swiftwithmajid.com/2023/10/31/mastering-contentunavailableview-in-swiftui/
