@@ -1526,6 +1526,7 @@ Please keep in mind that saving a complex object to the database can have an imp
 - ⭐ swiftdata + codable: https://www.donnywals.com/making-your-swiftdata-models-codable/
 - On fitering with predicates: https://www.swiftyplace.com/blog/fetch-and-filter-in-swiftdata
 - Common issues with SwiftData: https://www.hackingwithswift.com/quick-start/swiftdata/common-swiftdata-errors-and-their-solutions
+- Using an actor: https://stackoverflow.com/questions/77253448/how-to-save-swiftdata-outside-swiftui-to-persist
 
 ### Todo: 
 - add links from issue to resources
