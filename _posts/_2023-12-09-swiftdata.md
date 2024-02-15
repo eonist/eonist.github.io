@@ -1527,6 +1527,12 @@ Please keep in mind that saving a complex object to the database can have an imp
 - On fitering with predicates: https://www.swiftyplace.com/blog/fetch-and-filter-in-swiftdata
 - Common issues with SwiftData: https://www.hackingwithswift.com/quick-start/swiftdata/common-swiftdata-errors-and-their-solutions
 - Using an actor: https://stackoverflow.com/questions/77253448/how-to-save-swiftdata-outside-swiftui-to-persist
+- swiftdata and concurrency: https://www.hackingwithswift.com/quick-start/swiftdata/how-swiftdata-works-with-swift-concurrency 🤯
+- merging two contexts in swiftdata: https://www.hackingwithswift.com/quick-start/swiftdata/how-to-merge-two-model-contexts
+- making model objects codable: https://www.hackingwithswift.com/quick-start/swiftdata/how-to-make-swiftdata-models-conform-to-codable
+- enumerating efficiently: https://www.hackingwithswift.com/quick-start/swiftdata/how-to-enumerate-a-fetch-request-to-handle-lots-of-data-efficiently
+- background thread for swfitdata context: https://www.hackingwithswift.com/quick-start/swiftdata/how-to-create-a-background-context
+- ⭐ lots of concurrency code for swiftdata: https://betterprogramming.pub/concurrent-programming-in-swiftdata-c9bf021a4c2d
 
 ### Todo: 
 - add links from issue to resources

@@ -1,5 +1,13 @@
 Some of my favourite swift tricks<!--more-->
 
+### 205. Simple performance timing:
+```swift
+let c: CFTimeInterval = CACurrentMediaTime()
+usleep(useconds_t(0.002)) // Simulates heavy task here for 2 milliseconds (.002 seconds)
+let c1: CFTimeInterval = CACurrentMediaTime() - c
+Swift.print("Time past: \(c1)") // 0.002
+```
+
 ### 204. Dynamic lookup on disctionary:
 The documentation at https://docs.swift.org/swift-book/ReferenceManual/Attributes.html says that you can use this feature to find members of a class, structure, enumeration, or protocol by their name when the program is running. To use this, the type needs to have a special function called `subscript(dynamicMemberLookup:)`.
 ```swift

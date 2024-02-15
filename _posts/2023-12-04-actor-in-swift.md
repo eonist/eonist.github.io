@@ -71,3 +71,7 @@ The actor in Swift is a powerful tool for writing concurrent code that’s both 
 ### Resources:
 - https://medium.com/@valentinjahanmanesh/swift-actors-in-depth-19c8b3dbd85a
 - more examples: https://medium.com/@bharathi.r/actor-in-swift-a1b63ae27eb1
+- https://www.hackingwithswift.com/swift/5.5/actors
+- https://www.swiftbysundell.com/articles/swift-actors/
+- https://alexdremov.me/swift-actors-common-problems-and-tips/
+- https://www.avanderlee.com/swift/actors/

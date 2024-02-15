@@ -178,3 +178,4 @@ struct MainContentView: View {
 - https://www.scelto.no/blog/replicating-swiftui-styles-for-custom-components
 - https://movingparts.io/styling-components-in-swiftui
 - https://movingparts.io/composable-styles-in-swiftui
+- design system in swiftui: https://onnerb.medium.com/implementing-a-design-system-compatible-with-uikit-and-swiftui-1c6da34814f0
