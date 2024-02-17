@@ -1,5 +1,16 @@
 Some of my favourite swift tricks<!--more-->
 
+### 206. Native with:
+
+```swift
+with is awesome, but you have to add it to every app and lib to use it. Instead here is a native way to get with like capabilities:
+[page].forEach {
+    $0.name = "John"
+    $0.page = 3
+    $0.publishedAt = .now
+}
+```
+
 ### 205. Simple performance timing:
 ```swift
 let c: CFTimeInterval = CACurrentMediaTime()
