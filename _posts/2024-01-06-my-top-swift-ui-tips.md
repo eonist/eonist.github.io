@@ -1,5 +1,27 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 15. Container views
+"Container-views" are fundamental building blocks in SwiftUI. Here is how you make them:
+```swift
+struct ContainerView<Content: View>: View {
+    let content: Content
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+    var body: some View {
+        content
+    }
+}
+// Starting from Swift 5.4, Swift can automatically create the 'init' function. This means we can use 'resultBuilder' for properties that are stored.
+struct AmazingContainerView<Content: View>: View {
+    @ViewBuilder
+    let content: Content
+    var body: some View {
+        content
+    }
+}
+```
+
 
 
 ### 14. Type erasing with group:

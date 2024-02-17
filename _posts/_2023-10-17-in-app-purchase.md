@@ -20,3 +20,4 @@ Notes on in app purchase <!--more-->
 - and https://swiftwithmajid.com/2023/08/23/mastering-storekit2-subscriptionstoreview-in-swiftui/
 - and https://swiftwithmajid.com/2023/08/01/mastering-storekit2/
 - and https://swiftwithmajid.com/2023/08/08/mastering-storekit2-productview-in-swiftui/
+- ⭐ great breakdown of storkit1: https://onmyway133.com/posts/how-to-convert-from-paid-to-free-with-iap/

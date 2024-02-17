@@ -81,10 +81,18 @@ extension View {
     }
 }
 
-### Resources: 
+### Resources:
+- ⭐⭐ starterkit template for macOS 3 pane app (swiftUI): https://github.com/apparata/SidebarAppTemplate
+- ⭐ 3 column app starter for swiftui: https://swiftwithmajid.com/2022/10/18/mastering-navigationsplitview-in-swiftui/
+- ⭐ Multi os kit: https://github.com/jordansinger/SwiftUI-Kit
+- hybrid app in swiftui: https://github.com/alfianlosari/NewsAppSwiftUI
+- Missing SwiftUI components: https://github.com/SwiftUIX/SwiftUIX
+- ios / ipad hybrid app: (4 years old) https://github.com/alfianlosari/SwiftUI-MovieDB/tree/master
+- all platform hybrid app: https://github.com/alfianlosari/SwiftUITMDbV2
+- Great swiftui app for iOS: https://github.com/AlexCatch/Oak
+- Great macOS app in swiftUI: https://github.com/lbrndnr/nuage-macos
+- Hybrid app (Composable Architecture): (abondoned 3 years ago) https://github.com/hadiidbouk/DEV/tree/main
+- Spotify clone in swiftui for iOS (complex code): https://github.com/denoni/SpotifyClone/tree/main
 - Device status: https://github.com/fatbobman/MovieHunter/blob/main/MovieHunter/Share/SwiftUI/DeviceStatus.swift
-- MacOS app: https://sarunw.com/posts/how-to-create-macos-app-without-storyboard/
 - https://github.com/onmyway133/awesome-swiftui
 - https://kean.blog/post/appkit-is-done
-- https://troz.net/post/2019/swiftui-for-mac-1/
-- ios app in swiftui: https://github.com/denoni/SpotifyClone

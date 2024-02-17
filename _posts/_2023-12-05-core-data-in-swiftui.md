@@ -444,3 +444,7 @@ Using **default protocol implementations**, **generics** and **key paths**
 - fitlering with fetch in swiftui: https://www.hackingwithswift.com/books/ios-swiftui/dynamically-filtering-fetchrequest-with-swiftui
 - coredata in swiftui: https://www.kodeco.com/9335365-core-data-with-swiftui-tutorial-getting-started
 - coredata in swiftui: https://itnext.io/how-to-preview-a-swiftui-view-with-core-data-elements-in-xcode-b109d60a5ae0
+- Discusses CoreData architecture choices: https://onmyway133.com/posts/how-to-use-core-data/
+- How to convert struct to Core Data NSManagedObject https://onmyway133.com/posts/how-to-convert-struct-to-core-data-nsmanagedobject/
+- ⭐ https://onmyway133.com/posts/how-to-use-coredata-safely/
+- ⭐ https://davedelong.com/blog/2018/05/09/the-laws-of-core-data/

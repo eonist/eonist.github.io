@@ -350,3 +350,6 @@ In the example, every time the value of second is changed, the program will exec
 - Lots of good alignment and positioning tips: https://stackoverflow.com/questions/56487323/make-a-vstack-fill-the-width-of-the-screen-in-swiftui
 - overlays and backgrounds: https://www.swiftbysundell.com/articles/backgrounds-and-overlays-in-swiftui/
 - Placeholder in swiftui: https://swiftwithmajid.com/2023/10/31/mastering-contentunavailableview-in-swiftui/
+- ⭐ discusses view sizing concepts: https://onmyway133.com/posts/how-to-use-flexible-frame-in-swiftui/
+- https://www.swiftbysundell.com/articles/swiftui-layout-system-guide-part-2/
+- https://www.swiftbysundell.com/articles/swiftui-layout-system-guide-part-1/

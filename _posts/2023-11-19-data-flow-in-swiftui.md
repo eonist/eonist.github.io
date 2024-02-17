@@ -622,6 +622,9 @@ struct JobView : View {
 - https://www.hackingwithswift.com/quick-start/swiftui/whats-the-difference-between-observedobject-state-and-environmentobject
 - https://cocoacasts.com/what-is-the-difference-between-stateobject-and-observedobject
 - https://onmyway133.com/posts/how-observableobject-work-in-swiftui/
+- How to do didSet for State and Binding in SwiftUI https://onmyway133.com/posts/how-to-do-didset-for-state-and-binding-in-swiftui/
+- How to unwrap Binding with Optional in SwiftUI https://onmyway133.com/posts/how-to-unwrap-binding-with-optional-in-swiftui/
+SwiftUI DataFlow research  https://developer.apple.com/videos/play/wwdc2019/226/
 
 ### Todo: 
 - write about observable: https://swiftwithmajid.com/2023/10/03/mastering-observable-framework-in-swift/

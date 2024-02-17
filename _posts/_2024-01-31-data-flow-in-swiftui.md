@@ -1,5 +1,7 @@
 My notes on data flow in swiftui <!--more-->
 
+ merge this with the other data flow post
+
 ### ⭐ Source of truth (Model)
 Every piece of data that you read in your view hierarchy has a source of truth, and it should always have a single source of truth
 **@State**
