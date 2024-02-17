@@ -189,3 +189,4 @@ struct NavigationContainer<DisplayedView>: View where DisplayedView: View {
 - Deeplinking with Navigationstack: https://www.appcoda.com/navigationstack/
 - Has some custom Routing that is interesting: https://swiftwithmajid.com/2022/06/15/mastering-navigationstack-in-swiftui-navigator-pattern/
 - https://onmyway133.com/posts/how-to-style-navigationlink-in-macos/
+- ⭐ Lazy navigation link: https://onmyway133.com/posts/how-to-do-navigationlink-programatically-in-swiftui/

@@ -1,5 +1,7 @@
 My top swiftUI tips and tricks<!--more-->
 
+
+
 ### 14. Type erasing with group:
 In SwiftUI, you can use conditions to decide which components to show. But, because of the way SwiftUI works, you have to use a Group even if it's not part of your design. This is because SwiftUI needs to know the exact type of what you're returning, and Group helps with that.
 ```swift
@@ -21,6 +23,29 @@ public func ForEachWithIndex<Data: RandomAccessCollection, Content: View>(  _ da
 ) -> some View where Data.Element: Identifiable, Data.Element: Hashable {
     ForEach(Array(zip(data.indices, data)), id: \.1) { index, element in
         content(index, element)
+    }
+}
+// as a reusable View:
+struct ForEachWithIndex<
+    Data: RandomAccessCollection,
+    Content: View
+>: View where Data.Element: Identifiable, Data.Element: Hashable {
+    let data: Data
+    @ViewBuilder let content: (Data.Index, Data.Element) -> Content
+
+    var body: some View {
+        ForEachWithIndex(data: data) { index, element in
+            content(index, element)
+        }
+    }
+}
+// usage:
+ForEachWithIndex(data: viewModel.books) { index, book in
+    VStack {
+        BookRow(book: book)
+        if index < viewModel.books.count - 1 {
+            Divider()
+        }
     }
 }
 ```

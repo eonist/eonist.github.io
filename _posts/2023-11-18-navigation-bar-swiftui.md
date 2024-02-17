@@ -183,3 +183,4 @@ When you add a title to a navigation bar, you’ll notice it uses a large font f
 
 ### Resources:
 - Hiding back btn: https://stackoverflow.com/questions/56571349/custom-back-button-for-navigationviews-navigation-bar-in-swiftui
+- Custom back button: https://onmyway133.com/posts/how-to-make-custom-navigation-bar-in-swiftui/

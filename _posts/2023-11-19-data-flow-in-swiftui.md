@@ -621,6 +621,7 @@ struct JobView : View {
 - nice overview: https://stackoverflow.com/a/72846821
 - https://www.hackingwithswift.com/quick-start/swiftui/whats-the-difference-between-observedobject-state-and-environmentobject
 - https://cocoacasts.com/what-is-the-difference-between-stateobject-and-observedobject
+- https://onmyway133.com/posts/how-observableobject-work-in-swiftui/
 
 ### Todo: 
 - write about observable: https://swiftwithmajid.com/2023/10/03/mastering-observable-framework-in-swift/
