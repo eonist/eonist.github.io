@@ -1,3 +1,6 @@
+My notes on userdefaults in swift<!--more-->
+```swift
+//  from https://www.avanderlee.com/swift/property-wrappers/
 @propertyWrapper
 struct UserDefault<Value> {
     let key: String
@@ -19,3 +22,6 @@ Then we can use it as property and provide default value
 final class KeepHistoryService {
     @UserDefault(key: "keepHistoryCheckDate", defaultValue: nil)
     var checkDate: Date?
+
+    
+```

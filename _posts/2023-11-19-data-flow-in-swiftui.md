@@ -2,6 +2,8 @@ My notes on data-flow in swiftui<!--more-->
 
 The key difference between `@StateObject` and **@ObservedObject** is that **@StateObject** is designed to be used within a single view, while **@ObservedObject** is meant to share the same object instance across multiple views.
 
+> A reactive interface is one where you can bind a UI element to a piece of data and then when the data changes, the user interface updates automatically. You can even bind both ways so that the user interface updates the data without you having to do a thing. Imagine how much boiler-plate code that can eliminate?
+
 ### @State and @Binding 
 - A binding is a (2-way) connection between a piece of data and some UI
 - You can't cast abinding type to another, but you can rebind with `.wrappedValue`

@@ -1,5 +1,7 @@
 Hybrid os code in swiftUI<!--more-->
 
+> Apple does not promote SwiftUI as “write once, run everywhere” but as “learn once, apply everywhere” and that is an important distinction. It seems at first glance that we can write once but only on a basic level. You are still going to need to design the appropriate UI for a platform, but it will be able to re-use components from the other versions of the same app.
+
 ### Add customizations for an individual platform
 Sometimes you have one SwiftUI view that works great on both iOS and macOS, but needs just a tiny modification – perhaps a little more padding on iOS, or slightly different styling.
 

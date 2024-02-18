@@ -1,4 +1,6 @@
-Boilerplate view for swift ui<!--more-->
+My notes on view for swiftui<!--more-->
+
+> It is very easy to build up the Pyramid of Doom where you have multiple levels of nesting leading to the end of your code being a seemingly endless stream of closing curly braces. In SwiftUI, one tends to build from the inside out: make a Text view, embed it in a VStack so you can add another one, embed that stack in an HStack so you can add an Image and so on… But there is an answer: Command-click on one of your outer layers and select “Extract Subview”.
 
 ### Basic view with a textfield 
 This is a great boilerplate for a view

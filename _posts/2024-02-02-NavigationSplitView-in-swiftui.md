@@ -249,7 +249,7 @@ extension ContentView {
 ```
 
 ### For macOS there is also VSplitView and HSplitView
-To make the dividers movable you can use this code: https://medium.com/@eastism/writer-1-how-to-use-splitview-swiftui-be5df89d3f78
+To make the dividers movable you can use this code: https://medium.com/@eastism/writer-1-how-to-use-splitview-swiftui-be5df89d3f78 
 ```swift
 
 struct MyView: View {
@@ -279,6 +279,31 @@ struct ContentView: View {
         }// .frame(width: 100)
     }
 }
+```
+
+### HSplitview example:
+
+More info on pros and cons here: https://msena.com/posts/three-column-swiftui-macos/
+
+```swift
+HSplitView {
+         Rectangle() // sidebar
+            .background(.red)
+            .padding()
+            .frame(minWidth: 200, maxWidth: 300)
+         Rectangle() // main 
+            .background(.blue)
+            .padding()
+            .frame(minWidth: 200, maxWidth: 300, alignment: .center)
+            .layoutPriority(1)
+         Rectangle() // detail 
+            .background(.green)
+            .padding()
+            .frame(minWidth: 200, maxWidth: 350)
+      }
+      .background(Color.darkGray)
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
+   }
 ```
 
 
@@ -379,7 +404,7 @@ var body: some View {
 ```
 
 ### Gochas:
-- Hides toggle btn `.toolbar(removing: .sidebarToggle)`
+- Hides toggle btn `.toolbar(removing: .sidebarToggle)` (add it to the sideBar, at least for macOS)
 - To avoid top inset in the content column, remember to set `.ignoresSafeArea(.all)`
 
 ### Resources:
@@ -409,3 +434,7 @@ var body: some View {
 - https://forums.developer.apple.com/forums/thread/712004
 - https://forums.developer.apple.com/forums/thread/708721
 - https://onmyway133.com/posts/how-to-use-navigationsplitview-and-navigationstack-in-swiftui/
+- custom splitview (from the ground up 😅) in swiftui: https://github.com/stevengharris/SplitView
+- A pretty simple custom built resizable splitview for macos: https://medium.com/@eastism/writer-1-how-to-use-splitview-swiftui-be5df89d3f78
+- tutorial on macOS navsplitview etc: https://betterprogramming.pub/sidebar-and-navigationview-on-macos-in-swiftui-a8b4a074a651
+- minwidth and layout priority for HSplitView: https://github.com/onmyway133/blog/issues/674

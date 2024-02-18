@@ -1,5 +1,28 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 17. Rebinding:
+Here is an example where we change a state by rebinding it. (It is a great tool to use in many cases, when wiring up a complex UI)
+
+```swift
+@State private var columnVisibility: NavigationSplitViewVisibility = .all
+@Binding var isColumnVisible: Bool = Binding( get: { columnVisibility == .all }, set: { columnVisibility =  $0 ? .all : .doubleColumn })
+$isColumnVisible.wrappedValue.toggle() // toggles the columnVisibility state
+```
+
+### 16. Simple user default wrapper:
+```swift
+class Prefs: ObservableObject {
+    @Published
+    var showCopyright: Bool = UserDefaults.standard.bool(forKey: "showCopyright") {
+        didSet {
+            UserDefaults.standard.set(self.showCopyright, forKey: "showCopyright")
+        }
+    }
+}
+@ObservedObject var prefs: Prefs
+@EnvironmentObject var prefs: Prefs
+```
+
 ### 15. Container views
 "Container-views" are fundamental building blocks in SwiftUI. Here is how you make them:
 ```swift

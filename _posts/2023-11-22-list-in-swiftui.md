@@ -1,5 +1,7 @@
 Notes on list in SwiftUI<!--more-->
 
+> You get a lot of interface for very little code. Making tables is a joy without the masses of boilerplate code needed to set up data sources and delegates. The instant preview in the canvas makes iteration much easier. Being able to create something like a Picker and having SwiftUI render it in one of multiple different styles depending on the platform is magical.
+
 ### ForEach
 - A sort of "IndexedForEach" that works similarly to how a ViewModifier works, but for multiple items
 - Ref: https://stackoverflow.com/a/64262793/5389500
