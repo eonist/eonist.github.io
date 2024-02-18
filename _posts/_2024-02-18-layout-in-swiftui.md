@@ -20,3 +20,7 @@ VStack {
 }
 
 ```
+
+### resources:
+-  Layout protocol: https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-a-custom-layout-using-the-layout-protocol
+- view that fits: https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-an-adaptive-layout-with-viewthatfits

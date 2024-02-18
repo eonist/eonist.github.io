@@ -406,6 +406,7 @@ var body: some View {
 ### Gochas:
 - Hides toggle btn `.toolbar(removing: .sidebarToggle)` (add it to the sideBar, at least for macOS)
 - To avoid top inset in the content column, remember to set `.ignoresSafeArea(.all)`
+- ProminentDetail does not work in macOS The first is .prominentDetail, which tells SwiftUI you want the detail view to retain its full size at all times – the sidebar and content view will slide over the detail view, rather than pushing it to one side or squeezing it smaller:
 
 ### Resources:
 - setting column min, max, ideal sizes: https://www.hackingwithswift.com/quick-start/swiftui/how-to-customize-a-views-width-in-navigationsplitview
@@ -420,7 +421,6 @@ var body: some View {
 - for reference: https://nilcoalescing.com/blog/ProgrammaticallyHideAndShowSidebarInSplitView/
 - dragable split grid for macOS: https://github.com/krzyzanowskim/SwiftUI.SplitView
 - Draggable split view for iOS: https://github.com/avdyushin/SplitView and tutorial here: https://blog.grigory.nl/posts/building-splitview-in-swiftui/
-- https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-a-two-column-or-three-column-layout-with-navigationsplitview
 -   lots of info on navigationspøitview: https://useyourloaf.com/blog/swiftui-split-view-configuration/
 - another tutorial on navsplitview: https://www.appcoda.com/navigationsplitview-swiftui/
 - manually controlling sidebarbutton action: https://nilcoalescing.com/blog/ProgrammaticallyHideAndShowSidebarInSplitView/
@@ -438,3 +438,6 @@ var body: some View {
 - A pretty simple custom built resizable splitview for macos: https://medium.com/@eastism/writer-1-how-to-use-splitview-swiftui-be5df89d3f78
 - tutorial on macOS navsplitview etc: https://betterprogramming.pub/sidebar-and-navigationview-on-macos-in-swiftui-a8b4a074a651
 - minwidth and layout priority for HSplitView: https://github.com/onmyway133/blog/issues/674
+- Lots of useful tips https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-a-two-column-or-three-column-layout-with-navigationsplitview
+- ⭐ Lots of nuanced info on navsplitview: https://swiftwithmajid.com/2022/10/18/mastering-navigationsplitview-in-swiftui/
+- HSplitView: https://developer.apple.com/documentation/swiftui/hsplitview

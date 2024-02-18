@@ -1,5 +1,69 @@
 Some of my favourite swift tricks<!--more-->
 
+### 208. if/else statements as expressions
+
+This makes the code easier to read and write, especially when you need to assign a value to a variable based on multiple conditions.
+
+Before, you might have used nested ternary operators, which can be hard to read:
+
+```swift
+// Assign a value to 'output' based on multiple conditions
+let output = (condA ? valA :
+              condB ? valB :
+              condC ? valC :
+              valD)
+```
+
+With Swift 5.9, you can use if/else expressions instead, which are easier to understand:
+
+```swift
+// Assign a value to 'output' using if/else expressions
+let output = if condA {
+    valA
+} else if condB {
+    valB
+} else if condC {
+    valC
+} else {
+    valD
+}
+```
+
+### 207. switch statements as expressions
+This new feature is also useful when you need to assign a value to a global variable or a stored property based on a switch statement. Before, you would have to use a closure:
+
+```swift
+// Assign a value to 'sound' based on the type of 'creature'
+let sound: String = {
+    switch creature {
+    case .dog:
+        return "Woof"
+    case .cat:
+        return "Meow"
+    case .cow:
+        return "Moo"
+    default:
+        return "Unknown sound"
+    }
+}()
+```
+
+Now, you can use a switch expression, which is simpler and cleaner:
+
+```swift
+// Assign a value to 'sound' using a switch expression
+let sound: String = switch creature {
+    case .dog:
+        "Woof"
+    case .cat:
+        "Meow"
+    case .cow:
+        "Moo"
+    default:
+        "Unknown sound"
+}
+```
+
 ### 206. Native with:
 
 ```swift

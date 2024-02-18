@@ -2,6 +2,24 @@ Hybrid os code in swiftUI<!--more-->
 
 > Apple does not promote SwiftUI as “write once, run everywhere” but as “learn once, apply everywhere” and that is an important distinction. It seems at first glance that we can write once but only on a basic level. You are still going to need to design the appropriate UI for a platform, but it will be able to re-use components from the other versions of the same app.
 
+### Target iOS or macOS 
+Ref: https://gurjit.co/blogs/2023/how-to-implement-navigation-split-view-in-swiftui.php
+```swift
+@main
+struct SplitApp: App {
+    var body: some Scene {
+        WindowGroup {
+            #if os(iOS) // iphone and ipad
+            Rectangle(.orange)
+            #else
+            Rectangle(.green)
+                .frame(minWidth: 800, minHeight: 600) // Set minimum size for iPad/macOS
+            #endif
+        }
+    }
+}
+```
+
 ### Add customizations for an individual platform
 Sometimes you have one SwiftUI view that works great on both iOS and macOS, but needs just a tiny modification – perhaps a little more padding on iOS, or slightly different styling.
 
