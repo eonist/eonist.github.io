@@ -31,3 +31,4 @@ struct ContentView: View {
 - for iOS: https://www.hackingwithswift.com/quick-start/swiftui/how-to-show-a-menu-when-a-button-is-pressed
 - discuesses popover menu with image: https://www.reddit.com/r/SwiftUI/comments/zrggvw/how_to_make_a_popover_that_looks_like_this_on/
 - taskbar app: https://medium.com/@acwrightdesign/creating-a-macos-menu-bar-application-using-swiftui-54572a5d5f87
+- context menu for macOS: https://www.swiftyplace.com/blog/swiftui-menu-and-context-menu-buttons-with-dropdown-lists

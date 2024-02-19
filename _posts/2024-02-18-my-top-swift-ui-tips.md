@@ -1,5 +1,42 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 18. Padding extension
+Instead of this: 
+```swift
+// Adds different padding values to all four sides
+Text("Hello, SwiftUI!")
+	.padding(.top, 20)
+    .padding(.bottom, 10)
+    .padding(.leading, 5)
+    .padding(.trailing, 15)
+```
+
+Do this:
+
+```swift
+extension View {
+    func padding(_ edgeLengths: [Edge.Set: CGFloat]) -> some View {
+        var modifiedView = self
+        
+        for (edge, length) in edgeLengths {
+            modifiedView = modifiedView.padding(edge, length)
+        }
+        
+        return modifiedView
+    }
+}
+
+// Usage:
+
+Text("Hello, SwiftUI!")
+	.padding([
+		.leading: 20,
+		.trailing: 40,
+		.top: 10,
+		.bottom: 30
+	])
+```
+
 ### 17. Rebinding:
 Here is an example where we change a state by rebinding it. (It is a great tool to use in many cases, when wiring up a complex UI)
 
