@@ -596,6 +596,50 @@ struct JobView : View {
 }
 ```
 
+### Rebinding:
+
+```swift
+struct ContentView: View {
+    @State var location: String = ""
+
+    var body: some View {
+        let binding = Binding<String>(get: {
+            self.location
+        }, set: {
+            self.location = $0
+            // do whatever you want here
+        })
+
+        return VStack {
+            Text("Current location: \(location)")
+            TextField("Search Location", text: binding)
+        }
+
+    }
+}
+```
+
+for text:  (ref:  https://stackoverflow.com/a/67624201/5389500 )
+
+```swift
+extension Binding {
+    func onChange(_ handler: @escaping (Value) -> Void) -> Binding<Value> {
+        Binding(
+            get: { self.wrappedValue },
+            set: { newValue in
+                self.wrappedValue = newValue
+                handler(newValue)
+            }
+        )
+    }
+}
+now call change on the binding in TextField something like below.
+
+  TextField("hint", text: $text.onChange({ (value) in
+      //do something here
+  }))
+```
+
 ### Gotchas:
 - Dont init state vars: https://stackoverflow.com/questions/56973959/swiftui-how-to-implement-a-custom-init-with-binding-variables
 - you can add custom trigers in observable objects: "Observable Objects with Custom Publishers" https://medium.com/@TechSavvyScribe/swiftui-observable-objects-c7bf9bfc2062

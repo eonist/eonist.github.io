@@ -403,6 +403,21 @@ var body: some View {
 }
 ```
 
+### Toggle sidebar for macOS:
+Ref: https://sarunw.com/posts/how-to-toggle-sidebar-in-macos/
+```swift
+Button("toggle sidebar") {
+    withAnimation {
+        toggleSidebar()
+    }
+}
+func toggleSidebar() {
+    #if os(macOS)  // only for macOS
+    NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+    #endif
+}
+```
+
 ### Gochas:
 - Hides toggle btn `.toolbar(removing: .sidebarToggle)` (add it to the sideBar, at least for macOS)
 - To avoid top inset in the content column, remember to set `.ignoresSafeArea(.all)`
