@@ -1,5 +1,18 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 22. No need to mark preview structs with debug:
+To be extra clear, you DO NOT need to wrap your preview providers in #if DEBUG conditionals. They are removed from your production build. Ref: https://stackoverflow.com/a/60463426
+
+```swift
+#if DEBUG // this is not needed
+#Preview {
+     MyView()
+        .previewDevice("iPhone 12 Pro")
+        .environment(\.sizeCategory, .large)
+}
+#endif // this is not needed
+```
+
 ### 21. ForEachElement
 Avoids the need for hashable, index is used as id `ForEachElement(["a","b","c"]) { text($0) }`
 ```swift
