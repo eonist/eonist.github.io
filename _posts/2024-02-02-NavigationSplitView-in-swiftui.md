@@ -456,3 +456,5 @@ func toggleSidebar() {
 - Lots of useful tips https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-a-two-column-or-three-column-layout-with-navigationsplitview
 - ⭐ Lots of nuanced info on navsplitview: https://swiftwithmajid.com/2022/10/18/mastering-navigationsplitview-in-swiftui/
 - HSplitView: https://developer.apple.com/documentation/swiftui/hsplitview
+- Some code regarding resizable hsplitview: https://forums.developer.apple.com/forums/thread/117710
+ 

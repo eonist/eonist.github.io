@@ -1,5 +1,58 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 21. ForEachElement
+Avoids the need for hashable, index is used as id `ForEachElement(["a","b","c"]) { text($0) }`
+```swift
+struct ForEachElement<Data, Content>: View where Data: RandomAccessCollection, Content: View {
+   var data: Data
+   var content: (Data.Element) -> Content
+   
+   var body: some View {
+      ForEach(Array(data.enumerated()), id: \.offset) { _, element in
+         content(element)
+      }
+   }
+}
+```
+
+### 20. ForEachEnumerated
+This method pairs each element in the collection with its index, allowing you to iterate over both the index and the element simultaneously.
+```swift
+struct EnumeratedForEach<Data, Content>: View where Data: RandomAccessCollection, Data.Element: Hashable, Content: View {
+    var data: Data
+    var content: (Int, Data.Element) -> Content
+
+    var body: some View {
+        ForEach(Array(data.enumerated()), id: \.element) { index, element in
+            content(index, element)
+        }
+    }
+}
+```
+ Data and Content. Data is the collection of items you want to iterate over, and Content is the type of view you want to generate for each item. The content closure takes the index and the element as parameters, allowing you to use both in your view.
+
+ ```swift
+struct ContentView: View {
+    let items = ["Apple", "Banana", "Cherry"]
+
+    var body: some View {
+        VStack {
+            EnumeratedForEach(data: items) { index, item in
+                Text("Item \(index +  1): \(item)")
+            }
+        }
+    }
+}
+```
+
+### 19. Rebinding a local scoped variable
+We can also do this via a binding extension that takes a closure. 
+```swift
+// Loop over items in a ForEach here
+ let isSelected: Binding<Bool> = Binding( get: { $selectedIdx.wrappedValue == i }, set: { _ in $selectedIdx.wrappedValue = i })
+ // Create a button and inject binding to apply selected state here
+```
+
 ### 18. Padding extension
 Instead of this: 
 ```swift
@@ -82,8 +135,6 @@ struct AmazingContainerView<Content: View>: View {
 }
 ```
 
-
-
 ### 14. Type erasing with group:
 In SwiftUI, you can use conditions to decide which components to show. But, because of the way SwiftUI works, you have to use a Group even if it's not part of your design. This is because SwiftUI needs to know the exact type of what you're returning, and Group helps with that.
 ```swift
@@ -98,8 +149,8 @@ var body: some View {
     }
 }
 ```
+
 ### 13. ForEachWithIndex
-We can also make this with enumerated and get index and element
 ```swift
 public func ForEachWithIndex<Data: RandomAccessCollection, Content: View>(  _ data: Data, @ViewBuilder content: @escaping (Data.Index, Data.Element) -> Content
 ) -> some View where Data.Element: Identifiable, Data.Element: Hashable {

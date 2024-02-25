@@ -671,7 +671,7 @@ now call change on the binding in TextField something like below.
 - How to do didSet for State and Binding in SwiftUI https://onmyway133.com/posts/how-to-do-didset-for-state-and-binding-in-swiftui/
 - How to unwrap Binding with Optional in SwiftUI https://onmyway133.com/posts/how-to-unwrap-binding-with-optional-in-swiftui/
 SwiftUI DataFlow research  https://developer.apple.com/videos/play/wwdc2019/226/
-
+- external data connected via binding: https://stackoverflow.com/a/56988542/5389500
 ### Todo: 
 - write about observable: https://swiftwithmajid.com/2023/10/03/mastering-observable-framework-in-swift/
 

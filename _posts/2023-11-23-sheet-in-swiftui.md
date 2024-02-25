@@ -117,5 +117,6 @@ struct FullScreenModifier<V: View>: ViewModifier {
 - it's also possible to pass item in the sheet (seems this doesnt need isShowingSheet etc) see:  https://medium.com/@ganeshrajugalla/swiftui-how-to-use-sheets-sheet-38dc2d22b1d3
 - Customizing sheet in SwiftUI: https://github.com/edudnyk/SheeKit
 - More nuances on sheets in SwiftUI; https://www.swiftyplace.com/blog/swiftui-sheets-modals-bottom-sheets-fullscreen-presentation-in-ios
-
+-  here is a way to customize sheet popover: https://rudrank.blog/custom-modal-ipad-swiftui
+- hacky custom popover for legacy swiftui: https://github.com/piterwilson/SwiftUI-Modal-on-iPad
 
