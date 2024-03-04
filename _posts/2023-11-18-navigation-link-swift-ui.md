@@ -79,7 +79,7 @@ struct ContentView: View {
     @State private var isShowingDetail = false
     
     var body: some View {
-        NavigationView { // I think NavigationView has been deprecated in favour of Navigation stack
+        NavigationView { //  I think NavigationView has been deprecated in favour of Navigation stack
             NavigationLink("Detail", isActive: $isShowingDetail) {
                 // 1
                 DetailView(isShowing: $isShowingDetail)
@@ -175,6 +175,60 @@ struct NavigationContainer<DisplayedView>: View where DisplayedView: View {
         })
     }
 }
+```
+
+### Navigation stack and serial linking:
+three views: a home view, a detail view, and an about view. The user can navigate between these views using buttons.
+```swift
+import SwiftUI
+// switch between the First, Second, and Third. We'll use a NavigationStack to enable navigation between these views:
+struct ContentView: View {
+   var body: some View {
+      NavigationStack { // we can also use: NavigationView, but I think NavigationStack is prefered
+         FirstView() // first view
+      }
+      .background(.purple)
+   }
+}
+struct FirstView: View {
+   var body: some View {
+      VStack {
+         Text("First")
+         NavigationLink(destination: SecondView()) {
+            Text("Go to Second")
+         }
+      }
+      .background(.orange)
+   }
+}
+
+struct SecondView: View {
+   var body: some View {
+      VStack {
+         Text("Second")
+         NavigationLink(destination: ThirdView()) {
+            Text("Go to Third")
+         }
+      }
+      .background(.green)
+   }
+}
+
+struct ThirdView: View {
+   var body: some View {
+      VStack {
+         Text("Third")
+      }
+      .background(.teal)
+   }
+}
+
+
+#Preview {
+   ContentView()
+   // we can also set the navigation stack here, if we want to preview from second view etc
+}
+
 ```
 
 ### Gotchas:
