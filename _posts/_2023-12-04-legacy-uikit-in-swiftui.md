@@ -1,4 +1,4 @@
-<!--more--> 
+My notes on using legacy uikit in siwftui<!--more--> 
 
 
 ### Representable Protocol
@@ -10,8 +10,8 @@ UIKit/AppKit/WatchKit	Protocol
 UIView	UIViewRepresentable
 NSView	NSViewRepresentable
 WKInterfaceObject	WKInterfaceObjectRepresentable
-UIViewController	UIViewControllerRepresentable
-NSViewController	NSViewControllerRepresentable
+UIViewController	UIViewControllerRepresentable // iOS
+NSViewController	NSViewControllerRepresentable // macos
 ```
 
 These protocols have a very same life cycle and methods, with a purpose to bring the reactive capability to UIKit/AppKit/WatchKit (I will use just UIKit in the rest of the post, but everything applies to all three).
