@@ -1,5 +1,48 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 24. ForEachIndex 
+Iterate over view elements (Remember to return the view)
+
+`ForEachIndex([1,2,3]) { i in Text("\(i)") }`
+
+```swift
+struct ForEachIndex<Data, Content>: View where Data: RandomAccessCollection, Content: View {
+   var data: Data
+   var content: (Int) -> Content
+   init(_ data: Data, _ content: @escaping (Int) -> Content) {
+      self.data = data
+      self.content = content
+   }
+   var body: some View {
+      ForEach(Array(data.enumerated()), id: \.offset) { index, _ in
+         content(index)
+      }
+   }
+}
+```
+### 23. Grouping styles
+Sometimes you dont need to make a ViewModifier
+```swift
+/**
+ * TextStyle
+ */
+extension Text {
+   /**
+    * Style for brand text
+    * ## Examples:
+    *  Text("\(String(text.prefix(2)).capitalized)")
+    *     .brandIconTextStyle
+    */
+   var brandIconTextStyle: some View {
+      self
+         .multilineTextAlignment(.center)
+         .foregroundColor(.whiteOrBlack.opacity(0.6))
+         .font(.system(size: 16))
+         .fontWeight(.bold)
+   }
+}
+```
+
 ### 22. No need to mark preview structs with debug:
 To be extra clear, you DO NOT need to wrap your preview providers in #if DEBUG conditionals. They are removed from your production build. Ref: https://stackoverflow.com/a/60463426
 
