@@ -10,7 +10,7 @@ This code lets you call the parent dismiss call from child. Sometimes useful for
 struct ParentView: View {
     @Environment(\.dismiss) private var dismiss
     ...
-    ChildView(dismiss: dismiss.callAsFunction())
+    ChildView(dismiss: dismiss.callAsFunction)
 }
 struct childView: View {
     var dismiss: (() -> Void)?
