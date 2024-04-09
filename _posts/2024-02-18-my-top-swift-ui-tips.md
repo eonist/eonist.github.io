@@ -4,13 +4,13 @@ My top swiftUI tips and tricks<!--more-->
 
 Inspired by: https://www.swiftbysundell.com/articles/dismissing-swiftui-modal-and-detail-views/ and https://stackoverflow.com/a/74449402/5389500
 
-This code lets you call the parent dismiss call from child. Sometimes useful for NavStacks inside popover sheets etc. Injecting the dimiss directly might cause crashes / infinite loops. So we call it indirectly.
+This code lets you call the parent dismiss call from child. Sometimes useful for NavStacks inside popover sheets etc. Injecting the dimiss directly might cause crashes / infinite loops. Even when passing dismiss as DismissAction, so we call it indirectly with a function `callAsFunction`.
 
 ```swift
 struct ParentView: View {
     @Environment(\.dismiss) private var dismiss
     ...
-    ChildView(dismiss: dismiss.callAsDunction())
+    ChildView(dismiss: dismiss.callAsFunction())
 }
 struct childView: View {
     var dismiss: (() -> Void)?
