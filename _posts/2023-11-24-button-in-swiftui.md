@@ -512,6 +512,14 @@ Button {
 
 Since .frame(maxWidth: .infinity) appllied before the button style, the style will respect the specify frame.
 
+### Making a button content tappable / pressable
+```swift
+Button {
+    Text("test")
+    .contentShape(Rectangle())// key to making the entire button tappable / pressable, or else only the text fill is tappable etc
+}
+```
+
 ### Resources:
 - (sometimes macOS buttons can overide sizing: see for solution: https://sarunw.com/posts/swiftui-button-size/)
 - tappable bg: https://sarunw.com/posts/swiftui-button-cannot-tap/

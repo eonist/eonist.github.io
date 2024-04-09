@@ -288,7 +288,6 @@ struct CounterView: View {
 struct ContentView: View {
     var body: some View {
         CounterView()
-
             .font(.title)
     }
 }

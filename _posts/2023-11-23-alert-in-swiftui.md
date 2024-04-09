@@ -161,7 +161,7 @@ struct MainView: View {
 
 ### Multiple alerts:
 ```swift
-struct NotificationDetails: Identifiable {
+struct NotificationDetails: Identifiable { // identifiable is key to using diffent alerts etc
 
     enum NotificationType {
         case first
@@ -190,7 +190,7 @@ struct MainView: View {
                     message: "Message 2")
             }
         }
-        .alert(item: $details, content: { details in // 5
+        .alert(item: $details, content: { details in // use the speccific alert 
             Alert(title: Text(details.title),
                   message: Text(details.message))
         })
@@ -203,7 +203,7 @@ struct MainView: View {
 - Similar but using bool to toggle alert (and simpler environment key etc): https://stackoverflow.com/a/69301872/5389500
 - a bit different environment key etc: https://stackoverflow.com/a/67568887/5389500
 - And similar again: https://dylancfe15.medium.com/swiftui-how-noobs-and-pros-implement-alerts-bf17188113fd
--  A drawback is that it wont work in preview, if the alert is inited in the App struct
+-  ⚠️️ A drawback is that it wont work in preview, if the alert is inited in the App struct
 ```swift
 // A struct that conforms to Identifiable protocol. This use as a trigger for our alert presentation.
 struct AlertDetails: Identifiable {

@@ -112,9 +112,62 @@ struct FullScreenModifier<V: View>: ViewModifier {
     }
 }
 ```
+### Sheet activated on struct variable change:
+
+It's also possible to pass item in the sheet (seems this doesnt need isShowingSheet etc) see:  https://medium.com/@ganeshrajugalla/swiftui-how-to-use-sheets-sheet-38dc2d22b1d3
+
+```swift
+import SwiftUI
+
+struct User:Identifiable{
+    let id = UUID()
+    var name:String
+}
+
+struct SheetView: View {
+    
+    // MARK: - Properties    
+    @State private var user:User? = nil
+   
+    // MARK: - Body
+    var body: some View {
+        VStack(spacing: 20){
+            Button("User1") {
+                user = User(name: "Steave Jobs")
+            }
+            
+            Button("User2"){
+                user = User(name: "Tim Cook")
+            }
+        }
+        
+        .sheet(item: $user){ item in
+            NextView(user: item)
+        }
+    }
+}
+
+struct NextView: View {
+    
+    // MARK: - Properties
+    @Environment (\.dismiss) var dismiss
+    let user:User
+    
+    // MARK: - Body
+    var body: some View {
+        VStack(spacing: 30){
+            Text("\(user.name)")
+                .font(.title)
+                .fontWeight(.bold)
+            Button("Dismiss") {
+                dismiss()
+            }
+        }
+    }
+}
+```
 
 ### Resources:
-- it's also possible to pass item in the sheet (seems this doesnt need isShowingSheet etc) see:  https://medium.com/@ganeshrajugalla/swiftui-how-to-use-sheets-sheet-38dc2d22b1d3
 - Customizing sheet in SwiftUI: https://github.com/edudnyk/SheeKit
 - More nuances on sheets in SwiftUI; https://www.swiftyplace.com/blog/swiftui-sheets-modals-bottom-sheets-fullscreen-presentation-in-ios
 -  here is a way to customize sheet popover: https://rudrank.blog/custom-modal-ipad-swiftui

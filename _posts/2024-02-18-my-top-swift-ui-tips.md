@@ -1,5 +1,22 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 27. Dealing with Invalid frame dimension (negative or non-finite)
+
+`var someVal: CGfloat = otherVal > 0 ? otherVal : 0`
+
+### 26. UITests in swiftUI
+When setting accessivilityIdentifier to swiftui containers. Prepend with 
+```swiftui
+.accessibilityElement(children: .contain) // this is key for setting access-id to the container and not the last child etc
+.accessibilityIdentifier("some-id")
+```
+
+### 25. AnyView and @ViewBuilder
+
+Using AnyView to embed different views in a sheet can create strange errors in Simulator. Such as  "unknown context"  at AnyViewStorage  error: llmd.
+
+Instead limit the usage of @ViewBuilder if you don't have to.
+
 ### 24. ForEachIndex 
 Iterate over view elements (Remember to return the view)
 

@@ -418,6 +418,68 @@ func toggleSidebar() {
 }
 ```
 
+### Using navigationDestination in NavigationSplitView
+```swift
+import SwiftUI
+
+struct View1: View {
+   @State var isPresented = false
+   @State var selectedValue: String = ""
+   var body: some View {
+      NavigationSplitView.init {
+         List {
+            Button("Go to x") {
+               Swift.print("x")
+               selectedValue = "1"
+               isPresented = true
+            }
+            Button("Go to view 2") {
+               Swift.print("2")
+               selectedValue = "2"
+               isPresented = true
+            }
+            .background(Color.red)
+         }
+         // This works anywhere it is attached etc
+         .navigationDestination(isPresented: $isPresented, destination: { // we cant use item or for, because they wont work with splitview, only stackview or navigation link etc. at least icant get the to work in a simplified example
+            Text("\(selectedValue)")
+         })
+      } detail: {
+         Text("nothing selected")
+      }
+   }
+}
+
+struct View2: View {
+   @Binding var path: NavigationPath
+   var body: some View {
+      Button("Go to view 3") {
+         path.append("View3")
+      }
+      .background(Color.orange)
+   }
+}
+
+struct View3: View {
+   @Environment(\.dismiss) private var dismiss
+   @Binding var path: NavigationPath
+   var body: some View {
+      Button("Pop view") {
+         path.removeLast()
+         // or - call `dismiss()`
+         // dismiss()
+      }
+      .background(Color.green)
+   }
+}
+
+#Preview(traits: .fixedLayout(width: 400, height: 300)) {
+   View1()
+      .frame(width: 400, height: 300)
+}
+
+```
+
 ### Gochas:
 - Hides toggle btn `.toolbar(removing: .sidebarToggle)` (add it to the sideBar, at least for macOS)
 - To avoid top inset in the content column, remember to set `.ignoresSafeArea(.all)`

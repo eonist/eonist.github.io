@@ -1,4 +1,20 @@
 Some of my favourite swift tricks<!--more-->
+### 209. Password generator - Random string
+
+randomString(length: 6) // dff32KS
+
+```swift
+func randomString(length: Int) -> String {
+      // Define the characters that can be used in the random string
+      let characters: String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      // Generate an array of random characters from the `characters` string
+      let randomCharacters: [String.Element] = (0..<length).compactMap { _ in
+         characters.randomElement()
+      }
+      // Convert the array of characters into a string and return it
+      return String(randomCharacters)
+   }
+```
 
 ### 208. if/else statements as expressions
 
