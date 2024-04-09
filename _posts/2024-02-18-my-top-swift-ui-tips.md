@@ -1,5 +1,24 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 28. Injecting dimiss into child view
+
+Inspired by: https://www.swiftbysundell.com/articles/dismissing-swiftui-modal-and-detail-views/ and https://stackoverflow.com/a/74449402/5389500
+
+This code lets you call the parent dismiss call from child. Sometimes useful for NavStacks inside popover sheets etc. Injecting the dimiss directly might cause crashes / infinite loops. So we call it indirectly.
+
+```swift
+struct ParentView: View {
+    @Environment(\.dismiss) private var dismiss
+    ...
+    ChildView(dismiss: dismiss.callAsDunction())
+}
+struct childView: View {
+    var dismiss: (() -> Void)?
+    ...
+    dimiss?()
+}
+```
+
 ### 27. Dealing with Invalid frame dimension (negative or non-finite)
 
 `var someVal: CGfloat = otherVal > 0 ? otherVal : 0`
