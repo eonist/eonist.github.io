@@ -172,4 +172,4 @@ struct NextView: View {
 - More nuances on sheets in SwiftUI; https://www.swiftyplace.com/blog/swiftui-sheets-modals-bottom-sheets-fullscreen-presentation-in-ios
 -  here is a way to customize sheet popover: https://rudrank.blog/custom-modal-ipad-swiftui
 - hacky custom popover for legacy swiftui: https://github.com/piterwilson/SwiftUI-Modal-on-iPad
-
+- More here: https://masilotti.com/multiple-sheets-swiftui/

@@ -21,7 +21,7 @@ else
 fi
 ```
 
-4. Disable scrip sandboxing here: `Build Setting -> Build Options -> User Script Sandboxing，Set "No"` ref: https://github.com/mac-cain13/R.swift/issues/855
+4. Disable script sandboxing here: `Build Setting -> Build Options -> User Script Sandboxing，Set "No"` or you will get an error. ref: https://github.com/mac-cain13/R.swift/issues/855
 
 5. Build `cmd + b` the project to see some swift-lint warnings
 
@@ -60,7 +60,7 @@ excluded:
 ## Add swift lint to Packages
 https://stackoverflow.com/questions/57461737/how-to-integrate-swiftlint-with-an-ios-app-using-swift-package-manager
 
-## Commands
+## Terminal commands
 
 ```
 swiftlint autocorrect // apply lint corrections

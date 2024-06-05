@@ -1,4 +1,10 @@
 Some of my favourite swift tricks<!--more-->
+
+### 210. Printing enums
+```swift
+
+```
+
 ### 209. Password generator - Random string
 
 randomString(length: 6) // dff32KS
@@ -16,7 +22,7 @@ func randomString(length: Int) -> String {
    }
 ```
 
-### 208. if/else statements as expressions
+### 208. if / else statements as expressions
 
 This makes the code easier to read and write, especially when you need to assign a value to a variable based on multiple conditions.
 
@@ -2437,6 +2443,7 @@ while i < 4 {
 - Document API changes with @available keyword.
 - Great way to rename code without breaking backward compatibility, but at the same time motivating users to use the new api name, just make a typealias with the bellow code above it
 - There is also `@available(*, deprecated)` if something doesn't have a replacement API call etc
+- You can also rename func-params: `@available(*, deprecated, renamed: "init(type:title:value:)")`
 ```swift
 @available(*, deprecated, renamed: "newMethodName") // You can also point to new class : "UIAlertController.createAlert"
 func foo() {

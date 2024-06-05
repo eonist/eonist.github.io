@@ -1,10 +1,45 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 33. Whats the difference between initialValue and wrappedValue for a State variable?
+There is no difference, they are the same. Apple shipped both and can't remove one because of ABI compatibility.
+
+### 32. Easy way to double check sizes
+- Set the simulator to 1x size. This can be ipad, mac or iphone. 
+- Hit cmd + shift + 4 Now you can drag and measure with the printscreen ruler
+
+### 31. Using Accessibility inspector with swiftui
+
+In recent xcode releases this has stopped working like it used to. To get it working. Start a UITest session. And add a sleep(sec: 120) call somewhere. the inspector seem to work only when the app is live in the UITest session. Not in regular simulator mode. (works for iPhone, for iPad it gets things a bit wrong, misplacements etc)
+
+### 30. Using NSAttributedText in swiftui
+If you have existing NSAttributedString instances that you need to use in SwiftUI, you can convert them to AttributedString using the initializer that accepts an NSAttributedString:
+
+```swift
+let nsAttributedString = NSAttributedString(string: "Your text", attributes: [.foregroundColor: UIColor.red])
+let attributedString = AttributedString(nsAttributedString)
+```
+
+### 29. Call accessibilityIdentifier indirectly
+Because everything is a chain. One misplaces accessibiliytIdentifer can cause the app to crash in strange places. With no way of figuring out which id causes the issues. 
+
+A solution is to call it indirecttly so it can be turned on and off and print a log of where it causes the crash. Here is an example of such a method: 
+
+⚠️️ And sometimes XCode caches accessibilityIdentifiers somewhere it should not. So only a xcode rest will fix it. Erasing all data in the derivedData folder and simulator can also work
+
+```swift
+public func accessIdentifier(_ id: String) -> some View { 
+    Swift.print("accessIdentifier - id:  \(id)")
+    return self.accessibilityIdentifier(id) // return self to debug where things crash
+}
+```
+
 ### 28. Injecting dimiss into child view
 
 Inspired by: https://www.swiftbysundell.com/articles/dismissing-swiftui-modal-and-detail-views/ and https://stackoverflow.com/a/74449402/5389500
 
 This code lets you call the parent dismiss call from child. Sometimes useful for NavStacks inside popover sheets etc. Injecting the dimiss directly might cause crashes / infinite loops. Even when passing dismiss as DismissAction, so we call it indirectly with a function `callAsFunction`.
+
+It might also be possible to use presentation mode: https://nilcoalescing.com/blog/UsingTheDismissActionFromTheSwiftUIEnvironment/
 
 ```swift
 struct ParentView: View {
