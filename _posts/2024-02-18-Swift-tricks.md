@@ -2427,7 +2427,7 @@ extension Apperance {
 ```swift
 // Warning: ⚠️️ Generics does not work when overriding functions in extensions
 typealias Parser<A> = (String) -> [(A, String)]
-func parse<A>(stringToParse: String, parser: Parser)
+func parse<A>(strin gToParse: String, parser: Parser)
 ```
 
 ### 46: Instead of opening playground. Use terminal to run some swift code

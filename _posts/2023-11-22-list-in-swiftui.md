@@ -296,6 +296,82 @@ Menu {
 }
 ```
 
+### Segemented horizontal picker list for macOS:
+
+this is a horizontal picker example
+
+To create a select list (or dropdown menu) in SwiftUI for macOS, you can use the Picker view along with a SegmentedPickerStyle. This allows users to select one option from a list of options. Here's a basic example to demonstrate how to implement a select list in SwiftUI for macOS:
+
+A Picker view is used to display the select list.
+
+The selection state variable holds the currently selected option.
+Inside the Picker, Text views represent the options in the list. Each option is tagged with a unique identifier (String in this case).
+
+.pickerStyle(SegmentedPickerStyle()) applies a segmented picker style, which is common for macOS applications, providing a compact and visually appealing interface for selecting options.        
+
+This setup creates a simple select list where users can choose between "Option 1", "Option 2", and "Option 3". The selected option is stored in the selection state variable, allowing you to react to changes in the selection throughout your application.
+
+```swift
+import SwiftUI
+
+fileprivate struct ContentView: View {
+   @State private var selection: String = "Option 1"
+   
+   var body: some View {
+      Picker("Select an Option", selection: $selection) {
+         Text("Option 1").tag("Option 1")
+         Text("Option 2").tag("Option 2")
+         Text("Option 3").tag("Option 3")
+      }
+      .pickerStyle(SegmentedPickerStyle())
+      .padding()
+   }
+}
+
+#Preview(traits: .fixedLayout(width: 300, height: 400)) {
+   ContentView()
+}
+
+```
+
+### Single selectable list for macOS:
+- https://stackoverflow.com/questions/57549007/swiftui-mac-os-how-to-add-selection-to-the-list-view
+- removing the tint: https://forums.developer.apple.com/forums/thread/719507
+- this has multiselect via cmd + shift
+- inspo: https://stackoverflow.com/questions/65823727/swiftui-list-with-selector-selecting-does-not-work-for-custom-type-macos
+
+```swift
+import SwiftUI
+
+struct names {
+   var id = 0
+   var name = ""
+}
+
+var demoData = ["Phil Swanson", "Karen Gibbons", "Grant Kilman", "Wanda Green"]
+
+struct SelectionDemo : View {
+   @State var selectKeeper = Set<String>()
+   
+   var body: some View {
+      
+      HStack {
+         List(demoData, id: \.self, selection: $selectKeeper){ name in
+            Text(name)
+         }.frame(width: 500, height: 460)
+      }
+   }
+}
+
+#if DEBUG
+struct ContentView_Previews: PreviewProvider {
+   static var previews: some View {
+      SelectionDemo()
+   }
+}
+#endif
+```
+
 ### Form
 A list that is meant as input: https://sarunw.com/posts/swiftui-form/
 
