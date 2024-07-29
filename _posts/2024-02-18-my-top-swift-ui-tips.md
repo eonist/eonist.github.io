@@ -1,5 +1,29 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 34. nonmutating
+Here's a simple example of using nonmutating in a property setter within a Swift property wrapper. This example demonstrates how to use nonmutating to allow the state variable to be modified without changing the instance of the property wrapper itself.
+
+The nonmutating keyword in the setter allows the wrappedValue to be updated without changing the instance of ExamplePropertyWrapper. This is useful when you want to modify the internal state while keeping the property wrapper instance itself unchanged.
+
+```swift
+@propertyWrapper
+public struct ExamplePropertyWrapper {
+   private var value: Int // The stored value
+
+   public var wrappedValue: Int { // The property wrapper's wrapped value
+      get { value } // Getter for the value
+      nonmutating set { // Setter for the wrapped value, marked as nonmutating
+         value = newValue // Update the stored value
+      }
+   }
+
+   public init(wrappedValue: Int) {
+      self.value = wrappedValue // Initialize the stored value
+   }
+}
+```
+ 
+
 ### 33. Whats the difference between initialValue and wrappedValue for a State variable?
 There is no difference, they are the same. Apple shipped both and can't remove one because of ABI compatibility.
 
