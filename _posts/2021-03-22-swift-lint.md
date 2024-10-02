@@ -63,9 +63,18 @@ https://stackoverflow.com/questions/57461737/how-to-integrate-swiftlint-with-an-
 ## Terminal commands
 
 ```
-swiftlint autocorrect // apply lint corrections
+swiftlint autocorrect // apply lint corrections (this is now --autocorrect / --fix)
 swiftlint lint // shows lint errors
 ```
+
+### Steps
+
+1. Make sure package builds
+2. Make sure build artifacts are cleared, so we dont lint them
+3. Run lint
+4. Then autocorrect
+5. Then run unit-test
+6. The commit to github
 
 ### swift style guides:
 - Google: [https://google.github.io/swift/](https://google.github.io/swift/) (This one is good)

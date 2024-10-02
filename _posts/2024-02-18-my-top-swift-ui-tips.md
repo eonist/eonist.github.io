@@ -1,5 +1,34 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 35. implicit vs explicit return of EmptyView in @ViewBuilder
+1. This snippet uses a guard statement to check if string can be assigned to str. If string is nil, it returns an EmptyView(), effectively rendering nothing. If string is not nil, it proceeds to return a Text view displaying the value of str.
+```swift
+@ViewBuilder func test() {
+    guard let str = string else { 
+        return EmptyView() 
+    }
+    return Text(str)
+}
+```
+
+2. This snippet uses an if let statement to check if string can be assigned to str. If string is not nil, it returns a Text view displaying the value of str. However, unlike the first snippet, if string is nil, it does nothing and implicitly returns an EmptyView() due to the behavior of @ViewBuilder.
+```swift
+@ViewBuilder func test() {
+    if let str = string { 
+        return Text(str)
+    }
+}
+```
+
+### Key Differences
+Explicit vs Implicit Return: The first snippet explicitly returns an EmptyView() when the condition fails, making the control flow clearer. The second snippet relies on the implicit return of EmptyView() by @ViewBuilder when no other views are returned, which might be less obvious to someone reading the code.
+
+Readability and Intent: The explicit return of EmptyView() in the first snippet makes it clear that the function intentionally renders nothing under certain conditions. The second snippet assumes the reader understands the behavior of @ViewBuilder with conditional statements.
+
+### Conclusion
+While both snippets aim to conditionally render a Text view based on whether string is nil, they differ in their approach to handling the case where string is nil. The first snippet explicitly handles this case by returning an EmptyView(), whereas the second snippet relies on the implicit behavior of @ViewBuilder. Depending on coding style preferences and readability concerns, one may choose either approach.
+
+
 ### 34. nonmutating
 Here's a simple example of using nonmutating in a property setter within a Swift property wrapper. This example demonstrates how to use nonmutating to allow the state variable to be modified without changing the instance of the property wrapper itself.
 
