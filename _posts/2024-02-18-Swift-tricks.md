@@ -1,8 +1,39 @@
 Some of my favourite swift tricks<!--more-->
 
-### 210. Printing enums
-```swift
+### 210.Passing data downstream with environmen variables
 
+```swift
+struct ParentView: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+     var body: some View {
+        GrandChildView()
+            .environment(\.horizontalSizeClass, sizeClass) // overrides downstream
+            
+    }
+}
+struct ChildView: View {
+    var body: some View {
+        GrandChildView()  
+    }
+}
+struct GrandChildView: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+    var body: some View {
+       print(sizeClass) // .regular (this is received from parent-view)
+    }
+}
+// You can also create your own environment keys. 
+private struct MyEnvironmentKey: EnvironmentKey {
+    static let defaultValue: String = "Default Value"
+}
+extension EnvironmentValues {
+    // @Environment(\.myEnvironmentKey) var sizeClass
+    // .environment(\.horizontalSizeClass, "New Value")
+    var myEnvironmentKey: String {
+        get { self[MyEnvironmentKey.self] }
+        set { self[MyEnvironmentKey.self] = newValue }
+    }
+}
 ```
 
 ### 209. Password generator - Random string
