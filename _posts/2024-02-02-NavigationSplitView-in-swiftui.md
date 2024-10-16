@@ -486,37 +486,36 @@ struct View3: View {
 - ProminentDetail does not work in macOS The first is .prominentDetail, which tells SwiftUI you want the detail view to retain its full size at all times – the sidebar and content view will slide over the detail view, rather than pushing it to one side or squeezing it smaller:
 
 ### Resources:
-- setting column min, max, ideal sizes: https://www.hackingwithswift.com/quick-start/swiftui/how-to-customize-a-views-width-in-navigationsplitview
-- overview of how native split view looks on various platforms: https://github.com/russell-archer/SwiftUI-SplitViewNavDemo
-- https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/
-- https://www.hackingwithswift.com/books/ios-swiftui/working-with-two-side-by-side-views-in-swiftui
-- https://gurjit.co/blogs/2023/how-to-implement-navigation-split-view-in-swiftui.php
-- https://danielsaidi.com/blog/2022/08/08/getting-started-with-the-SwiftUI-navigation-split-view
-- https://www.appcoda.com/navigationsplitview-swiftui/
-- An example where tabbar is used on IPhone and sidebar on mac and ipad: https://stackoverflow.com/questions/63552716/how-to-run-the-split-view-on-ipad-using-swiftui
-- adding draggable sliders for iOS / iPadOS: https://stackoverflow.com/questions/61169930/how-to-correctly-do-up-an-adjustable-split-view-in-swiftui  
-- for reference: https://nilcoalescing.com/blog/ProgrammaticallyHideAndShowSidebarInSplitView/
-- dragable split grid for macOS: https://github.com/krzyzanowskim/SwiftUI.SplitView
-- Draggable split view for iOS: https://github.com/avdyushin/SplitView and tutorial here: https://blog.grigory.nl/posts/building-splitview-in-swiftui/
--   lots of info on navigationspøitview: https://useyourloaf.com/blog/swiftui-split-view-configuration/
-- another tutorial on navsplitview: https://www.appcoda.com/navigationsplitview-swiftui/
-- manually controlling sidebarbutton action: https://nilcoalescing.com/blog/ProgrammaticallyHideAndShowSidebarInSplitView/
-- for macos: https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/
-- basics: https://medium.com/@alessandromanilii/swiftui-navigationsplitview-b5ba2df07bb4
-- https://stackoverflow.com/questions/77059581/disable-sidebar-of-navigationsplitview-programmatically
-- https://stackoverflow.com/questions/74140093/swiftui-how-to-change-visibility-of-details-navigationsplitview
-- https://stackoverflow.com/questions/77686123/swiftui-navigationsplitview-hide-detail-column-in-a-three-column-view
-- https://stackoverflow.com/questions/70477049/how-do-you-dismiss-the-detail-view-in-swiftui-on-an-ipad-split-view-layout
-- https://stackoverflow.com/questions/75283501/how-can-i-permanently-show-sidebar-in-a-swiftui-navigationview-or-splitnavigatio
-- https://forums.developer.apple.com/forums/thread/712004
-- https://forums.developer.apple.com/forums/thread/708721
-- https://onmyway133.com/posts/how-to-use-navigationsplitview-and-navigationstack-in-swiftui/
-- custom splitview (from the ground up 😅) in swiftui: https://github.com/stevengharris/SplitView
-- A pretty simple custom built resizable splitview for macos: https://medium.com/@eastism/writer-1-how-to-use-splitview-swiftui-be5df89d3f78
-- tutorial on macOS navsplitview etc: https://betterprogramming.pub/sidebar-and-navigationview-on-macos-in-swiftui-a8b4a074a651
-- minwidth and layout priority for HSplitView: https://github.com/onmyway133/blog/issues/674
-- Lots of useful tips https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-a-two-column-or-three-column-layout-with-navigationsplitview
-- ⭐ Lots of nuanced info on navsplitview: https://swiftwithmajid.com/2022/10/18/mastering-navigationsplitview-in-swiftui/
-- HSplitView: https://developer.apple.com/documentation/swiftui/hsplitview
-- Some code regarding resizable hsplitview: https://forums.developer.apple.com/forums/thread/117710
- 
+- Setting column min, max, ideal sizes: [https://www.hackingwithswift.com/quick-start/swiftui/how-to-customize-a-views-width-in-navigationsplitview](https://www.hackingwithswift.com/quick-start/swiftui/how-to-customize-a-views-width-in-navigationsplitview)
+- Overview of how native split view looks on various platforms: [https://github.com/russell-archer/SwiftUI-SplitViewNavDemo](https://github.com/russell-archer/SwiftUI-SplitViewNavDemo)
+- SwiftUI SplitView compact column control: [https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/](https://useyourloaf.com/blog/swiftui-splitview-compact-column-control/)
+- Working with two side-by-side views in SwiftUI: [https://www.hackingwithswift.com/books/ios-swiftui/working-with-two-side-by-side-views-in-swiftui](https://www.hackingwithswift.com/books/ios-swiftui/working-with-two-side-by-side-views-in-swiftui)
+- How to implement navigation split view in SwiftUI: [https://gurjit.co/blogs/2023/how-to-implement-navigation-split-view-in-swiftui.php](https://gurjit.co/blogs/2023/how-to-implement-navigation-split-view-in-swiftui.php)
+- Getting started with the SwiftUI navigation split view: [https://danielsaidi.com/blog/2022/08/08/getting-started-with-the-SwiftUI-navigation-split-view](https://danielsaidi.com/blog/2022/08/08/getting-started-with-the-SwiftUI-navigation-split-view)
+- NavigationSplitView in SwiftUI: [https://www.appcoda.com/navigationsplitview-swiftui/](https://www.appcoda.com/navigationsplitview-swiftui/)
+- An example where tabbar is used on iPhone and sidebar on Mac and iPad: [https://stackoverflow.com/questions/63552716/how-to-run-the-split-view-on-ipad-using-swiftui](https://stackoverflow.com/questions/63552716/how-to-run-the-split-view-on-ipad-using-swiftui)
+- Adding draggable sliders for iOS / iPadOS: [https://stackoverflow.com/questions/61169930/how-to-correctly-do-up-an-adjustable-split-view-in-swiftui](https://stackoverflow.com/questions/61169930/how-to-correctly-do-up-an-adjustable-split-view-in-swiftui)
+- Programmatically hide and show sidebar in SplitView: [https://nilcoalescing.com/blog/ProgrammaticallyHideAndShowSidebarInSplitView/](https://nilcoalescing.com/blog/ProgrammaticallyHideAndShowSidebarInSplitView/)
+- Draggable split grid for macOS: [https://github.com/krzyzanowskim/SwiftUI.SplitView](https://github.com/krzyzanowskim/SwiftUI.SplitView)
+- Draggable split view for iOS and tutorial here: [https://github.com/avdyushin/SplitView](https://github.com/avdyushin/SplitView), [https://blog.grigory.nl/posts/building-splitview-in-swiftui/](https://blog.grigory.nl/posts/building-splitview-in-swiftui/)
+- Lots of info on NavigationSplitView: [https://useyourloaf.com/blog/swiftui-split-view-configuration/](https://useyourloaf.com/blog/swiftui-split-view-configuration/)
+- Another tutorial on NavigationSplitView: [https://www.appcoda.com/navigationsplitview-swiftui/](https://www.appcoda.com/navigationsplitview-swiftui/)
+- Manually controlling SidebarButton action: [https://nilcoalescing.com/blog/ProgrammaticallyHideAndShowSidebarInSplitView/](https://nilcoalescing.com/blog/ProgrammaticallyHideAndShowSidebarInSplitView/)
+- For macOS: [https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/](https://www.kiloloco.com/articles/019-swiftui-macos-navigation-basics/)
+- Basics of NavigationSplitView: [https://medium.com/@alessandromanilii/swiftui-navigationsplitview-b5ba2df07bb4](https://medium.com/@alessandromanilii/swiftui-navigationsplitview-b5ba2df07bb4)
+- Disable sidebar of NavigationSplitView programmatically: [https://stackoverflow.com/questions/77059581/disable-sidebar-of-navigationsplitview-programmatically](https://stackoverflow.com/questions/77059581/disable-sidebar-of-navigationsplitview-programmatically)
+- Change visibility of details NavigationSplitView: [https://stackoverflow.com/questions/74140093/swiftui-how-to-change-visibility-of-details-navigationsplitview](https://stackoverflow.com/questions/74140093/swiftui-how-to-change-visibility-of-details-navigationsplitview)
+- Hide detail column in a three-column view: [https://stackoverflow.com/questions/77686123/swiftui-navigationsplitview-hide-detail-column-in-a-three-column-view](https://stackoverflow.com/questions/77686123/swiftui-navigationsplitview-hide-detail-column-in-a-three-column-view)
+- How do you dismiss the detail view in SwiftUI on an iPad split view layout: [https://stackoverflow.com/questions/70477049/how-do-you-dismiss-the-detail-view-in-swiftui-on-an-ipad-split-view-layout](https://stackoverflow.com/questions/70477049/how-do-you-dismiss-the-detail-view-in-swiftui-on-an-ipad-split-view-layout)
+- How can I permanently show sidebar in a SwiftUI NavigationView or SplitNavigation: [https://stackoverflow.com/questions/75283501/how-can-i-permanently-show-sidebar-in-a-swiftui-navigationview-or-splitnavigatio](https://stackoverflow.com/questions/75283501/how-can-i-permanently-show-sidebar-in-a-swiftui-navigationview-or-splitnavigatio)
+- Developer forums thread 712004: [https://forums.developer.apple.com/forums/thread/712004](https://forums.developer.apple.com/forums/thread/712004)
+- Developer forums thread 708721: [https://forums.developer.apple.com/forums/thread/708721](https://forums.developer.apple.com/forums/thread/708721)
+- How to use NavigationSplitView and NavigationStack in SwiftUI: [https://onmyway133.com/posts/how-to-use-navigationsplitview-and-navigationstack-in-swiftui/](https://onmyway133.com/posts/how-to-use-navigationsplitview-and-navigationstack-in-swiftui/)
+- Custom SplitView (from the ground up 😅) in SwiftUI: [https://github.com/stevengharris/SplitView](https://github.com/stevengharris/SplitView)
+- A pretty simple custom built resizable SplitView for macOS: [https://medium.com/@eastism/writer-1-how-to-use-splitview-swiftui-be5df89d3f78](https://medium.com/@eastism/writer-1-how-to-use-splitview-swiftui-be5df89d3f78)
+- Tutorial on macOS NavigationSplitView etc.: [https://betterprogramming.pub/sidebar-and-navigationview-on-macos-in-swiftui-a8b4a074a651](https://betterprogramming.pub/sidebar-and-navigationview-on-macos-in-swiftui-a8b4a074a651)
+- MinWidth and layout priority for HSplitView: [https://github.com/onmyway133/blog/issues/674](https://github.com/onmyway133/blog/issues/674)
+- Lots of useful tips on NavigationSplitView: [https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-a-two-column-or-three-column-layout-with-navigationsplitview](https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-a-two-column-or-three-column-layout-with-navigationsplitview)
+- Mastering NavigationSplitView in SwiftUI: [https://swiftwithmajid.com/2022/10/18/mastering-navigationsplitview-in-swiftui/](https://swiftwithmajid.com/2022/10/18/mastering-navigationsplitview-in-swiftui/)
+- HSplitView: [https://developer.apple.com/documentation/swiftui/hsplitview](https://developer.apple.com/documentation/swiftui/hsplitview)
+- Some code regarding resizable hsplitview: [https://forums.developer.apple.com/forums/thread/117710](https://forums.developer.apple.com/forums/thread/117710)
