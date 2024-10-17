@@ -1,6 +1,9 @@
 Some of my favourite swift tricks<!--more-->
 
-### 210.Passing data downstream with environmen variables
+### 210.Passing data downstream with environment variables
+
+- Environment values are read-only within a view but can be modified for child views.
+- Changes to Environment values trigger view updates.
 
 ```swift
 struct ParentView: View {
