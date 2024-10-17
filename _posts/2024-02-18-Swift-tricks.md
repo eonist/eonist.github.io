@@ -1,9 +1,46 @@
 Some of my favourite swift tricks<!--more-->
 
-### 210.Passing data downstream with environment variables
+### 211. Passing read-and-write-data downstream with environment object
+- Read and write environment objects
+- Changes to the variable triggers view update to parents and children
+- Avoids "parameter drilling" (passing variables to every level of the view hierarchy)
+- @EnvironmentObjectis more convenient than ObservedObject but requires careful management to avoid runtime crashes.
 
-- Environment values are read-only within a view but can be modified for child views.
+```swift
+class SharedData: ObservableObject {
+    @Published var value = "Initial value" // state variable
+}
+
+struct ParentView: View {
+    @StateObject private var sharedData = SharedData() // onChange will update on var mutation from child
+
+    var body: some View {
+        VStack {
+            Text("Parent: \(sharedData.value)")
+            ChildView().environmentObject(sharedData)
+        }
+    }
+}
+
+struct ChildView: View {
+    @EnvironmentObject var sharedData: SharedData
+
+    var body: some View {
+        VStack {
+            Text("Child: \(sharedData.value)")
+            Button("Modify Data") {
+                sharedData.value = "Modified by child" // modify origin object
+            }
+        }
+    }
+}
+```
+
+### 210. Passing read-only-data downstream with environment variables
+
+- Environment values are read-only for child views but can be modified in the origin parent view.
 - Changes to Environment values trigger view updates.
+- Avoids parameter drilling (passing variables to every level of the view hierarchy)
 
 ```swift
 struct ParentView: View {
