@@ -5,6 +5,7 @@ Some of my favourite swift tricks<!--more-->
 - Changes to the variable triggers view update to parents and children
 - Avoids "parameter drilling" (passing variables to every level of the view hierarchy)
 - @EnvironmentObjectis more convenient than ObservedObject but requires careful management to avoid runtime crashes.
+- Changing child views to new views, requires reapplying the environment variable etc
 
 ```swift
 class SharedData: ObservableObject {
