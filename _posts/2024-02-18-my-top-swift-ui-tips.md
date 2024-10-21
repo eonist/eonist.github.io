@@ -1,5 +1,82 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 37. Passing read-and-write-data downstream with environment object
+- Read and write environment objects
+- Changes to the variable triggers view update to parents and children
+- Avoids "parameter drilling" (passing variables to every level of the view hierarchy)
+- @EnvironmentObjectis more convenient than ObservedObject but requires careful management to avoid runtime crashes.
+- Changing child views to new views, requires reapplying the environment variable etc
+
+```swift
+class SharedData: ObservableObject {
+    @Published var value = "Initial value" // state variable
+}
+
+struct ParentView: View {
+    @StateObject private var sharedData = SharedData() // onChange will update on var mutation from child
+
+    var body: some View {
+        VStack {
+            Text("Parent: \(sharedData.value)")
+            ChildView().environmentObject(sharedData)
+        }
+    }
+}
+
+struct ChildView: View {
+    @EnvironmentObject var sharedData: SharedData
+
+    var body: some View {
+        VStack {
+            Text("Child: \(sharedData.value)")
+            Button("Modify Data") {
+                sharedData.value = "Modified by child" // modify origin object
+            }
+        }
+    }
+}
+```
+
+### 36. Passing read-only-data downstream with environment variables
+
+- Environment values are read-only for child views but can be modified in the origin parent view.
+- Changes to Environment values trigger view updates.
+- Avoids parameter drilling (passing variables to every level of the view hierarchy)
+
+```swift
+struct ParentView: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+     var body: some View {
+        GrandChildView()
+            .environment(\.horizontalSizeClass, sizeClass) // overrides downstream
+            
+    }
+}
+struct ChildView: View {
+    var body: some View {
+        GrandChildView()  
+    }
+}
+struct GrandChildView: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+    var body: some View {
+       print(sizeClass) // .regular (this is received from parent-view)
+    }
+}
+// You can also create your own environment keys. 
+private struct MyEnvironmentKey: EnvironmentKey {
+    static let defaultValue: String = "Default Value"
+}
+extension EnvironmentValues {
+    // @Environment(\.myEnvironmentKey) var sizeClass
+    // .environment(\.horizontalSizeClass, "New Value")
+    var myEnvironmentKey: String {
+        get { self[MyEnvironmentKey.self] }
+        set { self[MyEnvironmentKey.self] = newValue }
+    }
+}
+```
+
 ### 35. implicit vs explicit return of EmptyView in @ViewBuilder
 1. This snippet uses a guard statement to check if string can be assigned to str. If string is nil, it returns an EmptyView(), effectively rendering nothing. If string is not nil, it proceeds to return a Text view displaying the value of str.
 ```swift
