@@ -1,5 +1,97 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 40: Type erase with @ViewBuilder
+Using group and AnyView are other ways to achive the same thing. Check with copilot for pros and cons for each solution.
+```swift
+func getContent(flag: Bool) -> some View {
+    @ViewBuilder var content: some View {
+        if flag {
+            Text("Text")
+        } else {
+            Button("Button")
+        }
+    }
+    return content.background(Color.green)
+}
+```
+
+### 39: SizeObserver:
+```swift
+class SizeObserver: ObservableObject {
+    @Published var previousSize: CGSize = .zero
+    @Published var currentSize: CGSize = .zero
+    
+    func updateSize(_ newSize: CGSize) {
+        if newSize != currentSize {
+            previousSize = currentSize
+            currentSize = newSize
+            print("Size changed from \(previousSize) to \(currentSize)")
+        }
+    }
+}
+
+struct ContentView: View {
+    @StateObject private var sizeObserver = SizeObserver()
+    
+    var body: some View {
+        GeometryReader { geometry in
+            Color.clear
+                .onAppear {
+                    sizeObserver.updateSize(geometry.size)
+                }
+                .onChange(of: geometry.size) { newSize in
+                    sizeObserver.updateSize(newSize)
+                }
+        }
+    }
+}
+```
+
+### 38. SizeTracker:
+```swift
+import SwiftUI
+
+struct SizeTracker: ViewModifier {
+   @State private var previousSize: CGSize = .zero
+   @State private var currentSize: CGSize = .zero
+   var onSizeChange: (CGSize, CGSize) -> Void
+   
+   func body(content: Content) -> some View {
+      content
+         .background(
+            GeometryReader { geometry in
+               Color.clear
+                  .onAppear {
+                     currentSize = geometry.size
+                  }
+                  .onChange(of: geometry.size) { oldSize, newSize in
+                     previousSize = currentSize
+                     currentSize = newSize
+                     onSizeChange(previousSize, currentSize)
+                  }
+            }
+         )
+   }
+}
+extension View {
+   func trackSize(onChange: @escaping (CGSize, CGSize) -> Void) -> some View {
+      self.modifier(SizeTracker(onSizeChange: onChange))
+   }
+}
+// Usage
+struct ContentView: View {
+   var body: some View {
+      Text("Hello, World!")
+         .frame(width: 200, height: 100)
+         .trackSize { oldSize, newSize in
+            if oldSize != newSize {
+               print("Size changed from \(oldSize) to \(newSize)")
+            }
+         }
+   }
+}
+```
+
 ### 37. Passing read-and-write-data downstream with environment object
 - Read and write environment objects
 - Changes to the variable triggers view update to parents and children
