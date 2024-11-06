@@ -80,3 +80,15 @@ swiftlint lint // shows lint errors
 - Google: [https://google.github.io/swift/](https://google.github.io/swift/) (This one is good)
 - Airbnb: [https://github.com/airbnb/swift](https://github.com/airbnb/swift) 
 - SwiftLint: [https://github.com/realm/SwiftLint](https://github.com/realm/SwiftLint) 
+
+### Errors:
+
+`SwiftLint:  Fatal error: Loading sourcekitdInProc.framework/Versions/A/sourcekitdInProc failed
+Trace/BPT trap: 5
+`
+
+Ensure that your Xcode Command Line Tools are properly set up:
+- Open Xcode
+- Go to Preferences > Locations
+- Make sure the Command Line Tools dropdown is set to your current Xcode version
+- Sometimes you just need to select the already selected xcode version. to trigger that something is selected. 
