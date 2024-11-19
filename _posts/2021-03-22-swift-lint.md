@@ -63,7 +63,7 @@ https://stackoverflow.com/questions/57461737/how-to-integrate-swiftlint-with-an-
 ## Terminal commands
 
 ```
-swiftlint autocorrect // apply lint corrections (this is now --autocorrect / --fix)
+swiftlint autocorrect // apply lint corrections (⚠️️ this is now `swiftlint --fix`)
 swiftlint lint // shows lint errors
 ```
 

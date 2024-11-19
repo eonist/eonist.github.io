@@ -1,5 +1,7 @@
 Creating an app icon that can be use for macOS apps<!--more--> It also supports retina screens.
 
+⚠️️ Use apples sketch templates from apple resources. They have all sizes and names. Just press export and make sure your document settings is P3. So that the colors are correct. There are templates for iOS and macOS
+
 ### .png 👉 .icns
 1. Download [IconMaker.app](https://raw.githubusercontent.com/stylekit/img/master/iconmaker.app.zip) 👈 (It's just an .applescript won't bite)   
 2. If you get a warning while using the app go to `MacOS prefs -> security & privacy -> General -> click open anyway`
