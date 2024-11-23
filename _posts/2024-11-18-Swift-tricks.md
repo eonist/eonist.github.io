@@ -1,5 +1,17 @@
 Some of my favourite swift tricks<!--more-->
 
+### 212. Combinding fencing clauses:
+```swift
+#if DEBUG && os(macOS)
+// DO things that only apply in debug and for macOS
+#endif
+```
+
+### 211. Adding xcodeproj to a SPM package:
+1. Add a new xcodeproj to the root of the package
+2. Add local package in the xcodeproj and pick the root of the package
+3. Now you can import the package in your xcodeproj code
+
 ### 210. Extending optional types 
 ```swift
 extension Optional where Wrapped == String {

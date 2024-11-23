@@ -1,5 +1,27 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 41. Using some View in a protocol
+
+By using associatedtype Output: View, you allow the conforming types to specify their own Output type, which is what enables the use of some View in the implementation.
+This approach provides flexibility while maintaining type safety and allowing for complex view hierarchies within the body property
+
+```swift
+// To use some View in a protocol for SwiftUI views, you can define the protocol like this:
+protocol CustomViewProtocol: View {
+    associatedtype Output: View // View is the default generic, avoiding needing to add it in the struct
+    var someView: Self.Output { get }
+}
+// This approach allows you to create custom views that conform to the protocol Here's how you can use it:
+struct MyCustomView: CustomViewProtocol {
+    var body: some View {
+        someView
+    }
+    var someView: some View {
+        EmptyView()
+    }
+}
+```
+
 ### 40: Type erase with @ViewBuilder
 Using group and AnyView are other ways to achive the same thing. Check with copilot for pros and cons for each solution.
 ```swift

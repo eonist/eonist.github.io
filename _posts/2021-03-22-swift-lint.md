@@ -10,7 +10,7 @@ Notes on swift lint<!--more-->
 
 3. Add swift-lint script to your xcodeproject:
   - XCode 👉 Build phases
-  - Click "plus-button" 👉 Add run script
+  - Click "plus-button" 👉 Add "run script"
   - Paste in the bellow:
 
 ```swift
