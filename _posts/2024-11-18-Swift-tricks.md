@@ -1,5 +1,30 @@
 Some of my favourite swift tricks<!--more-->
 
+### 213. allSatisfy
+Great for testing. Here is a quick example:
+```swift
+func testRandomString() throws {
+    let randomWord: String = String((0..<Int.random(in: 2...20)).map { _ in Character(UnicodeScalar(Int.random(in: 97...122))!) })
+    Swift.print("randomWord:  \(randomWord)")
+    let words: [String] = [
+        randomWord,
+        "abracadabra",
+        "onboarding",
+        "appActiv",
+        "af_active",
+        "auth"
+    ]
+    let allSatisfy = words.allSatisfy { word in
+        word.consistentRandom10Digits.count == 10 &&
+        word.consistentRandom10DigitNumber.count == 10 &&
+        word.consistentRandom10Digits == word.consistentRandom10Digits &&
+        word.consistentRandom10DigitNumber == word.consistentRandom10DigitNumber
+    }
+    print("allSatisfy: \(allSatisfy ? "✅" : "❌")")
+    XCTAssertTrue(allSatisfy)
+}
+```
+
 ### 212. Combinding fencing clauses:
 ```swift
 #if DEBUG && os(macOS)

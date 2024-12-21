@@ -29,7 +29,7 @@ fi
 [![SwiftLint Eonist](https://img.shields.io/badge/SwiftLint-Eonist-purple.svg)](https://github.com/eonist/Swift-lint)  
 `[![Swift-lint Eonist](https://img.shields.io/badge/swift--lint-eonist-purple.svg)](https://github.com/eonist/Swift-lint)`
 
-7. ✨ Don't forget the terminal auto correct feature Terminal: `swiftlint autocorrect` now renamed to: `swiftlint fix` in your project path. And it auto corrects the entire project ✨ ⚠️️Remember to commit before you auto correct the project. `swiftlint lint` first to assert what will be changed. Before autocorrecting it can be smart to commit current state. and go through commits and assert that everything is good. It can also be a good idea to make sure the package or xcodeproj builds and runs all tests etc
+7. ✨ Don't forget the terminal auto correct feature Terminal: `swiftlint autocorrect` now renamed to: `swiftlint --fix` in your project path. And it auto corrects the entire project ✨ ⚠️️Remember to commit before you auto correct the project. `swiftlint lint` first to assert what will be changed. Before autocorrecting it can be smart to commit current state. and go through commits and assert that everything is good. It can also be a good idea to make sure the package or xcodeproj builds and runs all tests etc
 
 
 ### Notes:

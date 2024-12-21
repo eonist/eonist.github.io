@@ -1,5 +1,106 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 46. Detect if in preview
+- This code snippet checks if the current process is running in Xcode's preview mode.
+- If it is, it executes the code meant for preview mode.
+- Otherwise, it runs the code intended for normal execution.
+```swift
+if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
+    // Code to run in preview mode
+} else {
+    // Code to run outside of preview mode
+}
+```
+
+### 45. Detect all changes in ObservableObject 
+- It is possible to just do [val1, val2] in onChange as well
+- We could also make it Equatable. and to onChange on the entire object
+```swift
+public class OffsetStore: ObservableObject {
+   @Published public var outerY: CGFloat = 0
+   @Published public var innerY: CGFloat = 0
+   @Published public var headerHeight: CGFloat = 0
+   public init(outerY: CGFloat = 0, innerY: CGFloat = 0, headerHeight: CGFloat = 0) {
+      self.outerY = outerY
+      self.innerY = innerY
+      self.headerHeight = headerHeight
+   }
+}
+struct Parent: View {
+    @StateObject internal var offset = OffsetStore()
+}
+struct Child: View {
+    @ObservedObject internal var offset: OffsetStore
+    init(offset: OffsetStore) {
+         self._offset = .init(initialValue: offset)
+    }
+    var body: some View {
+        self
+        .onReceive(offset.objectWillChange) { // detects all changes
+            DispatchQueue.main.async {
+                Swift.print("normalizedYOffset: \(offset.normalizedYOffset)")
+            }
+        }
+    }
+}
+
+```
+
+### 44. ViewHook
+Add callback to manipulate a view
+```swift
+typealias ListHook = (AnyView) -> AnyView
+struct SomeView: View {
+    let listHook: ListHook?
+    init(listHook: ListHook? = nil) {
+        self.listHook = listHook
+    }
+    var body: some View {
+        @ViewBuilder var view: some View {
+            if let listHook = self.listHook {
+            listHook(AnyView(list))
+            } else {
+                list
+            }
+        }
+        return view
+    }
+}
+```
+
+### 43. @Previewable
+@Previewable is a new macro introduced in Xcode 16 for SwiftUI Previews. It allows developers to use dynamic properties inline in previews, making it easier to create interactive and state-dependent previews without the need for wrapper views
+
+- Enables the use of @State and other property wrappers directly within #Preview blocks 
+- Simplifies the creation of previews for views with bindings or state-dependent behavior 
+- Automatically generates the necessary wrapper code to make state work correctly in previews 
+```swift
+#Preview {
+    @Previewable @State var text = ""
+    TextField("Enter text", text: $text)
+}
+```
+This macro significantly reduces boilerplate code and allows for more compact and interactive SwiftUI previews
+
+### 42. Reacting to all changes in an ObservableObject:
+- Use `.onReceive(model.objectWillChange)` to detect any change in the ObservableObject.
+- Note: Make sure the variables in MyModel are set in dispatch main async call. Or else there might be race conditions
+```swift
+struct ContentView: View {
+    @StateObject private var model = MyModel()
+
+    var body: some View {
+        VStack {
+            Slider(value: $model.value1, in: 0...100)
+            Slider(value: $model.value2, in: 0...100)
+        }
+        .padding()
+        .onReceive(model.objectWillChange) {
+            print("A value in the model changed: \(model.value1), \(model.value2)")
+        }
+    }
+}
+```
 ### 41. Using some View in a protocol
 
 By using associatedtype Output: View, you allow the conforming types to specify their own Output type, which is what enables the use of some View in the implementation.
