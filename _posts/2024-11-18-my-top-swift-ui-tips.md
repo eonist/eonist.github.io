@@ -1,5 +1,30 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 48. Optional binding
+This can also be achived with using .constant(false / true)
+```swift
+Struct SomeView: View {
+    var isPresented: Binding<Bool>?
+    var body: some View {
+        isPresented?.wrappedValue = false
+    }
+}
+struct OtherView: View {
+    @State var isPresented: Bool = true
+    var body: some View {
+        SomeView(isPresented: nil)
+        // SomeView(isPresented: isPresented)
+    }
+}
+```
+
+### 47. Detect if sheet is presented for iOS
+A way to detect if sheet is presented. 
+```swift
+@Environment(\.presentationMode) var presentationMode
+print(presentationMode.wrappedValue.isPresented) // sheet is presented or not 
+```
+
 ### 46. Detect if in preview
 - This code snippet checks if the current process is running in Xcode's preview mode.
 - If it is, it executes the code meant for preview mode.
@@ -9,6 +34,20 @@ if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
     // Code to run in preview mode
 } else {
     // Code to run outside of preview mode
+}
+```
+Extension:
+```swift
+extension ProcessInfo {
+   /**
+    * ## Examples
+    * if ProcessInfo.isRunningInPreviewMode {
+    *    print(" Code specific to preview mode")
+    * }
+    */
+   static var isRunningInPreviewMode: Bool {
+      return processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
+   }
 }
 ```
 
