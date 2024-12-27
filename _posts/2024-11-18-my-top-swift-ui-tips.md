@@ -1,5 +1,60 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 50. Measuring view height with a callback
+Quick and easy way to measure height of views. 
+```swift
+struct HeightMeasuringModifier: ViewModifier {
+    let callback: (CGFloat) -> Void
+    func body(content: Content) -> some View {
+        content
+            .background(
+                GeometryReader { geometry -> Color in
+                    DispatchQueue.main.async {
+                        callback(geometry.size.height)
+                    }
+                    return Color.clear
+                }
+            )
+    }
+}
+extension View {
+    func getHeight(_ callback: @escaping (CGFloat) -> Void) -> some View {
+        self.modifier(HeightMeasuringModifier(callback: callback))
+    }
+}
+#Preview {
+    Text("Measure my height")
+        .padding()
+        .background(Color.yellow)
+        .getHeight { height in
+            print("The height of the view is: \(height)")
+        }
+}
+```
+
+### 49. Styling with viewbuilder
+Custom view builders that encapsulate styling logic:
+
+```swift
+struct StyledText: ViewBuilder {
+    let text: String
+    let style: TextStyle
+    
+    func _viewBuilder() -> some View {
+        Text(text)
+            .font(style.font)
+            .foregroundColor(style.color)
+    }
+}
+
+struct ContentView: View {
+    var body: some View {
+        StyledText(text: "Hello", style: TextStyle(font: .headline, color: .blue))
+    }
+}
+
+```
+
 ### 48. Optional binding
 This can also be achived with using .constant(false / true)
 ```swift
