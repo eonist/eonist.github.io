@@ -36,23 +36,24 @@ extension View {
 Custom view builders that encapsulate styling logic:
 
 ```swift
-struct StyledText: ViewBuilder {
+// Define the TextStyle struct
+struct TextStyle {
+    let font: Font
+    let color: Color
+}
+struct StyledText: View {
     let text: String
     let style: TextStyle
     
-    func _viewBuilder() -> some View {
+    var body: some View {
         Text(text)
             .font(style.font)
             .foregroundColor(style.color)
     }
 }
-
-struct ContentView: View {
-    var body: some View {
-        StyledText(text: "Hello", style: TextStyle(font: .headline, color: .blue))
-    }
+#Preview {
+    StyledText(text: "Hello", style: TextStyle(font: .headline, color: .blue))
 }
-
 ```
 
 ### 48. Optional binding
