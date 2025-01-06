@@ -1,5 +1,45 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 51. Button or Image with gesture in list?
+
+You can use both a Button in a List and an Image with onTapGesture in SwiftUI, but using a Button is generally recommended for better accessibility and built-in functionality. Here's how you can implement a button in a List:
+
+```swift
+List {
+    Button(action: {
+        // Your action here
+    }) {
+        HStack {
+            Text("Button Text")
+            Spacer()
+            Image(systemName: "chevron.right")
+        }
+    }
+    .buttonStyle(PlainButtonStyle())
+}
+```
+
+1. Buttons automatically adapt their visual style to match different containers and contexts.
+2. They provide better accessibility support out of the box.
+3. They handle different types of interactions (tap, click, remote selection) across various platforms.
+
+If you encounter issues with the entire row being tappable, you can use the `.contentShape(Rectangle())` modifier to control the tappable area[2]:
+
+```swift
+Button(action: {
+    // Your action here
+}) {
+    HStack {
+        Text("Button Text")
+        Spacer()
+    }
+}
+.contentShape(Rectangle())
+.buttonStyle(PlainButtonStyle())
+```
+
+Using an Image with onTapGesture is a valid alternative, especially when you need more control over tap behaviors or want to combine different gesture types[3]. However, it may require additional work to achieve the same level of accessibility and visual feedback as a Button.
+
 ### 50. Measuring view height with a callback
 Quick and easy way to measure height of views. 
 ```swift
