@@ -1,5 +1,28 @@
 Some of my favourite swift tricks<!--more-->
 
+### 214: Flat switching on nested enums
+
+```swift
+enum OuterEnum {
+    enum FormatType {
+        case someType
+        case otherType
+    }
+    
+    case format(FormatType)
+    case otherCase
+}
+let value: OuterEnum = .format(.someType)
+switch value {
+    case .format(let type) where type == .someType:
+        print("Matched format with someType")
+    case .format:
+        print("Matched format with other type")
+    case .otherCase:
+        print("Matched other case")
+}
+```
+
 ### 213. allSatisfy
 Great for testing. Here is a quick example:
 ```swift
