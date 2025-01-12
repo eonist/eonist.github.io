@@ -1,5 +1,35 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 52. Manaing multiple sheets
+This approach allows you to manage multiple sheets using a single sheet modifier, making your code more maintainable and scalable. It also solves the issue of sheets not updating properly on the first presentation, which can occur when using multiple sheet modifiers
+```swift
+// Define an enum for your sheet types:
+enum SheetType: Identifiable {
+    case sheetA
+    case sheetB
+    var id: Self { self }
+}
+// Create a state variable to track the active sheet:
+@State private var activeSheet: SheetType?
+// Use the sheet(item:) modifier to present the sheets:
+.sheet(item: $activeSheet) { sheetType in
+    switch sheetType {
+    case .sheetA:
+        SheetAView()
+    case .sheetB:
+        SheetBView()
+    }
+}
+// Trigger the sheet presentation by setting the activeSheet state:
+Button("Show Sheet A") {
+    activeSheet = .sheetA
+}
+
+Button("Show Sheet B") {
+    activeSheet = .sheetB
+}
+```
+
 ### 51. Button or Image with gesture in list?
 
 You can use both a Button in a List and an Image with onTapGesture in SwiftUI, but using a Button is generally recommended for better accessibility and built-in functionality. Here's how you can implement a button in a List:
