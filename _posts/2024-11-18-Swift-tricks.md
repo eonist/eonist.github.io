@@ -1,5 +1,16 @@
 Some of my favourite swift tricks<!--more-->
 
+### 215. Switch if in github action environment:
+- This line checks whether the GITHUB_ACTIONS environment variable exists.
+- If the variable exists (i.e., the code is running in GitHub Actions), the 
+```swift
+if ProcessInfo.processInfo.environment["GITHUB_ACTIONS"] != nil {
+    print("GA")
+} else { 
+    print("not GA")
+}
+```
+
 ### 214: Flat switching on nested enums
 
 ```swift
