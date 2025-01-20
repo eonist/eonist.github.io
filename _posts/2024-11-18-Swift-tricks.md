@@ -1,5 +1,89 @@
 Some of my favourite swift tricks<!--more-->
 
+### 219. Simple darkmode colors:
+```swift
+ // Example of using dynamic colors
+let backgroundColor = Color(UIColor { traitCollection in
+    return traitCollection.userInterfaceStyle == .dark ? .black : .white
+})
+```
+
+### 218. enum with new cases in the future:
+
+```swift
+public enum MyEnum {
+    case first
+    case second
+}
+// The @unknown default case ensures that your code will still compile if new cases are added in the future8.
+
+switch myEnum {
+    case .first:
+        // Handle first case
+    case .second:
+        // Handle second case
+    @unknown default:
+        // Handle any future cases
+}
+
+// If you want to create an enum that cannot be extended in the future, you can use the @frozen attribute:
+
+@frozen public enum MyFrozenEnum {
+    case first
+    case second
+}
+```
+
+### 217. Calling async methods, w/o making the calling method async
+To call an async method without making the calling method async in Swift, you can use a `Task`. This allows you to execute asynchronous code from a synchronous context. Here's how you can do it:
+
+```swift
+func synchronousMethod() {
+    Task {
+        do {
+            let result = try await asyncMethod()
+            // Handle the result
+        } catch {
+            // Handle any errors
+        }
+    }
+}
+
+func asyncMethod() async throws -> SomeType {
+    // Async implementation
+}
+```
+
+This approach creates a new task that runs concurrently, allowing the synchronous method to continue execution without waiting for the async method to complete[1][5]. However, there are some important considerations:
+
+1. The task will run independently, so the synchronous method won't wait for its completion.
+2. Any exceptions thrown in the async method won't be propagated to the calling method unless explicitly handled within the task 
+3. If you need the result immediately, this approach won't work as the task runs asynchronously 
+
+For cases where you need to wait for the result in a synchronous context, you might consider using a semaphore or other synchronization primitives, but this is generally discouraged as it can lead to deadlocks and poor performance 
+
+It's important to note that while this method allows calling async functions from synchronous code, it's generally better to embrace asynchronous programming throughout your codebase when possible, using "async/await all the way down" 
+  
+
+### 216. Make packages run on a random time everyday in github action
+
+1. Select the github/workflows/*.yml file
+2. Use cursor + o1 and prompt: "make this build and test everyday at a random time. But also make it build and test for pullrequest and push, use bash to accomplish it"
+
+Code similar to this will be added:
+```yml
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight UTC
+
+- name: Wait for Random Time
+      if: github.event_name == 'schedule'
+      shell: bash
+      run: |
+        RANDOM_DELAY=$(( RANDOM % 86400 ))
+        echo "Waiting for $RANDOM_DELAY seconds"
+        sleep $RANDOM_DELAY
+```
+
 ### 215. Switch if in github action environment:
 - This line checks whether the GITHUB_ACTIONS environment variable exists.
 - If the variable exists (i.e., the code is running in GitHub Actions), the 
