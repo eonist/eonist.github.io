@@ -1,5 +1,33 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 53. ForEach indentifed by
+
+The .identified(by:) method is used when your collection doesn't conform to Identifiable, but you can provide a keypath to a property that uniquely identifies each element. This method returns an IdentifierValuePairs collection, which SwiftUI can use to efficiently update and manage the views.
+Here's a more concrete example:
+
+```swift
+struct Ocean {
+    let name: String
+    let area: Double
+}
+
+let oceans = [
+    Ocean(name: "Pacific", area: 165250000),
+    Ocean(name: "Atlantic", area: 106460000),
+    Ocean(name: "Indian", area: 70560000)
+]
+
+struct ContentView: View {
+    var body: some View {
+        List {
+            ForEach(oceans.identified(by: \.name)) { ocean in
+                Text(ocean.name)
+            }
+        }
+    }
+}
+```
+
 ### 52. Manaing multiple sheets
 This approach allows you to manage multiple sheets using a single sheet modifier, making your code more maintainable and scalable. It also solves the issue of sheets not updating properly on the first presentation, which can occur when using multiple sheet modifiers
 ```swift
