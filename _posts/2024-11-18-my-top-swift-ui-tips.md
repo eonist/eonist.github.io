@@ -1,5 +1,17 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 54. Preview hack for github action issue
+
+Github action has issues using #Preview and @Previewable at times. By fencing the preview as bellow, there fatal error goes away
+
+```Swift
+#if canImport(SwiftUI) && compiler(>=6.0) // ⚠️️ fix for ga bug
+#Preview {
+    @Previewable @State var text: String = ""
+}
+#endif
+```
+
 ### 53. ForEach indentifed by
 
 The .identified(by:) method is used when your collection doesn't conform to Identifiable, but you can provide a keypath to a property that uniquely identifies each element. This method returns an IdentifierValuePairs collection, which SwiftUI can use to efficiently update and manage the views.
