@@ -1,5 +1,255 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 61. Image modifier 
+
+Just like viewmodifier but for images
+
+```swift
+import SwiftUI
+
+public protocol ImageModifier {
+   associatedtype Body: View
+   func body(image: Image) -> Body
+}
+
+extension Image {
+   public func modifier<M: ImageModifier>(_ modifier: M) -> M.Body {
+      modifier.body(image: self)
+   }
+}
+```
+
+### 60. Finding built in font sizes
+
+- Problem: Built in fonts like .body and .headline etc are great. But they are finicky when dealing with fixed font sizes. Fixed designs. etc. 
+- Solution. Use system fonts with hard coded sizes. 
+
+Find the equivilent
+```swift
+#Preview {
+    @Previewable @Environment(\.dynamicTypeSize) var dynamicTypeSize
+    let _ = {
+        let bodyFont = UIFont.preferredFont(forTextStyle: .body) // 17
+        let fontSize = bodyFont.pointSize
+        Swift.print("fontSize: \(fontSize)")
+        // Ensure we are testing standard size
+        Swift.print("dynamicTypeSize: \(dynamicTypeSize)") // large (large means defaul)
+    }()
+}
+```
+
+### 59. Relative font-size / line-height
+
+- Problem: Consistent line-heights for text. Font size does not equal height
+- Solution: Make the frame use fixed fontSize + multiplier
+
+In SwiftUI, you can base the height of a view relative to the font size by using the font modifier to get the font size and then applying that size to the height of the view. Here's a step-by-step guide on how to achieve this:
+
+Define the Font Size: Use the font modifier to set the font size for a text view.
+Calculate the Height: Use the font size to calculate the height of the view.
+Apply the Height: Use the frame modifier to set the height of the view based on the font size.
+
+```swift
+import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        VStack {
+            Text("Hello, World!")
+                .font(.system(size: 24)) // Step 1: Define the font size
+                .background(Color.yellow)
+                .frame(height: fontSizeToHeight(fontSize: 24)) // Step 3: Apply the height
+
+            Text("Another Text")
+                .font(.system(size: 36)) // Step 1: Define the font size
+                .background(Color.green)
+                .frame(height: fontSizeToHeight(fontSize: 36)) // Step 3: Apply the height
+        }
+    }
+
+    // Step 2: Calculate the height based on the font size
+    func fontSizeToHeight(fontSize: CGFloat) -> CGFloat {
+        return fontSize * 1.5 // You can adjust the multiplier as needed
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+```
+
+### 58. Mocking keychain in preview
+
+- Problem: Keychain is finicky in preview. 
+- Solution: Use mock env variable
+
+This approach uses mock data and a simulated Keychain wrapper specifically for previews. It provides a clean way to test your UI without attempting to access real Keychain services. The mock implementation can be shared across different views that require Keychain access.
+
+```swift
+struct SecureDataView_Previews: PreviewProvider {
+    static var previews: some View {
+        // Use mock data directly
+        SecureDataView(data: "Preview Value")
+            .environment(\.keychainStorage, MockKeychainStorage())
+    }
+}
+class MockKeychainStorage: ObservableObject {
+    @Published var data: String = ""
+    
+    func get(_ key: String) -> String? { return data }
+    func set(_ value: String, forKey key: String) { data = value }
+}
+```
+**Pros**
+
+- Simplest approach
+- No additional dependencies
+- Works consistently across all Xcode versions
+
+**Cons**
+
+- Doesn't test actual Keychain behavior
+- Requires maintaining mock implementation
+
+### 57. Generic typealias
+
+```swift
+typealias ViewClosure<T: View> = (_ flag: Bool) -> T
+
+// This typealias defines a closure that takes a Bool parameter and returns a generic type T that conforms to the View protocol12. You can use this typealias in your SwiftUI code like this:
+
+struct ContentView: View {
+    let viewClosure: ViewClosure<AnyView>
+    
+    var body: some View {
+        viewClosure(true)
+    }
+}
+
+```
+
+Note that you'll need to wrap your view in AnyView when using this typealias, which may have some performance implications4. If you're using this typealias frequently, consider alternatives like creating a custom view or using @ViewBuilder for more idiomatic SwiftUI code
+
+**Use Type Erasure**
+If you need a non-generic alias, you can use type erasure by returning an AnyView:
+
+```swift
+typealias ViewClosure = (_ flag: Bool) -> AnyView
+```
+
+Wrapping your concrete view in AnyView lets you satisfy the typealias while “hiding” the underlying view type. Keep in mind that type erasure may incur a slight performance cost compared to using generics.
+
+In summary, while you might wish to use an opaque return type directly in a typealias, Swift’s current design doesn’t allow it. You must either parameterize your alias generically or resort to type erasure.
+
+### 56. Generic ViewModifier
+
+Style Text with any text modifier
+
+```swift
+struct CompositeView<TextModifier: ViewModifier>: View {
+    var textModifier: TextModifier
+    init(textModifier: TextModifier) {
+        self.textModifier = textModifier
+    }
+    var body: some View {
+        Text("Sample Text")
+            .modifier(textModifier)
+    }
+}
+
+struct HeaderTextModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content.foregroundColor(.blue)
+    }
+}
+
+let view = CompositeView(textModifier: HeaderTextModifier())
+```
+
+### 55. Binding extension:
+
+In this example, the CredentialSelectionView uses toggle switches to select the credential kind. The extension we created allows us to bind the CredentialKind state directly to the toggles, providing a clean and intuitive way to interact with the enum values
+
+```swift
+// Define an enum to represent different types of credentials.
+enum CredentialKind {
+    case username
+    case password
+    case apiKey
+}
+
+// Extend Binding for values of type CredentialKind to create boolean bindings.
+extension Binding where Value == CredentialKind {
+
+    // Create a binding that is true when the credential is of type 'username'.
+    func isUsername() -> Binding<Bool> {
+        Binding<Bool>(
+            get: { self.wrappedValue == .username },
+            set: { newValue in
+                // If the boolean binding is set to true, update the wrapped value to 'username'.
+                if newValue {
+                    self.wrappedValue = .username
+                }
+            }
+        )
+    }
+    
+    // Create a binding that is true when the credential is of type 'password'.
+    func isPassword() -> Binding<Bool> {
+        Binding<Bool>(
+            get: { self.wrappedValue == .password },
+            set: { newValue in
+                // If the boolean binding is set to true, update the wrapped value to 'password'.
+                if newValue {
+                    self.wrappedValue = .password
+                }
+            }
+        )
+    }
+    
+    // Create a binding that is true when the credential is of type 'apiKey'.
+    func isApiKey() -> Binding<Bool> {
+        Binding<Bool>(
+            get: { self.wrappedValue == .apiKey },
+            set: { newValue in
+                // If the boolean binding is set to true, update the wrapped value to 'apiKey'.
+                if newValue {
+                    self.wrappedValue = .apiKey
+                }
+            }
+        )
+    }
+}
+```
+This extension provides convenient methods to check and set the CredentialKind value using boolean bindings. Here's how you might use this in a SwiftUI view:
+```swift
+struct CredentialSelectionView: View {
+    @State private var credentialKind: CredentialKind = .username
+    
+    var body: some View {
+        Form {
+            Toggle("Username", isOn: $credentialKind.isUsername())
+            Toggle("Password", isOn: $credentialKind.isPassword())
+            Toggle("API Key", isOn: $credentialKind.isApiKey())
+            
+            Text("Selected credential: \(credentialKind.description)")
+        }
+    }
+}
+
+extension CredentialKind: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .username: return "Username"
+        case .password: return "Password"
+        case .apiKey: return "API Key"
+        }
+    }
+}
+```
+
 ### 54. Preview hack for github action issue
 
 Github action has issues using #Preview and @Previewable at times. By fencing the preview as bellow, there fatal error goes away
