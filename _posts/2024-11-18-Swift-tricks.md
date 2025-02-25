@@ -1,9 +1,227 @@
 Some of my favourite swift tricks<!--more-->
 
+### 224. Build all schemes in a xcode proj
+Here's a bash script that accomplishes your requirements:
 
-### 220. Run multiple swift test locally from one call:
+```bash
+#!/bin/bash
 
-To call `swift test` from multiple paths in the terminal, you can create a bash script that iterates through the desired directories and runs the command in each one. Here's an example of how you can achieve this:
+# Change to the directory where the script resides
+cd "$(dirname "$0")"
+
+# Find the first .xcodeproj file in the current directory
+project_file=$(find . -maxdepth 1 -name "*.xcodeproj" | head -n 1)
+
+if [ -z "$project_file" ]; then
+    echo "No .xcodeproj file found in the current directory."
+    exit 1
+fi
+
+# Extract the project name from the file path
+project_name=$(basename "$project_file" .xcodeproj)
+
+# Get the list of schemes and trim leading/trailing whitespace
+schemes=$(xcodebuild -list -project "$project_file" | awk '/Schemes:/,/^$/' | tail -n +2 | sed '/^\s*$/d' | sed 's/^[ \t]*//;s/[ \t]*$//')
+
+# Initialize counters
+total_schemes=0
+successful_builds=0
+
+# Build each scheme
+while IFS= read -r scheme; do
+    ((total_schemes++))
+    echo "Building scheme: $scheme"
+    if xcodebuild -project "$project_file" -scheme "$scheme" build; then
+        ((successful_builds++))
+    else
+        echo "Failed to build scheme: $scheme"
+    fi
+    echo "-----------------------------------"
+done <<< "$schemes"
+
+# Print summary
+echo "Build complete. $successful_builds out of $total_schemes schemes built successfully."
+```
+
+This script does the following:
+
+1. Finds the first .xcodeproj file in the current directory .
+2. Extracts the list of schemes from the project using `xcodebuild -list -project` .
+3. Iterates through each scheme, building it with `xcodebuild -project YourProjectName.xcodeproj -scheme YourSchemeName build` .
+4. Prints which scheme is currently building.
+5. Keeps track of successful builds and total schemes.
+6. Prints a summary at the end, showing how many schemes were built successfully out of the total .
+
+To use this script:
+
+1. Save it to a file (e.g., `build_schemes.sh`) in the same directory as your .xcodeproj file.
+2. Make the script executable with `chmod +x build_schemes.sh`.
+3. Run the script with `./build_schemes.sh`.
+
+The script will automatically find the first .xcodeproj file in the directory, extract all schemes, build them one by one, and provide a summary at the end.
+
+ 
+### 223. Call multiple bash scripts in a row. 
+
+**Caution: When running many builds and tests locally, even with M-chip macbooks, the computer tend to run hot, a solution is to use the free version of "macs Fan Control" from crystalidea. Since its not available on app store. its always recommended to upload the app to a online virus checker to make sure the executible has not been compromised. This app will keep your computer cool**
+
+Here's a bash script that calls multiple scripts in a row. Perfect for local CI systems.
+
+```bash
+#!/bin/bash
+
+scripts=("run_builds.sh" "run_tests.sh" "remove_test_and_build_artifacts.sh")
+total_scripts=${#scripts[@]}
+completed_scripts=0
+
+for script in "${scripts[@]}"; do
+    bash "$script"
+    exit_status=$?
+    
+    if [ $exit_status -eq 0 ]; then
+        echo "$script has finished"
+        ((completed_scripts++))
+    else
+        echo "$script failed with exit status $exit_status"
+    fi
+done
+
+echo "$completed_scripts out of $total_scripts scripts finished"
+```
+
+This script does the following:
+
+1. It defines an array `scripts` containing the names of the scripts to be executed[5].
+
+2. It calculates the total number of scripts using `${#scripts[@]}`.
+
+3. It initializes a counter `completed_scripts` to keep track of successfully completed scripts.
+
+4. It uses a for loop to iterate through each script in the array.
+
+5. For each script, it:
+   - Executes the script using `bash "$script"`
+   - Captures the exit status
+   - Prints a message indicating whether the script finished or failed
+   - Increments the `completed_scripts` counter if the script was successful
+
+6. After all scripts have been executed, it prints the number of completed scripts out of the total number of scripts 
+
+This script ensures that each bash script is executed sequentially, waiting for the previous one to complete before starting the next. It also provides the required output after each script finishes and at the end of the entire process 
+
+**Make it executable:** 
+`chmod +x run_all_scripts.sh`
+
+**Run it:**
+`./run_all_scripts.sh`
+ 
+
+### 222. Remove Packages.resolved files with a bash script
+
+**Caution: Its recommended to add a safe-guard to make sure the script is run from where the script is located, ask copilot to add that**
+
+Here's a bash script that removes Package.resolved files in all sub folders from the directory where the script is located, we also modified the script to print the paths of removed files and provide a count at the end. Here's an updated bash script that accomplishes this:
+
+```bash
+#!/bin/bash
+
+# Initialize a counter for removed files
+removed_count=0
+
+# Find and remove all Package.resolved files in subdirectories
+while IFS= read -r file; do
+    echo "Removing: $file"
+    rm "$file"
+    ((removed_count++))
+done < <(find "$(dirname "$0")" -name "Package.resolved" -type f)
+
+echo "Total Package.resolved files removed: $removed_count"
+```
+
+This script does the following:
+
+1. It initializes a counter `removed_count` to keep track of the number of files removed.
+
+2. It uses a `while` loop to read the output of the `find` command, which locates all "Package.resolved" files 
+
+3. For each file found, it prints the path being removed, deletes the file, and increments the counter 
+
+4. After processing all files, it prints the total count of removed files[4].
+
+To use this script:
+
+1. Save it as a file, for example, `remove_package_resolved.sh`
+2. Make it executable with the command: `chmod +x remove_package_resolved.sh`
+3. Run the script: `./remove_package_resolved.sh`
+
+This script will print the path of each file as it's being removed and provide a total count at the end, giving you a clear view of what was deleted and how many files were affected.
+
+### 221. Remove .build folders with a bash script
+
+**Caution: Its recommended to add a safe-guard to make sure the script is run from where the script is located, ask copilot to add that**
+
+Here's a bash script that removes all folders named ".build" in any subfolder from where the script resides:
+
+```bash
+#!/bin/bash
+
+find . -type d -name ".build" -exec rm -rf {} +
+```
+
+This script uses the `find` command to locate all directories named ".build" in the current directory and its subdirectories, then removes them recursively
+
+To use this script:
+
+1. Save it to a file (e.g., `remove_build_folders.sh`)
+2. Make it executable with `chmod +x remove_build_folders.sh`
+3. Run it `./remove_build_folders.sh` from the directory where you want to start the search and deletion process
+
+Be cautious when using this script, as it will permanently delete all ".build" folders and their contents without prompting for confirmation
+
+Alternativly move build folders to trash:
+
+```bash
+#!/bin/bash
+
+# Function to move a folder to trash
+move_to_trash() {
+    local folder="$1"
+    local trash_dir="$HOME/.Trash"
+    
+    # Create trash directory if it doesn't exist
+    mkdir -p "$trash_dir"
+    
+    # Move the folder to trash
+    mv "$folder" "$trash_dir/"
+}
+
+# Find and move .build folders to trash
+find . -type d -name ".build" -exec bash -c 'move_to_trash "$0"' {} \;
+```
+
+And here is a more sophisticated clear bash script that prints which folders was deleted and the finally tally at the end: 
+
+```bash
+#!/bin/bash
+
+# Initialize a counter for removed folders
+count=0
+
+# Find .build folders, print their paths, remove them, and count
+while IFS= read -r -d '' folder; do
+    echo "Removing: $folder"
+    rm -rf "$folder"
+    ((count++))
+done < <(find . -type d -name ".build" -print0)
+
+# Print summary
+echo "------------------------"
+echo "Total .build folders removed: $count"
+```
+
+### 220. Run multiple swift tests locally from one call:
+
+To call `swift test` from multiple paths in the terminal, you can create a bash script that iterates through the desired directories and runs the command in each one. You can also trigger builds the same way. And even find all tests dynamically if needed. Here's an example of how you can achieve this:
 
 ```bash
 #!/bin/bash
@@ -24,6 +242,7 @@ do
     swift test
     # You can also stop the loop if a test fails. Ask copilot what to add regarding that
     echo "Finished testing $path"
+    ## It is also possible to add a timer, to understand how long all tests took to finish. Ask copilot to add that if needed
     echo "------------------------"
 done
 ```
