@@ -10,6 +10,7 @@ To call `swift test` from multiple paths in the terminal, you can create a bash 
 
 # Array of paths to test
 paths=(
+    # Make sure these are absolute paths. for relatve paths remember to step out of the path. Ask copilot for what to edit regarding that
     "path/to/project1/"
     "path/to/project2/"
     "path/to/project3/"
@@ -21,6 +22,7 @@ do
     echo "Running tests in $path"
     cd "$path"
     swift test
+    # You can also stop the loop if a test fails. Ask copilot what to add regarding that
     echo "Finished testing $path"
     echo "------------------------"
 done
