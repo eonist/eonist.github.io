@@ -1,5 +1,48 @@
 Some of my favourite swift tricks<!--more-->
 
+
+### 220. Run multiple swift test locally from one call:
+
+To call `swift test` from multiple paths in the terminal, you can create a bash script that iterates through the desired directories and runs the command in each one. Here's an example of how you can achieve this:
+
+```bash
+#!/bin/bash
+
+# Array of paths to test
+paths=(
+    "path/to/project1/"
+    "path/to/project2/"
+    "path/to/project3/"
+)
+
+# Loop through each path and run swift test
+for path in "${paths[@]}"
+do
+    echo "Running tests in $path"
+    cd "$path"
+    swift test
+    echo "Finished testing $path"
+    echo "------------------------"
+done
+```
+
+This script does the following:
+
+1. Defines an array of paths where you want to run `swift test`.
+2. Loops through each path in the array.
+3. Changes the current directory to the specified path.
+4. Runs `swift test` in that directory.
+5. Prints a message when finished with each path.
+
+To use this script:
+
+1. Save it with a `.sh` extension (e.g., `run_swift_tests.sh`).
+2. Make it executable by running `chmod +x run_swift_tests.sh` in the terminal.
+3. Run the script using `./run_swift_tests.sh`.
+
+This approach allows you to easily add or remove paths as needed, and it will run `swift test` in each specified directory.
+
+
 ### 219. Simple darkmode colors:
 ```swift
  // Example of using dynamic colors
