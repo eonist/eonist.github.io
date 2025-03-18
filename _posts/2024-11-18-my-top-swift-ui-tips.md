@@ -1,5 +1,134 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 64. Avoid initiated state bug
+
+When using `State(wrappedValue:)` in a SwiftUI view's initializer, the state value persists when reloading the parent view due to SwiftUI's view identity and state management system. To avoid this behavior, you can use one of the following approaches:
+
+1. Use a binding instead of local state:
+   Instead of creating local state in the child view, pass a binding from the parent view. This ensures that the child view's state is always in sync with the parent.
+
+   ```swift
+   struct ChildView: View {
+       @Binding var text: String
+       
+       var body: some View {
+           Text(text)
+       }
+   }
+
+   struct ParentView: View {
+       @State private var parentText = ""
+       
+       var body: some View {
+           ChildView(text: $parentText)
+       }
+   }
+   ```
+
+2. Use the `.id()` modifier:
+   Apply the `.id()` modifier to the child view in the parent view, using a value that changes when you want to reset the state. This forces SwiftUI to recreate the child view with fresh state[3][4].
+
+   ```swift
+   struct ParentView: View {
+       @State private var parentText = ""
+       
+       var body: some View {
+           ChildView(initialText: parentText)
+               .id(parentText) // This will recreate ChildView when parentText changes
+       }
+   }
+   ```
+
+3. Use `@StateObject` with an observable object:
+   For more complex state management, consider using `@StateObject` with an observable object that can be reset or updated from the parent view[3].
+
+   ```swift
+   class ChildViewModel: ObservableObject {
+       @Published var text: String
+       
+       init(initialText: String) {
+           self.text = initialText
+       }
+   }
+
+   struct ChildView: View {
+       @StateObject private var viewModel: ChildViewModel
+       
+       init(initialText: String) {
+           _viewModel = StateObject(wrappedValue: ChildViewModel(initialText: initialText))
+       }
+       
+       var body: some View {
+           Text(viewModel.text)
+       }
+   }
+   ```
+
+4. Use `@Binding` with a computed property:
+   Combine `@Binding` with a computed property to reset the state when the parent view changes[6].
+
+   ```swift
+   struct ChildView: View {
+       @Binding var parentText: String
+       @State private var localText: String
+       
+       var text: String {
+           get { localText }
+           set {
+               localText = newValue
+               parentText = newValue
+           }
+       }
+       
+       init(parentText: Binding) {
+           _parentText = parentText
+           _localText = State(initialValue: parentText.wrappedValue)
+       }
+       
+       var body: some View {
+           TextField("Enter text", text: $text)
+       }
+   }
+   ```
+
+These approaches help ensure that the child view's state is properly managed and reset when necessary, avoiding unexpected persistence of state values when reloading the parent view[1][3][4][6].
+ 
+
+### 63. Inline include / exclude
+Decide to include chained calls or not
+
+`someView.include(flag: false) { $0.styleWrapper }`
+
+```swift
+extension View {
+   /**
+    * Inline includer helper
+    * - Parameters:
+    *   - flag: to include or not
+    *   - content: content to include
+    * - Returns: self or content
+    */
+   @ViewBuilder public func include(
+      flag: Bool,
+      @ViewBuilder content: (_ view: Self) -> some View
+   ) -> some View {
+      if flag {
+         content(self)
+      } else {
+         self
+      }
+   }
+}
+
+```
+
+### 62. Avoid unused let warning in xcode
+
+Prefix the let with @unused
+
+```swift
+@unused let someValue = ...
+```
 
 ### 61. Image modifier 
 
@@ -119,7 +248,7 @@ class MockKeychainStorage: ObservableObject {
 ```swift
 typealias ViewClosure<T: View> = (_ flag: Bool) -> T
 
-// This typealias defines a closure that takes a Bool parameter and returns a generic type T that conforms to the View protocol12. You can use this typealias in your SwiftUI code like this:
+// This typealias defines a closure that takes a Bool parameter and returns a generic type T that conforms to the View protocol. You can use this typealias in your SwiftUI code like this:
 
 struct ContentView: View {
     let viewClosure: ViewClosure<AnyView>

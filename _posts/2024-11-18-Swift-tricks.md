@@ -70,19 +70,19 @@ Here's a bash script that calls multiple scripts in a row. Perfect for local CI 
 ```bash
 #!/bin/bash
 
-scripts=("run_builds.sh" "run_tests.sh" "remove_test_and_build_artifacts.sh")
-total_scripts=${#scripts[@]}
-completed_scripts=0
+scripts=("run_builds.sh" "run_tests.sh" "remove_test_and_build_artifacts.sh") # Define an array of script names to be executed
+total_scripts=${#scripts[@]} # Calculate the total number of scripts in the array
+completed_scripts=0 # Initialize a counter for completed scripts
 
-for script in "${scripts[@]}"; do
-    bash "$script"
-    exit_status=$?
+for script in "${scripts[@]}"; do # Iterate through each script name in the array
+    bash "$script" # Execute the current script using bash
+    exit_status=$? # Capture the exit status of the executed script
     
-    if [ $exit_status -eq 0 ]; then
-        echo "$script has finished"
-        ((completed_scripts++))
-    else
-        echo "$script failed with exit status $exit_status"
+    if [ $exit_status -eq 0 ]; then # Check if the script executed successfully (exit status 0)
+        echo "$script has finished" # Print a message indicating the script has finished
+        ((completed_scripts++)) # Increment the completed scripts counter
+    else # If the script failed (non-zero exit status)
+        echo "$script failed with exit status $exit_status" # Print a message indicating the script failed and its exit status
     fi
 done
 
