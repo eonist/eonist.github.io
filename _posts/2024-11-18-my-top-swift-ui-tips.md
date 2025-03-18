@@ -1,5 +1,49 @@
 My top swiftUI tips and tricks<!--more-->
 
+### 65. Overridable default body in a protocol
+
+To use a protocol that extends View with a default body that adds a view to the background, you can use an associated type for the background view. Here's how you can structure your protocol and implement it:
+
+```swift
+protocol CustomBackgroundView: View {
+    associatedtype BackgroundView: View
+    var backgroundView: BackgroundView { get }
+}
+
+extension CustomBackgroundView {
+    var body: some View {
+        content
+            .background(backgroundView)
+    }
+    
+    @ViewBuilder
+    private var content: some View {
+        // Your default content here
+        Text("Default Content")
+    }
+}
+```
+Now you can implement this protocol in your custom views:
+```swift
+struct MyCustomView: CustomBackgroundView {
+    var backgroundView: some View {
+        Color.blue
+    }
+    
+    // Optional: Override the content if needed
+    var body: some View {
+        VStack {
+            Text("Custom Content")
+        }
+        .background(backgroundView)
+    }
+}
+```
+
+This approach allows you to define a default body in the protocol extension while still providing flexibility for custom implementations. The associatedtype for BackgroundView allows you to use some View in the conforming types without getting an error.
+
+If you need more customization, you can add more associated types or methods to the protocol. Remember that when using this approach, you'll need to specify the background view for each conforming type.
+
 ### 64. Avoid initiated state bug
 
 When using `State(wrappedValue:)` in a SwiftUI view's initializer, the state value persists when reloading the parent view due to SwiftUI's view identity and state management system. To avoid this behavior, you can use one of the following approaches:
@@ -97,12 +141,12 @@ These approaches help ensure that the child view's state is properly managed and
 ### 63. Inline include / exclude
 Decide to include chained calls or not
 
-`someView.include(flag: false) { $0.styleWrapper }`
-
 ```swift
 extension View {
    /**
     * Inline includer helper
+    * #Examples:
+    * someView.include(flag: false) { $0.styleWrapper }
     * - Parameters:
     *   - flag: to include or not
     *   - content: content to include
