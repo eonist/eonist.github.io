@@ -1,5 +1,21 @@
 Some of my favourite swift tricks<!--more-->
 
+### 225. Using Extras folder in SPM 
+
+Swift Package Manager automatically ignores  Extras or Examples directories that are not part of the standard package structure (Sources, Tests, etc.).
+```
+SomeLib/
+├── Sources/
+│   └── SomeLib/
+├── Tests/
+│   └── SomeLibTests/
+├── Extras/
+│   ├── ExampleProject/
+│   └── docs/
+└── Package.swift
+```
+This way, you don't need to explicitly exclude them, as Swift Package Manager will automatically ignore directories outside the standard package structure.
+
 ### 224. Build all schemes in a xcode proj
 Here's a bash script that accomplishes your requirements:
 

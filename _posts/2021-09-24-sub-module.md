@@ -11,8 +11,9 @@ git submodule add https://github.com/eonist/With.git Packages/External/With/
 ```
 
 ### Remove submodule
-1. `git submodule deinit <relative-path-to-sub-module>`
-2. `git rm <relative-path-to-sub-module>`
+1. `git submodule deinit Packages/_external/WizardHelper`
+2. `git rm Packages/_external/WizardHelper`
+3. `rm -rf .git/modules/Packages/_external/WizardHelper`
 
 ### Resetting submodule
 Sometimes editing or changing a submodule just creates an avalanche of issues. So resetting can be a better option

@@ -163,7 +163,6 @@ extension View {
       }
    }
 }
-
 ```
 
 ### 62. Avoid unused let warning in xcode
